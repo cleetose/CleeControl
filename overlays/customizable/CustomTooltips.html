@@ -1,0 +1,225 @@
+<html>
+<head>
+	<link rel="stylesheet" href="../../css/customizable/tooltip.css" type="text/css" charset="utf-8">
+    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>		
+	<script type="text/javascript">
+			
+			var timestampOld;
+			var timestamp;
+			var tText;
+			var cTipName;
+			var cTipDesc;
+			var xmlDoc;
+			var colorAOld;
+			var colorBOld;
+			var colorCOld;
+			var colorDOld;
+			var colorADark;
+            var colorBDark;
+			var colorADarkOld;
+            var colorBDarkOld;
+			var tTextOld;
+			var TitleHeight;
+			var Pluser = 50;
+			var Blank = "blank";
+			var Blank2 = "";
+
+			
+			function init() {
+
+
+				$('#tText').html('');
+
+			
+		}
+
+		const bc = new BroadcastChannel('tooltip');
+
+		
+			
+			bc.onmessage = function(ev) {
+				const received_data = ev.data;
+            var {tText, cTipName, cTipDesc, colorA, colorB, colorC, colorD, colorE} = received_data;
+
+			const colorShade = (col, amt) => {
+  col = col.replace(/^#/, '')
+  if (col.length === 3) col = col[0] + col[0] + col[1] + col[1] + col[2] + col[2]
+
+  let [r, g, b] = col.match(/.{2}/g);
+  ([r, g, b] = [parseInt(r, 16) + amt, parseInt(g, 16) + amt, parseInt(b, 16) + amt])
+
+  r = Math.max(Math.min(255, r), 0).toString(16)
+  g = Math.max(Math.min(255, g), 0).toString(16)
+  b = Math.max(Math.min(255, b), 0).toString(16)
+
+  const rr = (r.length < 2 ? '0' : '') + r
+  const gg = (g.length < 2 ? '0' : '') + g
+  const bb = (b.length < 2 ? '0' : '') + b
+
+  return `#${rr}${gg}${bb}`
+} 
+
+				if (tText != null) {
+					var tTipArr = tText.split(';');
+				}
+				
+				if (colorAOld != colorA) {
+					$(':root')[0].style.setProperty('--left-bg-color', colorA);
+					colorAOld = colorA;
+				}
+
+				if (colorBOld != colorB) {
+					$(':root')[0].style.setProperty('--right-bg-color', colorB);
+					colorBOld = colorB;
+				}
+
+				if (colorCOld != colorC) {
+					$(':root')[0].style.setProperty('--right-text-color', colorC);
+					colorCOld = colorC;
+				}
+
+				if (colorDOld != colorD) {
+					$(':root')[0].style.setProperty('--left-text-color', colorD);
+					colorDOld = colorD;
+				}
+
+				colorADark = colorShade(colorA,-5);
+            	colorBDark = colorShade(colorB,-5);
+				console.log(colorADark);
+
+                if (colorADarkOld != colorADark) {
+					$(':root')[0].style.setProperty('--left-dark-bg-color', colorADark);
+					colorADarkOld = colorADark;
+				}
+
+                if (colorBDarkOld != colorBDark) {
+					$(':root')[0].style.setProperty('--right-dark-bg-color', colorBDark);
+					colorBDarkOld = colorBDark;
+				}
+				console.log(tTipArr[1]);
+				if ((tTextOld != tTipArr[1]) && (tTipArr[1] != null)) {					
+					anime({
+					targets: '#tText',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function()
+							{					
+							$('#tText').html(tTipArr[1]);
+							$('#tName').html(tTipArr[0]);
+							tTextOld = tTipArr[1];
+							PluserPre = $('#tName').height() + 60;
+
+					
+						anime({
+						targets: '#tName',
+							top: [
+							{value: [-1000,24], duration: 1000, delay: 0 },
+								{value: [24, -1000], duration: 1000, delay: 9750 }
+								],
+							opacity: 0.95,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+						});						
+
+						anime({
+						targets: '#tText',
+						
+						top: [
+						{value: [-1000,PluserPre], duration: 1100, delay: 1200 },
+								{value: [PluserPre, -1000], duration: 1100, delay: 8000 }
+								],
+							opacity: 0.85,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+							complete: function()
+								{					
+									
+								}
+						});	
+
+						}
+					});
+
+
+				}
+				
+
+				else
+
+				{
+					$('#tText').html(tText);
+				}
+						
+				if (($('#cTipDesc').html() != cTipDesc) && (cTipDesc != '')) {
+					
+							$('#cTipDesc').html(cTipDesc);					
+							$('#cTipName').html(cTipName);
+							Pluser = $('#cTipName').height() + 60;
+
+
+							anime({
+						targets: '#cTipName',
+							top: [
+								{value: [-1000,24], duration: 1000, delay: 0 },
+								{value: [24, -1000], duration: 1000, delay: 9750 }
+								],
+							opacity: 0.95,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+						});	
+
+						anime({
+						targets: '#cTipDesc',
+							top: [
+								{value: [-1000,Pluser], duration: 1100, delay: 1200 },
+								{value: [Pluser, -1000], duration: 1100, delay: 8000 }
+								],
+							opacity: 0.85,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+							complete: function()
+								{					
+									
+								}
+						});	
+
+
+				}	
+
+				else
+				{
+					$('#cTipDesc').html(cTipDesc);
+					$('#cTipName').html(cTipName);
+					Pluser = $('#cTipName').height() + 80;
+				}
+
+
+				
+				
+
+			}
+
+
+
+	</script>
+	<title>Custom SpyParty Tooltips Overlay</title>
+</head>
+<body onLoad="init()">
+	<div id="tName"></div>
+	<div id="tText">
+	Test test test</div>
+	<div id="cTipDesc"></div>
+	<div id="cTipName"></div>
+</body>
+</html>

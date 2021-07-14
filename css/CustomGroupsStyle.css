@@ -1,0 +1,83 @@
+@font-face {
+    font-family: JosefinSans;
+    src: url('JosefinSans-Regular.ttf');
+}
+
+body {
+
+    font-family: JosefinSans;
+}
+
+span {
+    display: inline-block;
+    vertical-align: center;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+.boxBox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    
+}
+
+.groupBox {
+    display: flex;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 6px;
+    margin: 10px;
+    border-color: black;
+    flex-direction: column;
+    width: fit-content;
+    color: white;
+}
+
+.groupTitlebar {
+    background-color: rgb(24, 98, 158);;
+    margin-top: 0px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.playerBoxA {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    font-size: 20pt;
+    flex-direction: row;
+    background-color: rgb(100, 182, 237);
+    background-image: linear-gradient(rgba(255,255,255,0.10)0%,rgba(255,255,255,0)50%,rgba(255, 255, 255, 0.10));
+}
+
+.playerBoxB {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    font-size: 20pt;
+    flex-direction: row;
+    background-color: rgb(24, 98, 158);
+    background-image: linear-gradient(rgba(255,255,255,0.10)0%,rgba(255,255,255,0)50%,rgba(255, 255, 255, 0.10));
+}
+
+.pbContent {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nameBox {
+    width: 210px;
+
+}
+
+.divider {
+    position: relative;
+    display: block;
+    width: 2px;
+    top: 0px;
+    height: 100%;
+    border-radius: 10px;
+    background-color: black;
+}

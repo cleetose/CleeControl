@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hidden Draft</title>
+  <script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="css/hidden-draft.css">
+
+<script type="text/javascript">
+</script>
+  
+</head>
+
+<body onLoad="init()">
+    <div id="nameboxtop"></div>
+    <div id="nameboxbottom"></div>
+    <div id="venueband"></div>
+
+
+    <div id="pName1"></div>
+    <div id="pName2"></div>
+
+    <div id="picksband"></div>
+    <div id="pick1"></div>
+    <div id="pick2"></div>
+    <div id="pick3"></div>
+    <div id="pick4"></div>
+    <div id="pick5"></div>
+    <div id="pick6"></div>
+    <div id="pick7"></div>
+    <div id="pick8"></div>
+    <div id="pick9"></div>
+    <div id="pick10"></div>
+    <div id="double"></div>
+    <div id="gabriotron">
+    <div id="gabriotronbody"></div>
+    <div id="gabriotronscreen"></div>
+  </div>
+    <div id="timer"></div>
+    <div id="roundnumber"></div>
+<script>
+var timestampOld;
+var timestamp;
+var pName1;
+var delayer = 0;
+var oldMatch = 5;
+var pvenueA1;
+var matchType;
+var xmlDoc;
+var pvenueA1 = "veranda";
+
+
+var animating = false;
+var doUpdate = false;
+
+$(document).ready(function() {
+  bc.postMessage('hello');	
+});
+
+function init() {
+  
+
+			
+  Blank = "blank";
+
+  $('#pName1').html('')
+  $('#pName2').html('')
+  anime({
+      targets: '#nameboxtop',
+      top: 0,
+      duration: 600,
+      delay: 200,
+      easing: 'easeOutQuad'
+      
+  });
+
+  anime({
+      targets: '#nameboxbottom',
+      top: 0,
+      duration: 600,
+      delay: 200,
+      easing: 'easeOutQuad'
+      
+  });
+
+
+
+
+
+  anime({
+      targets: '#gabriotron',
+      top: [
+        {value: 200, duration: 600, delay: 1500, easing: 'easeOutQuad'},
+        {value: 1500, duration: 900, delay: 9500, easing: 'easeOutQuad'}
+      ]
+
+     
+  });
+
+  anime({
+      targets: '#picksband',
+      left: 0,
+      duration: 1000,
+      delay: 12000,
+      easing: 'easeOutQuad',
+      complete: function()
+      {
+        delayer = 1;
+        bbbbb();
+      }
+  });  
+
+}
+
+
+            
+            const bc = new BroadcastChannel('picks');
+
+            bc.onmessage = function(ev) {
+            const received_data = ev.data;
+            var {pName1, pName2, pick1, pick2, pick3, pick4, pick5, pick6, pick7, pick8, pick9, pick10, pDivision1, pDivision2, matchType} = received_data;
+
+console.log(pName1);
+
+  
+if ($('#pName1').html() != pName1) {
+
+
+    anime({
+    targets: '#pName1',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'linear',
+      complete: function()
+          {
+        $('#pName1').html(pName1);
+    
+        anime({
+        targets: '#pName1',
+        opacity: 1,
+      duration: 500,
+      delay: 500,
+          easing: 'linear',						
+          complete: function()
+              {
+
+              }
+
+            });	
+          }
+
+      });	
+
+  }  
+
+
+  if ($('#pName2').html() != pName2) {
+
+    anime({
+    targets: '#pName2',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'linear',
+      complete: function()
+          {
+        $('#pName2').html(pName2);
+    
+        anime({
+        targets: '#pName2',
+        opacity: 1,
+      duration: 500,
+      delay: 500,
+          easing: 'linear',						
+          complete: function()
+              {
+
+              }
+
+            });	
+          }
+
+      });	
+
+  }  
+
+  if (matchType == "1" || matchType == "2") {
+    $('#gabriotronbody').css("background-image", "url('images/hidden_Cup/GT5000.png')");
+    $('#gabriotronscreen').css("background-image", "url('images/hidden_Cup/GT5002.gif')");
+}
+
+if (matchType == "3" || matchType == "4") {
+  $('#gabriotronbody').css("background-image", "url('images/hidden_Cup/GTC_Body2.png')");
+  $('#gabriotronscreen').css("background-image", "url('images/hidden_Cup/GTC_Screen.gif')");
+}
+
+  if ($('#roundnumber').html() != ("Round "+matchType+" Match")) {
+
+
+    anime({
+    targets: '#roundnumber',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'linear',
+      complete: function()
+          {
+        $('#roundnumber').html("Round "+matchType+" Match");
+    
+        anime({
+        targets: '#roundnumber',
+        opacity: 1,
+      duration: 500,
+      delay: 500,
+          easing: 'linear',						
+          complete: function()
+              {
+
+              }
+
+            });	
+          }
+
+      });	
+
+  }   
+
+  if ($('#pick1').html() != pick1) {
+
+    anime({
+    targets: '#pick1',
+      opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick1').css("background-image", "url(images/hidden_Cup/"+pick1+".png)");
+        $('#pick1').html(pick1);
+
+        anime({
+        targets: '#pick1',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick2').html() != pick2) {
+
+    anime({
+    targets: '#pick2',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick2').css("background-image", "url(images/hidden_Cup/"+pick2+".png)");
+         $('#pick2').html(pick2);
+
+        anime({
+        targets: '#pick2',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick3').html() != pick3) {
+
+    anime({
+    targets: '#pick3',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick3').css("background-image", "url(images/hidden_Cup/"+pick3+".png)");
+        $('#pick3').html(pick3);
+
+        anime({
+        targets: '#pick3',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick4').html() != pick4) {
+
+    anime({
+    targets: '#pick4',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick4').css("background-image", "url(images/hidden_Cup/"+pick4+".png)");
+        $('#pick4').html(pick4);
+
+        anime({
+        targets: '#pick4',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick5').html() != pick5) {
+
+    anime({
+    targets: '#pick5',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick5').css("background-image", "url(images/hidden_Cup/"+pick5+".png)");
+        $('#pick5').html(pick5);
+
+        anime({
+        targets: '#pick5',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick6').html() != pick6) {
+
+    anime({
+    targets: '#pick6',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick6').css("background-image", "url(images/hidden_Cup/"+pick6+".png)");
+        $('#pick6').html(pick6);
+
+        anime({
+        targets: '#pick6',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick7').html() != pick7) {
+
+    anime({
+    targets: '#pick7',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick7').css("background-image", "url(images/hidden_Cup/"+pick7+".png)");
+        $('#pick7').html(pick7);
+
+        anime({
+        targets: '#pick7',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick8').html() != pick8) {
+
+    anime({
+    targets: '#pick8',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick8').css("background-image", "url(images/hidden_Cup/"+pick8+".png)");
+        $('#pick8').html(pick8);
+
+        anime({
+        targets: '#pick8',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick9').html() != pick9) {
+
+    anime({
+    targets: '#pick9',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick9').css("background-image", "url(images/hidden_Cup/"+pick9+".png)");
+        $('#pick9').html(pick9);
+
+        anime({
+        targets: '#pick9',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if ($('#pick10').html() != pick10) {
+
+    anime({
+    targets: '#pick10',
+    opacity: 0,
+      duration: 500,
+      delay: 0,
+      easing: 'easeOutQuad',
+      complete: function()
+          {
+        $('#pick10').css("background-image", "url(images/hidden_Cup/"+pick10+".png)");
+
+        anime({
+        targets: '#pick10',
+        opacity: 1,
+          duration: 500,
+          delay: 520,
+          easing: 'easeOutQuad',						
+          complete: function()
+              {
+
+              },
+
+            });	
+          },
+
+      });	
+
+  }
+
+  if (oldMatch != $('#roundnumber').html()) {
+  oldMatch = $('#roundnumber').html();
+  bbbbb();
+  console.log("face");
+}
+
+}
+
+
+
+function bbbbb() {
+  setTimeout(() => {
+  matchType = $('#roundnumber').html();
+    if (delayer == 1) {
+    if (matchType == "Round 1 Match") {
+  anime({
+  targets: '#double',
+    left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+  anime({
+  targets: '#pick1',
+    left: 482,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick2',
+    left: 677,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick3',
+    left: 872,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick4',
+    left: 1067,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick5',
+    left: 1262,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick6',
+    left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick7',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+    anime({
+  targets: '#pick8',
+  left: -200,
+    duration: 600,
+    delay: '500',
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick9',
+  left: -200,
+    duration: 600,
+    delay: '500',
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick10',
+  left: -200,
+    duration: 600,
+    delay: '500',
+    easing: 'easeOutQuad',
+
+    });	
+
+}
+
+
+if (matchType == "Round 2 Match") {
+
+
+  anime({
+  targets: '#double',
+    left: 482,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+  anime({
+  targets: '#pick1',
+    left: 482,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick2',
+    left: 677,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick3',
+    left: 872,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick4',
+    left: 1067,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick5',
+    left: 1262,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick6',
+    left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick7',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+    anime({
+  targets: '#pick8',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick9',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick10',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+}
+
+
+if (matchType == "Round 3 Match") {
+
+
+  anime({
+  targets: '#double',
+    left: 287,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick1',
+    left: 287,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+  anime({
+  targets: '#pick2',
+    left: 482,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick3',
+    left: 677,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick4',
+    left: 872,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick5',
+    left: 1067,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick6',
+    left: 1262,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+    anime({
+  targets: '#pick7',
+    left: 1457,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick8',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick9',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick10',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+}
+
+if (matchType == "Round 4 Match") {
+
+
+  anime({
+  targets: '#double',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+    anime({
+  targets: '#pick1',
+    left: 95,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick2',
+    left: 287,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+  anime({
+  targets: '#pick3',
+    left: 482,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick4',
+    left: 677,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick5',
+    left: 872,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick6',
+    left: 1067,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick7',
+    left: 1262,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+    anime({
+  targets: '#pick8',
+    left: 1457,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+
+    anime({
+  targets: '#pick9',
+  left: 1652,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick10',
+  left: -200,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+}
+
+if (matchType == "Round 5 Match") {
+
+
+  anime({
+  targets: '#double',
+    left: 12,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+  anime({
+  targets: '#pick1',
+    left: 12,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick2',
+    left: 203,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+  anime({
+  targets: '#pick3',
+    left: 394,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick4',
+    left: 585,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick5',
+    left: 776,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick6',
+    left: 967,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick7',
+    left: 1158,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+    anime({
+  targets: '#pick8',
+    left: 1349,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick9',
+    left: 1540,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+    anime({
+  targets: '#pick10',
+    left: 1731,
+    duration: 600,
+    delay: 500,
+    easing: 'easeOutQuad',
+
+    });	
+
+  }
+  console.log(matchType);
+}
+				}, 600);
+
+}
+
+
+
+
+</script>
+</body>
+
+</html>

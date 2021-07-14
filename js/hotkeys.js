@@ -1,0 +1,14 @@
+pScore1Up = 0;
+pScore2Up = 0;
+gamesPlayedUp = 0;
+clearPlayers = 0;
+clearDraft = 0;
+clearCharacter = 0;
+clearTooltips = 0;
+clearDraftPaste = 0;
+clearScorePaste = 0;
+clearSpyPaste = 0;
+match1 = 0;
+match2 = 0;
+match3 = 0;
+bigUpdate = 0;

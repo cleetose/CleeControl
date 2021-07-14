@@ -1,0 +1,241 @@
+@font-face {
+    font-family: JosefinSans;
+    src: url('../../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansBold;
+    src: url('../../fonts/JosefinSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Agency;
+    src: url('../../fonts/Agency_FB_Bold.ttf');
+}
+
+:root {
+    --left-bg-color: #123456;
+    --right-bg-color: rgb(42, 123, 228);
+    --left-text-color: white;
+    --right-text-color: white;
+    --divider-bg-color: rgb(231, 231, 231);
+}
+
+body {
+    font-family: JosefinSans;
+    background-color: rgba(0, 0, 0, 0); 
+    margin: 0px auto; 
+    overflow: hidden;
+}
+
+#playerBox {
+    position: relative;
+    width: 1920px;
+    height: 160px;
+    top: -200px;
+    background-color: lightseagreen;
+    background-image: linear-gradient(90deg,var(--left-bg-color) 0%,var(--left-bg-color) 50%, var(--right-bg-color) 50%, var(--right-bg-color) 100%);
+    box-shadow: 0px 2px 10px black;
+    z-index: 15;
+}
+
+#pName1 {
+    position: absolute;
+    width: 840px;
+    top: 45px;
+    font-size: 55pt;
+    white-space:nowrap;
+    text-align: right;
+    color: var(--left-text-color);
+}
+
+#pName2 {
+    position: absolute;
+    width: 840px;
+    left: 1070px;
+    top: 45px;
+    font-size: 55pt;
+    white-space:nowrap;
+    text-align: left;
+    color: var(--right-text-color);
+}
+
+#V {
+    position: absolute;
+    width: 80px;
+    top: 30px;
+    left: 45.2%;
+    font-size: 80pt;
+    text-align: right;
+    color: var(--left-text-color);
+}
+
+#S {
+    position: absolute;
+    width: 80;
+    left: 50.2%;
+    top: 30px;
+    font-size: 80pt;
+    text-align: left;
+    color: var(--right-text-color);
+}
+
+.missingVenueType {
+    position: relative;
+    height: 115px;
+    display: none;
+}
+
+.venueIcon {
+    position: relative;
+    display: none;
+    left: 5px;
+    margin-right: 5px;
+    width: 688px;
+    height: 140px;
+    font-size: 28pt;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: white;
+    z-index: 12;
+}
+
+.venueLoadout {
+    position: relative;
+    font-family: JosefinSansBold;
+    font-size: 25pt;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.venueText {
+    position: relative;
+    align-self: flex-start;
+    width: 100%;
+    font-size: 40pt;
+    top: 15px;
+    margin-bottom: 10px;
+}
+
+
+.textRight {
+    text-align: right;
+    margin-right: 10px;
+    color: var(--right-text-color);
+}
+
+.textLeft {
+    margin-left: 10px;
+    color: var(--left-text-color);
+}
+
+
+.venueTypeLeft {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 760px;
+    height: 230px;
+    padding-left: 15px;
+    background-color: var(--left-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)65%,rgba(255, 255, 255, 0.15));
+    z-index: 8;
+}
+
+.venueTypeRight {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 770px;
+    height: 230px;
+    padding-right: 20px;
+    background-color: var(--right-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)65%,rgba(255, 255, 255, 0.15));
+    z-index: 8;
+}
+
+.doubleDouble {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: 32px;
+    padding-top: 3px;
+    margin-bottom: 5px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: 28pt;
+    font-family: JosefinSansBold;
+    opacity: 0.75;
+}
+
+#venueType1 {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 1920px;
+    height: 230px;
+    top: -500px;
+    box-shadow: 0px 2px 10px black;
+    z-index: 8;
+}
+
+#venueType2 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 1920px;
+    height: 230px;
+    top: -700px;
+    box-shadow: 0px 2px 10px black;
+    z-index: 7;
+}
+
+#venueType3 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 1920px;
+    height: 230px;
+    top: -900px;
+    box-shadow: 0px 2px 10px black;
+    z-index: 6;
+}
+
+#venueType4 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 1920px;
+    height: 230px;
+    top: -1200px;
+
+    box-shadow: 0px 2px 10px black;
+    z-index: 5;
+}
+
+#middleThing {
+    position: absolute;
+    width: 400px;
+    height: 1090px;
+    left: 760px;
+    top: -2000px;
+    background-color: var(--divider-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)50%,rgba(255, 255, 255, 0.20));
+    box-shadow: 0px 2px 10px black;
+    z-index: 9;
+}
+
+#logo {
+    position: relative;
+    width: 400px;
+    height: 1080px;
+    top: 0px;
+}

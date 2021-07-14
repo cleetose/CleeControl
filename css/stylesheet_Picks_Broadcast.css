@@ -1,0 +1,358 @@
+@font-face {
+    font-family: 'SansationRegular';
+    src: url('Agency_FB.eot');
+    src: url('Agency_FB.eot?#iefix') format('embedded-opentype'),
+         url('Agency_FB.woff') format('woff'),
+         url('Agency_FB.ttf') format('truetype'),
+         url('Agency_FB.svg#SansationRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JosefinSans';
+    src: url('Agency_FB_Bold.eot');
+    src: url('Agency_FB_Bold.eot?#iefix') format('embedded-opentype'),
+         url('JosefinSans-Bold.woff') format('woff'),
+         url('JosefinSans-Bold.ttf') format('truetype'),
+         url('Agency_FB_Bold.svg#SansationBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	overflow:hidden;
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'SansationRegular';
+	color:#f2e5ad;
+}
+
+
+#pName1 {
+	position:absolute;
+	top:68px;
+	left:-1000px;
+	width:860px;
+	height:150px;
+	font-size:64px;
+	font-family: 'JosefinSans';
+	color: #380a15;
+	text-align:end;
+	z-index:8;
+}
+
+#boardA {
+	position:absolute;
+	top:-2500px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/PBBG.png);
+	z-index:0;
+}
+
+#pName2 {
+	position:absolute;
+	top:68px;
+	left:2050px;
+	width:860px;
+	height:80px;
+	font-size:64px;
+	font-family: 'JosefinSans';
+	color: #f2e5ad;
+	text-align:left;
+	z-index:8;
+}
+
+
+#NameR {
+	position:absolute;
+	top:0px;
+	left:5000px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/RightName.png);
+	z-index:6;
+}
+
+#NameL {
+	position: absolute;
+	top:0px;
+	left:-5000px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/LeftName.png);
+	z-index:6;
+}
+
+#MiddleT {
+	position:absolute;
+	top:-2500px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/MiddleTriangle.png);
+	z-index:4;
+}
+
+#P1BBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/BanBox.png);
+	z-index:2;
+}
+
+
+#P1RBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/RestrictBoxA.png);
+	z-index:2;
+}
+
+
+#P1PBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images/PickBox.png);
+	z-index:2;
+}
+
+
+
+#pDivision1 {
+	position:absolute;
+	top:-1040px;
+	left:772px;
+	width:400px;
+	height:400px;
+	background-repeat:no-repeat;
+	color: rgba(0, 0, 0, 0);
+	z-index:5;
+}
+
+#pDivision2 {
+	position:absolute;
+	top:-760px;
+	left:818px;
+	width:300px;
+	height:300px;
+	background-repeat:no-repeat;
+	color: rgba(0, 0, 0, 0);
+	z-index:5;
+}
+
+#Bans1 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Bans2 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	z-index:3;
+}
+
+
+#Bans3 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	z-index:3;
+}
+
+
+#Bans4 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	z-index:3;
+}
+
+#Restrict1 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Restrict2 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Restrict3 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Restrict4 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Pick1 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+
+	z-index:3;
+}
+
+#Pick2 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick3 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick4 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick5 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick6 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}

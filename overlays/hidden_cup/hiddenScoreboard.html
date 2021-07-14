@@ -1,0 +1,739 @@
+<html>
+<head>
+
+	<link rel="stylesheet" href="css/Hidden_Scoreboard.css" type="text/css" charset="utf-8">
+	<script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/anime.min.js" type="text/javascript" charset="utf-8"></script>		
+	<script src="js/countries.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			
+
+			var pName1;
+			var pName1Old;
+		var pName2Old;
+			var pScore1;
+            var pScore1Paste;
+            var pScore1Int = 0;
+			var pName2;
+			var pScore2;
+            var pScore2Paste;
+            var pScore2Int = 0;
+			var pScoreTotal = 0;
+			var Sniper;
+			var FinalValue = 0;	
+			var Blank;
+			var StopA;
+			var StopB;
+			var pCountry1;
+			var pCountry2;
+			var oldCountry1;
+			var oldCountry2;
+			var pDivision1;
+			var pDivision2;
+			var Rolla;
+			var Rollb;
+			var Rollc;
+			var rollPaste;
+            var snScore = "sniper";
+            var spScore = "spy";
+			var scoreSource;
+            var gameCounter;
+			var gameCounterOld;
+            var gameCounterInt;
+			var behavior = 'radioBased';
+			var colorAOld;
+			var colorBOld;
+			var colorCOld;
+			var colorDOld;
+            var colorEOld;
+            var colorADarkOld;
+            var colorBDarkOld;
+
+		
+
+		
+
+			
+			function init() {
+
+                bc.postMessage("hello");
+
+
+				Blank = "blank";			
+                pScore1 = '0';
+                pScore2 = '0';
+				$('#pName1').html('');
+				$('#pScore1').html('');
+				$('#pName2').html('');
+				$('#pScore2').html('');
+				$('#pDivision1').html('');
+				$('#pDivision2').html('');			
+				anime({
+					targets: '#boardWrap',
+					top:
+						{ value: [-100,0], duration: 800, easing: 'easeOutCubic' },
+					 
+				});
+
+				anime({
+					targets: '#board2Wrap',
+					translateY:
+						{ value: 100, duration: 800, easing: 'easeOutCubic' },
+					left:
+						{ value: [180,285], duration: 800, delay: 900, easing: 'easeOutCubic' }	
+					 
+				});
+
+				anime({
+					targets: '#boardbWrap',
+					translateY:
+						{ value: 169, duration: 800, easing: 'easeOutCubic' },
+						complete: function() {
+							bc.postMessage('hello');
+					}
+					 
+				});
+
+				anime({
+					targets: '#boardb2Wrap',
+					translateY:
+						{ value: 169, duration: 800, easing: 'easeOutCubic' },
+					left:
+						{ value: [180,285], duration: 800, delay: 900, easing: 'easeOutCubic' }	
+
+					 
+				});
+
+                anime({
+					targets: '#Rolla',
+					left:
+						{ value: [-500,490], duration: 1800, easing: 'easeOutCubic' },
+					 
+				});
+                anime({
+					targets: '#Rollb',
+					left:
+						{ value: [-500,490], duration: 1800, easing: 'easeOutCubic' },
+					 
+				});
+
+			}
+			
+
+		const bc = new BroadcastChannel('score');
+		const ibc = new BroadcastChannel('scoreReturn');
+			
+		bc.onmessage = function(ev) {
+            const received_data = ev.data;
+            var {pName1, pName2, pCountry1, pCountry2, pScore1, pScore2, Rolla, Sniper, pDivision1, pDivision2, behavior,
+			colorA, colorB, colorC, colorD, colorE} = received_data;
+
+            const colorShade = (col, amt) => {
+  col = col.replace(/^#/, '')
+  if (col.length === 3) col = col[0] + col[0] + col[1] + col[1] + col[2] + col[2]
+
+  let [r, g, b] = col.match(/.{2}/g);
+  ([r, g, b] = [parseInt(r, 16) + amt, parseInt(g, 16) + amt, parseInt(b, 16) + amt])
+
+  r = Math.max(Math.min(255, r), 0).toString(16)
+  g = Math.max(Math.min(255, g), 0).toString(16)
+  b = Math.max(Math.min(255, b), 0).toString(16)
+
+  const rr = (r.length < 2 ? '0' : '') + r
+  const gg = (g.length < 2 ? '0' : '') + g
+  const bb = (b.length < 2 ? '0' : '') + b
+
+  return `#${rr}${gg}${bb}`
+}        
+
+            colorADark = colorShade(colorA,-40);
+            colorBDark = colorShade(colorB,-40);
+
+            if (colorAOld != colorA) {
+					$(':root')[0].style.setProperty('--left-bg-color', colorA);
+					colorAOld = colorA;
+				}
+
+				if (colorBOld != colorB) {
+					$(':root')[0].style.setProperty('--right-bg-color', colorB);
+					colorBOld = colorB;
+				}
+
+				if (colorCOld != colorC) {
+					$(':root')[0].style.setProperty('--right-text-color', colorC);
+					colorCOld = colorC;
+				}
+
+				if (colorDOld != colorD) {
+					$(':root')[0].style.setProperty('--left-text-color', colorD);
+					colorDOld = colorD;
+				}
+         
+                if (colorEOld != colorE) {
+					$(':root')[0].style.setProperty('--divider-bg-color', colorE);
+					colorEOld = colorE;
+				}
+
+                if (colorADarkOld != colorADark) {
+					$(':root')[0].style.setProperty('--left-dark-bg-color', colorADark);
+					colorADarkOld = colorADark;
+				}
+
+                if (colorBDarkOld != colorBDark) {
+					$(':root')[0].style.setProperty('--right-dark-bg-color', colorBDark);
+					colorBDarkOld = colorBDark;
+				}
+
+
+            FinalValue = parseInt(pScore1) + parseInt(pScore2) + parseInt(Sniper);
+            console.log(Rolla);
+
+				if ((pName1Old != pName1) && (pName1 != "☭LEV☭TROTSKIJ☭")) {
+					
+
+					anime({
+						targets: '#pName1',
+						opacity:
+							{ value: 0, duration: 500, easing: 'easeOutCubic' },
+						left:
+							{ value: [105,200], duration: 500, delay: 0, easing: 'easeOutCubic' },	
+						complete: function(){
+							$('#pName1').html("<span>"+pName1+"</span>");
+							pName1Old = pName1;
+							while($("#pName1").find("span").width() > $("#pName1").width()) {
+    						var currentFontSize = parseInt($("#pName1").find("span").css("font-size")); 
+    						$("#pName1").find("span").css("font-size",currentFontSize-1); 
+							
+								}
+							anime({
+								targets: '#pName1',
+								opacity:
+									{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								left:
+									{ value: [200,105], duration: 500, delay: 0, easing: 'easeOutCubic' },
+								top:
+									{ value: [15,25], duration: 10, delay: 0, easing: 'easeOutCubic' },							
+								complete: function(){
+															
+									}
+							});
+
+						}
+				});
+
+			}
+
+				if ((pName1Old != pName1) && (pName1 == "☭LEV☭TROTSKIJ☭")) {
+					
+
+					anime({
+					targets: '#pName1',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					left:
+						{ value: [105,200], duration: 500, delay: 0, easing: 'easeOutCubic' },	
+					complete: function(){
+						$('#pName1').html("<span>"+pName1+"</span>");
+						pName1Old = pName1;
+							while($("#pName1").find("span").width() > $("#pName1").width()) {
+    						var currentFontSize = parseInt($("#pName1").find("span").css("font-size")); 
+    						$("#pName1").find("span").css("font-size",currentFontSize-1); 
+							
+								}
+							anime({
+					targets: '#pName1',
+					opacity:
+						{ value: 1, duration: 500, easing: 'easeOutCubic' },
+					left:
+						{ value: [200,105], duration: 500, delay: 0, easing: 'easeOutCubic' },
+					top:
+						{ value: [25,15], duration: 10, delay: 0, easing: 'easeOutCubic' },							
+					complete: function(){
+												
+						}
+				});
+
+						}
+				});
+				}
+				
+				if ((pName2Old != pName2) && (pName2 != "☭LEV☭TROTSKIJ☭")) {
+					
+
+					anime({
+					targets: '#pName2',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					left:
+						{ value: [105,200], duration: 500, delay: 0, easing: 'easeOutCubic' },	
+					complete: function(){
+						$('#pName2').html("<span>"+pName2+"</span>");
+						pName2Old = pName2;
+							while($("#pName2").find("span").width() > $("#pName2").width()) {
+    						var currentFontSize = parseInt($("#pName2").find("span").css("font-size")); 
+    						$("#pName2").find("span").css("font-size",currentFontSize-1); 
+							
+							}
+							anime({
+								targets: '#pName2',
+								opacity:
+									{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								left:
+									{ value: [200,105], duration: 500, delay: 0, easing: 'easeOutCubic' },
+								top:
+									{ value: [74,92], duration: 10, delay: 0, easing: 'easeOutCubic' },							
+								complete: function(){
+															
+									}
+							});
+
+						}
+				});
+				}
+
+				if ((pName2Old != pName2) && (pName2 == "☭LEV☭TROTSKIJ☭")) {
+					
+
+					anime({
+					targets: '#pName2',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					left:
+						{ value: [105,200], duration: 500, delay: 0, easing: 'easeOutCubic' },	
+					complete: function(){
+						$('#pName2').html("<span>"+pName2+"</span>");
+						pName2Old = pName2;
+							while($("#pName2").find("span").width() > $("#pName2").width()) {
+    						var currentFontSize = parseInt($("#pName2").find("span").css("font-size")); 
+    						$("#pName2").find("span").css("font-size",currentFontSize-1); 
+							
+							}
+							anime({
+								targets: '#pName2',
+								opacity:
+									{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								left:
+									{ value: [200,105], duration: 500, delay: 0, easing: 'easeOutCubic' },
+								top:
+									{ value: [84,80], duration: 10, delay: 0, easing: 'easeOutCubic' },							
+								complete: function(){
+															
+									}
+							});
+
+						}
+				});
+				}
+
+
+    
+				if ($('#pScore1').html() != pScore1) {
+					
+					if (behavior == "radioBased") {
+					delay = "on";
+					}
+					anime({
+					targets: '#pScore1',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#pScore1').html(pScore1);
+							anime({
+								targets: '#pScore1',
+								opacity:
+									{ value: 1, duration: 500, easing: 'easeOutCubic' },						
+								complete: function(){
+									
+
+										delay = "off";  	
+				
+									}
+							});
+
+						}
+					});
+				}
+				
+				if ($('#pScore2').html() != pScore2) {
+					
+					if (behavior == "radioBased") {
+						delay = "on";
+					}
+					anime({
+					targets: '#pScore2',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#pScore2').html(pScore2);
+							anime({
+								targets: '#pScore2',
+								opacity:
+									{ value: 1, duration: 500, easing: 'easeOutCubic' },						
+								complete: function(){
+									
+
+										delay = "off";  	
+
+					
+								}
+							});
+
+						}
+					});
+				}
+
+				if (behavior == "scoreBased") {
+					pScoreTotal = FinalValue;
+				}
+            
+
+				if (($('#pDivision1').html() != pDivision1) && (pDivision1 != '') && (pDivision2 == '')) {
+					
+
+					anime({
+					targets: '#pDivision1',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#pDivision1').html(pDivision1);
+							$('#pDivision1').css("width", "115px");	
+							$('#pDivision1').css("height", "150px");
+							$('#pDivision1').css("left", "-10px");
+							$('#pDivision1').css("top", "0px");														
+							$('#pDivision1').css("background-image", "url(images/"+pDivision1+".svg)");
+							anime({
+							targets: '#pDivision1',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+															
+									}						
+							});
+
+						}
+					});
+
+				}				
+
+				if (($('#pDivision1').html() != pDivision1) && (pDivision1 != '') && (pDivision2 != '')) {
+					
+
+					anime({
+					targets: '#pDivision1',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#pDivision1').html(pDivision1);
+							$('#pDivision1').css("width", "60px");	
+							$('#pDivision1').css("height", "60px");
+							$('#pDivision1').css("left", "45px");
+							$('#pDivision1').css("top", "5px");									
+							$('#pDivision1').css("background-image", "url(images/"+pDivision1+".svg)");
+							anime({
+							targets: '#pDivision1',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+															
+									}						
+							});
+
+						}
+					});
+				}
+				
+				if (($('#pDivision2').html() != pDivision2) && (pDivision2 != '')) {
+					
+
+					anime({
+					targets: '#pDivision2',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#pDivision2').html(pDivision2);
+							$('#pDivision1').css("width", "60px");	
+							$('#pDivision1').css("height", "60px");
+							$('#pDivision1').css("left", "45px");
+							$('#pDivision1').css("top", "5px");															
+							$('#pDivision2').css("background-image", "url(images/"+pDivision2+".svg)");
+							anime({
+							targets: '#pDivision2',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+															
+									}						
+							});
+
+						}
+					});
+				}
+
+				if (($('#pDivision2').html() != pDivision2) && (pDivision2 == '')) {
+					
+
+					anime({
+					targets: '#pDivision2',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#pDivision2').html(pDivision2);
+							$('#pDivision1').css("width", "115px");	
+							$('#pDivision1').css("height", "150px");
+							$('#pDivision1').css("left", "-10px");	
+							$('#pDivision1').css("top", "0px");														
+							$('#pDivision2').css("background-image", "url(images/"+pDivision2+".svg)");
+							anime({
+							targets: '#pDivision2',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+															
+									}						
+							});
+
+						}
+					});
+				}
+
+	
+				if (pScoreTotal == FinalValue) {
+
+				if ((FinalValue % 2 == 0) && (StopA != "sniper1")) {
+					
+
+					anime({
+					targets: '#Rolla',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+
+							$('#Rolla').css("background-image", "url(images/characters/sniper.png)");
+							StopA = "sniper1";
+							anime({
+							targets: '#Rolla',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+									
+
+								}						
+							});
+
+						}
+					});
+				}
+
+
+
+				if ((FinalValue % 2 != 0) && (StopA != "sniper2") || ((FinalValue % 2 != 0) && (StopA == "sniper2") && (Rollb != Rolla))) {
+					
+
+					anime({
+					targets: '#Rolla',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							$('#Rolla').html(rollPaste);
+							Rollb = Rolla;
+							StopA = "sniper2";
+							$('#Rolla').css("background-image", "url(images/characters/"+Rolla+".png)");
+
+							anime({
+							targets: '#Rolla',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+										
+						
+									}						
+							});
+
+						}
+					});			
+				}
+				
+				if ((FinalValue % 2 != 0) && (StopB != "sniper1")) {
+					
+
+					anime({
+					targets: '#Rollb',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+							StopB = "sniper1";
+
+							$('#Rollb').css("background-image", "url(images/characters/sniper.png)");
+							anime({
+							targets: '#Rollb',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+									
+			
+									}						
+							});
+
+						}
+					});	
+				}
+
+				if ((FinalValue % 2 == 0) && (StopB != "sniper2") || ((FinalValue % 2 == 0) && (StopB == "sniper2") && (Rollc != Rolla))) {
+					
+
+					anime({
+					targets: '#Rollb',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+						
+							$('#Rolla').html(Rolla);
+							Rollc = Rolla;
+							StopB = "sniper2";
+							$('#Rollb').css("background-image", "url(images/characters/"+Rolla+".png)");
+
+							anime({
+							targets: '#Rollb',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+										
+				
+									}						
+							});
+
+						}
+					});	
+				
+				}
+
+
+			}
+
+
+				if (oldCountry1 != pCountry1) {
+					
+
+					anime({
+					targets: '#pFlag1',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+						
+						if (pCountry1 != ' ') {
+							$('#pFlag1').html('<img src="GoSquared/cropped/iso/64shiny/'+ pCountry1 +'.png" width="43" height="28">');
+							console.log(pCountry1);
+						} else {
+							$('#pFlag1').html("");
+							
+						}
+							oldCountry1 = pCountry1;
+							anime({
+							targets: '#pFlag1',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+															
+									}						
+							});
+
+						}
+					});	
+				
+				}
+				
+				
+				if (oldCountry2 != pCountry2) {
+					
+
+					anime({
+					targets: '#pFlag2',
+					opacity:
+						{ value: 0, duration: 500, easing: 'easeOutCubic' },
+					complete: function(){
+						if (pCountry2 != ' ') {
+							$('#pFlag2').html('<img src="GoSquared/cropped/iso/64shiny/'+ pCountry2 +'.png" width="43" height="28">');
+							console.log(pCountry1);
+						} else {
+							$('#pFlag2').html("");
+							
+						}
+							oldCountry2 = pCountry2;
+							anime({
+							targets: '#pFlag2',
+							opacity:
+								{ value: 1, duration: 500, easing: 'easeOutCubic' },
+								complete: function(){
+															
+									}						
+							});
+
+						}
+					});	
+				
+				}
+				if (pScoreTotal != FinalValue) {
+					pScoreTotal = FinalValue;
+				}
+
+				doUpdate = false;
+			}
+			
+			function getValueFromTag (xmlDoc,tag) {
+				if (xmlDoc.getElementsByTagName(tag).length != 0 ) {
+					if (xmlDoc.getElementsByTagName(tag)[0].childNodes.length == 0) {
+							return '';
+						} else {
+							return xmlDoc.getElementsByTagName(tag)[0].childNodes[0].nodeValue;
+					}
+				} else {
+					return '';
+				}
+			}
+
+		
+			function getCountry (country) {
+			
+			var count = iso.findCountryByName(country);
+			if (!count)
+			count = iso.findCountryByCode(country);
+			if (!count) {
+			var count = new Array();
+			count['value'] = "unknown";
+			}
+			
+			return count['value'];
+		}
+	</script>
+		<title>Custom SpyParty Scoreboard</title>
+</head>
+<body onLoad="init()">
+    <div id="boardWrap">
+	<div id="board">
+        <div class="scoreDivider" id="scoreDividerTop"></div>
+    </div>
+    </div>
+	<div id="pFlag1"></div>
+	<div id="pName1">Player 1</div>
+	<div id="pScore1">99</div>
+	<div id="pFlag2"></div>
+	<div id="pName2">Player 2</div>
+	<div id="pScore2">99</div>
+	<div id="pDivision1">Test</div>
+    <div id="pDivision2">Test2</div>
+    <div id="board2Wrap">
+	<div id="board2">
+    </div>
+    </div>
+    <div id="boardb2Wrap">
+	<div id="boardb2"></div>
+    </div>
+    <div id="boardbWrap">
+	    <div id="boardb">
+            <div class="scoreDivider"></div>
+        </div>
+    </div>
+	<div id="Rolla"></div>
+	<div id="Rollb"></div>
+</body>
+</html>
