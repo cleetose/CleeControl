@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'JosefinSansRegular';
+    src: url('JosefinSans-Regular.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JosefinSansBold';
+    src: url('JosefinSans-Bold.woff') format('woff');
+    src: url('JosefinSans-Bold.ttf') format('truetype');               
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#nameBox {
+    position: absolute;
+    left: 0px;
+    top: -500px;
+    width: 1920px;
+    height: 158px;
+    background-image: url('../images/Score_Breakdown/Name_Box.png');
+    z-index: 4;
+}
+
+#pName1 {
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    width: 860px;
+    height: 158px;
+    font-size: 70px;
+    font-family: 'JosefinSansBold';
+    text-align: right;
+    color: #380a15;
+    z-index: 5;
+}
+
+#pName2 {
+    position: absolute;
+    width: 860px;
+    height: 158px;
+    right: 0px;
+    top: 40px;
+    font-size: 70px;
+    font-family: 'JosefinSansBold';
+    text-align: left;
+    color: #f2e5ad;
+    z-index: 5;
+}
+
+#board {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top: -1100px;
+
+}
+
+#matchTracker {
+    position: absolute;
+    width: 379px;
+    height: 1080px;
+    top: -920px;
+    left: 772px;
+    z-index: 3;
+    opacity: 0.9;
+    background-image: url('../images/Score_Breakdown/tracker.png');
+}
+
+#flexyBoy1 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    bottom: 0px;
+    left: 745px;
+    width: 432px;
+    height: 920px;
+    z-index: 2;
+}
+
+#flexyBoy2 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    bottom: 0px;
+    left: 745px;
+    width: 432px;
+    height: 920px;
+    z-index: 1;
+}
+
+#middleRectangle {
+    position: absolute;
+    left: 746px;
+    width: 432px;
+    height: 1080px;
+    background-image: url('../images/Score_Breakdown/Middle_Rectangle.png');
+    z-index: 2;
+}
+
+.picks {
+    position: relative;
+    width: 377px;
+    height: fit-content;
+    margin: 2px;
+    z-index: 3;
+}
+
+#Pick1 {
+    margin-top: 0px;
+
+}
+
+.scoreBoxes_D {
+    position: relative;
+    z-index: -1;
+    width: 711px;
+    height: 212px;
+    background-image: url('../images/Score_Breakdown/Doubles_Scorebox.png');
+    background-repeat: no-repeat;
+    margin: 4px;
+
+}
+
+.scoreBoxes_S {
+    position: relative;
+    z-index: -1;
+    width: 711px;
+    height: 106px;
+    background-image: url('../images/Score_Breakdown/Singles_Scorebox.png');
+    margin: 4px;
+
+}
+
+#scoreBox1 {
+    margin-top: 0px;
+}
+
+.scoreLeft_D {
+    position: absolute;
+    line-height: 230px;
+    text-align: center;
+    vertical-align: middle;
+    width: 170px;
+    font-size: 110px;
+    font-family: 'JosefinSansRegular';
+    color: #f2e5ad;
+}
+
+.scoreRight_D {
+    position: absolute;
+    line-height: 230px;
+    text-align: center;
+    vertical-align: middle;
+    left: 540px;
+    width: 170px;
+    font-size: 110px;
+    font-family: 'JosefinSansRegular';
+    color: #380a15;
+}
+
+.scoreLeft_S {
+    position: absolute;
+    line-height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    width: 170px;
+    font-size: 70px;
+    font-family: 'JosefinSansRegular';
+    color: #f2e5ad;
+}
+
+.scoreRight_S {
+    position: absolute;
+    line-height: 120px;
+    text-align: center;
+    vertical-align: middle;
+    left: 540px;
+    width: 170px;
+    font-size: 70px;
+    font-family: 'JosefinSansRegular';
+    color: #380a15;
+}
+
+#Pick5 {
+    visibility: hidden;
+}
+
+#Pick6 {
+    visibility: hidden;
+}

@@ -1,0 +1,264 @@
+@font-face {
+    font-family: 'JosefinSansRegular';
+    src: url('JosefinSans-Regular.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JosefinSansBold';
+    src: url('JosefinSans-Bold.woff') format('woff');
+    src: url('JosefinSans-Bold.ttf') format('truetype');               
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+:root {
+    --left-bg-color: #123456;
+    --right-bg-color: rgb(42, 123, 228);
+    --left-dark-bg-color: #123456;
+    --right-dark-bg-color: rgb(42, 123, 228);
+    --left-text-color: white;
+    --right-text-color: white;
+    --divider-bg-color: rgb(231, 231, 231);
+}
+
+body {
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: JosefinSansBold;
+	color:#FFFFFF;
+    overflow:hidden;
+}
+
+#board2Wrap {
+	position:absolute;
+    top:-100px;
+	left:0px;
+	width:279px;
+	height:63px;
+    background-color: var(--right-dark-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: -1;
+    clip-path: polygon(90% 0, 100% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
+}
+
+#board2 {
+	position:relative;
+	top:5px;
+	left:6px;
+	width:269px;
+	height:53px;
+    background-color: var(--right-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+    clip-path: polygon(90% 0, 99% 50%, 90% 100%, 20% 100%, 25% 50%, 20% 0);
+	z-index: -1;
+
+}
+
+#boardWrap {
+	position:absolute;
+    top:-100px;
+	left:0px;
+	width:501px;
+	height:63px;
+    background-color: var(--right-dark-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: 1;
+    clip-path: polygon(90% 0, 97% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
+}
+
+#board {
+	position:relative;
+    top: 4px;
+    left: 5px;
+	width:494px;
+	height:54px;
+    background-color: var(--left-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: 1;
+    clip-path: polygon(90% 0, 96% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
+}
+
+#boardb2Wrap {
+	position:absolute;
+    top:-100px;
+	left:0px;
+	width:279px;
+	height:63px;
+    background-color: var(--left-dark-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: -1;
+    clip-path: polygon(90% 0, 100% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
+}
+
+#boardb2 {
+	position:relative;
+	top:5px;
+	left:6px;
+	width:269px;
+	height:53px;
+    background-color: var(--left-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+    clip-path: polygon(90% 0, 99% 50%, 90% 100%, 20% 100%, 25% 50%, 20% 0);
+	z-index: -1;
+
+}
+
+#boardbWrap {
+	position:absolute;
+    top:-100px;
+	left:0px;
+	width:501px;
+	height:63px;
+    background-color: var(--left-dark-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: 0;
+    clip-path: polygon(90% 0, 97% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
+}
+
+#boardb {
+	position:relative;
+    top: 4px;
+    left: 5px;
+	width:494px;
+	height:54px;
+    background-color: var(--right-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: 1;
+    clip-path: polygon(90% 0, 96% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
+    
+}
+
+#pName1 {
+	position:absolute;
+	left:-45px;
+	text-align: left;
+	top:25px;
+	width:315px;
+	font-size:23px;
+	white-space:nowrap;
+	color: var(--right-text-color);
+	z-index: 2;
+}
+#pName2 {
+	position:absolute;
+	left:10px;
+	top:100px;
+	text-align: left;
+	width:315px;
+	font-size:23px;
+	white-space:nowrap;
+	color: var(--left-text-color);
+	z-index: 2;
+}
+
+.scoreDivider {
+    position: relative;
+    width: 4px;
+    height: 80%;
+    left: 422px;
+    top: 6px;
+    border-radius: 5px;
+    background-color: var(--right-dark-bg-color);
+    opacity: 0.6;
+    z-index: 5;
+}
+
+#scoreDividerTop {
+    background-color: var(--left-dark-bg-color);
+}
+
+#pScore1 {
+	position:absolute;
+	left:438px;
+	top:18px;
+	width:330px;
+	font-size:30px;
+	color: var(--right-text-color);
+	z-index: 5;
+}
+#pScore2 {
+	position:absolute;
+	left:438px;
+	top:87px;
+	width:330px;
+	font-size:30px;
+	color: var(--left-text-color);
+	z-index: 5;
+}
+
+#pFlag1 {
+	position:absolute;
+	left:378px;
+	top:18px;
+	z-index: 2;
+}
+
+#pFlag2 {
+	position:absolute;
+	left:378px;
+	top:86px;
+	z-index: 2;
+}
+
+#pDivision1 {
+	color: #333333;
+	position:absolute;
+	left:-10px;
+	top:5px;
+	width:60px;
+	height: 60px;
+	font-size:60px;
+	font-family: 'SansationBold';
+	color: rgba(0, 0, 0, 0);
+	background-repeat: no-repeat;
+	text-align:center;
+	z-index: -1;
+}
+#pDivision2 {
+	color: #333333;
+	position:absolute;
+	left:45px;
+	top:75px;
+	width:60px;
+	height: 60px;
+	font-size:60px;
+	font-family: 'SansationBold';
+	color: rgba(0, 0, 0, 0);
+	background-repeat: no-repeat;
+	text-align:center;
+	z-index: -1;
+}
+
+#Rolla {
+	color: #333333;
+	position:absolute;
+	left:500px;
+	top:5px;
+	width:60px;
+	height: 60px;
+	font-size:60px;
+	font-family: 'SansationBold';
+	color: rgba(0, 0, 0, 0);
+	background-repeat: no-repeat;
+	text-align:center;
+	z-index: 0;
+}
+#Rollb {
+	color: #333333;
+	position:absolute;
+	top:74px;
+	left:500px;
+	width:60px;
+	height: 60px;
+	font-size:60px;
+	font-family: 'SansationBold';
+	color: rgba(0, 0, 0, 0);
+	background-repeat: no-repeat;
+	text-align:center;
+	z-index: -1;
+}
+

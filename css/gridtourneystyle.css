@@ -1,0 +1,58 @@
+.item-a {
+    grid-area: player1;
+    background-color: green;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .item-b {
+    grid-area: player2;
+    background-color: blue;
+  }
+  .item-c {
+    grid-area: player3;
+    background-color: blue;
+  }
+  .item-d {
+    grid-area: player4;
+    background-color: lightblue;
+  }
+
+  .item-e {
+    grid-area: player5;
+    background-color: crimson;
+  }
+  
+  .item-f {
+    grid-area: player6;
+    background-color: green;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .item-g {
+    grid-area: player7;
+    background-color: blue;
+  }
+  .item-h {
+    grid-area: player8;
+    background-color: green;
+  }
+  .item-i {
+    grid-area: player9;
+    background-color: lightblue;
+  }
+
+  .item-j {
+    grid-area: player10;
+    background-color: crimson;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "player1 player2 player3 player4 player5 player6 player7 player8"
+      ". . player9 player9 player10 player10 . ."
+      ". . . . . . . ."
+      ". . . . . . . ." ;
+  }

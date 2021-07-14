@@ -1,0 +1,581 @@
+@font-face {
+    font-family: 'JosefinSans';
+		src: url('JosefinSans-Bold.woff') format('woff'),
+        	 url('JosefinSans-Bold.ttf') format('truetype');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1920px;
+	height: 1080px;
+	background-image: url('../images/hidden_cup/draftbg.png');
+	background-repeat: no-repeat;
+    font-family: 'JosefinSans';
+    overflow: hidden;
+  }
+
+  #pName1 {
+    position:absolute;
+	top:38px;
+	left:0px;
+	width:1920px;
+	height:150px;
+	font-size:64px;
+	font-family: 'JosefinSans';
+    color: white;
+    text-align:center;
+
+	z-index:8;
+  }
+
+  #pName2 {
+    position:absolute;
+	top:1000px;
+	left:0px;
+	width:1920px;
+	height:150px;
+	font-size:64px;
+	font-family: 'JosefinSans';
+    color: white;
+    text-align:center;
+
+	z-index:8;
+  }
+
+  #nameboxtop {
+      position: absolute;
+      width: 1920px;
+      height: 1080px;
+      top: -300px;
+      background-image: url('../images/hidden_cup/nameboxtop.png');
+      z-index: 7;
+  }
+
+  #nameboxbottom {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top:300px;
+    background-image: url('../images/hidden_cup/nameboxbottom.png');
+    z-index: 7;
+}
+
+#venueband {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: -2000px;
+    background-image: url('../images/hidden_cup/venueband.png');
+    z-index: 9;
+}
+
+#boxholder1 {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top: 130px;
+    opacity: 0;
+}
+
+#boxholder2 {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    top:-130px;
+    opacity: 0;
+}
+
+#rankingboxtop {
+    position: absolute;
+    top: 10px;
+    width: 1920px;
+    height: 1080px;
+    background-image: url('../images/hidden_cup/rankingboxestop.png');
+    z-index: 7;
+}
+
+#rankingboxbottom {
+    position: absolute;
+    top: -10px;
+    width: 1920px;
+    height: 1080px;
+    background-image: url('../images/hidden_cup/rankingboxesbottom.png');
+    z-index: 7;
+}
+
+#aquariumrankA {
+    position: absolute;
+    width: 140px;
+    top: 365px;
+    left: 15px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+    text-align: center;
+}
+
+#aquariumrankB {
+    position: absolute;
+    width: 140px;
+    top: 640px;
+    left: 15px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+    text-align: center;
+}
+
+#balconyrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 160px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#balconyrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 160px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#ballroomrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 305px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#ballroomrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 305px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#courtyardrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 450px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#courtyardrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 450px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#galleryrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 595px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#galleryrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 595px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#highriserankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 740px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#highriserankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 740px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#libraryrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 888px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#libraryrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 888px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#modernerankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 1037px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#modernerankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 1037px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#pubrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 1180px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#pubrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 1180px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#redwoodsrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 1325px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#redwoodsrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 1325px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#teienrankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 1475px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#teienrankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 1475px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#terracerankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 1620px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#terracerankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 1620px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#verandarankA {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 365px;
+    left: 1765px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#verandarankB {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    top: 640px;
+    left: 1765px;
+    font-size: 70pt;
+    color: white;
+    z-index: 8;
+}
+
+#picksband {
+    position: absolute;
+    width: 1920px;
+    height: 1080px;
+    left: -2000px;
+    background-image: url('../images/hidden_cup/picksband.png');
+}
+
+#pick1 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick2 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick3 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick4 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick5 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick6 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick7 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick8 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick9 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+#pick10 {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    color: rgba(0, 0, 0, 0);
+
+}
+
+
+
+#double {
+    position: absolute;
+    width: 176px;
+    height: 178px;
+    top: 442px;
+    left: -200px;
+    background-image: url('../images/hidden_cup/doubled.png');
+}
+#gabriotron {
+    position: absolute;
+    width: 810px;
+    height: 797px;
+    left: 555px;
+    top: 2000px;
+    z-index: 2;
+}
+
+#gabriotronbody {
+    position: absolute;
+    width: 810px;
+    height: 797px;
+    z-index: 2;
+    background-image: url('../images/hidden_cup/GE_Body.png');
+}
+
+#gabriotronscreen {
+    position: absolute;
+    width: 810px;
+    height: 797px;
+    z-index: 3;
+    background-image: url('../images/hidden_cup/GE_Screen.gif');
+}
+
+#timer {
+    position: absolute;
+    width: 1920px;
+    height: 10px;
+    top: 936px;
+    opacity: 0;
+    background-image: url('../images/hidden_cup/timer.png');
+}
+
+#roundnumber {
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    font-size: 36pt;
+    top: 150px;
+    text-align: center;
+    opacity: 0;
+    color: seashell;
+}
+
+#ratings {
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    font-size: 50pt;
+    top: 240px;
+    text-align: center;
+    opacity: 0;
+    color: seashell;
+}
+
+#ratingsExp1 {
+    position: absolute;
+    width: 1920px;
+    height: 100px;
+    font-size: 40pt;
+    top: 840px;
+    text-align: center;
+    opacity: 0;
+    color: seashell;
+}
+

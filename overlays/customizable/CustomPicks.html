@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/customizable/customPicks.css">
+    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
+    <title>Custom SpyParty Draft Overlay</title>
+    <script type="text/javascript">
+        var pName1;
+        var pName2;
+		var pName1Old;
+		var pName2Old;
+        var venue1;
+        var venue2;
+        var venue3;
+        var venue4;
+        var venue5;
+        var venue6;
+        var venue7;
+        var venue8;
+        var venue9;
+        var venue10;
+        var venue11;
+        var venue12;
+        var venue13;
+        var venue14;
+        var venue15;
+        var venue16;
+        var venue17;
+        var venue18;
+        var venue19;
+        var venue20;
+        var venue21;
+        var venue22;
+        var venue23;
+        var venue24;
+        var venue25;
+        var venue26;
+        var venue27;
+        var venue28;
+        var venue29;
+        var venue30;
+        var venue31;
+        var venue32;
+		var venue1Old;
+		var venue2Old;
+		var venue3Old;
+		var venue4Old;
+        var venue5Old;
+        var venue6Old;
+        var venue7Old;
+        var venue8Old;
+        var venue9Old;
+        var venue10Old;
+        var venue11Old;
+        var venue12Old;
+        var venue13Old;
+        var venue14Old;
+        var venue15Old;
+        var venue16Old;
+        var venue17Old;
+        var venue18Old;
+        var venue19Old;
+        var venue20Old;
+        var venue21Old;
+        var venue22Old;
+        var venue23Old;
+        var venue24Old;
+        var venue25Old;
+        var venue26Old;
+        var venue27Old;
+        var venue28Old;
+        var venue29Old;
+        var venue30Old;
+        var venue31Old;
+        var venue32Old;
+		var middleImageOld = 0;
+
+		function init() {
+			bc.postMessage('hello');
+
+			anime({
+				targets: '#playerBox',
+				top: 0,
+				duration: 250,
+				easing: 'easeOutQuad'
+			});
+
+			anime({
+				targets: '#middleThing',
+				top: 0,
+				delay: 0,
+				duration: 800,
+				easing: 'easeOutQuad'
+			});
+
+			anime({
+				targets: '#venueType1',
+				top: 0,
+				delay: 500,
+				duration: 800,
+				easing: 'easeOutQuad'
+			});
+
+			anime({
+				targets: '#venueType2',
+				top: 0,
+				delay: 600,
+				duration: 800,
+				easing: 'easeOutQuad'
+			});
+
+			anime({
+				targets: '#venueType3',
+				top: 0,
+				delay: 700,
+				duration: 800,
+				easing: 'easeOutQuad'
+			});
+
+			anime({
+				targets: '#venueType4',
+				top: 0,
+				delay: 800,
+				duration: 800,
+				easing: 'easeOutQuad'
+			});
+		}
+		
+
+        const bc = new BroadcastChannel('picks');
+
+        bc.onmessage = function(ev) {
+            const received_data = ev.data;
+            var {pName1, pName2, venue1, venue2, venue3, venue4, venue5, venue6, venue7, venue8, venue9, 
+			venue10, venue11, venue12, venue13, venue14, venue15, venue16, venue17, venue18, venue19, 
+			venue20, venue21, venue22, venue23, venue24, venue25, venue26, venue27, venue28, venue29, 
+			venue30, venue31, venue32, doubleA, doubleB, doubleC, doubleD, doubleE, doubleF, doubleG,
+			doubleH, doubleI, doubleJ, doubleK, doubleL, doubleM, doubleN, doubleO, doubleP,
+			venueType1, venueType2, venueType3, venueType4, venueTypeCount1, venueTypeCount2, 
+			venueTypeCount3, venueTypeCount4, colorA, colorB, colorC, colorD, colorE, 
+			middleImage, pDivision1, pDivision2, matchMemoryReloader
+				} = received_data;
+
+			middleImageOld;
+
+			if ($('#colorA').html() != colorA) {
+				$(':root')[0].style.setProperty('--left-bg-color', colorA);
+				$('#colorA').html(colorA);
+			}
+			
+			if ($('#colorB').html() != colorB) {
+				$(':root')[0].style.setProperty('--right-bg-color', colorB);
+				$('#colorB').html(colorB);
+			}
+
+			if ($('#colorC').html() != colorC) {
+				$(':root')[0].style.setProperty('--left-text-color', colorC);
+				$('#colorC').html(colorC);
+			}
+
+			if ($('#colorD').html() != colorD) {
+				$(':root')[0].style.setProperty('--right-text-color', colorD);
+				$('#colorD').html(colorD);
+			}
+
+			if ($('#colorE').html() != colorE) {
+				$(':root')[0].style.setProperty('--divider-bg-color', colorE);
+				$('#colorE').html(colorE);
+			}
+			
+			if (venueTypeCount1 == 0) {
+				$('#venueType1').css('display','none');
+				$('#missingVenueType1').css('display','block');
+			} else {
+				type1Width = 688/venueTypeCount1;
+				$('#venueType1').css('display','flex');
+				$('#missingVenueType1').css('display','none');
+				anime({
+	                targets: '.iconA',
+		            width: type1Width-10,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		                });
+
+			}
+
+
+			if (venueTypeCount2 == 0) {
+				$('#venueType2').css('display','none');
+				$('#missingVenueType2').css('display','block');
+			} else {
+				type2Width = 688/venueTypeCount2;
+				$('#venueType2').css('display','flex');
+				$('#missingVenueType2').css('display','none');
+				anime({
+	                targets: '.iconB',
+		            width: type2Width-10,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		                });
+
+			}
+
+			if (venueTypeCount3 == 0) {
+				$('#venueType3').css('display','none');
+				$('#missingVenueType3').css('display','block');
+			} else {
+				type3Width = 688/venueTypeCount3;
+				$('#venueType3').css('display','flex');
+				$('#missingVenueType3').css('display','none');
+				anime({
+	                targets: '.iconC',
+		            width: type3Width-10,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		                });
+
+			}
+
+			if (venueTypeCount4 == 0) {
+				$('#venueType4').css('display','none');
+				$('#missingVenueType4').css('display','block');
+			} else {
+				type4Width = 688/venueTypeCount4;
+				$('#venueType4').css('display','flex');
+				$('#missingVenueType4').css('display','none');
+				anime({
+	                targets: '.iconD',
+		            width: type4Width-10,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		                });
+
+			}
+
+			if (middleImage != '') {
+				$('#logo').css('background-image','url(./images/'+middleImage+')');
+
+				
+			} else if (middleImage == '') {
+				$('#logo').css('background-image','');
+			}
+
+             if (pName1Old != pName1) {
+				console.log(pName1);
+				console.log(pName1Old);
+				
+                anime({
+					targets: '#pName1',
+						opacity: 0,
+						duration: 500,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function()
+								{
+							$('#pName1').html("<span>"+pName1+"</span>");
+							pName1Old = pName1;
+							while($("#pName1").find("span").width() > $("#pName1").width()) {
+    						var currentFontSize = parseInt($("#pName1").find("span").css("font-size")); 
+    						$("#pName1").find("span").css("font-size",currentFontSize-1); 
+								}
+								
+							anime({
+							targets: '#pName1',
+								opacity: [0,1],
+								duration: 600,
+								delay: 600,
+								easing: 'easeOutQuad',						
+								complete: function()
+										{
+
+										},
+
+									});	
+								},
+
+						});	
+
+
+				}
+					
+				if (pName2Old != pName2) {
+					anime({
+					targets: '#pName2',
+						opacity: 0,
+						duration: 500,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function()
+								{
+							$('#pName2').html("<span>"+pName2+"</span>");
+							pName2Old = pName2;
+							while($("#pName2").find("span").width() > $("#pName2").width()) {
+    						var currentFontSize = parseInt($("#pName2").find("span").css("font-size")); 
+    						$("#pName2").find("span").css("font-size",currentFontSize-1); 
+							
+							}
+							anime({
+							targets: '#pName2',
+								opacity: [0,1],
+								duration: 600,
+								delay: 600,
+								easing: 'easeOutQuad',						
+								complete: function()
+										{
+
+										},
+
+									});	
+								},
+
+						});	
+
+
+				} 
+
+				if ($('#venueTextA1').html() != venueType1) {	
+	                anime({
+	                targets: '.venueTextA',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('.venueTextA').html(venueType1);
+				
+				            anime({
+					            targets: '.venueTextA',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }  
+				 if ($('#venueTextB1').html() != venueType2) {	
+	                anime({
+	                targets: '.venueTextB',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('.venueTextB').html(venueType2);
+				
+				            anime({
+					            targets: '.venueTextB',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }
+				 if ($('#venueTextC1').html() != venueType3) {	
+	                anime({
+	                targets: '.venueTextC',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('.venueTextC').html(venueType3);
+				
+				            anime({
+					            targets: '.venueTextC',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }
+				 if ($('#venueTextD1').html() != venueType4) {	
+	                anime({
+	                targets: '.venueTextD',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('.venueTextD').html(venueType4);
+				
+				            anime({
+					            targets: '.venueTextD',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }
+                
+
+
+                 if ($('#venueLoadoutA1').html() != (venue1[0]+"<br>"+venue1[1]) && venue1[0] != "") {	
+	                anime({
+	                targets: '#venueA1',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('#venueA1').css("background-image", "url(../../images/customizable/venues/"+venue1[0]+".png)");
+						$('#venueLoadoutA1').html(venue1[0]+"<br>"+venue1[1]);
+						$('#venueA1').css("display","inline-block");
+
+				
+				            anime({
+					            targets: '#venueA1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 } else if (venue1[0] == "") {
+					$('#venueA1').css("display","none");
+					$('#venueLoadoutA1').html(venue1[0]+"<br>"+venue1[1]);
+				 } 
+
+				
+ 
+                 if ($('#venueLoadoutA2').html() != (venue3[0]+"<br>"+venue3[1]) && venue3[0] != "") {	
+	                anime({
+	                targets: '#venueA2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+						$('#venueA2').css("background-image", "url(../../images/customizable/venues/"+venue3[0]+".png)");
+						$('#venueLoadoutA2').html(venue3[0]+"<br>"+venue3[1]);
+						$('#venueA2').css("display","inline-block");
+
+				
+				            anime({
+					            targets: '#venueA2',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue3[0] == "") {
+					$('#venueA2').css("display","none");
+					$('#venueLoadoutA2').html(venue3[0]+"<br>"+venue3[1]);
+				 } 
+
+				 
+                 if ($('#venueLoadoutA3').html() != (venue5[0]+"<br>"+venue5[1]) && venue5[0] != "")  {	
+	                anime({
+	                targets: '#venueA3',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+						$('#venueA3').css("background-image", "url(../../images/customizable/venues/"+venue5[0]+".png)");
+						$('#venueLoadoutA3').html(venue5[0]+"<br>"+venue5[1]);
+						$('#venueA3').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueA3',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue5[0] == "") {
+					$('#venueA3').css("display","none");
+					$('#venueLoadoutA3').html(venue5[0]+"<br>"+venue5[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutA4').html() != (venue7[0]+"<br>"+venue7[1]) && venue7[0] != "") {	
+	            anime({
+	                targets: '#venueA4',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueA4').css("background-image", "url(../../images/customizable/venues/"+venue7[0]+".png)");
+						$('#venueLoadoutA4').html(venue7[0]+"<br>"+venue7[1]);
+						$('#venueA4').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueA4',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue7[0] == "") {
+					$('#venueA4').css("display","none");
+					$('#venueLoadoutA4').html(venue7[0]+"<br>"+venue7[1]);
+				 } 
+
+                 if ($('#venueLoadoutA5').html() != (venue8[0]+"<br>"+venue8[1]) && venue8[0] != "") {	
+	                anime({
+	                targets: '#venueA5',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueA5').css("background-image", "url(../../images/customizable/venues/"+venue8[0]+".png)");
+						$('#venueLoadoutA5').html(venue8[0]+"<br>"+venue8[1]);
+						$('#venueA5').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueA5',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue7[0] == "") {
+					$('#venueA5').css("display","none");
+					$('#venueLoadoutA5').html(venue8[0]+"<br>"+venue8[1]);
+				 } 
+
+			 
+                 
+                 if ($('#venueLoadoutA6').html() != (venue6[0]+"<br>"+venue6[1]) && venue6[0] != "") {	
+	                anime({
+	                targets: '#venueA6',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueA6').css("background-image", "url(../../images/customizable/venues/"+venue6[0]+".png)");
+						$('#venueLoadoutA6').html(venue6[0]+"<br>"+venue6[1]);
+						$('#venueA6').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueA6',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue6[0] == "") {
+					$('#venueA6').css("display","none");
+					$('#venueLoadoutA6').html(venue6[0]+"<br>"+venue6[1]);
+				 } 
+
+                 if ($('#venueLoadoutA7').html() != (venue4[0]+"<br>"+venue4[1]) && venue4[0] != "") {	
+	                anime({
+	                targets: '#venueA7',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+						$('#venueA7').css("background-image", "url(../../images/customizable/venues/"+venue4[0]+".png)");
+						$('#venueLoadoutA7').html(venue4[0]+"<br>"+venue4[1]);
+						$('#venueA7').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueA7',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue4[0] == "") {
+					$('#venueA7').css("display","none");
+					$('#venueLoadoutA7').html(venue4[0]+"<br>"+venue4[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutA8').html() != (venue2[0]+"<br>"+venue2[1]) && venue2[0] != "") {	
+	            anime({
+	                targets: '#venueA8',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueA8').css("background-image", "url(../../images/customizable/venues/"+venue2[0]+".png)");
+						$('#venueLoadoutA8').html(venue2[0]+"<br>"+venue2[1]);
+						$('#venueA8').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueA8',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue2[0] == "") {
+					$('#venueA8').css("display","none");
+					$('#venueLoadoutA8').html(venue2[0]+"<br>"+venue2[1]);
+				 } 
+
+                 if ($('#venueLoadoutB1').html() != (venue9[0]+"<br>"+venue9[1]) && venue9[0] != "") {	
+	                anime({
+	                targets: '#venueB1',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB1').css("background-image", "url(../../images/customizable/venues/"+venue9[0]+".png)");
+						$('#venueLoadoutB1').html(venue9[0]+"<br>"+venue9[1]);
+						$('#venueB1').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue9[0] == "") {
+					$('#venueB1').css("display","none");
+					$('#venueLoadoutB1').html(venue9[0]+"<br>"+venue9[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutB2').html() != (venue11[0]+"<br>"+venue11[1]) && venue11[0] != "") {	
+	                anime({
+	                targets: '#venueB2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB2').css("background-image", "url(../../images/customizable/venues/"+venue11[0]+".png)");
+						$('#venueLoadoutB2').html(venue11[0]+"<br>"+venue11[1]);
+						$('#venueB2').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB2',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue11[0] == "") {
+					$('#venueB2').css("display","none");
+					$('#venueLoadoutB2').html(venue11[0]+"<br>"+venue11[1]);
+				 } 
+
+                 if ($('#venueLoadoutB3').html() != (venue13[0]+"<br>"+venue13[1]) && venue13[0] != "") {	
+	                anime({
+	                targets: '#venueB3',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB3').css("background-image", "url(../../images/customizable/venues/"+venue13[0]+".png)");
+						$('#venueLoadoutB3').html(venue13[0]+"<br>"+venue13[1]);
+						$('#venueB3').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB3',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue13[0] == "") {
+					$('#venueB3').css("display","none");
+					$('#venueLoadoutB3').html(venue13[0]+"<br>"+venue13[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutB4').html() != (venue15[0]+"<br>"+venue15[1]) && venue15[0] != "") {	
+	            anime({
+	                targets: '#venueB4',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB4').css("background-image", "url(../../images/customizable/venues/"+venue15[0]+".png)");
+						$('#venueLoadoutB4').html(venue15[0]+"<br>"+venue15[1]);
+						$('#venueB4').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB4',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue15[0] == "") {
+					$('#venueB4').css("display","none");
+					$('#venueLoadoutB4').html(venue15[0]+"<br>"+venue15[1]);
+				 } 
+
+                 if ($('#venueLoadoutB5').html() != (venue16[0]+"<br>"+venue16[1]) && venue16[0] != "") {	
+	                anime({
+	                targets: '#venueB5',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+						$('#venueB5').css("background-image", "url(../../images/customizable/venues/"+venue16[0]+".png)");
+						$('#venueLoadoutB5').html(venue16[0]+"<br>"+venue16[1]);
+						$('#venueB5').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB5',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue16[0] == "") {
+					$('#venueB5').css("display","none");
+					$('#venueLoadoutB5').html(venue16[0]+"<br>"+venue16[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutB6').html() != (venue14[0]+"<br>"+venue14[1]) && venue14[0] != "") {	
+	                anime({
+	                targets: '#venueB6',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB6').css("background-image", "url(../../images/customizable/venues/"+venue14[0]+".png)");
+						$('#venueLoadoutB6').html(venue14[0]+"<br>"+venue14[1]);
+						$('#venueB6').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB6',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue14[0] == "") {
+					$('#venueB6').css("display","none");
+					$('#venueLoadoutB6').html(venue14[0]+"<br>"+venue14[1]);
+				 } 
+
+                 if ($('#venueLoadoutB7').html() != (venue12[0]+"<br>"+venue12[1]) && venue12[0] != "") {	
+	                anime({
+	                targets: '#venueB7',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB7').css("background-image", "url(../../images/customizable/venues/"+venue12[0]+".png)");
+						$('#venueLoadoutB7').html(venue12[0]+"<br>"+venue12[1]);
+						$('#venueB7').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB7',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue12[0] == "") {
+					$('#venueB7').css("display","none");
+					$('#venueLoadoutB7').html(venue12[0]+"<br>"+venue12[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutB8').html() != (venue10[0]+"<br>"+venue10[1]) && venue10[0] != "") {	
+	            anime({
+	                targets: '#venueB8',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueB8').css("background-image", "url(../../images/customizable/venues/"+venue10[0]+".png)");
+						$('#venueLoadoutB8').html(venue10[0]+"<br>"+venue10[1]);
+						$('#venueB8').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueB8',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue10[0] == "") {
+					$('#venueB8').css("display","none");
+					$('#venueLoadoutB8').html(venue10[0]+"<br>"+venue10[1]);
+				 } 
+
+                 if ($('#venueLoadoutC1').html() != (venue17[0]+"<br>"+venue17[1]) && venue17[0] != "") {	
+	                anime({
+	                targets: '#venueC1',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC1').css("background-image", "url(../../images/customizable/venues/"+venue17[0]+".png)");
+						$('#venueLoadoutC1').html(venue17[0]+"<br>"+venue17[1]);
+						$('#venueC1').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue17[0] == "") {
+					$('#venueC1').css("display","none");
+					$('#venueLoadoutC1').html(venue17[0]+"<br>"+venue17[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutC2').html() != (venue19[0]+"<br>"+venue19[1]) && venue19[0] != "") {	
+	                anime({
+	                targets: '#venueC2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC2').css("background-image", "url(../../images/customizable/venues/"+venue19[0]+".png)");
+						$('#venueLoadoutC2').html(venue19[0]+"<br>"+venue19[1]);
+						$('#venueC2').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC2',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue19[0] == "") {
+					$('#venueC2').css("display","none");
+					$('#venueLoadoutC2').html(venue19[0]+"<br>"+venue19[1]);
+				 } 
+
+                 if ($('#venueLoadoutC3').html() != (venue21[0]+"<br>"+venue21[1]) && venue21[0] != "") {	
+	                anime({
+	                targets: '#venueC3',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC3').css("background-image", "url(../../images/customizable/venues/"+venue21[0]+".png)");
+						$('#venueLoadoutC3').html(venue21[0]+"<br>"+venue21[1]);
+						$('#venueC3').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC3',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue21[0] == "") {
+					$('#venueC3').css("display","none");
+					$('#venueLoadoutC3').html(venue21[0]+"<br>"+venue21[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutC4').html() != (venue23[0]+"<br>"+venue23[1]) && venue23[0] != "") {	
+	            anime({
+	                targets: '#venueC4',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC4').css("background-image", "url(../../images/customizable/venues/"+venue23[0]+".png)");
+						$('#venueLoadoutC4').html(venue23[0]+"<br>"+venue23[1]);
+						$('#venueC4').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC4',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue23[0] == "") {
+					$('#venueC4').css("display","none");
+					$('#venueLoadoutC4').html(venue23[0]+"<br>"+venue23[1]);
+				 } 
+
+                 if ($('#venueLoadoutC5').html() != (venue24[0]+"<br>"+venue24[1]) && venue24[0] != "") {	
+	                anime({
+	                targets: '#venueC5',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC5').css("background-image", "url(../../images/customizable/venues/"+venue24[0]+".png)");
+						$('#venueLoadoutC5').html(venue24[0]+"<br>"+venue24[1]);
+						$('#venueC5').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC5',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue24[0] == "") {
+					$('#venueC5').css("display","none");
+					$('#venueLoadoutC5').html(venue24[0]+"<br>"+venue24[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutC6').html() != (venue22[0]+"<br>"+venue22[1]) && venue22[0] != "") {	
+	                anime({
+	                targets: '#venueC6',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC6').css("background-image", "url(../../images/customizable/venues/"+venue22[0]+".png)");
+						$('#venueLoadoutC6').html(venue22[0]+"<br>"+venue22[1]);
+						$('#venueC6').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC6',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue22[0] == "") {
+					$('#venueC6').css("display","none");
+					$('#venueLoadoutC6').html(venue22[0]+"<br>"+venue22[1]);
+				 } 
+                 if ($('#venueLoadoutC7').html() != (venue20[0]+"<br>"+venue20[1]) && venue20[0] != "") {	
+	                anime({
+	                targets: '#venueC7',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC7').css("background-image", "url(../../images/customizable/venues/"+venue20[0]+".png)");
+						$('#venueLoadoutC7').html(venue20[0]+"<br>"+venue20[1]);
+						$('#venueC7').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC7',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue20[0] == "") {
+					$('#venueC7').css("display","none");
+					$('#venueLoadoutC7').html(venue20[0]+"<br>"+venue20[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutC8').html() != (venue18[0]+"<br>"+venue18[1]) && venue18[0] != "") {	
+	            anime({
+	                targets: '#venueC8',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueC8').css("background-image", "url(../../images/customizable/venues/"+venue18[0]+".png)");
+						$('#venueLoadoutC8').html(venue18[0]+"<br>"+venue18[1]);
+						$('#venueC8').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueC8',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue18[0] == "") {
+					$('#venueC8').css("display","none");
+					$('#venueLoadoutC8').html(venue18[0]+"<br>"+venue18[1]);
+				 } 
+
+                 if ($('#venueLoadoutD1').html() != (venue25[0]+"<br>"+venue25[1]) && venue25[0] != "") {	
+	                anime({
+	                targets: '#venueD1',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD1').css("background-image", "url(../../images/customizable/venues/"+venue25[0]+".png)");
+						$('#venueLoadoutD1').html(venue25[0]+"<br>"+venue25[1]);
+						$('#venueD1').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue25[0] == "") {
+					$('#venueD1').css("display","none");
+					$('#venueLoadoutD1').html(venue25[0]+"<br>"+venue25[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutD2').html() != (venue27[0]+"<br>"+venue27[1]) && venue27[0] != "") {	
+	                anime({
+	                targets: '#venueD2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD2').css("background-image", "url(../../images/customizable/venues/"+venue27[0]+".png)");
+						$('#venueLoadoutD2').html(venue27[0]+"<br>"+venue27[1]);
+						$('#venueD2').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD2',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue27[0] == "") {
+					$('#venueD2').css("display","none");
+					$('#venueLoadoutD2').html(venue27[0]+"<br>"+venue27[1]);
+				 } 
+
+                 if ($('#venueLoadoutD3').html() != (venue29[0]+"<br>"+venue29[1]) && venue29[0] != "") {	
+	                anime({
+	                targets: '#venueD3',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD3').css("background-image", "url(../../images/customizable/venues/"+venue29[0]+".png)");
+						$('#venueLoadoutD3').html(venue29[0]+"<br>"+venue29[1]);
+						$('#venueD3').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD3',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue29[0] == "") {
+					$('#venueD3').css("display","none");
+					$('#venueLoadoutD3').html(venue29[0]+"<br>"+venue29[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutD4').html() != (venue31[0]+"<br>"+venue31[1]) && venue31[0] != "") {	
+	            anime({
+	                targets: '#venueD4',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD4').css("background-image", "url(../../images/customizable/venues/"+venue31[0]+".png)");
+						$('#venueLoadoutD4').html(venue31[0]+"<br>"+venue31[1]);
+						$('#venueD4').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD4',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue31[0] == "") {
+					$('#venueD4').css("display","none");
+					$('#venueLoadoutD4').html(venue31[0]+"<br>"+venue31[1]);
+				 } 
+
+                 if ($('#venueLoadoutD5').html() != (venue32[0]+"<br>"+venue32[1]) && venue32[0] != "") {	
+	                anime({
+	                targets: '#venueD5',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD5').css("background-image", "url(../../images/customizable/venues/"+venue32[0]+".png)");
+						$('#venueLoadoutD5').html(venue32[0]+"<br>"+venue32[1]);
+						$('#venueD5').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD5',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue32[0] == "") {
+					$('#venueD5').css("display","none");
+					$('#venueLoadoutD5').html(venue32[0]+"<br>"+venue32[1]);
+				 }  
+                 
+                 if ($('#venueLoadoutD6').html() != (venue30[0]+"<br>"+venue30[1]) && venue30[0] != "") {	
+	                anime({
+	                targets: '#venueD6',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD6').css("background-image", "url(../../images/customizable/venues/"+venue30[0]+".png)");
+						$('#venueLoadoutD6').html(venue30[0]+"<br>"+venue30[1]);
+						$('#venueD6').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD6',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue30[0] == "") {
+					$('#venueD6').css("display","none");
+					$('#venueLoadoutD6').html(venue30[0]+"<br>"+venue30[1]);
+				 } 
+
+                 if ($('#venueLoadoutD7').html() != (venue28[0]+"<br>"+venue28[1]) && venue28[0] != "") {	
+	                anime({
+	                targets: '#venueD7',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD7').css("background-image", "url(../../images/customizable/venues/"+venue28[0]+".png)");
+						$('#venueLoadoutD7').html(venue28[0]+"<br>"+venue28[1]);
+						$('#venueD7').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD7',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue28[0] == "") {
+					$('#venueD7').css("display","none");
+					$('#venueLoadoutD7').html(venue28[0]+"<br>"+venue28[1]);
+				 } 
+                 
+                 if ($('#venueLoadoutD8').html() != (venue26[0]+"<br>"+venue26[1]) && venue26[0] != "") {	
+	            anime({
+	                targets: '#venueD8',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+							$('#venueD8').css("background-image", "url(../../images/customizable/venues/"+venue26[0]+".png)");
+						$('#venueLoadoutD8').html(venue26[0]+"<br>"+venue26[1]);
+						$('#venueD8').css("display","inline-block");
+				
+				            anime({
+					            targets: '#venueD8',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+					} else if (venue26[0] == "") {
+					$('#venueD8').css("display","none");
+					$('#venueLoadoutD8').html(venue26[0]+"<br>"+venue26[1]);
+				 } 
+
+				 setTimeout(() => {
+	
+				
+	if (doubleA == true) {	
+
+$('#venueA1Double').css("visibility", "visible");
+$('#venueA8Double').css("visibility", "visible");
+
+
+}  else if (doubleA == false) {
+
+$('#venueA1Double').css("visibility", "hidden");
+$('#venueA8Double').css("visibility", "hidden");
+
+}
+
+if (doubleB == true) {	
+
+$('#venueA2Double').css("visibility", "visible");
+$('#venueA7Double').css("visibility", "visible");
+
+
+}  else if (doubleB == false) {
+
+$('#venueA2Double').css("visibility", "hidden");
+$('#venueA7Double').css("visibility", "hidden");
+
+}
+
+if (doubleC == true) {	
+
+$('#venueA3Double').css("visibility", "visible");
+$('#venueA6Double').css("visibility", "visible");
+
+
+}  else if (doubleC == false) {
+
+$('#venueA3Double').css("visibility", "hidden");
+$('#venueA6Double').css("visibility", "hidden");
+
+}
+if (doubleD == true) {	
+
+$('#venueA4Double').css("visibility", "visible");
+$('#venueA5Double').css("visibility", "visible");
+
+
+}  else if (doubleD == false) {
+
+$('#venueA4Double').css("visibility", "hidden");
+$('#venueA5Double').css("visibility", "hidden");
+
+}
+
+
+
+if (doubleE == true) {	
+
+$('#venueB1Double').css("visibility", "visible");
+$('#venueB8Double').css("visibility", "visible");
+
+
+}  else if (doubleE == false) {
+
+$('#venueB1Double').css("visibility", "hidden");
+$('#venueB8Double').css("visibility", "hidden");
+
+}
+
+if (doubleF == true) {	
+
+$('#venueB2Double').css("visibility", "visible");
+$('#venueB7Double').css("visibility", "visible");
+
+
+}  else if (doubleF == false) {
+
+$('#venueB2Double').css("visibility", "hidden");
+$('#venueB7Double').css("visibility", "hidden");
+
+}
+
+if (doubleG == true) {	
+
+$('#venueB3Double').css("visibility", "visible");
+$('#venueB6Double').css("visibility", "visible");
+
+
+}  else if (doubleG == false) {
+
+$('#venueB3Double').css("visibility", "hidden");
+$('#venueB6Double').css("visibility", "hidden");
+
+}
+if (doubleH == true) {	
+
+$('#venueB4Double').css("visibility", "visible");
+$('#venueB5Double').css("visibility", "visible");
+
+
+}  else if (doubleH == false) {
+
+$('#venueB4Double').css("visibility", "hidden");
+$('#venueB5Double').css("visibility", "hidden");
+
+}
+
+
+
+if (doubleI == true) {	
+
+$('#venueC1Double').css("visibility", "visible");
+$('#venueC8Double').css("visibility", "visible");
+
+
+}  else if (doubleI == false) {
+
+$('#venueC1Double').css("visibility", "hidden");
+$('#venueC8Double').css("visibility", "hidden");
+
+}
+
+if (doubleJ == true) {	
+
+$('#venueC2Double').css("visibility", "visible");
+$('#venueC7Double').css("visibility", "visible");
+
+
+}  else if (doubleJ == false) {
+
+$('#venueC2Double').css("visibility", "hidden");
+$('#venueC7Double').css("visibility", "hidden");
+
+}
+
+if (doubleK == true) {	
+
+$('#venueC3Double').css("visibility", "visible");
+$('#venueC6Double').css("visibility", "visible");
+
+
+}  else if (doubleK == false) {
+
+$('#venueC3Double').css("visibility", "hidden");
+$('#venueC6Double').css("visibility", "hidden");
+
+}
+if (doubleL == true) {	
+
+$('#venueC4Double').css("visibility", "visible");
+$('#venueC5Double').css("visibility", "visible");
+
+
+}  else if (doubleL == false) {
+
+$('#venueC4Double').css("visibility", "hidden");
+$('#venueC5Double').css("visibility", "hidden");
+
+}
+
+
+
+if (doubleM == true) {	
+
+$('#venueD1Double').css("visibility", "visible");
+$('#venueD8Double').css("visibility", "visible");
+
+
+}  else if (doubleM == false) {
+
+$('#venueD1Double').css("visibility", "hidden");
+$('#venueD8Double').css("visibility", "hidden");
+
+}
+
+if (doubleN == true) {	
+
+$('#venueD2Double').css("visibility", "visible");
+$('#venueD7Double').css("visibility", "visible");
+
+
+}  else if (doubleN == false) {
+
+$('#venueD2Double').css("visibility", "hidden");
+$('#venueD7Double').css("visibility", "hidden");
+
+}
+
+if (doubleO == true) {	
+
+$('#venueD3Double').css("visibility", "visible");
+$('#venueD6Double').css("visibility", "visible");
+
+
+}  else if (doubleO == false) {
+
+$('#venueD3Double').css("visibility", "hidden");
+$('#venueD6Double').css("visibility", "hidden");
+
+}
+if (doubleP == true) {	
+
+$('#venueD4Double').css("visibility", "visible");
+$('#venueD5Double').css("visibility", "visible");
+
+
+}  else if (doubleP == false) {
+
+$('#venueD4Double').css("visibility", "hidden");
+$('#venueD5Double').css("visibility", "hidden");
+
+}
+}, 250);
+        }
+		
+    </script>
+</head>
+<body onLoad="init()">
+    <div id="playerBox">
+        <div id="pName1"></div>
+        <div id="pName2"></div>
+        <div id="V">V</div>
+        <div id="S">S</div>
+    </div>
+	<div id="missingVenueType1" class="missingVenueType"></div>
+	<div id="missingVenueType2" class="missingVenueType"></div>
+	<div id="missingVenueType3" class="missingVenueType"></div>
+	<div id="missingVenueType4" class="missingVenueType"></div>
+    <div id="venueType1">
+        <div class="venueTypeLeft" id="venueType1Left">
+            <div class="venueText textLeft venueTextA" id="venueTextA1">Bans</div>
+            <div class="venueIcon iconA" id="venueA1">
+				<div class="doubleDouble" id="venueA1Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA1"></div>
+			</div>
+
+            <div class="venueIcon iconA" id="venueA2">
+				<div class="doubleDouble" id="venueA2Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA2"></div>
+			</div>
+            <div class="venueIcon iconA" id="venueA3">
+				<div class="doubleDouble" id="venueA3Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA3"></div>
+			</div>
+            <div class="venueIcon iconA" id="venueA4">
+				<div class="doubleDouble" id="venueA4Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA4"></div>
+			</div>
+        </div>
+        <div class="venueTypeRight" id="venueType1Right">
+        <div class="venueText textRight venueTextA" id="venueTextA2">Bans</div>
+            <div class="venueIcon iconA" id="venueA5">
+				<div class="doubleDouble" id="venueA5Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA5"></div>
+			</div>
+            <div class="venueIcon iconA" id="venueA6">
+				<div class="doubleDouble" id="venueA6Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA6"></div>
+			</div>
+            <div class="venueIcon iconA" id="venueA7">
+				<div class="doubleDouble" id="venueA7Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA7"></div>
+			</div>
+            <div class="venueIcon iconA" id="venueA8">
+				<div class="doubleDouble" id="venueA8Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutA8"></div>
+			</div>
+        </div>
+    </div>
+    <div id="venueType2">
+        <div class="venueTypeLeft" id="venueType2Left">
+            <div class="venueText textLeft venueTextB" id="venueTextB1">Something</div>
+            <div class="venueIcon iconB" id="venueB1">
+				<div class="doubleDouble" id="venueB1Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB1"></div>
+			</div>
+            <div class="venueIcon iconB" id="venueB2">
+				<div class="doubleDouble" id="venueB2Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB2"></div>
+			</div>
+            <div class="venueIcon iconB" id="venueB3">
+				<div class="doubleDouble" id="venueB3Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB3"></div>
+			</div>
+            <div class="venueIcon iconB" id="venueB4">
+				<div class="doubleDouble" id="venueB4Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB4"></div>
+			</div>
+        </div>
+        <div class="venueTypeRight" id="venueType2Right">
+        <div class="venueText textRight venueTextB" id="venueTextB2">Something</div>
+            <div class="venueIcon iconB" id="venueB5">
+				<div class="doubleDouble" id="venueB5Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB5"></div>
+			</div>
+            <div class="venueIcon iconB" id="venueB6">
+				<div class="doubleDouble" id="venueB6Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB6"></div>
+			</div>
+            <div class="venueIcon iconB" id="venueB7">
+				<div class="doubleDouble" id="venueB7Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB7"></div>
+			</div>
+            <div class="venueIcon iconB" id="venueB8">
+				<div class="doubleDouble" id="venueB8Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutB8"></div>
+			</div>
+        </div>
+    </div>
+    <div id="venueType3">
+        <div class="venueTypeLeft" id="venueType3Left">
+            <div class="venueText textLeft venueTextC" id="venueTextC1">Something</div>
+            <div class="venueIcon iconC" id="venueC1">
+				<div class="doubleDouble" id="venueC1Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC1"></div>
+			</div>
+            <div class="venueIcon iconC" id="venueC2">
+				<div class="doubleDouble" id="venueC2Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC2"></div>
+			</div>
+            <div class="venueIcon iconC" id="venueC3">
+				<div class="doubleDouble" id="venueC3Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC3"></div>
+			</div>
+            <div class="venueIcon iconC" id="venueC4">
+				<div class="doubleDouble" id="venueC4Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC4"></div>
+			</div>
+        </div>
+        <div class="venueTypeRight" id="venueType3Right">
+        <div class="venueText textRight venueTextC" id="venueTextC2">Something</div>
+            <div class="venueIcon iconC" id="venueC5">
+				<div class="doubleDouble" id="venueC5Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC5"></div>
+			</div>
+            <div class="venueIcon iconC" id="venueC6">
+				<div class="doubleDouble" id="venueC6Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC6"></div>
+			</div>
+            <div class="venueIcon iconC" id="venueC7">
+				<div class="doubleDouble" id="venueC7Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC7"></div>
+			</div>
+            <div class="venueIcon iconC" id="venueC8">
+				<div class="doubleDouble" id="venueC8Double">Double</div>
+				<div class="venueLoadout" id="venueLoadoutC8"></div>
+			</div>
+        </div>
+    </div>
+    <div id="venueType4">        
+        <div class="venueTypeLeft" id="venueType4Left">
+        <div class="venueText textLeft venueTextD" id="venueTextD1">Picks</div>
+        <div class="venueIcon iconD" id="venueD1">
+			<div class="doubleDouble" id="venueD1Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD1"></div>
+		</div>
+        <div class="venueIcon iconD" id="venueD2">
+			<div class="doubleDouble" id="venueD2Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD2"></div>
+		</div>
+        <div class="venueIcon iconD" id="venueD3">
+			<div class="doubleDouble" id="venueD3Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD3"></div>
+		</div>
+        <div class="venueIcon iconD" id="venueD4">
+			<div class="doubleDouble" id="venueD4Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD4"></div>
+		</div>
+    </div>
+    <div class="venueTypeRight" id="venueType4Right">
+    <div class="venueText textRight venueTextD" id="venueTextD2">Picks</div>
+        <div class="venueIcon iconD" id="venueD5">
+			<div class="doubleDouble" id="venueD5Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD5"></div>
+		</div>
+        <div class="venueIcon iconD" id="venueD6">
+			<div class="doubleDouble" id="venueD6Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD6"></div>
+		</div>
+        <div class="venueIcon iconD" id="venueD7">
+			<div class="doubleDouble" id="venueD7Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD7"></div>
+		</div>
+        <div class="venueIcon iconD" id="venueD8">
+			<div class="doubleDouble" id="venueD8Double">Double</div>
+			<div class="venueLoadout" id="venueLoadoutD8"></div>
+		</div>
+    </div>
+</div>
+    <div id="middleThing">
+		<div id="colorA"></div>
+		<div id="colorB"></div>
+		<div id="logo"></div>
+	</div>
+</body>
+</html>
