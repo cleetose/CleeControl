@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Master Controller</title>
+    <style>
+ body {
+     position: relative;
+     height: 100%;
+     top: 20px;
+     overflow: hidden;
+ }
+html,
+iframe { 
+    height: 100%; 
+}
+#controller {
+    width: 400px;
+}
+#flexyBox {
+    display: flexbox;
+    flex-direction: column;
+    height: 100%;
+    width: 400px;
+}
+    </style>
+</head>
+<body>
+    <div id="flexyBox">
+    <select id="controllerType">
+        <option value="controllers/CustomCleeControllerDock.html">Customizable</option>
+        <option value="controllers/HCControl.html">Hidden Cup</option>
+
+    </select>
+    <iframe id="controller" src="controllers/CustomCleeControllerDock.html"></iframe>
+    <script>
+        $('#controllerType').change(function() {
+            document.getElementById("controller").src = $('#controllerType').val();
+            console.log($('#controllerType').val());
+        });
+    </script>
+</div>
+</body>
+</html>

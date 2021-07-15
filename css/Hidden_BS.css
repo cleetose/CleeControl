@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'JosefinSansRegular';
-    src: url('JosefinSans-Regular.ttf') format('truetype');         
+    src: url('../fonts/JosefinSans-Regular.ttf') format('truetype');         
     font-weight: normal;
     font-style: normal;
 
@@ -8,8 +8,8 @@
 
 @font-face {
     font-family: 'JosefinSansBold';
-    src: url('JosefinSans-Bold.woff') format('woff');
-    src: url('JosefinSans-Bold.ttf') format('truetype');               
+    src: url('../fonts/JosefinSans-Bold.woff') format('woff');
+    src: url('../fonts/JosefinSans-Bold.ttf') format('truetype');               
     font-weight: bold;
     font-style: normal;
 

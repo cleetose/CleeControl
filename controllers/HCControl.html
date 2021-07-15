@@ -4,26 +4,30 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/BSV2.css">
-	<link rel="stylesheet" href="css/farbtastic.css">
-	<link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css">
-	<link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+	<link rel="stylesheet" href="../css/Hidden_BS.css">
+	<link rel="stylesheet" href="../css/farbtastic.css">
+	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.js"
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-	<script src="js/jquery-ui.js"></script>
-	<script src="js/hotkeys.js"></script>
-	<script src="js/csv.js"></script>
-	<script src="js/farbtastic.js"></script>
-	<script src="js/jquery.ddslick.min.js"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/hotkeys.js"></script>
+	<script src="../js/csv.js"></script>
+	<script src="../js/farbtastic.js"></script>
+	<script src="../js/jquery.ddslick.min.js"></script>
 	<title>Custom SpyParty Overlay Controller</title>
+	<script>
 
+
+
+	</script>
 </head>
 
 <body>
 	<div id="sortable">
 		<div class="sectional" id="update">
 			<!--Big Update Button-->
-			<update-matches></update-matches>
+			<hidden-update-matches></hidden-update-matches>
 		</div>
 
 		<!--Players/Countries/Scores/characters-->
@@ -46,29 +50,18 @@
 			<color-changer></color-changer>
 		</div>
 
-		<!--Venue Pool-->
-		<div class="sectional" id="venueLoadouts">
-			<venue-loadout></venue-loadout>
-		</div>
-
-		<!--Save/Load-->
-		<div class="sectional" id="saveLoad">
-			<save-load></save-load>
-		</div>
 		<!--Draft-->
 		<div class="sectional" id="picksBans">
-			<custom-draft></custom-draft>
+			<hidden-draft></hidden-draft>
 		</div>
 	</div>
 
-	<script src="js/Controller Components/custom_names.js"></script>
-	<script src="js/Controller Components/custom_sniper_divisions.js"></script>
-	<script src="js/Controller Components/custom_tooltips.js"></script>
-	<script src="js/Controller Components/custom_color.js"></script>
-	<script src="js/Controller Components/custom_venuepools.js"></script>
-	<script src="js/Controller Components/custom_draft.js"></script>
-	<script src="js/Controller Components/custom_save_load.js"></script>
-	<script src="js/Controller Components/custom_update.js"></script>
+	<script src="Controller Components/custom_names.js"></script>
+	<script src="Controller Components/custom_sniper_divisions.js"></script>
+	<script src="Controller Components/custom_tooltips.js"></script>
+	<script src="Controller Components/custom_color.js"></script>
+	<script src="Controller Components/hidden_draft.js"></script>
+	<script src="Controller Components/hidden_update.js"></script>
 	<script>
 
 
@@ -151,7 +144,7 @@
 			setTimeout(() => {
 				updateMatch();
 			}, 200);
-			checkSeason();
+			
 
 		});
 		
@@ -256,6 +249,7 @@
 
 		poolMemArr = [];
 		poolMemArr2 = [];
+		memory2Splitter = [];
 
 		matchUpdater = 1;
 		checkboxMemArr = [];
@@ -343,7 +337,7 @@
 		//Updates match memory for currently selected match slot and recalls memory when a match slot is selected.
 
 		$('#matchMemory').change(updateMatch);
-		$('#matchMemory').change(updatePools);
+
 
 
 		function updateMatch() {
@@ -436,7 +430,7 @@
 
 		//Format data from hotkeys.js
 		function updateHotkeys() {
-			src = 'js/hotkeys.js';
+			src = '../js/hotkeys.js';
 			$('script[src="' + src + '"]').remove();
 			var head = document.getElementsByTagName('head')[0];
 			var script = document.createElement('script');
@@ -522,7 +516,7 @@
 			checkHotkeys();
 			updateHotkeys();
 		}
-		setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut()), 200);
+		setInterval(() => (checkNames(), checkUpdates()), 200);
 		setTimeout(() => {
 			setInterval(() => (matchSaver()), 200);
 		}, 400);
