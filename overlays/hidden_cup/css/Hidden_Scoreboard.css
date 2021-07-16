@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'JosefinSansRegular';
-    src: url('../../fonts/JosefinSans-Regular.ttf') format('truetype');         
+    src: url('../../../fonts/JosefinSans-Regular.ttf') format('truetype');         
     font-weight: normal;
     font-style: normal;
 
@@ -8,8 +8,8 @@
 
 @font-face {
     font-family: 'JosefinSansBold';
-    src: url('../../fonts/JosefinSans-Bold.woff') format('woff');
-    src: url('../../fonts/JosefinSans-Bold.ttf') format('truetype');               
+    src: url('../../../fonts/JosefinSans-Bold.woff') format('woff');
+    src: url('../../../fonts/JosefinSans-Bold.ttf') format('truetype');               
     font-weight: bold;
     font-style: normal;
 
@@ -137,7 +137,7 @@ body {
 	left:-45px;
 	text-align: left;
 	top:25px;
-	width:270px;
+	width:315px;
 	font-size:23px;
 	white-space:nowrap;
 	color: var(--right-text-color);
@@ -148,7 +148,7 @@ body {
 	left:10px;
 	top:100px;
 	text-align: left;
-	width:270px;
+	width:315px;
 	font-size:23px;
 	white-space:nowrap;
 	color: var(--left-text-color);
