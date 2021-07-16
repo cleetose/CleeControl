@@ -12,11 +12,24 @@
      position: relative;
      height: 100%;
      top: 20px;
+     background-color: #1f1e1f;
      overflow: hidden;
  }
 html,
 iframe { 
     height: 100%; 
+    border: none;
+}
+select {
+
+background-color: #302f30;
+border-radius: 5px;
+border-width: 2px;
+border-style: solid;
+border-color: #464546;
+font-family: JosefinSansRegular;
+color: white;
+
 }
 #controller {
     width: 400px;
@@ -38,9 +51,22 @@ iframe {
     </select>
     <iframe id="controller" src="controllers/CustomCleeControllerDock.html"></iframe>
     <script>
+        $(document).ready(function() {
+            try {
+                resetType = localStorage.getItem('recallType');
+            $('#controllerType').val(resetType).change();
+            }
+            catch {
+                $('#controllerType').val('controllers/CustomCleeControllerDock.html').change();
+            }
+
+        });
+        var saveType;
         $('#controllerType').change(function() {
             document.getElementById("controller").src = $('#controllerType').val();
             console.log($('#controllerType').val());
+            saveType = $('#controllerType').val();
+            localStorage.setItem('recallType',saveType);
         });
     </script>
 </div>

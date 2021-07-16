@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'JosefinSans';
-    src: url('../../fonts/JosefinSans-Bold.woff') format('woff');
-    src: url('../../fonts/JosefinSans-Bold.ttf') format('truetype');               
+    src: url('../../../fonts/JosefinSans-Bold.woff') format('woff');
+    src: url('../../../fonts/JosefinSans-Bold.ttf') format('truetype');               
     font-weight: normal;
     font-style: normal;
 
@@ -13,7 +13,7 @@ body {
 	align-items: center;
 	width: 1920px;
 	height: 1080px;
-	background-image: url('../../overlay_images/hidden_cup/draftbg.png');
+	background-image: url('images_draft/draftbg.png');
 	background-repeat: no-repeat;
     font-family: 'JosefinSans';
     overflow: hidden;
@@ -52,7 +52,7 @@ body {
       width: 1920px;
       height: 1080px;
       top: -300px;
-      background-image: url('../../overlay_images/hidden_cup/nameboxtop.png');
+      background-image: url('images_draft/nameboxtop.png');
       z-index: 7;
   }
 
@@ -61,7 +61,7 @@ body {
     width: 1920px;
     height: 1080px;
     top:300px;
-    background-image: url('../../overlay_images/hidden_cup/nameboxbottom.png');
+    background-image: url('images_draft/nameboxbottom.png');
     z-index: 7;
 }
 
@@ -94,7 +94,7 @@ body {
     top: 10px;
     width: 1920px;
     height: 1080px;
-    background-image: url('../../overlay_images/hidden_cup/rankingboxestop.png');
+    background-image: url('images_draft/rankingboxestop.png');
     z-index: 7;
 }
 
@@ -103,7 +103,7 @@ body {
     top: -10px;
     width: 1920px;
     height: 1080px;
-    background-image: url('../../overlay_images/hidden_cup/rankingboxesbottom.png');
+    background-image: url('images_draft/rankingboxesbottom.png');
     z-index: 7;
 }
 
@@ -398,7 +398,7 @@ body {
     width: 1920px;
     height: 1080px;
     left: -2000px;
-    background-image: url('../../overlay_images/hidden_cup/picksband.png');
+    background-image: url('images_draft/picksband.png');
 }
 
 #pick1 {
@@ -509,7 +509,7 @@ body {
     height: 178px;
     top: 442px;
     left: -200px;
-    background-image: url('../../overlay_images/hidden_cup/doubled.png');
+    background-image: url('images_draft/doubled.png');
 }
 #gabriotron {
     position: absolute;
@@ -525,7 +525,7 @@ body {
     width: 810px;
     height: 797px;
     z-index: 2;
-    background-image: url('../../overlay_images/hidden_cup/GE_Body.png');
+    background-image: url('images_draft/GE_Body.png');
 }
 
 #gabriotronscreen {
@@ -533,7 +533,7 @@ body {
     width: 810px;
     height: 797px;
     z-index: 3;
-    background-image: url('../../overlay_images/hidden_cup/GE_Screen.gif');
+    background-image: url('images_draft/GE_Screen.gif');
 }
 
 #timer {
@@ -542,7 +542,7 @@ body {
     height: 10px;
     top: 936px;
     opacity: 0;
-    background-image: url('../../overlay_images/hidden_cup/timer.png');
+    background-image: url('images_draft/timer.png');
 }
 
 #roundnumber {

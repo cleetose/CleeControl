@@ -1,16 +1,16 @@
 @font-face {
     font-family: JosefinSans;
-    src: url('../../fonts/JosefinSans-Regular.ttf');
+    src: url('../../../fonts/JosefinSans-Regular.ttf');
 }
 
 @font-face {
     font-family: JosefinSansBold;
-    src: url('../../fonts/JosefinSans-SemiBold.ttf');
+    src: url('../../../fonts/JosefinSans-SemiBold.ttf');
 }
 
 @font-face {
     font-family: Agency;
-    src: url('../../fonts/Agency_FB_Bold.ttf');
+    src: url('../../../fonts/Agency_FB_Bold.ttf');
 }
 
 :root {
