@@ -45,29 +45,49 @@ color: white;
 <body>
     <div id="flexyBox">
     <select id="controllerType">
-        <option value="controllers/CustomCleeControllerDock.html">Customizable</option>
-        <option value="controllers/HCControl.html">Hidden Cup</option>
+        <option value="1">Customizable</option>
+        <option value="2">Hidden Cup</option>
 
     </select>
     <iframe id="controller" src="controllers/CustomCleeControllerDock.html"></iframe>
+
     <script>
+
+const overlaySwitch = new BroadcastChannel('ovSwitch');
+
         $(document).ready(function() {
             try {
                 resetType = localStorage.getItem('recallType');
             $('#controllerType').val(resetType).change();
             }
             catch {
-                $('#controllerType').val('controllers/CustomCleeControllerDock.html').change();
+                $('#controllerType').val('1').change();
             }
 
         });
         var saveType;
         $('#controllerType').change(function() {
-            document.getElementById("controller").src = $('#controllerType').val();
-            console.log($('#controllerType').val());
+            switch( $('#controllerType').val()) {
+                case "1": document.getElementById("controller").src = 'controllers/CustomCleeControllerDock.html';
+                break;
+                case "2": document.getElementById("controller").src = 'controllers/HCControl.html';
+
+            }
+            overlayType =  $('#controllerType').val();
+            overlaySwitch.postMessage({
+                overlayType
+            });
             saveType = $('#controllerType').val();
             localStorage.setItem('recallType',saveType);
+
         });
+        overlaySwitch.onmessage = function() {
+            overlaySwitch.postMessage({
+                overlayType
+            });
+        }
+
+
     </script>
 </div>
 </body>

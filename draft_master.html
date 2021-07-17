@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <title>Draft Master</title>
     <style>
         body {
@@ -25,8 +27,30 @@
        </head>
        <body>
            <iframe id="draft" src="overlays/customizable/CustomPicks.html"></iframe>
-           <script>
 
+           <script>
+               const bc = new BroadcastChannel('ovSwitch');
+               var overlayType;
+               var overlayTypeOld;
+            $(document).ready(function() {
+                bc.postMessage('hello');
+            })
+
+               bc.onmessage = function(ev) {
+				const received_data = ev.data;
+            var {overlayType} = received_data;
+            console.log(overlayType);
+            if (overlayTypeOld != overlayType) {
+                   switch (overlayType) {
+                       case "1": document.getElementById("draft").src = 'overlays/customizable/CustomPicks.html';
+                       break;
+                       case "2": document.getElementById("draft").src = 'overlays/hidden_cup/hidden-draft.html';
+                       break;
+                   }
+                   overlayTypeOld = overlayType;
+               }
+				
+			}
            </script>
        </div>
        </body>
