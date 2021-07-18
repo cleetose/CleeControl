@@ -86,12 +86,12 @@
 
 		//Things to do when the page first loads.
 		$(document).ready(function () {
-			if (localStorage.getObj('saveMatchStates') != null) {
-				$('#matchMemory').val(localStorage.getObj('saveMatchStates'));
+			if (localStorage.getObj('saveMatchStatesCustom') != null) {
+				$('#matchMemory').val(localStorage.getObj('saveMatchStatesCustom'));
 			}
 			/*Recall array of div ids in previous sorting order
 			then adds # to the front each element so the sortDom function works*/
-			rememberMe = localStorage.getObj("sortOrder");
+			rememberMe = localStorage.getObj("sortOrderCustom");
 			if (rememberMe != null) {
 				for (i = 0; i < rememberMe.length; i++) {
 					rememberMe[i] = "#" + rememberMe[i];
@@ -99,7 +99,7 @@
 				sortDom(rememberMe);
 			}
 			//Recall array which contains ids of every accordion panel that was previously open.
-			var panState = localStorage.getObj("accState");
+			var panState = localStorage.getObj("accStateCustom");
 			//Opens every div that was previously open. 	
 			var i;
 			if (panState != null) {
@@ -115,9 +115,9 @@
 				}
 			}
 
-			matchMemLoader = localStorage.getObj('saveStates');
-			poolMemLoader = localStorage.getObj('savePools');
-			chkMemLoader = localStorage.getObj('saveChkStates');
+			matchMemLoader = localStorage.getObj('saveStatesCustom');
+			poolMemLoader = localStorage.getObj('savePoolsCustom');
+			chkMemLoader = localStorage.getObj('saveChkStatesCustom');
 
 
 			if (matchMemLoader != null) {
@@ -186,7 +186,7 @@
 				handle: ".titleBox",
 				update: function () {
 					var order = $("#sortable").sortable('toArray');
-					localStorage.setObj("sortOrder", order);
+					localStorage.setObj("sortOrderCustom", order);
 
 				}
 			});
@@ -195,8 +195,8 @@
 		//Sets accordion divisions and saves to localStorage
 		var acc = document.getElementsByClassName("accordion");
 
-		if (localStorage.getObj('accState') != null) {
-			panOpen = localStorage.getObj('accState');
+		if (localStorage.getObj('accStateCustom') != null) {
+			panOpen = localStorage.getObj('accStateCustom');
 		} else {
 			panOpen = [];
 		}
@@ -241,7 +241,7 @@
 				to just the part of the div Ids I need, which is then automatically
 				matches */
 				setTimeout(() => {
-					localStorage.setObj("accState", accordArr);
+					localStorage.setObj("accStateCustom", accordArr);
 				}, 350);
 			});
 		}
@@ -251,14 +251,15 @@
 		matchMemArr[0] = [];
 		matchMemArr[1] = [];
 		matchMemArr[2] = [];
+		memorySplitter = [];
 
 		matchMatchArr = [];
 
-		poolMemArr = [];
-		poolMemArr2 = [];
+		indepMemArr = [];
+		venuePoolMemArr = [];
 		memory2Splitter = [];
 
-		matchUpdater = 1;
+
 		checkboxMemArr = [];
 		checkboxMemArr[0] = [];
 		checkboxMemArr[1] = [];
@@ -275,7 +276,7 @@
 			return this.id;
 		});
 
-		var input3Array = $('.loadoutBoy').map(function () {
+		var venuePoolIdArr = $('.loadoutBoy').map(function () {
 			return this.id;
 		});
 
@@ -395,19 +396,19 @@
 
 			}
 			for (i = 0; i < matchIndepIddArr.length; i++) {
-				poolMemArr[i] = (matchIndepIddArr[i] + ';;' + $('#' + matchIndepIddArr[i]).val());
+				indepMemArr[i] = (matchIndepIddArr[i] + ';;' + $('#' + matchIndepIddArr[i]).val());
 			}
-			for (i = 0; i < input3Array.length; i++) {
-				poolMemArr2[i] = $('#' + input3Array[i]).val();
+			for (i = 0; i < venuePoolIdArr.length; i++) {
+				venuePoolMemArr[i] = $('#' + venuePoolIdArr[i]).val();
 			}
 			for (q = 0; q < checkboxArray.length; q++) {
 				checkboxMemArr[matchMemory][q] = $('#' + checkboxArray[q]).prop('checked');
 			}
 
-			localStorage.setObj('saveMatchStates', matchMatchMatch);
-			localStorage.setObj('saveStates', matchMemArr);
-			localStorage.setObj('savePools', poolMemArr);
-			localStorage.setObj('saveChkStates', checkboxMemArr);
+			localStorage.setObj('saveMatchStatesCustom', matchMatchMatch);
+			localStorage.setObj('saveStatesCustom', matchMemArr);
+			localStorage.setObj('savePoolsCustom', indepMemArr);
+			localStorage.setObj('saveChkStatesCustom', checkboxMemArr);
 
 
 		}

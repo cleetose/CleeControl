@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'JosefinSansRegular';
+    src: url('../../../fonts/JosefinSans-Regular.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JosefinSansBold';
+    src: url('../../../fonts/JosefinSans-Bold.woff') format('woff');
+    src: url('../../../fonts/JosefinSans-Bold.ttf') format('truetype');               
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+:root {
+    --left-bg-color: #67b7cf;
+    --right-bg-color: #036a89;
+    --left-dark-bg-color: #123456;
+    --right-dark-bg-color: rgb(42, 123, 228);
+    --left-text-color: white;
+    --right-text-color: white;
+    --divider-bg-color: rgb(231, 231, 231);
+}
+
+body {
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'JosefinSansBold';
+	color:#380a15;
+}
+
+#tName {
+	position:absolute;
+	display: flex;
+	border-radius: 10px;
+	justify-content: center;
+	top:-1000px;
+	left:0px;
+	width:415px;
+	box-sizing: border-box;
+	padding: 20px;
+	padding-top: 25px;
+	font-size:40px;
+	text-align: center;
+	vertical-align: text-top;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: var(--left-bg-color);
+	color: var(--right-text-color);
+	border-style: solid;
+	border-width: 5px;
+	border-color: var(--left-dark-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	opacity: 0.5;
+	z-index: 2;
+}
+
+#tText {
+	position:absolute;
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	top:-360px;
+	left:5px;
+	width:402px;
+	font-size:36px;
+	box-sizing: border-box;
+	padding: 20px;
+	padding-top: 25px;
+	text-align: center;
+	vertical-align: text-bottom;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: var(--right-bg-color);
+	color: var(--left-text-color);
+	border-style: solid;
+	border-width: 5px;
+	border-color: var(--right-dark-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	z-index: 0;
+}
+
+#cTipName {
+	position:absolute;
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	top:-1000px;
+	left:0px;
+	width:415px;
+	box-sizing: border-box;
+	padding: 20px;
+	padding-top: 25px;
+	font-size:40px;
+	text-align: center;
+	vertical-align: text-top;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: var(--left-bg-color);
+	color: var(--right-text-color);
+	border-style: solid;
+	border-width: 5px;
+	border-color: var(--left-dark-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	opacity: 0.5;
+	z-index: 2;
+}
+
+
+#cTipDesc {
+	position:absolute;
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	top:-1000px;
+	left:5px;
+	width:402px;
+	font-size:38px;
+	box-sizing: border-box;
+	padding: 20px;
+	padding-top: 30px;
+	text-align: center;
+	vertical-align: text-top;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: var(--right-bg-color);
+	color: var(--left-text-color);
+	border-style: solid;
+	border-width: 5px;
+	border-color: var(--right-dark-bg-color);
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	opacity: 0.5;
+	z-index: 1;
+}
+
+

@@ -24,6 +24,12 @@ class HiddenUpdateMatches extends HTMLElement {
     }
 }
 
+colorA = '#67b7cf';
+colorB = '#036a89';
+colorC = '#ffffff';
+colorD = '#ffffff';
+colorE = '#ffffff';
+
 const pbc = new BroadcastChannel("picks");
 const sbc = new BroadcastChannel("score");
 const tbc = new BroadcastChannel('tooltip');
@@ -48,11 +54,7 @@ function pleaseWork() {
     pick10 = $('#pick10').val();
     matchType = $('#matchType').val();
     matchMemoryReloader = $("#matchMemory").val();
-    colorA = $('#colorA').val();
-    colorB = $('#colorB').val();
-    colorC = $('#colorC').val();
-    colorD = $('#colorD').val();
-    colorE = $('#colorE').val();
+
     pScore1 = $('#pScore1').val();
     pScore2 = $('#pScore2').val();
     pCountry1 = $('#pCountry1').val();

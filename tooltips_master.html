@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <title>Tooltips Master</title>
+    <style>
+        body {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            margin: 0px;
+            overflow: hidden;
+            color: rgba(0, 0, 0, 0);
+        }
+       html,
+       iframe { 
+        height: 100%;
+           width: 100%;
+           border: none;
+       }
+
+           </style>
+       </head>
+       <body>
+           <iframe id="tooltips" src="overlays/customizable/CustomTooltips.html"></iframe>
+
+           <script>
+               const bc = new BroadcastChannel('ovSwitch');
+               var overlayType;
+               var overlayTypeOld;
+            $(document).ready(function() {
+                bc.postMessage('hello');
+            })
+
+               bc.onmessage = function(ev) {
+				const received_data = ev.data;
+            var {overlayType} = received_data;
+            console.log(overlayType);
+            if (overlayTypeOld != overlayType) {
+                   switch (overlayType) {
+                       case "1": document.getElementById("tooltips").src = 'overlays/customizable/CustomTooltips.html';
+                       break;
+                       case "2": document.getElementById("tooltips").src = 'overlays/hidden_cup/hiddenTooltips.html';
+                       break;
+                   }
+                   overlayTypeOld = overlayType;
+               }
+				
+			}
+           </script>
+       </div>
+       </body>
+</html>

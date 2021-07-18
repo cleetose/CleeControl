@@ -2,9 +2,8 @@
 <head>
 
 	<link rel="stylesheet" href="css/Hidden_Scoreboard.css" type="text/css" charset="utf-8">
-	<script src="js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/anime.min.js" type="text/javascript" charset="utf-8"></script>		
-	<script src="js/countries.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>		
 	<script type="text/javascript">
 			
 
@@ -508,7 +507,7 @@
 						{ value: 0, duration: 500, easing: 'easeOutCubic' },
 					complete: function(){
 
-							$('#Rolla').css("background-image", "url(images/characters/sniper.png)");
+							$('#Rolla').css("background-image", "url(../images_scoreboard_icons/sniper.png)");
 							StopA = "sniper1";
 							anime({
 							targets: '#Rolla',
@@ -537,7 +536,7 @@
 							$('#Rolla').html(rollPaste);
 							Rollb = Rolla;
 							StopA = "sniper2";
-							$('#Rolla').css("background-image", "url(images/characters/"+Rolla+".png)");
+							$('#Rolla').css("background-image", "url(../images_scoreboard_icons/"+Rolla+".png)");
 
 							anime({
 							targets: '#Rolla',
@@ -563,7 +562,7 @@
 					complete: function(){
 							StopB = "sniper1";
 
-							$('#Rollb').css("background-image", "url(images/characters/sniper.png)");
+							$('#Rollb').css("background-image", "url(../images_scoreboard_icons/sniper.png)");
 							anime({
 							targets: '#Rollb',
 							opacity:
@@ -590,7 +589,7 @@
 							$('#Rolla').html(Rolla);
 							Rollc = Rolla;
 							StopB = "sniper2";
-							$('#Rollb').css("background-image", "url(images/characters/"+Rolla+".png)");
+							$('#Rollb').css("background-image", "url(../images_scoreboard_icons/"+Rolla+".png)");
 
 							anime({
 							targets: '#Rollb',
@@ -611,67 +610,8 @@
 			}
 
 
-				if (oldCountry1 != pCountry1) {
-					
-
-					anime({
-					targets: '#pFlag1',
-					opacity:
-						{ value: 0, duration: 500, easing: 'easeOutCubic' },
-					complete: function(){
-						
-						if (pCountry1 != ' ') {
-							$('#pFlag1').html('<img src="GoSquared/cropped/iso/64shiny/'+ pCountry1 +'.png" width="43" height="28">');
-							console.log(pCountry1);
-						} else {
-							$('#pFlag1').html("");
-							
-						}
-							oldCountry1 = pCountry1;
-							anime({
-							targets: '#pFlag1',
-							opacity:
-								{ value: 1, duration: 500, easing: 'easeOutCubic' },
-								complete: function(){
-															
-									}						
-							});
-
-						}
-					});	
 				
-				}
-				
-				
-				if (oldCountry2 != pCountry2) {
-					
 
-					anime({
-					targets: '#pFlag2',
-					opacity:
-						{ value: 0, duration: 500, easing: 'easeOutCubic' },
-					complete: function(){
-						if (pCountry2 != ' ') {
-							$('#pFlag2').html('<img src="GoSquared/cropped/iso/64shiny/'+ pCountry2 +'.png" width="43" height="28">');
-							console.log(pCountry1);
-						} else {
-							$('#pFlag2').html("");
-							
-						}
-							oldCountry2 = pCountry2;
-							anime({
-							targets: '#pFlag2',
-							opacity:
-								{ value: 1, duration: 500, easing: 'easeOutCubic' },
-								complete: function(){
-															
-									}						
-							});
-
-						}
-					});	
-				
-				}
 				if (pScoreTotal != FinalValue) {
 					pScoreTotal = FinalValue;
 				}

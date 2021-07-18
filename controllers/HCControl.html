@@ -12,7 +12,7 @@
 		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script src="../js/jquery-ui.js"></script>
 	<script src="../js/hotkeys.js"></script>
-	<script src="../js/csv.js"></script>
+	<script src="../js/hiddencsv.js"></script>
 	<script src="../js/farbtastic.js"></script>
 	<script src="../js/jquery.ddslick.min.js"></script>
 	<title>Custom SpyParty Overlay Controller</title>
@@ -32,7 +32,7 @@
 
 		<!--Players/Countries/Scores/characters-->
 		<div class="sectional" id="players">
-			<players-scores id="playersModule"></players-scores>
+			<hidden-players-scores id="playersModule"></hidden-players-scores>
 		</div>
 
 		<!--Players/Countries/Scores/characters-->
@@ -45,21 +45,15 @@
 			<tool-tips></tool-tips>
 		</div>
 
-		<!--Custom Colors-->
-		<div class="sectional" id="customColors">
-			<color-changer></color-changer>
-		</div>
-
 		<!--Draft-->
 		<div class="sectional" id="picksBans">
 			<hidden-draft></hidden-draft>
 		</div>
 	</div>
 
-	<script src="Controller Components/custom_names.js"></script>
+	<script src="Controller Components/hidden_names.js"></script>
 	<script src="Controller Components/custom_sniper_divisions.js"></script>
 	<script src="Controller Components/custom_tooltips.js"></script>
-	<script src="Controller Components/custom_color.js"></script>
 	<script src="Controller Components/hidden_draft.js"></script>
 	<script src="Controller Components/hidden_update.js"></script>
 	<script>
@@ -67,11 +61,6 @@
 
 
 
-		var venueDecoder;
-		var scorePaste;
-		var scoreSource;
-		var spyPaste;
-		var gameCounter;
 
 		var matchMatchMatch;
 		var checkerLoader;
@@ -79,12 +68,12 @@
 
 		//Things to do when the page first loads.
 		$(document).ready(function () {
-			if (localStorage.getObj('saveMatchStates') != null) {
-				$('#matchMemory').val(localStorage.getObj('saveMatchStates'));
+			if (localStorage.getObj('saveMatchStatesHidden') != null) {
+				$('#matchMemory').val(localStorage.getObj('saveMatchStatesHidden'));
 			}
 			/*Recall array of div ids in previous sorting order
 			then adds # to the front each element so the sortDom function works*/
-			rememberMe = localStorage.getObj("sortOrder");
+			rememberMe = localStorage.getObj("sortOrderHidden");
 			if (rememberMe != null) {
 				for (i = 0; i < rememberMe.length; i++) {
 					rememberMe[i] = "#" + rememberMe[i];
@@ -92,7 +81,7 @@
 				sortDom(rememberMe);
 			}
 			//Recall array which contains ids of every accordion panel that was previously open.
-			var panState = localStorage.getObj("accState");
+			var panState = localStorage.getObj("accStateHidden");
 			//Opens every div that was previously open. 	
 			var i;
 			if (panState != null) {
@@ -108,9 +97,9 @@
 				}
 			}
 
-			matchMemLoader = localStorage.getObj('saveStates');
-			poolMemLoader = localStorage.getObj('savePools');
-			chkMemLoader = localStorage.getObj('saveChkStates');
+			matchMemLoader = localStorage.getObj('saveStatesHidden');
+			poolMemLoader = localStorage.getObj('savePoolsHidden');
+			chkMemLoader = localStorage.getObj('saveChkStatesHidden');
 
 
 			if (matchMemLoader != null) {
@@ -179,7 +168,7 @@
 				handle: ".titleBox",
 				update: function () {
 					var order = $("#sortable").sortable('toArray');
-					localStorage.setObj("sortOrder", order);
+					localStorage.setObj("sortOrderHidden", order);
 
 				}
 			});
@@ -188,8 +177,8 @@
 		//Sets accordion divisions and saves to localStorage
 		var acc = document.getElementsByClassName("accordion");
 
-		if (localStorage.getObj('accState') != null) {
-			panOpen = localStorage.getObj('accState');
+		if (localStorage.getObj('accStateHidden') != null) {
+			panOpen = localStorage.getObj('accStateHidden');
 		} else {
 			panOpen = [];
 		}
@@ -234,7 +223,7 @@
 				to just the part of the div Ids I need, which is then automatically
 				matches */
 				setTimeout(() => {
-					localStorage.setObj("accState", accordArr);
+					localStorage.setObj("accStateHidden", accordArr);
 				}, 350);
 			});
 		}
@@ -244,6 +233,7 @@
 		matchMemArr[0] = [];
 		matchMemArr[1] = [];
 		matchMemArr[2] = [];
+		memorySplitter = [];
 
 		matchMatchArr = [];
 
@@ -397,10 +387,10 @@
 				checkboxMemArr[matchMemory][q] = $('#' + checkboxArray[q]).prop('checked');
 			}
 
-			localStorage.setObj('saveMatchStates', matchMatchMatch);
-			localStorage.setObj('saveStates', matchMemArr);
-			localStorage.setObj('savePools', poolMemArr);
-			localStorage.setObj('saveChkStates', checkboxMemArr);
+			localStorage.setObj('saveMatchStatesHidden', matchMatchMatch);
+			localStorage.setObj('saveStatesHidden', matchMemArr);
+			localStorage.setObj('savePoolsHidden', poolMemArr);
+			localStorage.setObj('saveChkStatesHidden', checkboxMemArr);
 
 
 		}
