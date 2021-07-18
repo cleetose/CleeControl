@@ -121,7 +121,7 @@ function loadOut() {
     doubleNLive = $('#doubleN').is(':checked');
     doubleOLive = $('#doubleO').is(':checked');
     doublePLive = $('#doubleP').is(':checked');
-    venPool = poolMemArr2.toString();
+    venPool = venuePoolMemArr.toString();
     $('#saveText').val(colorALive + ',' + colorBLive + ',' + colorCLive + ',' + colorDLive + ','
         + colorELive + ',' + venueType1Live + ',' + venueType2Live + ',' + venueType3Live + ','
         + venueType4Live + ',' + venueTypeCount1Live + ',' + venueTypeCount2Live + ','

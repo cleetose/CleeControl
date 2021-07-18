@@ -400,7 +400,7 @@
 							$('#pDivision1').css("height", "150px");
 							$('#pDivision1').css("left", "-10px");
 							$('#pDivision1').css("top", "0px");														
-							$('#pDivision1').css("background-image", "url(images/"+pDivision1+".svg)");
+							$('#pDivision1').css("background-image", "url(images_divisions/"+pDivision1+".svg)");
 							anime({
 							targets: '#pDivision1',
 							opacity:
@@ -428,7 +428,7 @@
 							$('#pDivision1').css("height", "60px");
 							$('#pDivision1').css("left", "45px");
 							$('#pDivision1').css("top", "5px");									
-							$('#pDivision1').css("background-image", "url(images/"+pDivision1+".svg)");
+							$('#pDivision1').css("background-image", "url(images_divisions/"+pDivision1+".svg)");
 							anime({
 							targets: '#pDivision1',
 							opacity:
@@ -455,7 +455,7 @@
 							$('#pDivision1').css("height", "60px");
 							$('#pDivision1').css("left", "45px");
 							$('#pDivision1').css("top", "5px");															
-							$('#pDivision2').css("background-image", "url(images/"+pDivision2+".svg)");
+							$('#pDivision2').css("background-image", "url(images_divisions/"+pDivision2+".svg)");
 							anime({
 							targets: '#pDivision2',
 							opacity:
@@ -482,7 +482,7 @@
 							$('#pDivision1').css("height", "150px");
 							$('#pDivision1').css("left", "-10px");	
 							$('#pDivision1').css("top", "0px");														
-							$('#pDivision2').css("background-image", "url(images/"+pDivision2+".svg)");
+							$('#pDivision2').css("background-image", "url(images_divisions/"+pDivision2+".svg)");
 							anime({
 							targets: '#pDivision2',
 							opacity:
@@ -508,7 +508,7 @@
 						{ value: 0, duration: 500, easing: 'easeOutCubic' },
 					complete: function(){
 
-							$('#Rolla').css("background-image", "url(images/characters/sniper.png)");
+							$('#Rolla').css("background-image", "url(../images_scoreboard_icons/sniper.png)");
 							StopA = "sniper1";
 							anime({
 							targets: '#Rolla',
@@ -537,7 +537,7 @@
 							$('#Rolla').html(rollPaste);
 							Rollb = Rolla;
 							StopA = "sniper2";
-							$('#Rolla').css("background-image", "url(images/characters/"+Rolla+".png)");
+							$('#Rolla').css("background-image", "url(../images_scoreboard_icons/"+Rolla+".png)");
 
 							anime({
 							targets: '#Rolla',
@@ -563,7 +563,7 @@
 					complete: function(){
 							StopB = "sniper1";
 
-							$('#Rollb').css("background-image", "url(images/characters/sniper.png)");
+							$('#Rollb').css("background-image", "url(../images_scoreboard_icons/sniper.png)");
 							anime({
 							targets: '#Rollb',
 							opacity:
@@ -590,7 +590,7 @@
 							$('#Rolla').html(Rolla);
 							Rollc = Rolla;
 							StopB = "sniper2";
-							$('#Rollb').css("background-image", "url(images/characters/"+Rolla+".png)");
+							$('#Rollb').css("background-image", "url(../images_scoreboard_icons/"+Rolla+".png)");
 
 							anime({
 							targets: '#Rollb',
@@ -621,7 +621,7 @@
 					complete: function(){
 						
 						if (pCountry1 != ' ') {
-							$('#pFlag1').html('<img src="GoSquared/cropped/iso/64shiny/'+ pCountry1 +'.png" width="43" height="28">');
+							$('#pFlag1').html('<img src="../../GoSquared/cropped/iso/64shiny/'+ pCountry1 +'.png" width="43" height="28">');
 							console.log(pCountry1);
 						} else {
 							$('#pFlag1').html("");
@@ -652,7 +652,7 @@
 						{ value: 0, duration: 500, easing: 'easeOutCubic' },
 					complete: function(){
 						if (pCountry2 != ' ') {
-							$('#pFlag2').html('<img src="GoSquared/cropped/iso/64shiny/'+ pCountry2 +'.png" width="43" height="28">');
+							$('#pFlag2').html('<img src="../../GoSquared/cropped/iso/64shiny/'+ pCountry2 +'.png" width="43" height="28">');
 							console.log(pCountry1);
 						} else {
 							$('#pFlag2').html("");
