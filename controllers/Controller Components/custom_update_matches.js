@@ -1,4 +1,4 @@
-class updateMatchesTest extends HTMLElement {
+class CustomUpdateMatches extends HTMLElement {
     constructor() {
         super();
         this.innerHTML = `
@@ -35,7 +35,7 @@ const cbbc = new BroadcastChannel('casterBanner');
    var tooltipsVars;
    var casterbannerVars;
 
-window.customElements.define('update-matches-test', updateMatchesTest);
+window.customElements.define('custom-update-matches', CustomUpdateMatches);
 
 
 

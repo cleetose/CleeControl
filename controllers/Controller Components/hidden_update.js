@@ -37,7 +37,30 @@ const cbbc = new BroadcastChannel('casterBanner');
 
 window.customElements.define('hidden-update-matches', HiddenUpdateMatches);
 
+function inputSaver(className) {
+    dataSaver = [];
+    classArr = $('.'+className).map(function () {
+        return this.id;
+    });
+    for (let i = 0; i < classArr.length; i++) {
+        try {
+            dataSaver[i] = (classArr[i] + ';;' + $('#' + classArr[i]).val());
+            
+        }
+        catch {
+            console.log('face');
+        }
+    }
+    return dataSaver;
+}
+
 function pleaseWork() {
+
+    scoreBoardVars = inputSaver('scoreBoard');
+    draftVars = inputSaver('draft');
+
+    tooltipsVars = inputSaver('tooltips');
+    casterbannerVars = inputSaver('banner');
 
     pName1 = $('#pName1').val();
     pName2 = $('#pName2').val();
@@ -70,17 +93,16 @@ function pleaseWork() {
     hostName = $('#hostName').val();
     casterNames = $('#casterNames').val();
     pbc.postMessage({
-        pName1, pName2, pick1, pick2, pick3, pick4, pick5, pick6, pick7, pick8, pick9, pick10, pDivision1, pDivision2, matchType
+        draftVars
     });
     sbc.postMessage({
-        pName1, pName2, pCountry1, pCountry2, pScore1, pScore2, Rolla, Sniper, pDivision1, pDivision2, behavior,
-        colorA, colorB, colorC, colorD, colorE
+        scoreBoardVars
     });
     tbc.postMessage({
-        tText, cTipName, cTipDesc, colorA, colorB, colorC, colorD, colorE
+        tooltipsVars
     });
     cbbc.postMessage({
-        hostName, casterNames, colorA, colorB, colorC, colorD, colorE
+        casterbannerVars
     });
 
 }
@@ -91,20 +113,19 @@ function pleaseWork() {
 //Send current variable states when Draft overlay initializes
 pbc.onmessage = function () {
     pbc.postMessage({
-        pName1, pName2, pick1, pick2, pick3, pick4, pick5, pick6, pick7, pick8, pick9, pick10, pDivision1, pDivision2, matchType
+        draftVars
     });
 };
 
 //Send current variable states when Scoreboard overlay initializes
 sbc.onmessage = function () {
     sbc.postMessage({
-        pName1, pName2, pCountry1, pCountry2, pScore1, pScore2, Rolla, Sniper, pDivision1, pDivision2, behavior,
-        colorA, colorB, colorC, colorD, colorE
+        scoreBoardVars
     });
 };
 
 cbbc.onmessage = function () {
     cbbc.postMessage({
-        hostName, casterNames, colorA, colorB, colorC, colorD, colorE
+        casterbannerVars
     });
 }
