@@ -11,19 +11,19 @@ class ColorChanger extends HTMLElement {
                         Right Colors</p>
                     <div class="cPicker" id="colorpickerA"></div>
                     <div class="cPicker" id="colorpickerB"></div>
-                    <input class="storable2 colorText" type="text" id="colorA" name="colorA" value="#123456" />
-                    <input class="storable2 colorText" type="text" id="colorB" name="colorB" value="#123456" />
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorA" name="colorA" value="#123456" />
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorB" name="colorB" value="#123456" />
                     <p class="colorNames">Left Text Color&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Right Text Color
                     </p>
                     <div class="cPicker" id="colorpickerC"></div>
                     <div class="cPicker" id="colorpickerD"></div>
-                    <input class="storable2 colorText" type="text" id="colorC" name="colorC" value="#ffffff" />
-                    <input class="storable2 colorText" type="text" id="colorD" name="colorD" value="#ffffff" />
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorC" name="colorC" value="#ffffff" />
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorD" name="colorD" value="#ffffff" />
                     <p class="colorNames">Divider Color</p>
                     <div class="cPicker" id="colorpickerE"></div>
-                    <input class="storable2 colorText" type="text" id="colorE" name="colorE" value="#123456" />
-                    <label id="selectImgText" for="img">Middle image:</label>
-                    <input class="storable2" type="text" id="img"
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorE" name="colorE" value="#123456" />
+                    <label id="selectImgText" for="middleImage">Middle image:</label>
+                    <input class="storable2 draft" type="text" id="middleImage"
                         title="Enter image name and extension. Image needs to be in the images folder." name="img">
                     <input type="reset" id="resetColors" class="buttony">
                 </form>

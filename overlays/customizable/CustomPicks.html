@@ -45,38 +45,15 @@
         var venue30;
         var venue31;
         var venue32;
-		var venue1Old;
-		var venue2Old;
-		var venue3Old;
-		var venue4Old;
-        var venue5Old;
-        var venue6Old;
-        var venue7Old;
-        var venue8Old;
-        var venue9Old;
-        var venue10Old;
-        var venue11Old;
-        var venue12Old;
-        var venue13Old;
-        var venue14Old;
-        var venue15Old;
-        var venue16Old;
-        var venue17Old;
-        var venue18Old;
-        var venue19Old;
-        var venue20Old;
-        var venue21Old;
-        var venue22Old;
-        var venue23Old;
-        var venue24Old;
-        var venue25Old;
-        var venue26Old;
-        var venue27Old;
-        var venue28Old;
-        var venue29Old;
-        var venue30Old;
-        var venue31Old;
-        var venue32Old;
+		var venueType1;
+		var venueType2;
+		var venueType3;
+		var venueType4;
+		var venueTypeCount1;
+		var venueTypeCount2;
+		var venueTypeCount3;
+		var venueTypeCount4;
+		var middleImage;
 		var middleImageOld = 0;
 
 		function init() {
@@ -135,17 +112,37 @@
 
         bc.onmessage = function(ev) {
             const received_data = ev.data;
-            var {pName1, pName2, venue1, venue2, venue3, venue4, venue5, venue6, venue7, venue8, venue9, 
-			venue10, venue11, venue12, venue13, venue14, venue15, venue16, venue17, venue18, venue19, 
-			venue20, venue21, venue22, venue23, venue24, venue25, venue26, venue27, venue28, venue29, 
-			venue30, venue31, venue32, doubleA, doubleB, doubleC, doubleD, doubleE, doubleF, doubleG,
-			doubleH, doubleI, doubleJ, doubleK, doubleL, doubleM, doubleN, doubleO, doubleP,
-			venueType1, venueType2, venueType3, venueType4, venueTypeCount1, venueTypeCount2, 
-			venueTypeCount3, venueTypeCount4, colorA, colorB, colorC, colorD, colorE, 
-			middleImage, pDivision1, pDivision2, matchMemoryReloader
+            var {
+				draftVars, doubleChk
 				} = received_data;
 
+				console.log(doubleChk);
 			middleImageOld;
+
+			varSplitter = [];
+			for (let i = 0; i < draftVars.length; i++) {
+				varSplitter = draftVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+
+			}
+			for (i=1;i<=32;i++) {
+    if (window['venue'+i] != null) {
+        window['venue'+i] = window['venue'+i].split(";");
+    }
+    else {
+        window['venue'+i] = [''];
+    }
+
+}
+
+		ckbxSplitter = [];
+		for (let q = 0; q < doubleChk.length; q++) {
+			ckbxSplitter = doubleChk[q].split(';;');
+				window[ckbxSplitter[0]] = ckbxSplitter[1];
+
+			
+		}
+
 
 			if ($('#colorA').html() != colorA) {
 				$(':root')[0].style.setProperty('--left-bg-color', colorA);
@@ -1498,51 +1495,52 @@
 				 setTimeout(() => {
 	
 				
-	if (doubleA == true) {	
+	if (doubleA == 'true') {	
 
 $('#venueA1Double').css("visibility", "visible");
 $('#venueA8Double').css("visibility", "visible");
 
 
-}  else if (doubleA == false) {
+}  else if (doubleA == 'false') {
 
 $('#venueA1Double').css("visibility", "hidden");
 $('#venueA8Double').css("visibility", "hidden");
 
 }
 
-if (doubleB == true) {	
+if (doubleB == 'true') {	
 
 $('#venueA2Double').css("visibility", "visible");
 $('#venueA7Double').css("visibility", "visible");
 
 
-}  else if (doubleB == false) {
+
+}  else if (doubleB == 'false') {
 
 $('#venueA2Double').css("visibility", "hidden");
 $('#venueA7Double').css("visibility", "hidden");
 
 }
 
-if (doubleC == true) {	
+if (doubleC == 'true') {	
 
 $('#venueA3Double').css("visibility", "visible");
 $('#venueA6Double').css("visibility", "visible");
 
 
-}  else if (doubleC == false) {
+}  else if (doubleC == 'false') {
 
 $('#venueA3Double').css("visibility", "hidden");
 $('#venueA6Double').css("visibility", "hidden");
 
 }
-if (doubleD == true) {	
+if (doubleD == 'true') {	
 
 $('#venueA4Double').css("visibility", "visible");
 $('#venueA5Double').css("visibility", "visible");
 
 
-}  else if (doubleD == false) {
+}  else if (doubleD == 'false') {
 
 $('#venueA4Double').css("visibility", "hidden");
 $('#venueA5Double').css("visibility", "hidden");
@@ -1551,51 +1549,51 @@ $('#venueA5Double').css("visibility", "hidden");
 
 
 
-if (doubleE == true) {	
+if (doubleE == 'true') {	
 
 $('#venueB1Double').css("visibility", "visible");
 $('#venueB8Double').css("visibility", "visible");
 
 
-}  else if (doubleE == false) {
+}  else if (doubleE == 'false') {
 
 $('#venueB1Double').css("visibility", "hidden");
 $('#venueB8Double').css("visibility", "hidden");
 
 }
 
-if (doubleF == true) {	
+if (doubleF == 'true') {	
 
 $('#venueB2Double').css("visibility", "visible");
 $('#venueB7Double').css("visibility", "visible");
 
 
-}  else if (doubleF == false) {
+}  else if (doubleF == 'false') {
 
 $('#venueB2Double').css("visibility", "hidden");
 $('#venueB7Double').css("visibility", "hidden");
 
 }
 
-if (doubleG == true) {	
+if (doubleG == 'true') {	
 
 $('#venueB3Double').css("visibility", "visible");
 $('#venueB6Double').css("visibility", "visible");
 
 
-}  else if (doubleG == false) {
+}  else if (doubleG == 'false') {
 
 $('#venueB3Double').css("visibility", "hidden");
 $('#venueB6Double').css("visibility", "hidden");
 
 }
-if (doubleH == true) {	
+if (doubleH == 'true') {	
 
 $('#venueB4Double').css("visibility", "visible");
 $('#venueB5Double').css("visibility", "visible");
 
 
-}  else if (doubleH == false) {
+}  else if (doubleH == 'false') {
 
 $('#venueB4Double').css("visibility", "hidden");
 $('#venueB5Double').css("visibility", "hidden");
@@ -1604,51 +1602,51 @@ $('#venueB5Double').css("visibility", "hidden");
 
 
 
-if (doubleI == true) {	
+if (doubleI == 'true') {	
 
 $('#venueC1Double').css("visibility", "visible");
 $('#venueC8Double').css("visibility", "visible");
 
 
-}  else if (doubleI == false) {
+}  else if (doubleI == 'false') {
 
 $('#venueC1Double').css("visibility", "hidden");
 $('#venueC8Double').css("visibility", "hidden");
 
 }
 
-if (doubleJ == true) {	
+if (doubleJ == 'true') {	
 
 $('#venueC2Double').css("visibility", "visible");
 $('#venueC7Double').css("visibility", "visible");
 
 
-}  else if (doubleJ == false) {
+}  else if (doubleJ == 'false') {
 
 $('#venueC2Double').css("visibility", "hidden");
 $('#venueC7Double').css("visibility", "hidden");
 
 }
 
-if (doubleK == true) {	
+if (doubleK == 'true') {	
 
 $('#venueC3Double').css("visibility", "visible");
 $('#venueC6Double').css("visibility", "visible");
 
 
-}  else if (doubleK == false) {
+}  else if (doubleK == 'false') {
 
 $('#venueC3Double').css("visibility", "hidden");
 $('#venueC6Double').css("visibility", "hidden");
 
 }
-if (doubleL == true) {	
+if (doubleL == 'true') {	
 
 $('#venueC4Double').css("visibility", "visible");
 $('#venueC5Double').css("visibility", "visible");
 
 
-}  else if (doubleL == false) {
+}  else if (doubleL == 'false') {
 
 $('#venueC4Double').css("visibility", "hidden");
 $('#venueC5Double').css("visibility", "hidden");
@@ -1657,51 +1655,51 @@ $('#venueC5Double').css("visibility", "hidden");
 
 
 
-if (doubleM == true) {	
+if (doubleM == 'true') {	
 
 $('#venueD1Double').css("visibility", "visible");
 $('#venueD8Double').css("visibility", "visible");
 
 
-}  else if (doubleM == false) {
+}  else if (doubleM == 'false') {
 
 $('#venueD1Double').css("visibility", "hidden");
 $('#venueD8Double').css("visibility", "hidden");
 
 }
 
-if (doubleN == true) {	
+if (doubleN == 'true') {	
 
 $('#venueD2Double').css("visibility", "visible");
 $('#venueD7Double').css("visibility", "visible");
 
 
-}  else if (doubleN == false) {
+}  else if (doubleN == 'false') {
 
 $('#venueD2Double').css("visibility", "hidden");
 $('#venueD7Double').css("visibility", "hidden");
 
 }
 
-if (doubleO == true) {	
+if (doubleO == 'true') {	
 
 $('#venueD3Double').css("visibility", "visible");
 $('#venueD6Double').css("visibility", "visible");
 
 
-}  else if (doubleO == false) {
+}  else if (doubleO == 'false') {
 
 $('#venueD3Double').css("visibility", "hidden");
 $('#venueD6Double').css("visibility", "hidden");
 
 }
-if (doubleP == true) {	
+if (doubleP == 'true') {	
 
 $('#venueD4Double').css("visibility", "visible");
 $('#venueD5Double').css("visibility", "visible");
 
 
-}  else if (doubleP == false) {
+}  else if (doubleP == 'false') {
 
 $('#venueD4Double').css("visibility", "hidden");
 $('#venueD5Double').css("visibility", "hidden");

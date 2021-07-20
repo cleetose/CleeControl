@@ -10,12 +10,12 @@ class CustomDraft extends HTMLElement {
                 <label class="pbTitle" id="draftPlayer1">Player 1</label>
                 <label class="pbTitle2" id="draftPlayer2">Player 2</label>
                 <div class="break"></div>
-                <input class="selectType storable2" title="Blah blah blah" type="text" id="venueType1"
+                <input class="selectType storable2  draft" title="Blah blah blah" type="text" id="venueType1"
                     placeholder="Title">
                 <div class="break"></div>
                 <div class="venueSpinners">
                     <div class="scoreSpinners" id="venueSpinner1">
-                        <input class="spinBoy storable2" id="venueGroup1" type="number" name="value" value="0"
+                        <input class="spinBoy storable2 draft" id="venueTypeCount1" type="number" name="value" value="0"
                             min="0" max="4" readonly>
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                             class="down"></button>
@@ -23,46 +23,46 @@ class CustomDraft extends HTMLElement {
                             class="up"></button>
                     </div>
                 </div>
-                <select class="venueSelect storable" id="venue1">
+                <select class="venueSelect storable draft" id="venue1">
 
                 </select>
-                <input type="checkbox" id="doubleA" class="storable-ckbx2 doubleCheck" title="Double"
+                <input type="checkbox" id="doubleA" name="doubleATest" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue2">
+                <select class="venueSelect storable draft" id="venue2">
 
                 </select>
-                <select class="venueSelect storable" id="venue3">
+                <select class="venueSelect storable draft" id="venue3">
 
                 </select>
                 <input type="checkbox" id="doubleB" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue4">
+                <select class="venueSelect storable draft" id="venue4">
 
                 </select>
-                <select class="venueSelect storable" id="venue5">
+                <select class="venueSelect storable draft" id="venue5">
 
                 </select>
                 <input type="checkbox" id="doubleC" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue6">
+                <select class="venueSelect storable draft" id="venue6">
 
                 </select>
-                <select class="venueSelect storable" id="venue7">
+                <select class="venueSelect storable draft" id="venue7">
 
                 </select>
                 <input type="checkbox" id="doubleD" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue8">
+                <select class="venueSelect storable draft" id="venue8">
 
                 </select>
 
                 <div class="break"></div>
-                <input class="selectType storable2" title="Blah blah blah" type="text" id="venueType2"
+                <input class="selectType storable2 draft" title="Blah blah blah" type="text" id="venueType2"
                     placeholder="Title">
                 <div class="break"></div>
                 <div class="venueSpinners">
                     <div class="scoreSpinners" id="venueSpinner2">
-                        <input class="spinBoy storable2" id="venueGroup2" type="number" name="value" value="0"
+                        <input class="spinBoy storable2 draft" id="venueTypeCount2" type="number" name="value" value="0"
                             min="0" max="4" readonly>
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                             class="down"></button>
@@ -70,43 +70,43 @@ class CustomDraft extends HTMLElement {
                             class="up"></button>
                     </div>
                 </div>
-                <select class="venueSelect storable" id="venue9">
+                <select class="venueSelect storable draft" id="venue9">
 
                 </select>
                 <input type="checkbox" id="doubleE" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue10">
+                <select class="venueSelect storable draft" id="venue10">
 
                 </select>
-                <select class="venueSelect storable" id="venue11">
+                <select class="venueSelect storable draft" id="venue11">
 
                 </select>
                 <input type="checkbox" id="doubleF" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue12">
+                <select class="venueSelect storable draft" id="venue12">
 
                 </select>
-                <select class="venueSelect storable" id="venue13">
+                <select class="venueSelect storable draft" id="venue13">
 
                 </select>
                 <input type="checkbox" id="doubleG" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue14">
+                <select class="venueSelect storable draft" id="venue14">
 
                 </select>
-                <select class="venueSelect storable" id="venue15">
+                <select class="venueSelect storable draft" id="venue15">
 
                 </select>
                 <input type="checkbox" id="doubleH" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue16">
+                <select class="venueSelect storable draft" id="venue16">
 
                 </select>
-                <input class="selectType storable2" title="Blah blah blah" type="text" id="venueType3"
+                <input class="selectType storable2 draft" title="Blah blah blah" type="text" id="venueType3"
                     placeholder="Title">
                 <div class="venueSpinners">
                     <div class="scoreSpinners" id="venueSpinner3">
-                        <input class="spinBoy storable2" id="venueGroup3" type="number" name="value" value="0"
+                        <input class="spinBoy storable2 draft" id="venueTypeCount3" type="number" name="value" value="0"
                             min="0" max="4" readonly>
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                             class="down"></button>
@@ -114,45 +114,45 @@ class CustomDraft extends HTMLElement {
                             class="up"></button>
                     </div>
                 </div>
-                <select class="venueSelect storable" id="venue17">
+                <select class="venueSelect storable draft" id="venue17">
 
                 </select>
                 <input type="checkbox" id="doubleI" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue18">
+                <select class="venueSelect storable draft" id="venue18">
 
                 </select>
-                <select class="venueSelect storable" id="venue19">
+                <select class="venueSelect storable draft" id="venue19">
 
                 </select>
                 <input type="checkbox" id="doubleJ" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue20">
+                <select class="venueSelect storable draft" id="venue20">
 
                 </select>
-                <select class="venueSelect storable" id="venue21">
+                <select class="venueSelect storable draft" id="venue21">
 
                 </select>
                 <input type="checkbox" id="doubleK" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue22">
+                <select class="venueSelect storable draft" id="venue22">
 
                 </select>
-                <select class="venueSelect storable" id="venue23">
+                <select class="venueSelect storable draft" id="venue23">
 
                 </select>
                 <input type="checkbox" id="doubleL" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue24">
+                <select class="venueSelect storable draft" id="venue24">
 
                 </select>
                 <div class="break"></div>
-                <input class="selectType storable2" title="Blah blah blah" type="text" id="venueType4"
+                <input class="selectType storable2 draft" title="Blah blah blah" type="text" id="venueType4"
                     placeholder="Title">
                 <div class="break"></div>
                 <div class="venueSpinners">
                     <div class="scoreSpinners" id="venueSpinner4">
-                        <input class="spinBoy storable2" id="venueGroup4" type="number" name="value" value="0"
+                        <input class="spinBoy storable2 draft" id="venueTypeCount4" type="number" name="value" value="0"
                             min="0" max="4" readonly>
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
                             class="down"></button>
@@ -160,36 +160,36 @@ class CustomDraft extends HTMLElement {
                             class="up"></button>
                     </div>
                 </div>
-                <select class="venueSelect storable" id="venue25">
+                <select class="venueSelect storable draft" id="venue25">
 
                 </select>
                 <input type="checkbox" id="doubleM" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue26">
+                <select class="venueSelect storable draft" id="venue26">
 
                 </select>
-                <select class="venueSelect storable" id="venue27">
+                <select class="venueSelect storable draft" id="venue27">
 
                 </select>
                 <input type="checkbox" id="doubleN" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue28">
+                <select class="venueSelect storable draft" id="venue28">
 
                 </select>
-                <select class="venueSelect storable" id="venue29">
+                <select class="venueSelect storable draft" id="venue29">
 
                 </select>
                 <input type="checkbox" id="doubleO" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue30">
+                <select class="venueSelect storable draft" id="venue30">
 
                 </select>
-                <select class="venueSelect storable" id="venue31">
+                <select class="venueSelect storable draft" id="venue31">
 
                 </select>
                 <input type="checkbox" id="doubleP" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">
-                <select class="venueSelect storable" id="venue32">
+                <select class="venueSelect storable draft" id="venue32">
 
                 </select>
             </div>
@@ -317,7 +317,7 @@ function draftClear() {
 
 		//Displays and hides venue dropdowns based on spinboxes.
 		function checkSeason() {
-			bansCount = $('#venueGroup1').val();
+			bansCount = $('#venueTypeCount1').val();
 			if (bansCount == 0) {
 				$('#ban1Title').css('display', 'none');
 				$('#ban2Title').css('display', 'none');
@@ -405,7 +405,7 @@ function draftClear() {
 				$('#flexDraft').css('height', 'fit-content');
 			}
 
-			restrictCount = $('#venueGroup2').val();
+			restrictCount = $('#venueTypeCount2').val();
 			if (restrictCount == 0) {
 				$('#restrict1Title').css('display', 'none');
 				$('#restrict2Title').css('display', 'none');
@@ -487,7 +487,7 @@ function draftClear() {
 				$('#doubleH').css('display', 'block');
 			}
 
-			pickCount = $('#venueGroup3').val();
+			pickCount = $('#venueTypeCount3').val();
 			if (pickCount == 0) {
 				$('#pick1Title').css('display', 'none');
 				$('#pick2Title').css('display', 'none');
@@ -568,7 +568,7 @@ function draftClear() {
 				$('#doubleK').css('display', 'block');
 				$('#doubleL').css('display', 'block');
 			}
-			somethingCount = $('#venueGroup4').val();
+			somethingCount = $('#venueTypeCount4').val();
 			if (somethingCount == 0) {
 				$('#something1Title').css('display', 'none');
 				$('#something2Title').css('display', 'none');
