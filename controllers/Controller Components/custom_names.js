@@ -4,7 +4,6 @@ class PlayersScores extends HTMLElement {
 		super();
 		this.innerHTML = `
 
-
 		<p class="titleBox">Names - Scores - Characters</p>
 		<button class="accordion" id="accordionplayersPan">Expand</button>
 		<div class="panel" id="playersPan">

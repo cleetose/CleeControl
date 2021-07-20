@@ -6,7 +6,7 @@ class HiddenDraft extends HTMLElement {
 			<button class="accordion" id="accordiondraftPan">Expand</button>
 			<div class="panel" id="draftPan">
 				<div id="flexDraft">
-					<select class="storable" id="matchType">
+					<select class="storable draft" id="matchType">
 						<option defaultSelected selected="" value="1">Round 1</option>
 						<option value="2">Round 2</option>
 						<option value="3">Round 3</option>
@@ -15,7 +15,7 @@ class HiddenDraft extends HTMLElement {
 					</select>
 					<div class="break"></div>
 					<div class="break"></div>
-					<select class="venueSelect storable" id="pick1">
+					<select class="venueSelect storable draft" id="pick1">
 						<option value="" selected>Pick 1</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -31,7 +31,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="veranda">Veranda</option>
 						<option value="ban">No Ban</option>
 					</select>
-					<select class="venueSelect storable" id="pick2">
+					<select class="venueSelect storable draft" id="pick2">
 						<option value="" selected>Pick 2</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -47,7 +47,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="veranda">Veranda</option>
 						<option value="ban">No Ban</option>
 					</select>
-					<select class="venueSelect storable" id="pick3">
+					<select class="venueSelect storable draft" id="pick3">
 						<option value="" selected>Pick 3</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -63,7 +63,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="veranda">Veranda</option>
 						<option value="ban">No Ban</option>
 					</select>
-					<select class="venueSelect storable" id="pick4">
+					<select class="venueSelect storable draft" id="pick4">
 						<option value="" selected>Pick 4</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -80,7 +80,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="ban">No Ban</option>
 					</select>
 
-					<select class="venueSelect storable" id="pick5">
+					<select class="venueSelect storable draft" id="pick5">
 						<option value="" selected>Pick 5</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -96,7 +96,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="veranda">Veranda</option>
 						<option value="restriction">No Restrict</option>
 					</select>
-					<select class="venueSelect storable" id="pick6">
+					<select class="venueSelect storable draft" id="pick6">
 						<option value="" selected>Pick 6</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -112,7 +112,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="veranda">Veranda</option>
 						<option value="restriction">No Restrict</option>
 					</select>
-					<select class="venueSelect storable" id="pick7">
+					<select class="venueSelect storable draft" id="pick7">
 						<option value="" selected>Pick 7</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -128,7 +128,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="veranda">Veranda</option>
 						<option value="restriction">No Restrict</option>
 					</select>
-					<select class="venueSelect storable" id="pick8">
+					<select class="venueSelect storable draft" id="pick8">
 						<option value="" selected>Pick 8</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -145,7 +145,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="restriction">No Restrict</option>
 					</select>
 
-					<select class="venueSelect storable" id="pick9">
+					<select class="venueSelect storable draft" id="pick9">
 						<option value="" selected>Pick 9</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
@@ -160,7 +160,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
 					</select>
-					<select class="venueSelect storable" id="pick10">
+					<select class="venueSelect storable draft" id="pick10">
 						<option value="" selected>Pick 10</option>
 						<option value="aquarium">Aquarium</option>
 						<option value="balcony">Balcony</option>
