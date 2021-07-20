@@ -32,7 +32,14 @@
 
         bc.onmessage = function (ev) {
             const received_data = ev.data;
-            var { hostName, casterNames, colorA, colorB, colorC, colorD, colorE } = received_data;
+            var { casterbannerVars } = received_data;
+
+            varSplitter = [];
+			for (let i = 0; i < casterbannerVars.length; i++) {
+				varSplitter = casterbannerVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+				
+			}
 
             const colorShade = (col, amt) => {
                 col = col.replace(/^#/, '')

@@ -10,7 +10,7 @@
 
 			var pName1;
 			var pName1Old;
-		var pName2Old;
+			var pName2Old;
 			var pScore1;
             var pScore1Paste;
             var pScore1Int = 0;
@@ -19,7 +19,7 @@
             var pScore2Paste;
             var pScore2Int = 0;
 			var pScoreTotal = 0;
-			var Sniper;
+			var sniper;
 			var FinalValue = 0;	
 			var Blank;
 			var StopA;
@@ -48,7 +48,7 @@
             var colorEOld;
             var colorADarkOld;
             var colorBDarkOld;
-
+			var varTest;
 		
 
 		
@@ -125,8 +125,16 @@
 			
 		bc.onmessage = function(ev) {
             const received_data = ev.data;
-            var {pName1, pName2, pCountry1, pCountry2, pScore1, pScore2, Rolla, Sniper, pDivision1, pDivision2, behavior,
-			colorA, colorB, colorC, colorD, colorE} = received_data;
+            var {scoreBoardVars} = received_data;
+
+			varSplitter = [];
+			for (let i = 0; i < scoreBoardVars.length; i++) {
+				varSplitter = scoreBoardVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+				
+			}
+			console.log(behavior);
+			console.log(sniper);
 
             const colorShade = (col, amt) => {
   col = col.replace(/^#/, '')
@@ -185,7 +193,7 @@
 				}
 
 
-            FinalValue = parseInt(pScore1) + parseInt(pScore2) + parseInt(Sniper);
+            FinalValue = parseInt(pScore1) + parseInt(pScore2) + parseInt(sniper);
             console.log(Rolla);
 
 				if ((pName1Old != pName1) && (pName1 != "☭LEV☭TROTSKIJ☭")) {

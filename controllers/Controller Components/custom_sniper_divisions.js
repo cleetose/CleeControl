@@ -8,21 +8,22 @@ class SnipersDivs extends HTMLElement {
 		<button class="accordion" id="accordionrollsPan">Expand</button>
 		<div class="panel" id="rollsPan">
 			<form id="behave">
-				<select class="storable" id="behavior">
+				<select class="storable scoreBoard" id="behavior">
 					<option value="radioBased" selected>Double Update to Change Rolls</option>
 					<option value="scoreBased">Single Update to Change Rolls</option>
 				</select>
 			</form>
 			<div id="rollSelector">
-				<input type="radio" class="storable-ckbx" id="rollSelectorA" name="sniper" value="0" checked>
+				<input type="radio" class="storable-ckbx scoreBoard" id="rollSelectorA" name="sniper" value="0" checked>
 				<label for="rollSelectorA" id="pRadio1">Player One First Sniper</label>
 				<br>
 				<input type="radio" class="storable-ckbx" id="rollSelectorB" name="sniper" value="1">
 				<label for="rollSelectorB" id="pRadio2">Player Two First Sniper</label>
+				<input type="text" class="scoreBoard" id="sniper" style="display:none">
 			</div>
 			<br>
 			<div id="divContent">
-				<select class="storable" id="pDivision1">
+				<select class="storable scoreBoard draft" id="pDivision1">
 					<option value="" selected>Player 1 Division</option>
 					<option value="diamond">Diamond</option>
 					<option value="platinum">Platinum</option>
@@ -37,7 +38,7 @@ class SnipersDivs extends HTMLElement {
 					<option value="aluminum">Aluminum</option>
 					<option value="bamboo">Bamboo</option>
 				</select>
-				<select class="storable" title="Only use for multi-divisional matches" id="pDivision2">
+				<select class="storable scoreBoard draft" title="Only use for multi-divisional matches" id="pDivision2">
 					<option value="" selected>Player 2 Division</option>
 					<option value="diamond">Diamond</option>
 					<option value="platinum">Platinum</option>
@@ -66,6 +67,11 @@ var pDivision2;
 var Sniper;
 var behavior;
 
+function sniperVal() {
+	$('#sniper').val($("input[name='sniper']:checked").val());
+}
+
+setInterval(() => (sniperVal()), 200);
 		//Clear button for Divisions Division
 		document.getElementById("resetter").addEventListener("click", function () {
 			$('#pDivision1').val('');

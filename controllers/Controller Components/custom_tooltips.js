@@ -8,9 +8,9 @@ class ToolTips extends HTMLElement {
             <div id="flexTips">
                 <label for="cTipName" id="custom">Custom Tooltips</label>
                 <label for="tText" id="premade">Premade Tooltips</label>
-                <input class="storable" title="This is a tooltip about tooltips" type="text" id="cTipName"
+                <input class="storable tooltips" title="This is a tooltip about tooltips" type="text" id="cTipName"
                     placeholder="Title">
-                <select class="storable"
+                <select class="storable tooltips"
                     title="Will not drop for the same selection twice in a row (select Reset/Blank and then update if you want to get around that)."
                     id="tText">
                     <option value="">Reset/Blank</option>
@@ -47,7 +47,7 @@ class ToolTips extends HTMLElement {
                         value="Overtime;If the spy completes a mission in the last seconds, the game will go into overtime. If mission is pending, the clock will hang at 00:00 till it's completed.">
                         Overtime</option>
                 </select>
-                <textarea class="storable"
+                <textarea class="storable tooltips"
                     title="Tooltip will not appear if descrition is blank (enter a single space if you want a descriptionless tooltip). Will also not drop for the same Description twice in a row."
                     id="cTipDesc" placeholder="Description"></textarea>
             </div>

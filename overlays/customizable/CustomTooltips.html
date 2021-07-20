@@ -40,7 +40,14 @@
 			
 			bc.onmessage = function(ev) {
 				const received_data = ev.data;
-            var {tText, cTipName, cTipDesc, colorA, colorB, colorC, colorD, colorE} = received_data;
+            var {tooltipsVars} = received_data;
+
+			varSplitter = [];
+			for (let i = 0; i < tooltipsVars.length; i++) {
+				varSplitter = tooltipsVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+				
+			}
 
 			const colorShade = (col, amt) => {
   col = col.replace(/^#/, '')
