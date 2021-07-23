@@ -1,0 +1,349 @@
+@font-face {
+    font-family: JosefinSans;
+    src: url('../../../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansBold;
+    src: url('../../../fonts/JosefinSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Agency;
+    src: url('../../../fonts/Agency_FB_Bold.ttf');
+}
+
+body {
+	overflow:hidden;
+	margin:0px;
+	background-color: rgba(0, 0, 0, 0);
+	font-family: 'JosefinSansBold';
+	color:#f2e5ad;
+}
+
+
+#pName1 {
+	position:absolute;
+	top:68px;
+	left:-1000px;
+	width:860px;
+	height:150px;
+	font-size:64px;
+	font-family: 'JosefinSansBold';
+	color: #380a15;
+	text-align:end;
+	z-index:8;
+}
+
+#boardA {
+	position:absolute;
+	top:-2500px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/PBBG.png);
+	z-index:0;
+}
+
+#pName2 {
+	position:absolute;
+	top:68px;
+	left:2050px;
+	width:860px;
+	height:80px;
+	font-size:64px;
+	font-family: 'JosefinSansBold';
+	color: #f2e5ad;
+	text-align:left;
+	z-index:8;
+}
+
+
+#NameR {
+	position:absolute;
+	top:0px;
+	left:5000px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/RightName.png);
+	z-index:6;
+}
+
+#NameL {
+	position: absolute;
+	top:0px;
+	left:-5000px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/LeftName.png);
+	z-index:6;
+}
+
+#MiddleT {
+	position:absolute;
+	top:-2500px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/MiddleTriangle.png);
+	z-index:4;
+}
+
+#P1BBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/BanBox.png);
+	z-index:2;
+}
+
+
+#P1RBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/RestrictBoxA.png);
+	z-index:2;
+}
+
+
+#P1PBox {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1920px;
+	height:1080px;
+	background-image:url(../images_draft/PickBox.png);
+	z-index:2;
+}
+
+
+
+#pDivision1 {
+	position:absolute;
+	top:-1040px;
+	left:772px;
+	width:400px;
+	height:400px;
+	background-repeat:no-repeat;
+	color: rgba(0, 0, 0, 0);
+	z-index:5;
+}
+
+#pDivision2 {
+	position:absolute;
+	top:-760px;
+	left:818px;
+	width:300px;
+	height:300px;
+	background-repeat:no-repeat;
+	color: rgba(0, 0, 0, 0);
+	z-index:5;
+}
+
+#Bans1 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Bans2 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	z-index:3;
+}
+
+
+#Bans3 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	z-index:3;
+}
+
+
+#Bans4 {
+	position:absolute;
+	top:280px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	z-index:3;
+}
+
+#Restrict1 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Restrict2 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Restrict3 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Restrict4 {
+	position:absolute;
+	top:574px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;	
+	background-size: contain;
+	z-index:3;
+}
+
+#Pick1 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+
+	z-index:3;
+}
+
+#Pick2 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick3 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick4 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick5 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}
+
+#Pick6 {
+	position:absolute;
+	top:865px;
+	left:800px;
+	width:342px;
+	height:195px;
+	font-size:80px;
+	color: rgba(0, 0, 0, 0);
+	font-family: 'Agency_FB';
+	text-align:center;
+	background-repeat:no-repeat;
+	z-index:3;
+}

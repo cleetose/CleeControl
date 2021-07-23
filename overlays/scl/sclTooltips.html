@@ -1,0 +1,171 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/scltooltip.css" type="text/css" charset="utf-8">
+	<script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+		var timestampOld;
+		var timestamp;
+		var tText;
+		var cTipName;
+		var cTipDesc;
+		var xmlDoc;
+
+		var tTextOld;
+		var TitleHeight;
+		var Pluser = 50;
+		var Blank = "blank";
+		var Blank2 = "";
+
+
+		function init() {
+
+
+			$('#tText').html('');
+
+
+		}
+
+		const bc = new BroadcastChannel('tooltip');
+
+
+
+		bc.onmessage = function (ev) {
+			const received_data = ev.data;
+			var { tooltipsVars } = received_data;
+
+			varSplitter = [];
+			for (let i = 0; i < tooltipsVars.length; i++) {
+				varSplitter = tooltipsVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+
+			}
+
+			if (tText != null) {
+					var tTipArr = tText.split(';');
+				}
+
+			console.log(tTipArr[1]);
+			if ((tTextOld != tTipArr[1]) && (tTipArr[1] != null)) {
+				anime({
+					targets: '#tText',
+					opacity: 0,
+					duration: 250,
+					delay: 0,
+					easing: 'easeOutQuad',
+					complete: function () {
+						$('#tText').html(tTipArr[1]);
+						$('#tName').html(tTipArr[0]);
+						tTextOld = tTipArr[1];
+						PluserPre = $('#tName').height() + 60;
+
+
+						anime({
+							targets: '#tName',
+							top: [
+								{ value: [-1000, 24], duration: 1000, delay: 0 },
+								{ value: [24, -1000], duration: 1000, delay: 9750 }
+							],
+							opacity: 0.95,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+						});
+
+						anime({
+							targets: '#tText',
+
+							top: [
+								{ value: [-1000, PluserPre], duration: 1100, delay: 1200 },
+								{ value: [PluserPre, -1000], duration: 1100, delay: 8000 }
+							],
+							opacity: 0.85,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+							complete: function () {
+
+							}
+						});
+
+					}
+				});
+
+
+			}
+
+
+			else {
+				$('#tText').html(tText);
+			}
+
+			if (($('#cTipDesc').html() != cTipDesc) && (cTipDesc != '')) {
+
+				$('#cTipDesc').html(cTipDesc);
+				$('#cTipName').html(cTipName);
+				Pluser = $('#cTipName').height() + 60;
+
+
+				anime({
+					targets: '#cTipName',
+					top: [
+						{ value: [-1000, 24], duration: 1000, delay: 0 },
+						{ value: [24, -1000], duration: 1000, delay: 9750 }
+					],
+					opacity: 0.95,
+					duration: 500,
+					delay: 0,
+					easing: 'easeOutQuad',
+
+				});
+
+				anime({
+					targets: '#cTipDesc',
+					top: [
+						{ value: [-1000, Pluser], duration: 1100, delay: 1200 },
+						{ value: [Pluser, -1000], duration: 1100, delay: 8000 }
+					],
+					opacity: 0.85,
+					duration: 500,
+					delay: 0,
+					easing: 'easeOutQuad',
+
+					complete: function () {
+
+					}
+				});
+
+
+			}
+
+			else {
+				$('#cTipDesc').html(cTipDesc);
+				$('#cTipName').html(cTipName);
+				Pluser = $('#cTipName').height() + 80;
+			}
+
+
+
+
+
+		}
+
+
+
+	</script>
+	<title>Custom SpyParty Tooltips Overlay</title>
+</head>
+
+<body onLoad="init()">
+	<div id="tName"></div>
+	<div id="tText">
+		Test test test</div>
+	<div id="cTipDesc"></div>
+	<div id="cTipName"></div>
+</body>
+
+</html>

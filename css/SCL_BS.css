@@ -647,12 +647,14 @@ input[type=number]:focus {outline:none !important}
 
 #matchType {
 	margin: 5px 0px 6px 4px;
+
 }
 
 .venueSpinners {
-	display: flex;
+	display: none;
 	justify-content: center;
 	width: 100%;
+
 }
 
 .selectType {
@@ -664,6 +666,7 @@ input[type=number]:focus {outline:none !important}
 	text-align: center;
 	font-family: JosefinSansRegular;
 	color: white;
+    font-size: 16pt;
 }
 
 

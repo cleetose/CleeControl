@@ -48,6 +48,7 @@ color: white;
             <select id="controllerType">
                 <option value="1">Customizable</option>
                 <option value="2">Hidden Cup</option>
+                <option value="3">SCL</option>
             </select>
         </div>
 
@@ -73,7 +74,9 @@ const overlaySwitch = new BroadcastChannel('ovSwitch');
                 case "1": document.getElementById("controller").src = 'controllers/CustomCleeControllerDock.html';
                 break;
                 case "2": document.getElementById("controller").src = 'controllers/HCControl.html';
-
+                break;
+                case "3": document.getElementById("controller").src = 'controllers/SCLController.html';
+                break;
             }
             overlayType =  $('#controllerType').val();
             overlaySwitch.postMessage({
