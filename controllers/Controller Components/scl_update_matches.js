@@ -25,6 +25,8 @@ class CustomUpdateMatches extends HTMLElement {
     }
 }
 
+window.customElements.define('custom-update-matches', CustomUpdateMatches);
+
 const pbc = new BroadcastChannel("picks");
 const sbc = new BroadcastChannel("score");
 const tbc = new BroadcastChannel('tooltip');
@@ -32,11 +34,10 @@ const cbbc = new BroadcastChannel('casterBanner');
 
 var scoreBoardVars;
 var draftVars;
-var doubleChk;
 var tooltipsVars;
 var casterbannerVars;
 
-window.customElements.define('custom-update-matches', CustomUpdateMatches);
+
 
 
 
@@ -79,12 +80,12 @@ function chkbxSaver(className) {
 function pleaseWork() {
     scoreBoardVars = inputSaver('scoreBoard');
     draftVars = inputSaver('draft');
-    doubleChk = chkbxSaver('doubleCheck');
+
     tooltipsVars = inputSaver('tooltips');
     casterbannerVars = inputSaver('banner');
 
     pbc.postMessage({
-        draftVars, doubleChk
+        draftVars
     });
     sbc.postMessage({
         scoreBoardVars
@@ -104,7 +105,7 @@ document.getElementById("weee").addEventListener("click", pleaseWork);
 //Send current variable states when Draft overlay initializes
 pbc.onmessage = function () {
     pbc.postMessage({
-        draftVars, doubleChk
+        draftVars
     });
 };
 

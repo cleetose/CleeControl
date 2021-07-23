@@ -1,0 +1,78 @@
+@font-face {
+    font-family: JosefinSans;
+    src: url('../../../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansBold;
+    src: url('../../../fonts/JosefinSans-SemiBold.ttf');
+}
+
+:root {
+    --left-bg-color: #f2e5ad;
+    --right-bg-color: #380a15;
+    --right-dark-bg-color: #380a15;
+    --left-dark-bg-color: #380a15;
+    --left-text-color: #b2122c;
+    --right-text-color: #000000;
+    --divider-bg-color: rgb(231, 231, 231);
+}
+
+body {
+    width: 1920px;
+    height: 1080px;
+    font-family: JosefinSans;
+    overflow: hidden;
+    margin: 0px
+}
+
+span {
+    position: relative;
+    top: 2px;
+    font-size: 18pt;
+}
+
+.bannerContainer {
+    width: fit-content;
+    height: fit-content; 
+    background-color: var(--left-dark-bg-color);
+    clip-path: polygon(0 0, 100% 0%, 92.6% 100%, 0% 100%);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)65%,rgba(255, 255, 255, 0.20));
+    padding: 4px;
+    padding-right: 6px;
+}
+
+.banner {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--left-bg-color);
+    clip-path: polygon(0 0, 98.9% 0%, 93% 100%, 0% 100%);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.25));
+    padding: 2px;
+    padding-right: 30px;
+}
+
+#host {
+    margin-right: 10px;
+    font-family: JosefinSansBold;
+    color: var(--right-text-color);
+}
+
+#casters {
+    margin-left: 50px;
+    margin-right: 10px;
+    font-family: JosefinSansBold;
+    color: var(--right-text-color);
+}
+
+#hostName {
+    margin-right: 50px;
+    color: var(--left-text-color);
+}
+
+#casterNames {
+    margin-right: 60px;
+    color: var(--left-text-color);
+}

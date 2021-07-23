@@ -1,0 +1,1294 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="css/stylesheet_Picks_Broadcast.css" type="text/css" charset="utf-8">
+    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var timestampOld;
+		var timestamp;
+		var pName1;
+		var pName2;
+		var Bans1;
+		var Bans2;
+		var Bans3;
+		var Bans4;
+		var Restrict1;
+		var Restrict2;
+		var Restrict3;
+		var Restrict4;
+		var Pick1;
+		var Pick2;
+		var Pick3;
+		var Pick4;
+		var Pick5;
+		var Pick6;
+		var venue1;
+		var venue2;
+		var venue3;
+		var venue4;
+		var venue5;
+		var venue6;
+		var venue7;
+		var venue8;
+		var venue9;
+		var venue10;
+		var pDivision1;
+		var pDivision2;
+		var match;
+		var Blank;
+		var animate;
+		var starter;
+		var venueDecoder;
+		var venueDecoder2;
+		var venueSeparator;
+		var re;
+		var re2;
+		var xmlDoc;
+
+
+
+
+
+		function init() {
+
+			Blank = "blank";
+			$('#pName1').html('');
+			$('#pName2').html('');
+			$('#Bans1').html('');
+			$('#Bans2').html('');
+			$('#Bans3').html('');
+			$('#Bans4').html('');
+			$('#Pick1').html('');
+			$('#Pick2').html('');
+			$('#Pick3').html('');
+			$('#Pick4').html('');
+			$('#Pick5').html('');
+			$('#Pick6').html('');
+			$('#pDivision1').html('');
+			$('#pDivision2').html('');
+			bc.postMessage('hello');
+			anime({
+				targets: '#NameL',
+				translateX:
+					{ value: 5000, duration: 1200, easing: 'easeOutQuad' },
+
+
+			});
+
+			anime({
+				targets: '#NameR',
+				translateX:
+					{ value: -5000, duration: 1200, easing: 'easeOutQuad' },
+
+
+			});
+
+
+			anime({
+				targets: '#pName1',
+				translateX:
+					{ value: 1000, duration: 1800, delay: 1000, easing: 'easeOutQuad' }
+
+
+
+			});
+
+			anime({
+				targets: '#pName2',
+				translateX:
+					{ value: -1000, duration: 1800, delay: 1000, easing: 'easeOutQuad' }
+
+
+
+			});
+
+			anime({
+				targets: '#MiddleT',
+				translateY:
+					{ value: 2600, duration: 1000, delay: 1000, easing: 'easeOutCubic' }
+
+
+
+			});
+
+			anime({
+				targets: '#pDivision1',
+				translateY:
+					{ value: 1410, duration: 1020, delay: 1120, easing: 'easeOutCubic' }
+
+
+
+			});
+
+			anime({
+				targets: '#pDivision2',
+				translateY:
+					{ value: 1440, duration: 1040, delay: 1100, easing: 'easeOutCubic' }
+
+
+
+			});
+
+
+
+			anime({
+				targets: '#boardA',
+				translateY:
+					{ value: 2500, duration: 1500, delay: 1200, easing: 'easeOutCubic' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#P1BBox',
+				scaleX: [
+					{ value: 0.1, duration: 50, delay: 0, easing: 'easeOutCubic' },
+					{ value: 1, duration: 1050, delay: 2600, easing: 'easeOutCubic' }
+				]
+
+			});
+
+			anime({
+				targets: '#P1RBox',
+				scaleX: [
+					{ value: 0.1, duration: 50, delay: 0, easing: 'easeOutCubic' },
+					{ value: 1, duration: 1050, delay: 3000, easing: 'easeOutCubic' }
+				]
+
+			});
+
+			anime({
+				targets: '#P1PBox',
+				scaleX: [
+					{ value: 0.05, duration: 50, delay: 0, easing: 'easeOutCubic' },
+					{ value: 1, duration: 1150, delay: 3400, easing: 'easeOutCubic' }
+				]
+
+			});
+
+
+			anime({
+				targets: '#Bans1',
+				translateX:
+					{ value: -760, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+			});
+
+
+			anime({
+				targets: '#Bans2',
+				translateX:
+					{ value: 840, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+			anime({
+				targets: '#Bans3',
+				translateX:
+					{ value: -500, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Bans4',
+				translateX:
+					{ value: 580, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Restrict1',
+				translateX:
+					{ value: -760, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Restrict2',
+				translateX:
+					{ value: 840, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+			anime({
+				targets: '#Restrict3',
+				translateX:
+					{ value: -500, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Restrict4',
+				translateX:
+					{ value: 580, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Pick1',
+				scaleX: [
+					{ value: 0.1, duration: 10 },
+					{ value: 1, duration: 400, delay: 3700, easing: 'easeOutQuad' }
+				],
+				translateX:
+					{ value: -760, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Pick2',
+				scaleX: [
+					{ value: 0.1, duration: 10 },
+					{ value: 1, duration: 400, delay: 3700, easing: 'easeOutQuad' }
+				],
+				translateX:
+					{ value: 840, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+			anime({
+				targets: '#Pick3',
+				scaleX: [
+					{ value: 0.1, duration: 10 },
+					{ value: 1, duration: 400, delay: 3700, easing: 'easeOutQuad' }
+				],
+				translateX:
+					{ value: -500, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Pick4',
+				scaleX: [
+					{ value: 0.1, duration: 10 },
+					{ value: 1, duration: 400, delay: 3700, easing: 'easeOutQuad' }
+				],
+				translateX:
+					{ value: 580, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+			anime({
+				targets: '#Pick5',
+				scaleX: [
+					{ value: 0.1, duration: 10 },
+					{ value: 1, duration: 400, delay: 3700, easing: 'easeOutQuad' }
+				],
+				translateX:
+					{ value: -240, duration: 1500, delay: 3700, easing: 'easeOutQuad' }
+
+
+
+			});
+
+
+			anime({
+				targets: '#Pick6',
+				scaleX: [
+					{ value: 0.1, duration: 10 },
+					{ value: 1, duration: 400, delay: 3700, easing: 'easeOutQuad' }
+				],
+				translateX:
+					{ value: 320, duration: 1500, delay: 3700, easing: 'easeOutQuad' },
+
+				complete: function () {
+					starter = "go";
+				}
+
+
+			});
+
+
+
+		}
+
+
+
+		const bc = new BroadcastChannel('picks');
+
+
+		bc.onmessage = function (ev) {
+			const received_data = ev.data;
+			var { draftVars } = received_data;
+
+			varSplitter = [];
+			for (let i = 0; i < draftVars.length; i++) {
+				varSplitter = draftVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+
+			}
+
+			
+
+			console.log(matchType);
+
+
+			if (venueDecoder != '') {
+				venueSeparator = venueDecoder.match(/Aquarium|Ballroom|Balcony|Courtyard|Gallery|High-Rise|Library|Moderne|Pub|Redwoods|Teien|Terrace|Veranda|Nothing/g);
+				re = new RegExp(pName1.toLowerCase() + '|' + pName2.toLowerCase(), 'g');
+				re2 = venueDecoder.match(re);
+				venue1 = venueSeparator[0];
+				venue2 = venueSeparator[1];
+				venue3 = venueSeparator[2];
+				venue4 = venueSeparator[3];
+				venue5 = venueSeparator[4];
+				venue6 = venueSeparator[5];
+				venue7 = venueSeparator[6];
+				venue8 = venueSeparator[7];
+				venue9 = venueSeparator[8];
+				venue10 = venueSeparator[9];
+				venueSeparator.length = 0;
+
+			}
+
+
+			if ($('#pName1').html() != pName1) {
+				anime({
+					targets: '#pName1',
+					opacity: 0,
+					duration: 500,
+					delay: 0,
+					easing: 'easeOutQuad',
+					complete: function () {
+						document.getElementById("pName1").innerHTML = pName1;
+
+						anime({
+							targets: '#pName1',
+							top: { value: 68, duration: 0, delay: 550 },
+							opacity: [0, 1],
+							duration: 600,
+							delay: 600,
+							easing: 'easeOutQuad',
+							complete: function () {
+								
+							},
+
+						});
+					},
+
+				});
+			}
+
+			if ($('#pName2').html() != pName2) {
+				
+
+				anime({
+					targets: '#pName2',
+					opacity: 0,
+					duration: 500,
+					delay: 0,
+					easing: 'easeOutQuad',
+					complete: function () {
+						$('#pName2').html(pName2);
+
+						anime({
+							targets: '#pName2',
+							top: { value: 68, duration: 0, delay: 550 },
+							opacity: [0, 1],
+							duration: 600,
+							delay: 600,
+							easing: 'easeOutQuad',
+							complete: function () {
+								
+							},
+
+						});
+					},
+
+				});
+
+
+			}
+
+			if (matchType != "championship") {
+				$('#P1RBox').css("background-image", "url(images_draft/RestrictBoxA.png)");
+				$('#P1PBox').css("background-image", "url(images_draft/PickBox.png)");
+			} else {
+				$('#P1RBox').css("background-image", "url(images_draft/RestrictBoxB.png)");
+				$('#P1PBox').css("background-image", "url(images_draft/SinglePickBox.png)");
+			}
+
+			if (venueDecoder != "") {
+
+				if ($('#Bans1').html() != venue1) {
+					
+
+					anime({
+						targets: '#Bans1',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Bans1').css("background-image", "url(images_venues/" + venue1 + ".png)");
+							$('#Bans1').html(venue1);
+
+							anime({
+								targets: '#Bans1',
+								translateX: [0, -760],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+				if ($('#Bans2').html() != venue2) {
+					
+
+					anime({
+						targets: '#Bans2',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Bans2').css("background-image", "url(images_venues/" + venue2 + ".png)");
+							$('#Bans2').html(venue2);
+
+							anime({
+								targets: '#Bans2',
+								translateX: [0, 840],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+				if ($('#Restrict1').html() != venue3) {
+					
+
+					anime({
+						targets: '#Restrict1',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Restrict1').css("background-image", "url(images_venues/" + venue3 + ".png)");
+							$('#Restrict1').html(venue3);
+
+							anime({
+								targets: '#Restrict1',
+								translateX: [0, -760],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+				if ($('#Restrict2').html() != venue4) {
+					
+
+					anime({
+						targets: '#Restrict2',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Restrict2').css("background-image", "url(images_venues/" + venue4 + ".png)");
+							$('#Restrict2').html(venue4);
+
+							anime({
+								targets: '#Restrict2',
+								translateX: [0, 840],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick1').html() != venue5) {
+					
+
+					anime({
+						targets: '#Pick1',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick1').css("background-image", "url(images_venues/double" + venue5 + ".png)");
+							$('#Pick1').html(venue5);
+
+							anime({
+								targets: '#Pick1',
+								translateX: [0, -760],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+				if ($('#Pick2').html() != venue6) {
+					
+					anime({
+						targets: '#Pick2',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick2').css("background-image", "url(images_venues/double" + venue6 + ".png)");
+							$('#Pick2').html(venue6);
+
+							anime({
+								targets: '#Pick2',
+								translateX: [80, 840],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+
+				}
+
+				if ($('#Pick3').html() != venue7) {
+					
+
+					anime({
+						targets: '#Pick3',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick3').css("background-image", "url(images_venues/" + venue7 + ".png)");
+							$('#Pick3').html(venue7);
+
+							anime({
+								targets: '#Pick3',
+								translateX: [0, -500],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick4').html() != venue8) {
+					
+
+					anime({
+						targets: '#Pick4',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick4').css("background-image", "url(images_venues/" + venue8 + ".png)");
+							$('#Pick4').html(venue8);
+
+							anime({
+								targets: '#Pick4',
+								translateX: [80, 580],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick5').html() != venue9) {
+					
+
+					anime({
+						targets: '#Pick5',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick5').css("background-image", "url(images_venues/" + venue9 + ".png)");
+							$('#Pick5').html(venue9);
+
+							anime({
+								targets: '#Pick5',
+								translateX: [0, -240],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick6').html() != venue10) {
+					
+
+					anime({
+						targets: '#Pick6',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick6').css("background-image", "url(images_venues/" + venue10 + ".png)");
+							$('#Pick6').html(venue10);
+
+							anime({
+								targets: '#Pick6',
+								translateX: [80, 320],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+
+
+
+
+
+			} else {
+
+				if ($('#Bans1').html() != ban11) {
+					
+
+					anime({
+						targets: '#Bans1',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Bans1').css("background-image", "url(images_venues/" + ban11 + ".png)");
+							$('#Bans1').html(ban11);
+
+							anime({
+								targets: '#Bans1',
+								translateX: [0, -760],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+
+				if ($('#Bans2').html() != ban12) {
+					
+
+					anime({
+						targets: '#Bans2',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Bans2').css("background-image", "url(images_venues/" + ban12 + ".png)");
+							$('#Bans2').html(ban12);
+
+							anime({
+								targets: '#Bans2',
+								translateX: [0, 840],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+				}
+
+				if ($('#Bans3').html() != ban21) {
+					
+
+					anime({
+						targets: '#Bans3',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Bans3').css("background-image", "url(images_venues/" + ban21 + ".png)");
+							$('#Bans3').html(ban21);
+
+							anime({
+								targets: '#Bans3',
+								translateX: [0, -500],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+				}
+
+				if ($('#Bans4').html() != ban22) {
+					
+
+					anime({
+						targets: '#Bans4',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Bans4').css("background-image", "url(images_venues/" + ban22 + ".png)");
+							$('#Bans4').html(ban22);
+
+							anime({
+								targets: '#Bans4',
+								translateX: [0, 580],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+				}
+
+
+
+				if ($('#Restrict1').html() != restrict11) {
+					
+
+					anime({
+						targets: '#Restrict1',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Restrict1').css("background-image", "url(images_venues/" + restrict11 + ".png)");
+							$('#Restrict1').html(restrict11);
+
+							anime({
+								targets: '#Restrict1',
+								translateX: [0, -760],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+				if ($('#Restrict2').html() != restrict12) {
+					
+
+					anime({
+						targets: '#Restrict2',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Restrict2').css("background-image", "url(images_venues/" + restrict12 + ".png)");
+							$('#Restrict2').html(restrict12);
+
+							anime({
+								targets: '#Restrict2',
+								translateX: [0, 840],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Restrict3').html() != restrict21) {
+					
+
+					anime({
+						targets: '#Restrict3',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Restrict3').css("background-image", "url(images_venues/" + restrict21 + ".png)");
+							$('#Restrict3').html(restrict21);
+
+							anime({
+								targets: '#Restrict3',
+								translateX: [0, -500],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+				}
+
+				if ($('#Restrict4').html() != restrict22) {
+					
+
+					anime({
+						targets: '#Restrict4',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Restrict4').css("background-image", "url(images_venues/" + restrict22 + ".png)");
+							$('#Restrict4').html(restrict22);
+
+							anime({
+								targets: '#Restrict4',
+								translateX: [0, 580],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+				if ($('#Pick1').html() != pick11) {
+					
+
+					anime({
+						targets: '#Pick1',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							if (matchType != "championship") {
+								$('#Pick1').css("background-image", "url(images_venues/double" + pick11 + ".png)");
+							} else {
+								$('#Pick1').css("background-image", "url(images_venues/" + pick11 + ".png)");
+							}
+							$('#Pick1').html(pick11);
+
+							anime({
+								targets: '#Pick1',
+								translateX: [0, -760],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+				}
+
+				if ($('#Pick2').html() != pick12) {
+					
+
+					anime({
+						targets: '#Pick2',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							if (matchType != "championship") {
+								$('#Pick2').css("background-image", "url(images_venues/double" + pick12 + ".png)");
+							} else {
+								$('#Pick2').css("background-image", "url(images_venues/" + pick12 + ".png)");
+							}
+							$('#Pick2').html(pick12);
+
+							anime({
+								targets: '#Pick2',
+								translateX: [80, 840],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+
+				}
+
+				if ($('#Pick3').html() != pick21) {
+					
+
+					anime({
+						targets: '#Pick3',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick3').css("background-image", "url(images_venues/" + pick21 + ".png)");
+							$('#Pick3').html(pick21);
+
+							anime({
+								targets: '#Pick3',
+								translateX: [0, -500],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick4').html() != pick22) {
+					
+
+					anime({
+						targets: '#Pick4',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick4').css("background-image", "url(images_venues/" + pick22 + ".png)");
+							$('#Pick4').html(pick22);
+
+							anime({
+								targets: '#Pick4',
+								translateX: [80, 580],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick5').html() != pick31) {
+					
+
+					anime({
+						targets: '#Pick5',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick5').css("background-image", "url(images_venues/" + pick31 + ".png)");
+							$('#Pick5').html(pick31);
+
+							anime({
+								targets: '#Pick5',
+								translateX: [0, -240],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+				if ($('#Pick6').html() != pick32) {
+					
+
+					anime({
+						targets: '#Pick6',
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function () {
+							$('#Pick6').css("background-image", "url(images_venues/" + pick32 + ".png)");
+							$('#Pick6').html(pick32);
+
+							anime({
+								targets: '#Pick6',
+								translateX: [80, 320],
+								opacity: 1,
+								duration: 600,
+								delay: 250,
+								easing: 'easeOutQuad',
+								complete: function () {
+									
+								}
+							});
+						}
+
+					});
+
+
+				}
+
+			}
+
+			if (($('#pDivision1').html() != pDivision1) && (pDivision1 != '')) {
+				
+
+				anime({
+					targets: '#pDivision1',
+					opacity: 0,
+					duration: 250,
+					delay: 0,
+					easing: 'easeOutQuad',
+					complete: function () {
+						$('#pDivision1').html(pDivision1);
+						$('#pDivision1').css("background-image", "url(images_badges/" + pDivision1 + ".svg)");
+						console.log(pDivision1);
+						anime({
+							targets: '#pDivision1',
+							opacity: .80,
+							duration: 250,
+							delay: 250,
+							easing: 'easeOutQuad',
+							complete: function () {
+								
+							}
+						});
+
+					}
+				});
+
+			}
+
+			if (($('#pDivision2').html() != pDivision2)) {
+				
+
+				anime({
+					targets: '#pDivision2',
+					opacity: 0,
+					duration: 250,
+					delay: 0,
+					easing: 'easeOutQuad',
+					complete: function () {
+						$('#pDivision2').html(pDivision2);
+						$('#pDivision2').css("background-image", "url(images_badges/" + pDivision2 + ".svg)");
+						anime({
+							targets: '#pDivision2',
+							opacity: .80,
+							duration: 250,
+							delay: 250,
+							easing: 'easeOutQuad',
+							complete: function () {
+								
+							}
+						});
+
+					}
+				});
+			}
+
+
+			
+		}
+
+
+	</script>
+</head>
+
+<body onLoad="init()">
+	<div id="pName1">Test</div>
+	<div id="NameL"></div>
+	<div id="pName2"></div>
+	<div id="NameR"></div>
+	<div id="MiddleT"></div>
+	<div id="pDivision1"></div>
+	<div id="pDivision2"></div>
+	<div id="boardA">
+		<div id="Bans1">Double Modern 3/5</div>
+		<div id="Bans2">New Art Ballroom 4/8</div>
+		<div id="Pick1">pick1</div>
+		<div id="Pick3">pick3</div>
+		<div id="Pick2">pick2</div>
+		<div id="Pick4">pick4</div>
+		<div id="Pick5">pick5</div>
+		<div id="Pick6">pick6</div>
+		<div id="Restrict1"></div>
+		<div id="Restrict2"></div>
+		<div id="Restrict3"></div>
+		<div id="Restrict4"></div>
+		<div id="P1PBox"></div>
+		<div id="P2PBox"></div>
+		<div id="P1RBox"></div>
+		<div id="P2RBox"></div>
+		<div id="P1BBox"></div>
+		<div id="P2BBox"></div>
+
+		<div id="Bans3">Banned</div>
+		<div id="Bans4">Banned</div>
+
+	</div>
+
+	<div id="animate"></div>
+</body>
+
+</html>
