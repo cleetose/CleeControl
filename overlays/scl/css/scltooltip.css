@@ -18,10 +18,10 @@
 :root {
     --left-bg-color: #f2e5ad;
     --right-bg-color: #380a15;
-    --right-dark-bg-color: #f2e5ad;
-    --left-dark-bg-color: #380a15;
-    --left-text-color: #380a15;
-    --right-text-color: #f2e5ad;
+    --left-dark-bg-color: #baae7d;
+    --right-dark-bg-color: #380a15;
+    --right-text-color: #380a15;
+    --left-text-color: #f2e5ad;
     --divider-bg-color: rgb(231, 231, 231);
 }
 
@@ -53,7 +53,7 @@ body {
 	border-style: solid;
 	border-width: 5px;
 	border-color: var(--left-dark-bg-color);
-	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)80%,rgba(255, 255, 255, 0.10));
 	opacity: 0.5;
 	z-index: 2;
 }
@@ -79,7 +79,7 @@ body {
 	border-style: solid;
 	border-width: 5px;
 	border-color: var(--right-dark-bg-color);
-	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)85%,rgba(255, 255, 255, 0.1));
 	z-index: 0;
 }
 
@@ -131,7 +131,7 @@ body {
 	border-style: solid;
 	border-width: 5px;
 	border-color: var(--right-dark-bg-color);
-	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
+	background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)85%,rgba(255, 255, 255, 0.1));
 	opacity: 0.5;
 	z-index: 1;
 }
