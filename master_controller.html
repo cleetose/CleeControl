@@ -46,7 +46,7 @@ color: white;
     <div class="row-container" id="flexyBox">
         <div class="first-row">
             <select id="controllerType">
-                <option value="1">Customizable</option>
+                <option value="1" selected>Customizable</option>
                 <option value="2">Hidden Cup</option>
                 <option value="3">SCL</option>
             </select>
@@ -59,14 +59,16 @@ color: white;
 const overlaySwitch = new BroadcastChannel('ovSwitch');
 
         $(document).ready(function() {
-            try {
-                resetType = localStorage.getItem('recallType');
-            $('#controllerType').val(resetType).change();
-            }
-            catch {
-                $('#controllerType').val('1').change();
-            }
 
+            if (localStorage.getItem('recallType') != null) {
+                resetType = localStorage.getItem('recallType');
+                $('#controllerType').val(resetType).change();
+            }
+                else {
+                    $('#controllerType').val('1').change();
+                }
+
+            
         });
         var saveType;
         $('#controllerType').change(function() {

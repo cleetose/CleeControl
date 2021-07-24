@@ -407,7 +407,6 @@ function draftClear() {
 $('#matchType').change(draftType);
 
     function draftType() {
-        console.log($('#matchType').val());
         if ($('#matchType').val() == 'regularSeason') {
             $('#venueType1').val("Bans");
             $('#venueType2').val("Restrictions");
