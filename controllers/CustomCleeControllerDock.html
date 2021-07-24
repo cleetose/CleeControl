@@ -130,8 +130,6 @@
 					setTimeout(() => {
 						$('#matchMemory').val('0').change();
 					}, 600);
-
-
 				}
 			} else if (matchMemLoader == null) {
 				aMatchClearer();
@@ -307,7 +305,19 @@
 			return ret;
 		};
 
-		diffArr = compareArr.diff(convArray);
+		try {
+			diffArr = compareArr.diff(convArray);
+		}
+		catch {
+			$('#matchMemory').val('1').change();
+					setTimeout(() => {
+						$('#matchMemory').val('2').change();
+					}, 500);
+					setTimeout(() => {
+						$('#matchMemory').val('0').change();
+					}, 600);
+		}
+
 
 
 

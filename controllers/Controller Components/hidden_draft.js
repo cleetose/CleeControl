@@ -191,6 +191,18 @@ $(document).ready(function () {
     venuePool();
 })
 
+function draftClear() {
+	$('#pick1').val('');
+	$('#pick2').val('');
+	$('#pick3').val('');
+	$('#pick4').val('');
+	$('#pick5').val('');
+	$('#pick6').val('');
+	$('#pick7').val('');
+	$('#pick8').val('');
+	$('#pick9').val('');
+	$('#pick10').val('');
+}
 
 
 function venuePool() {
