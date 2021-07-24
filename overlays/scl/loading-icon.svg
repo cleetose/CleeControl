@@ -7,6 +7,7 @@
 	padding-top: 50px;
 	transform: scale(.5);
 	transform-origin: 50% 50%;
+	overflow: hidden;
 	}
 
 	.st0{fill:#380A15;}
