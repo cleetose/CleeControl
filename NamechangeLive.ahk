@@ -1,0 +1,1 @@
+WinSetTitle,SpyParty,,Live Game
