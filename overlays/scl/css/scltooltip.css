@@ -16,12 +16,12 @@
 }
 
 :root {
-    --left-bg-color: #f2e5ad;
-    --right-bg-color: #380a15;
-    --left-dark-bg-color: #baae7d;
-    --right-dark-bg-color: #380a15;
-    --right-text-color: #380a15;
-    --left-text-color: #f2e5ad;
+    --right-bg-color: #f2e5ad;
+    --left-bg-color: #380a15;
+    --right-dark-bg-color: #baae7d;
+    --left-dark-bg-color: #380a15;
+    --left-text-color: #380a15;
+    --right-text-color: #f2e5ad;
     --divider-bg-color: rgb(231, 231, 231);
 }
 
