@@ -39,7 +39,7 @@ body {
 	left:0px;
 	width:279px;
 	height:63px;
-    background-color: var(--right-dark-bg-color);
+    background-color: var(--left-dark-bg-color);
     background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
 	z-index: -1;
     clip-path: polygon(90% 0, 100% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
@@ -51,7 +51,7 @@ body {
 	left:6px;
 	width:269px;
 	height:53px;
-    background-color: var(--right-bg-color);
+    background-color: var(--left-bg-color);
     background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
     clip-path: polygon(90% 0, 99% 50%, 90% 100%, 20% 100%, 25% 50%, 20% 0);
 	z-index: -1;
@@ -76,7 +76,7 @@ body {
     left: 5px;
 	width:494px;
 	height:54px;
-    background-color: var(--left-bg-color);
+    background-color: var(--right-bg-color);
     background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
 	z-index: 1;
     clip-path: polygon(90% 0, 96% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
@@ -113,7 +113,7 @@ body {
 	left:0px;
 	width:501px;
 	height:63px;
-    background-color: var(--left-dark-bg-color);
+    background-color: var(--right-dark-bg-color);
     background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.30));
 	z-index: 0;
     clip-path: polygon(90% 0, 97% 50%, 90% 100%, 20% 100%, 20% 50%, 20% 0);
@@ -137,7 +137,7 @@ body {
 	left:-45px;
 	text-align: left;
 	top:25px;
-	width:270px;
+	width:260px;
 	font-size:23px;
 	white-space:nowrap;
 	color: var(--right-text-color);
@@ -148,10 +148,10 @@ body {
 	left:10px;
 	top:100px;
 	text-align: left;
-	width:270px;
+	width:260px;
 	font-size:23px;
 	white-space:nowrap;
-	color: var(--left-text-color);
+	color: var(--right-text-color);
 	z-index: 2;
 }
 
@@ -159,7 +159,7 @@ body {
     position: relative;
     width: 4px;
     height: 80%;
-    left: 422px;
+    left: 412px;
     top: 6px;
     border-radius: 5px;
     background-color: var(--right-dark-bg-color);
@@ -167,13 +167,11 @@ body {
     z-index: 5;
 }
 
-#scoreDividerTop {
-    background-color: var(--left-dark-bg-color);
-}
+
 
 #pScore1 {
 	position:absolute;
-	left:438px;
+	left:429px;
 	top:18px;
 	width:330px;
 	font-size:30px;
@@ -182,7 +180,7 @@ body {
 }
 #pScore2 {
 	position:absolute;
-	left:438px;
+	left:429px;
 	top:87px;
 	width:330px;
 	font-size:30px;
@@ -192,14 +190,14 @@ body {
 
 #pFlag1 {
 	position:absolute;
-	left:378px;
+	left:370px;
 	top:18px;
 	z-index: 2;
 }
 
 #pFlag2 {
 	position:absolute;
-	left:378px;
+	left:370px;
 	top:86px;
 	z-index: 2;
 }

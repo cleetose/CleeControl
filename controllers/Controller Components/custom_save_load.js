@@ -33,7 +33,7 @@ document.getElementById("clearsaveButton").addEventListener("click", function ()
     $("#loadText").val("");
 });
 
-document.getElementById("updateLoadouts").addEventListener("click", venuePool);
+
 
 
 document.getElementById("saveButton").addEventListener("click", function () {
