@@ -498,9 +498,8 @@ window.customElements.define('venue-loadout', VenueLoadout);
 
 var venueSaverArr = [];
 
-$(document).ready(function () {
-    venuePool();
-})
+
+document.getElementById("updateLoadouts").addEventListener("click", venuePool);
 
 
 
