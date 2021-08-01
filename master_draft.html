@@ -29,7 +29,7 @@
            <iframe id="draft" src="overlays/customizable/CustomPicks.html"></iframe>
 
            <script>
-               const bc = new BroadcastChannel('ovSwitch');
+               const bc = new BroadcastChannel('draftSwitch');
                var overlayType;
                var overlayTypeOld;
             $(document).ready(function() {
@@ -40,6 +40,12 @@
 				const received_data = ev.data;
             var {overlayType} = received_data;
             console.log(overlayType);
+            try {
+                overlayTypeOld = localStorage.getItem('draftOld');
+            }
+            catch {
+                overlayTypeOld = "reset";
+            }
             if (overlayTypeOld != overlayType) {
                    switch (overlayType) {
                        case "1": document.getElementById("draft").src = 'overlays/customizable/CustomPicks.html';
@@ -50,6 +56,7 @@
                        break;
                    }
                    overlayTypeOld = overlayType;
+                   localStorage.setItem('draftOld', overlayTypeOld);
                }
 				
 			}
