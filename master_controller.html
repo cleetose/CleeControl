@@ -56,7 +56,11 @@ color: white;
 </div>
     <script>
 
-const overlaySwitch = new BroadcastChannel('ovSwitch');
+
+const dbc = new BroadcastChannel('draftSwitch');
+const bbc = new BroadcastChannel('bannerSwitch');
+const tbc = new BroadcastChannel('tooltipsSwitch');
+const sbc = new BroadcastChannel('scoreSwitch');
 
         $(document).ready(function() {
 
@@ -81,20 +85,42 @@ const overlaySwitch = new BroadcastChannel('ovSwitch');
                 break;
             }
             overlayType =  $('#controllerType').val();
-            overlaySwitch.postMessage({
+            dbc.postMessage({
+                overlayType
+            });
+            bbc.postMessage({
+                overlayType
+            });
+            tbc.postMessage({
+                overlayType
+            });
+            sbc.postMessage({
                 overlayType
             });
             saveType = $('#controllerType').val();
             localStorage.setItem('recallType',saveType);
 
         });
-        overlaySwitch.onmessage = function() {
-            overlaySwitch.postMessage({
+        dbc.onmessage = function() {
+            dbc.postMessage({
                 overlayType
             });
         }
-
-
+        bbc.onmessage = function() {
+            bbc.postMessage({
+                overlayType
+            });
+        }
+        tbc.onmessage = function() {
+            tbc.postMessage({
+                overlayType
+            });
+        }
+        sbc.onmessage = function() {
+            sbc.postMessage({
+                overlayType
+            });
+        }
     </script>
 
 </body>
