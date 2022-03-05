@@ -58,6 +58,7 @@
 					complete: function () {
 						$('#tText').html(tTipArr[1]);
 						$('#tName').html(tTipArr[0]);
+						console.log(tTipArr[1])
 						tTextOld = tTipArr[1];
 						PluserPre = $('#tName').height() + 60;
 
@@ -99,9 +100,6 @@
 			}
 
 
-			else {
-				$('#tText').html(tText);
-			}
 
 			if (($('#cTipDesc').html() != cTipDesc) && (cTipDesc != '')) {
 

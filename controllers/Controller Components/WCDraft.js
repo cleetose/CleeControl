@@ -1,4 +1,4 @@
-class CustomDraft extends HTMLElement {
+class wcDraft extends HTMLElement {
     constructor() {
         super();
         this.innerHTML = `
@@ -201,7 +201,7 @@ class CustomDraft extends HTMLElement {
     }
 }
 
-window.customElements.define('custom-draft', CustomDraft);
+window.customElements.define('wc-draft', wcDraft);
 
 var venue1;
 var venue2;
