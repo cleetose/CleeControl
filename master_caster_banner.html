@@ -29,23 +29,18 @@
            <iframe id="tooltips" src="overlays/customizable/CustomCasterBanner.html"></iframe>
 
            <script>
-               const bc = new BroadcastChannel('bannerSwitch');
+               const bc = new BroadcastChannel('ovSwitchRec');
+               const sbc = new BroadcastChannel('ovSwitchSend');
                var overlayType;
                var overlayTypeOld;
             $(document).ready(function() {
-                bc.postMessage('hello');
+                sbc.postMessage('hello');
             })
 
                bc.onmessage = function(ev) {
 				const received_data = ev.data;
             var {overlayType} = received_data;
             console.log(overlayType);
-            try {
-                overlayTypeOld = localStorage.getItem('bannerOld');
-            }
-            catch {
-                overlayTypeOld = "reset";
-            }
             if (overlayTypeOld != overlayType) {
                    switch (overlayType) {
                        case "1": document.getElementById("tooltips").src = 'overlays/customizable/CustomCasterBanner.html';
@@ -54,9 +49,10 @@
                        break;
                        case "3": document.getElementById("tooltips").src = 'overlays/scl/sclCasterBanner.html';
                        break;
+                       case "4": document.getElementById("tooltips").src = 'overlays/customizable/CustomCasterBanner.html';
+                       break;
                    }
                    overlayTypeOld = overlayType;
-                   localStorage.setItem('bannerOld', overlayTypeOld);
                }
 				
 			}

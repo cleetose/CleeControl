@@ -49,6 +49,7 @@ color: white;
                 <option value="1" selected>Customizable</option>
                 <option value="2">Hidden Cup</option>
                 <option value="3">SCL</option>
+                <option value="4">Winter Cup</option>
             </select>
         </div>
 
@@ -56,11 +57,8 @@ color: white;
 </div>
     <script>
 
-
-const dbc = new BroadcastChannel('draftSwitch');
-const bbc = new BroadcastChannel('bannerSwitch');
-const tbc = new BroadcastChannel('tooltipsSwitch');
-const sbc = new BroadcastChannel('scoreSwitch');
+const overlaySwitch = new BroadcastChannel('ovSwitchRec');
+const overlaySwitchSend = new BroadcastChannel('ovSwitchSend');
 
         $(document).ready(function() {
 
@@ -83,44 +81,24 @@ const sbc = new BroadcastChannel('scoreSwitch');
                 break;
                 case "3": document.getElementById("controller").src = 'controllers/SCLController.html';
                 break;
+                case "4": document.getElementById("controller").src = 'controllers/WCController.html';
+                break;
             }
             overlayType =  $('#controllerType').val();
-            dbc.postMessage({
-                overlayType
-            });
-            bbc.postMessage({
-                overlayType
-            });
-            tbc.postMessage({
-                overlayType
-            });
-            sbc.postMessage({
+            overlaySwitch.postMessage({
                 overlayType
             });
             saveType = $('#controllerType').val();
             localStorage.setItem('recallType',saveType);
 
         });
-        dbc.onmessage = function() {
-            dbc.postMessage({
+        overlaySwitchSend.onmessage = function() {
+            overlaySwitch.postMessage({
                 overlayType
             });
         }
-        bbc.onmessage = function() {
-            bbc.postMessage({
-                overlayType
-            });
-        }
-        tbc.onmessage = function() {
-            tbc.postMessage({
-                overlayType
-            });
-        }
-        sbc.onmessage = function() {
-            sbc.postMessage({
-                overlayType
-            });
-        }
+
+
     </script>
 
 </body>

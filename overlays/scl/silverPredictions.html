@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../js/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" href="../../js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="../../js/jquery-ui.js"></script>
+	<script src="../../js/hotkeys.js"></script>
+	<script src="../../js/csv.js"></script>
+	<script src="../../js/farbtastic.js"></script>
+	<script src="../../js/jquery.ddslick.min.js"></script>
+    <title>Silver Predictions</title>
+    <style>
+
+@font-face {
+    font-family: JosefinSans;
+    src: url('../../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansSemiBold;
+    src: url('../../fonts/JosefinSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansBold;
+    src: url('../../fonts/JosefinSans-Bold.ttf');
+}
+
+
+@font-face {
+    font-family: Agency;
+    src: url('../../fonts/Agency_FB_Bold.ttf');
+}
+
+/* Custom Scrollbar*/
+
+::-webkit-scrollbar {
+	width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #2b2b2b; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #888; 
+	border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }
+
+        body {
+            background-color: rgb(29, 29, 29);
+            font-family: 'JosefinSans';
+            overflow-x: hidden;
+        }
+        .section {
+            height: 1100px;
+            margin-bottom: 100px;
+        }
+
+        .divisionTitle {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            width: 1920px;
+            height: 100px;
+            background-size: 5.5%;
+            background-position-x: center;
+            background-position-y: top;
+            background-repeat: no-repeat;
+        }
+
+        .bambooBadge {
+            background-image: url("images_badges/bamboo.svg");
+        }
+
+        .oakBadge {
+            background-image: url("images_badges/oak.svg");
+        }
+
+        .obsidianBadge {
+            background-image: url("images_badges/obsidian.svg");
+        }
+
+        .ironBadge {
+            background-image: url("images_badges/iron.svg");
+        }
+
+        .copperBadge {
+            background-image: url("images_badges/copper.svg");
+        }
+
+        .bronzeBadge {
+            background-image: url("images_badges/bronze.svg");
+        }
+
+        .silverBadge {
+            background-image: url("images_badges/silver.svg");
+        }
+
+        .goldBadge {
+            background-image: url("images_badges/gold.svg");
+        }
+
+        .platinumBadge {
+            background-image: url("images_badges/platinum.svg");
+        }
+
+        .diamondBadge {
+            background-image: url("images_badges/diamond.svg");
+        }
+
+        .divisionText {
+            position: relative;
+            width: 100%;
+            top: -40px;
+            text-align: center;
+            display: inline-block;
+            font-size: 54pt;
+            color: white;
+            -webkit-text-stroke: 2px black;
+            font-family: 'JosefinSansBold';
+            opacity: 0.6;
+        }
+        
+        .expertBox {
+            display: inline-block;
+            width: 24%;
+            height: 500px;
+
+                      
+        }
+        .connectedSortable {
+          border: 1px solid #eee;
+          width: 100%;
+          max-height: fit-content;
+          list-style-type: none;
+          margin: 0;
+          padding: 5px 0 0 0;
+          float: left;
+          margin-right: 10px;
+        }
+
+        .rankLists {
+          border: 1px solid #eee;
+          list-style-type: decimal;
+          list-style-position: inside;
+          margin: 0;
+          padding: 5px 0 0 0;
+          float: left;
+          margin-right: 10px;
+          min-height: 350px;
+            max-height: fit-content;
+        }
+
+        .rankLists li {
+            margin: 0 5px 5px 1px;
+          padding-top: 5px;
+          padding-left: 15px;
+          font-size: 3em;
+          font-weight: bold;
+          width: 95%;
+          border-style: solid;
+          text-align: center;
+        }
+
+        .poolList {
+            margin-top: 40px;
+            min-height: 350px;
+            max-height: fit-content;
+
+        }
+
+        .poolList li {
+            margin: 0 5px 5px 1px;
+          padding-top: 5px;
+          padding-left: 15px;
+          font-size: 3em;
+          font-weight: bold;
+          width: 95%;
+          border-style: solid;
+          text-align: center;
+        }
+
+        .expertNames {
+            color: white;
+            font-size: 45pt;
+        }
+
+        .bambooLists {            
+            color: #fafebf;
+
+        }
+
+        .bambooLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #678307 0%, #c5d54b 100%);
+          border-color: #344f00;
+        }
+
+        .oakLists {            
+            color: #eec680;
+
+        }
+
+        .oakLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #8a4402 0%, #421f02 100%);
+          border-color: #eec680;
+        }
+
+        .bronzeLists {            
+            color: #eec680;
+
+        }
+
+        .bronzeLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, rgba(138,68,2,1) 0%, rgba(66,31,2,1) 100%);
+          border-color: #eec680;
+        }
+
+        .obsidianLists {
+            color: white;
+        }
+
+        .obsidianLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #5b5b5b 0%, #343434 100%);
+          border-color: #5b5b5b;
+        }
+
+        .ironLists {
+            color: white;
+        }
+
+        .ironLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #abb2b2 0%, #808e8d 100%);
+          border-color: #5b5b5b;
+        }
+
+        .copperLists {
+            color: #a04120;
+        }
+
+        .copperLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #e5d6be 0%, #a5927f 100%);
+          border-color: #a04120;
+        }
+
+        .bronzeLists {
+            color: #f7eeb0;
+        }
+
+        .bronzeLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #f79857 0%, #f79857 100%);
+          border-color: #a04120;
+        }
+
+        .silverLists {
+            color: #f2f2f2;
+        }
+
+        .silverLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #b1e8e8 0%, #5a7270 100%);
+          border-color: #f2f2f2;
+        }
+
+        .goldLists {
+            color: #b26510;
+        }
+
+        .goldLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #efd659 0%, #ea9313 100%);
+          border-color: #6d3b09;
+        }
+
+        .platinumLists {
+            color: #666666;
+        }
+
+        .platinumLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #999999 0%, #ffffff 100%);
+          border-color: #666666;
+        }
+
+        .diamondLists {
+            color: #f2f2f2;
+        }
+
+        .diamondLists li {
+          background: rgb(138,68,2);
+          background: linear-gradient(180deg, #01daf9 0%, #16495e 100%);
+          border-color: #f2f2f2;
+        }
+
+        </style>
+          <script>
+            $( function() {
+              $( ".poolList, .rankLists" ).sortable({
+                connectWith: ".connectedSortable"
+              }).disableSelection();
+            } );
+
+            function scrollBottom() {window.scrollTo(0, 99999);}
+if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
+else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
+            </script>
+</head>
+
+<body>
+
+    <div class="section">
+        <div class="divisionTitle diamondBadge">
+           <p class="divisionText">
+              Diamond
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable diamondLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList diamondLists">
+            <li>Lazybear</li>
+            <li>Ryooo/steam</li>
+            <li>Yerand</li>
+            <li>Slappydavis</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable diamondLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList diamondLists">
+            <li>Lazybear</li>
+            <li>Ryooo/steam</li>
+            <li>Yerand</li>
+            <li>Slappydavis</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable diamondLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList diamondLists">
+            <li>Lazybear</li>
+            <li>Ryooo/steam</li>
+            <li>Yerand</li>
+            <li>Slappydavis</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable diamondLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList diamondLists">
+            <li>Lazybear</li>
+            <li>Ryooo/steam</li>
+            <li>Yerand</li>
+            <li>Slappydavis</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle platinumBadge">
+           <p class="divisionText">
+              Platinum
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable platinumLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList platinumLists">
+            <li>OpiWrites/steam</li>
+            <li>Kotte/steam</li>
+            <li>Pofke</li>
+            <li>Legorve Genine/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable platinumLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList platinumLists">
+            <li>OpiWrites/steam</li>
+            <li>Kotte/steam</li>
+            <li>Pofke</li>
+            <li>Legorve Genine/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable platinumLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList platinumLists">
+            <li>OpiWrites/steam</li>
+            <li>Kotte/steam</li>
+            <li>Pofke</li>
+            <li>Legorve Genine/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable platinumLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList platinumLists">
+            <li>OpiWrites/steam</li>
+            <li>Kotte/steam</li>
+            <li>Pofke</li>
+            <li>Legorve Genine/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle goldBadge">
+           <p class="divisionText">
+              Gold
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable goldLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList goldLists">
+              <li>Skrewwl00se</li>
+              <li>Bananaconda</li>
+              <li>Hunu</li>
+              <li>Beanie</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable goldLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList goldLists">
+            <li>Skrewwl00se</li>
+            <li>Bananaconda</li>
+            <li>Hunu</li>
+            <li>Beanie</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable goldLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList goldLists">
+            <li>Skrewwl00se</li>
+            <li>Bananaconda</li>
+            <li>Hunu</li>
+            <li>Beanie</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable goldLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList goldLists">
+            <li>Skrewwl00se</li>
+            <li>Bananaconda</li>
+            <li>Hunu</li>
+            <li>Beanie</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle silverBadge">
+           <p class="divisionText">
+              Silver
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable silverLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList silverLists">
+              <li>Davidw</li>
+              <li>Miniorek</li>
+              <li>Nanthelas</li>
+              <li>Rov/steam</li>
+              <li>Nebula</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable silverLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList silverLists">
+            <li>Davidw</li>
+            <li>Miniorek</li>
+            <li>Nanthelas</li>
+            <li>Rov/steam</li>
+            <li>Nebula</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable silverLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList silverLists">
+            <li>Davidw</li>
+            <li>Miniorek</li>
+            <li>Nanthelas</li>
+            <li>Rov/steam</li>
+            <li>Nebula</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable silverLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList silverLists">
+            <li>Davidw</li>
+            <li>Miniorek</li>
+            <li>Nanthelas</li>
+            <li>Rov/steam</li>
+            <li>Nebula</li>
+           </ul>
+        </div>
+     </div>
+    
+    <div class="section">
+        <div class="divisionTitle bronzeBadge">
+           <p class="divisionText">
+              Bronze I
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+              <li>Dukit</li>
+              <li>Sykosloth</li>
+              <li>Magicdoer1</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+            <li>Dukit</li>
+            <li>Sykosloth</li>
+            <li>Magicdoer1</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+            <li>Dukit</li>
+            <li>Sykosloth</li>
+            <li>Magicdoer1</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+            <li>Dukit</li>
+            <li>Sykosloth</li>
+            <li>Magicdoer1</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle bronzeBadge">
+           <p class="divisionText">
+              Bronze II
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+              <li>dbdkmezz</li>
+              <li>Gabrio/steam</li>
+              <li>Monaters</li>
+              <li>lauras43</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+            <li>dbdkmezz</li>
+            <li>Gabrio/steam</li>
+            <li>Monaters</li>
+            <li>lauras43</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+            <li>dbdkmezz</li>
+            <li>Gabrio/steam</li>
+            <li>Monaters</li>
+            <li>lauras43</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable bronzeLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList bronzeLists">
+            <li>dbdkmezz</li>
+            <li>Gabrio/steam</li>
+            <li>Monaters</li>
+            <li>lauras43</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle copperBadge">
+           <p class="divisionText">
+              Copper I
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+              <li>HumanKirby</li>
+              <li>MrRgrs</li>
+              <li>Portalfreek</li>
+              <li>Bananabread /steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+            <li>HumanKirby</li>
+            <li>MrRgrs</li>
+            <li>Portalfreek</li>
+            <li>Bananabread /steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+            <li>HumanKirby</li>
+            <li>MrRgrs</li>
+            <li>Portalfreek</li>
+            <li>Bananabread /steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+            <li>HumanKirby</li>
+            <li>MrRgrs</li>
+            <li>Portalfreek</li>
+            <li>Bananabread /steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle copperBadge">
+           <p class="divisionText">
+              Copper II
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+              <li>Rhythmicsheep /steam</li>
+              <li>Tabsies/steam</li>
+              <li>Sauerkraut</li>
+              <li>Ytterbijum</li>
+              <li>Verdruss/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+            <li>Rhythmicsheep /steam</li>
+            <li>Tabsies/steam</li>
+            <li>Sauerkraut</li>
+            <li>Ytterbijum</li>
+            <li>Verdruss/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+            <li>Rhythmicsheep /steam</li>
+            <li>Tabsies/steam</li>
+            <li>Sauerkraut</li>
+            <li>Ytterbijum</li>
+            <li>Verdruss/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable copperLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList copperLists">
+            <li>Rhythmicsheep /steam</li>
+            <li>Tabsies/steam</li>
+            <li>Sauerkraut</li>
+            <li>Ytterbijum</li>
+            <li>Verdruss/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle ironBadge">
+           <p class="divisionText">
+              Iron I
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+              <li>Corvusmellori</li>
+              <li>ALTInsider/steam</li>
+              <li>Scout</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+            <li>Corvusmellori</li>
+            <li>ALTInsider/steam</li>
+            <li>Scout</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+            <li>Corvusmellori</li>
+            <li>ALTInsider/steam</li>
+            <li>Scout</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+            <li>Corvusmellori</li>
+            <li>ALTInsider/steam</li>
+            <li>Scout</li>
+           </ul>
+        </div>
+     </div>
+    
+    <div class="section">
+        <div class="divisionTitle ironBadge">
+           <p class="divisionText">
+              Iron II
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+              <li>Pipesuper24</li>
+              <li>Yosh/steam</li>
+              <li>Koopa/steam</li>
+              <li>Cptbasch</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+            <li>Pipesuper24</li>
+            <li>Yosh/steam</li>
+            <li>Koopa/steam</li>
+            <li>Cptbasch</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+            <li>Pipesuper24</li>
+            <li>Yosh/steam</li>
+            <li>Koopa/steam</li>
+            <li>Cptbasch</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable ironLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList ironLists">
+            <li>Pipesuper24</li>
+            <li>Yosh/steam</li>
+            <li>Koopa/steam</li>
+            <li>Cptbasch</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle obsidianBadge">
+           <p class="divisionText">
+              Obsidian I
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+              <li>TONewYork</li>
+              <li>Graash/steam</li>
+              <li>Chrisov</li>
+              <li>Guggie/steam</li>
+
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+            <li>TONewYork</li>
+            <li>Graash/steam</li>
+            <li>Chrisov</li>
+            <li>Guggie/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+            <li>TONewYork</li>
+            <li>Graash/steam</li>
+            <li>Chrisov</li>
+            <li>Guggie/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+            <li>TONewYork</li>
+            <li>Graash/steam</li>
+            <li>Chrisov</li>
+            <li>Guggie/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle obsidianBadge">
+           <p class="divisionText">
+              Obsidian II
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+              <li>Adafheyesh/steam</li>
+              <li>Silverthorn/steam</li>
+              <li>Timidger/steam</li>
+              <li>Dampsquib/steam</li>
+              <li>Wrestler/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+            <li>Adafheyesh/steam</li>
+            <li>Silverthorn/steam</li>
+            <li>Timidger/steam</li>
+            <li>Dampsquib/steam</li>
+            <li>Wrestler/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+            <li>Adafheyesh/steam</li>
+            <li>Silverthorn/steam</li>
+            <li>Timidger/steam</li>
+            <li>Dampsquib/steam</li>
+            <li>Wrestler/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable obsidianLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList obsidianLists">
+            <li>Adafheyesh/steam</li>
+            <li>Silverthorn/steam</li>
+            <li>Timidger/steam</li>
+            <li>Dampsquib/steam</li>
+            <li>Wrestler/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle oakBadge" id="oakBadge">
+           <p class="divisionText" id="oakText">
+              Oak I
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+              <li>Hyronious/steam</li>
+              <li>Dapcod/steam</li>
+              <li>Collateral Damage/steam</li>
+
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Hyronious/steam</li>
+            <li>Dapcod/steam</li>
+            <li>Collateral Damage/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Hyronious/steam</li>
+            <li>Dapcod/steam</li>
+            <li>Collateral Damage/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Hyronious/steam</li>
+            <li>Dapcod/steam</li>
+            <li>Collateral Damage/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section">
+        <div class="divisionTitle oakBadge" id="oakBadge">
+           <p class="divisionText" id="oakText">
+              Oak II
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+              <li>Megaparsec/steam</li>
+              <li>June/steam</li>
+              <li>Drago/steam</li>
+              <li>Biaxin/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Megaparsec/steam</li>
+            <li>June/steam</li>
+            <li>Drago/steam</li>
+            <li>Biaxin/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Megaparsec/steam</li>
+            <li>June/steam</li>
+            <li>Drago/steam</li>
+            <li>Biaxin/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Megaparsec/steam</li>
+            <li>June/steam</li>
+            <li>Drago/steam</li>
+            <li>Biaxin/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section" id="oakIII">
+        <div class="divisionTitle oakBadge" id="oakBadge">
+           <p class="divisionText" id="oakText">
+              Oak III
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+              <li>Sonalator/steam</li>
+              <li>Lavinuke/steam</li>
+              <li>Martini/steam</li>
+              <li>ToadRider/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Sonalator/steam</li>
+            <li>Lavinuke/steam</li>
+            <li>Martini/steam</li>
+            <li>ToadRider/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Sonalator/steam</li>
+            <li>Lavinuke/steam</li>
+            <li>Martini/steam</li>
+            <li>ToadRider/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Sonalator/steam</li>
+            <li>Lavinuke/steam</li>
+            <li>Martini/steam</li>
+            <li>ToadRider/steam</li>
+           </ul>
+        </div>
+     </div>
+
+    <div class="section" id="oakIV">
+        <div class="divisionTitle oakBadge" id="oakVBadge">
+           <p class="divisionText" id="oakText">
+              Oak IV
+           </p>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">OpiWrites</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Calamay/steam</li>
+            <li>ItsACatThing /steam</li>
+            <li>Sharpy/steam</li>
+            <li>Interpunct/steam</li>
+            <li>DNH (that's jazz, baby)/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">pwndNoob</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Calamay/steam</li>
+            <li>ItsACatThing /steam</li>
+            <li>Sharpy/steam</li>
+            <li>Interpunct/steam</li>
+            <li>DNH (that's jazz, baby)/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Wrestler</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Calamay/steam</li>
+            <li>ItsACatThing /steam</li>
+            <li>Sharpy/steam</li>
+            <li>Interpunct/steam</li>
+            <li>DNH (that's jazz, baby)/steam</li>
+           </ul>
+        </div>
+        <div class="expertBox">
+           <div class="expertNames">Cleetose</div>
+           <ol class="connectedSortable oakLists rankLists">
+           </ol>
+           <ul class="connectedSortable poolList oakLists">
+            <li>Calamay/steam</li>
+            <li>ItsACatThing /steam</li>
+            <li>Sharpy/steam</li>
+            <li>Interpunct/steam</li>
+            <li>DNH (that's jazz, baby)/steam</li>
+           </ul>
+        </div>
+     </div>
+
+     <div class="section" id="bamboo">
+      <div class="divisionTitle bambooBadge" id="bambooVBadge">
+         <p class="divisionText" id="bambooText">
+            bamboo I
+         </p>
+      </div>
+      <div class="expertBox" id="expert1">
+         <div class="expertNames" id="opi">OpiWrites</div>
+         <ol class="connectedSortable bambooLists rankLists">
+         </ol>
+         <ul class="connectedSortable poolList bambooLists">
+          <li>Professor Renderer/steam</li>
+          <li>TBD</li>
+          <li>TBD</li>
+          <li>TBD</li>
+          <li>TBD</li>
+         </ul>
+      </div>
+      <div class="expertBox" id="expert2">
+         <div class="expertNames" id="noob">pwndNoob</div>
+         <ol class="connectedSortable bambooLists rankLists">
+         </ol>
+         <ul class="connectedSortable poolList bambooLists">
+            <li>Professor Renderer/steam</li>
+            <li>TBD</li>
+            <li>TBD</li>
+            <li>TBD</li>
+            <li>TBD</li>
+         </ul>
+      </div>
+      <div class="expertBox" id="expert3">
+         <div class="expertNames" id="wodar">Wrestler</div>
+         <ol class="connectedSortable bambooLists rankLists">
+         </ol>
+         <ul class="connectedSortable poolList bambooLists">
+            <li>Professor Renderer/steam</li>
+            <li>TBD</li>
+            <li>TBD</li>
+            <li>TBD</li>
+            <li>TBD</li>
+         </ul>
+      </div>
+      <div class="expertBox" id="expert4">
+         <div class="expertNames" id="someone">Cleetose</div>
+         <ol class="connectedSortable bambooLists rankLists">
+         </ol>
+         <ul class="connectedSortable poolList bambooLists">
+            <li>Professor Renderer/steam</li>
+            <li>TBD</li>
+            <li>TBD</li>
+            <li>TBD</li>
+            <li>TBD</li>
+         </ul>
+      </div>
+   </div>
+</body>
+</html>

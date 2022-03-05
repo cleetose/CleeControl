@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="HC_Reveal.css" type="text/css" charset="utf-8">
+	<script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js" type="text/javascript" charset="utf-8"></script>	
+    <title>Hidden Cup Reveal</title>
+<script type="text/javascript">
+		var timestampOld;
+		var timestamp;   
+
+    var hidden1;
+    var hidden2;
+    var hidden3;
+    var hidden4;
+    var hidden5;
+    var hidden6;
+    var hidden7;
+    var hidden8;
+    var hidden9;
+    var hidden10;
+    var hidden11;
+    var hidden12;
+    var hidden13;
+    var hidden14;
+    var hidden15;
+    var hidden16;
+
+    var reveal1;
+    var reveal2;
+    var reveal3;
+    var reveal4;
+    var reveal5;
+    var reveal6;
+    var reveal7;
+    var reveal8;
+    var reveal9;
+    var reveal10;
+    var reveal11;
+    var reveal12;
+    var reveal13;
+    var reveal14;
+    var reveal15;
+    var reveal16;
+
+    var roundNumber;
+
+
+  
+    var animating = false;
+    var doUpdate = false;    
+    
+    
+  function init() {
+
+
+
+var card = document.querySelector('#card1');
+card.addEventListener( 'click', function() {
+card.classList.toggle('is-flipped');
+});
+
+var card2 = document.querySelector('#card2');
+card2.addEventListener( 'click', function() {
+card2.classList.toggle('is-flipped');
+});
+
+var card3 = document.querySelector('#card3');
+card3.addEventListener( 'click', function() {
+card3.classList.toggle('is-flipped');
+});
+
+var card4 = document.querySelector('#card4');
+card4.addEventListener( 'click', function() {
+card4.classList.toggle('is-flipped');
+});
+
+var card5 = document.querySelector('#card5');
+card5.addEventListener( 'click', function() {
+card5.classList.toggle('is-flipped');
+});
+
+var card6 = document.querySelector('#card6');
+card6.addEventListener( 'click', function() {
+card6.classList.toggle('is-flipped');
+});
+
+var card7 = document.querySelector('#card7');
+card7.addEventListener( 'click', function() {
+card7.classList.toggle('is-flipped');
+});
+
+var card8 = document.querySelector('#card8');
+card8.addEventListener( 'click', function() {
+card8.classList.toggle('is-flipped');
+});
+
+var card9 = document.querySelector('#card9');
+card9.addEventListener( 'click', function() {
+card9.classList.toggle('is-flipped');
+});
+
+var card10 = document.querySelector('#card10');
+card10.addEventListener( 'click', function() {
+card10.classList.toggle('is-flipped');
+});
+
+var card11 = document.querySelector('#card11');
+card11.addEventListener( 'click', function() {
+card11.classList.toggle('is-flipped');
+});
+
+var card12 = document.querySelector('#card12');
+card12.addEventListener( 'click', function() {
+card12.classList.toggle('is-flipped');
+});
+
+var card13 = document.querySelector('#card13');
+card13.addEventListener( 'click', function() {
+card13.classList.toggle('is-flipped');
+});
+
+var card14 = document.querySelector('#card14');
+card14.addEventListener( 'click', function() {
+card14.classList.toggle('is-flipped');
+});
+
+var card15 = document.querySelector('#card15');
+card15.addEventListener( 'click', function() {
+card15.classList.toggle('is-flipped');
+});
+
+var card16 = document.querySelector('#card16');
+card16.addEventListener( 'click', function() {
+card16.classList.toggle('is-flipped');
+});
+
+anime({
+  targets: '#gpad',
+  translateY: -2000,
+  duration: 1200,
+  easing: 'easeOutSine'
+});
+
+anime({
+  targets: '.scene',
+  opacity:
+    {value: 1, duration: 1000, delay:5250, easing: 'linear'},
+  scale:
+    {value: [0,1], duration: 700, delay:6250, easing: 'easeOutSine'},
+});
+
+anime({
+  targets: '#revealApp',
+  opacity:
+    {value: 1, duration: 600, delay:4250, easing: 'linear'},
+  scale:
+    {value: [0,1], duration: 700, delay:5250, easing: 'easeOutSine'},
+  translateY:
+    {value: -400},
+  translateX:   
+    {value: 700} 
+});
+
+updateBoard();
+
+}
+
+
+
+
+
+
+
+			function updateBoard() {
+        console.log('hi');
+        roundNumber = $('#roundSelector').val();
+
+        switch (roundNumber) {
+          case 'Groups Part 1': 
+              hidden1 = "Expanding kapabacteria";
+              hidden2 = "Plucky microbulbiferaceae";
+              hidden3 = "Groovy limnochordia";
+              hidden4 = "Prompt ignavibacteria";
+              hidden5 = "Atypical oligoflexia";
+              hidden6 = "Fastidious erysipelotrichaceae";
+              hidden7 = "Efficacious archaeoglobi";
+              hidden8 = "Parsimonious hyphomonadaceae";
+              hidden9 = "Hasty acidithiobacillia";
+              hidden10 = "Guileless elusimicrobia";
+              hidden11 = "Thriving thermotogae";
+              hidden12 = "Luminous ktenodobacteria";
+              hidden13 = "Frozen holophagae";
+              hidden14 = "Calamitous cytophagia";
+              hidden15 = "Nefarious rubrobacteria";
+              hidden16 = "Voracious epsilonproteriobacteria";
+
+              reveal1 = "AJtehbest";
+              reveal2 = "Paratroopa";
+              reveal3 = "Catnip";
+              reveal4 = "Dampsquib";
+              reveal5 = "Bobby1376";
+              reveal6 = "Magicdoer1";
+              reveal7 = "Dejoker";
+              reveal8 = "Kotte";
+              reveal9 = "Peachicedtea";
+              reveal10 = "Yeesh";
+              reveal11 = "Cptbasch";
+              reveal12 = "KumaKid";
+              reveal13 = "Lavinuke";
+              reveal14 = "SimoFigueiredo";
+              reveal15 = "Chrisov";
+              reveal16 = "DavidW";
+              break
+              case 'Groups Part 2': 
+              hidden1 = "Didactic mollicutes";
+              hidden2 = "Sagacious nitrososphaeria";
+              hidden3 = "Imperturbable flexibacteraceae";
+              hidden4 = "Loquacious terrimicrobia";
+              hidden5 = "Stupendous alcanivoracaceae";
+              hidden6 = "";
+              hidden7 = "";
+              hidden8 = "";
+              hidden9 = "";
+              hidden10 = "";
+              hidden11 = "";
+              hidden12 = "";
+              hidden13 = "";
+              hidden14 = "";
+              hidden15 = "";
+              hidden16 = "";
+
+              reveal1 = "Scout";
+              reveal2 = "Sykosloth";
+              reveal3 = "Wobble";
+              reveal4 = "Cameraman";
+              reveal5 = "Verdruss";
+              reveal6 = "";
+              reveal7 = "";
+              reveal8 = "";
+              reveal9 = "";
+              reveal10 = "";
+              reveal11 = "";
+              reveal12 = "";
+              reveal13 = "";
+              reveal14 = "";
+              reveal15 = "";
+              reveal16 = "";
+
+              card6.classList.toggle('is-flipped');   
+              card11.classList.toggle('is-flipped');   
+              card12.classList.toggle('is-flipped');   
+              card13.classList.toggle('is-flipped');   
+              card14.classList.toggle('is-flipped');   
+
+              break
+
+              case '8th-Finals': 
+              hidden1 = "";
+              hidden2 = "";
+              hidden3 = "Wistful bacteroidia";
+              hidden4 = "Adamant aerococcaceae";
+              hidden5 = "Quaint chrysiogenetes";
+              hidden6 = "Trendy clostridia";
+              hidden7 = "";
+              hidden8 = "";
+              hidden9 = "";
+              hidden10 = "";
+              hidden11 = "Baleful spirochaetia";
+              hidden12 = "Risible negativicutes";
+              hidden13 = "Innate moraxella";
+              hidden14 = "Tenacious aquificae";
+              hidden15 = "";
+              hidden16 = "";
+
+              reveal1 = "";
+              reveal2 = "";
+              reveal3 = "Beanie";
+              reveal4 = "Adafheyesh";
+              reveal5 = "Dels";
+              reveal6 = "Ytterbijum";
+              reveal7 = "";
+              reveal8 = "";
+              reveal9 = "";
+              reveal10 = "";
+              reveal11 = "Pwndnoob";
+              reveal12 = "Tflameee";
+              reveal13 = "Koopa";
+              reveal14 = "Tabsies";
+              reveal15 = "";
+              reveal16 = "";
+              break    
+              
+              case 'Quarterfinals': 
+              hidden1 = "";
+              hidden2 = "";
+              hidden3 = "";
+              hidden4 = "Zealous deinococci";
+              hidden5 = "Judicious caulobacteraceae";
+              hidden6 = "";
+              hidden7 = "";
+              hidden8 = "";
+              hidden9 = "";
+              hidden10 = "";
+              hidden11 = "";
+              hidden12 = "Mendacious fibrobacteria";
+              hidden13 = "Striking vicinamibacteria";
+              hidden14 = "";
+              hidden15 = "";
+              hidden16 = "";
+
+              reveal1 = "";
+              reveal2 = "";
+              reveal3 = "";
+              reveal4 = "Sauerkraut";
+              reveal5 = "Legorve Genine";
+              reveal6 = "";
+              reveal7 = "";
+              reveal8 = "";
+              reveal9 = "";
+              reveal10 = "";
+              reveal11 = "";
+              reveal12 = "Miniorek";
+              reveal13 = "Tonyl";
+              reveal14 = "";
+              reveal15 = "";
+              reveal16 = "";
+              break    
+
+              case 'Finals': 
+              hidden1 = "";
+              hidden2 = "";
+              hidden3 = "";
+              hidden4 = "Deadly opitutae";
+              hidden5 = "Comely synergistia";
+              hidden6 = "";
+              hidden7 = "";
+              hidden8 = "";
+              hidden9 = "";
+              hidden10 = "";
+              hidden11 = "";
+              hidden12 = "Ruminative planctomycetia";
+              hidden13 = "Adroit egibacteraceae";
+              hidden14 = "";
+              hidden15 = "";
+              hidden16 = "";
+
+              reveal1 = "";
+              reveal2 = "";
+              reveal3 = "";
+              reveal4 = "DeathTacticus";
+              reveal5 = "Rov";
+              reveal6 = "";
+              reveal7 = "";
+              reveal8 = "";
+              reveal9 = "";
+              reveal10 = "";
+              reveal11 = "";
+              reveal12 = "Lazybear";
+              reveal13 = "OpiWrites";
+              reveal14 = "";
+              reveal15 = "";
+              reveal16 = "";
+              break   
+        }
+
+				if ($('#hidden1').html() != hidden1) {
+
+          $('#hidden1').html("<span>"+hidden1+"</span>");
+while($("#hidden1").find("span").width() > $("#hidden1").width()) {
+  var currentFontSize = parseInt($("#hidden1").find("span").css("font-size")); 
+  $("#hidden1").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+				
+				}
+
+				if ($('#hidden2').html() != hidden2) {
+
+          $('#hidden2').html("<span>"+hidden2+"</span>");
+while($("#hidden2").find("span").width() > $("#hidden2").width()) {
+  var currentFontSize = parseInt($("#hidden2").find("span").css("font-size")); 
+  $("#hidden2").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+				
+				}        
+
+
+
+if ($('#hidden3').html() != hidden3) {
+
+  $('#hidden3').html("<span>"+hidden3+"</span>");
+while($("#hidden3").find("span").width() > $("#hidden3").width()) {
+  var currentFontSize = parseInt($("#hidden3").find("span").css("font-size")); 
+  $("#hidden3").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden4').html() != hidden4) {
+
+  $('#hidden4').html("<span>"+hidden4+"</span>");
+while($("#hidden4").find("span").width() > $("#hidden4").width()) {
+  var currentFontSize = parseInt($("#hidden4").find("span").css("font-size")); 
+  $("#hidden4").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden5').html() != hidden5) {
+
+  $('#hidden5').html("<span>"+hidden5+"</span>");
+while($("#hidden5").find("span").width() > $("#hidden5").width()) {
+  var currentFontSize = parseInt($("#hidden5").find("span").css("font-size")); 
+  $("#hidden5").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden6').html() != hidden6) {
+
+  $('#hidden6').html("<span>"+hidden6+"</span>");
+while($("#hidden6").find("span").width() > $("#hidden6").width()) {
+  var currentFontSize = parseInt($("#hidden6").find("span").css("font-size")); 
+  $("#hidden6").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden7').html() != hidden7) {
+
+  $('#hidden7').html("<span>"+hidden7+"</span>");
+while($("#hidden7").find("span").width() > $("#hidden7").width()) {
+  var currentFontSize = parseInt($("#hidden7").find("span").css("font-size")); 
+  $("#hidden7").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden8').html() != hidden8) {
+
+  $('#hidden8').html("<span>"+hidden8+"</span>");
+while($("#hidden8").find("span").width() > $("#hidden8").width()) {
+  var currentFontSize = parseInt($("#hidden8").find("span").css("font-size")); 
+  $("#hidden8").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+}     
+
+if ($('#hidden9').html() != hidden9) {
+
+  $('#hidden9').html("<span>"+hidden9+"</span>");
+while($("#hidden9").find("span").width() > $("#hidden9").width()) {
+  var currentFontSize = parseInt($("#hidden9").find("span").css("font-size")); 
+  $("#hidden9").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden10').html() != hidden10) {
+
+  $('#hidden10').html("<span>"+hidden10+"</span>");
+while($("#hidden10").find("span").width() > $("#hidden10").width()) {
+  var currentFontSize = parseInt($("#hidden10").find("span").css("font-size")); 
+  $("#hidden10").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden11').html() != hidden11) {
+
+  $('#hidden11').html("<span>"+hidden11+"</span>");
+while($("#hidden11").find("span").width() > $("#hidden11").width()) {
+  var currentFontSize = parseInt($("#hidden11").find("span").css("font-size")); 
+  $("#hidden11").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden12').html() != hidden12) {
+
+  $('#hidden12').html("<span>"+hidden12+"</span>");
+while($("#hidden12").find("span").width() > $("#hidden12").width()) {
+  var currentFontSize = parseInt($("#hidden12").find("span").css("font-size")); 
+  $("#hidden12").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden13').html() != hidden13) {
+
+  $('#hidden13').html("<span>"+hidden13+"</span>");
+while($("#hidden13").find("span").width() > $("#hidden13").width()) {
+  var currentFontSize = parseInt($("#hidden13").find("span").css("font-size")); 
+  $("#hidden13").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden14').html() != hidden14) {
+
+  $('#hidden14').html("<span>"+hidden14+"</span>");
+while($("#hidden14").find("span").width() > $("#hidden14").width()) {
+  var currentFontSize = parseInt($("#hidden14").find("span").css("font-size")); 
+  $("#hidden14").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+if ($('#hidden15').html() != hidden15) {
+
+$('#hidden15').html("<span>"+hidden15+"</span>");
+while($("#hidden15").find("span").width() > $("#hidden15").width()) {
+    						var currentFontSize = parseInt($("#hidden15").find("span").css("font-size")); 
+    						$("#hidden15").find("span").css("font-size",currentFontSize-1); 
+							
+								}
+
+}     
+        
+if ($('#hidden16').html() != hidden16) {
+
+  $('#hidden16').html("<span>"+hidden16+"</span>");
+while($("#hidden16").find("span").width() > $("#hidden16").width()) {
+  var currentFontSize = parseInt($("#hidden16").find("span").css("font-size")); 
+  $("#hidden16").find("span").css("font-size",currentFontSize-1); 
+							
+	}
+
+}     
+
+
+
+if ($('#reveal1').html() != reveal1) {
+  animating = true;
+anime({
+  targets:'#reveal1',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card1.classList.toggle('is-flipped'); 
+    $('#reveal1').html(reveal1);
+    anime({
+      targets:'#reveal1',
+      opacity:1,
+      duration:800, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+
+}
+
+if ($('#reveal2').html() != reveal2) {
+  animating = true;
+  anime({
+  targets:'#reveal2',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card2.classList.toggle('is-flipped'); 
+    $('#reveal2').html(reveal2);
+    anime({
+      targets:'#reveal2',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}        
+
+
+
+if ($('#reveal3').html() != reveal3) {
+  animating = true;
+  anime({
+  targets:'#reveal3',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card3.classList.toggle('is-flipped');   
+    $('#reveal3').html(reveal3);
+    anime({
+      targets:'#reveal3',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal4').html() != reveal4) {
+  animating = true;
+  anime({
+  targets:'#reveal4',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card4.classList.toggle('is-flipped');   
+    $('#reveal4').html(reveal4);
+    anime({
+      targets:'#reveal4',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal5').html() != reveal5) {
+  animating = true;
+  anime({
+  targets:'#reveal5',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card5.classList.toggle('is-flipped');   
+    $('#reveal5').html(reveal5);
+    anime({
+      targets:'#reveal5',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal6').html() != reveal6) {
+  animating = true;
+  anime({
+  targets:'#reveal6',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card6.classList.toggle('is-flipped');   
+    $('#reveal6').html(reveal6);
+    anime({
+      targets:'#reveal6',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal7').html() != reveal7) {
+  animating = true;
+  anime({
+  targets:'#reveal7',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card7.classList.toggle('is-flipped');   
+    $('#reveal7').html(reveal7);
+    anime({
+      targets:'#reveal7',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal8').html() != reveal8) {
+  animating = true;
+  anime({
+  targets:'#reveal8',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card8.classList.toggle('is-flipped');   
+    $('#reveal8').html(reveal8);
+    anime({
+      targets:'#reveal8',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal9').html() != reveal9) {
+  animating = true;
+  anime({
+  targets:'#reveal9',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card9.classList.toggle('is-flipped');   
+    $('#reveal9').html(reveal9);
+    anime({
+      targets:'#reveal9',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal10').html() != reveal10) {
+  animating = true;
+  anime({
+  targets:'#reveal10',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card10.classList.toggle('is-flipped');     
+    $('#reveal10').html(reveal10);
+    anime({
+      targets:'#reveal10',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal11').html() != reveal11) {
+  animating = true;
+  anime({
+  targets:'#reveal11',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card11.classList.toggle('is-flipped');   
+    $('#reveal11').html(reveal11);
+    anime({
+      targets:'#reveal11',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal12').html() != reveal12) {
+  animating = true;
+  anime({
+  targets:'#reveal12',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card12.classList.toggle('is-flipped');   
+    $('#reveal12').html(reveal12);
+    anime({
+      targets:'#reveal12',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal13').html() != reveal13) {
+  animating = true;
+  anime({
+  targets:'#reveal13',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card13.classList.toggle('is-flipped');   
+    $('#reveal13').html(reveal13);
+    anime({
+      targets:'#reveal13',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal14').html() != reveal14) {
+  animating = true;
+  anime({
+  targets:'#reveal14',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card14.classList.toggle('is-flipped');   
+    $('#reveal14').html(reveal14);
+    anime({
+      targets:'#reveal14',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal15').html() != reveal15) {
+  animating = true;
+  anime({
+  targets:'#reveal15',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card15.classList.toggle('is-flipped');   
+    $('#reveal15').html(reveal15);
+    anime({
+      targets:'#reveal15',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}     
+
+if ($('#reveal16').html() != reveal16) {
+  animating = true;
+  anime({
+  targets:'#reveal16',
+  opacity:0,
+  duration:1000,
+  easing:'easeOutSine',
+  complete: function(){
+    card16.classList.toggle('is-flipped');   
+    $('#reveal16').html(reveal16);
+    anime({
+      targets:'#reveal16',
+      opacity:1,
+      duration:500, 
+      delay:600,
+      complete: function()
+      {
+        animating= false;
+      }
+    });
+  }
+});
+
+}    
+
+switch (roundNumber) {
+  case '8th-Finals': 
+  anime({
+    targets: '#number1',
+    translateX:
+      {value: -50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number2',
+    translateX:
+      {value: -50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number7',
+    translateX:
+      {value: -50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number8',
+    translateX:
+      {value: -50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number9',
+    translateX:
+      {value: 50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number10',
+    translateX:
+      {value: 50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number15',
+    translateX:
+      {value: 50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number16',
+    translateX:
+      {value: 50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });  
+  break
+
+  case 'Quarterfinals': 
+  anime({
+    targets: '#number3',
+    translateX:
+      {value: -50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number6',
+    translateX:
+      {value: -50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number11',
+    translateX:
+      {value: 50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  anime({
+    targets: '#number14',
+    translateX:
+      {value: 50, duration: 2800},
+    opacity:
+      {value: 0, duration: 2600}
+  });
+  break
+  case 'Finals': 
+  anime({
+    targets: '#number4',
+    translateX:
+      {value: 440, duration: 1000, easing: 'easeOutSine'},
+    translateY:
+      {value: -150, duration: 1000, easing: 'easeOutSine'},  
+  });
+  anime({
+    targets: '#number5',
+    translateX:
+      {value: 440, duration: 1000, easing: 'easeOutSine'},
+    translateY:
+      {value: -60, duration: 1000, easing: 'easeOutSine'}  
+  });
+  anime({
+    targets: '#number12',
+    translateX:
+      {value: -410, duration: 1000, easing: 'easeOutSine'},
+    translateY:
+      {value: 230, duration: 1000, easing: 'easeOutSine'}     
+  });
+  anime({
+    targets: '#number13',
+    translateX:
+      {value: -410, duration: 1000, easing: 'easeOutSine'},
+    translateY:
+      {value: 310, duration: 1000, easing: 'easeOutSine'},
+  });
+  anime({
+    targets: '#fourthPlace',
+    opacity:
+      {value: 1, duration: 1600, delay: 1000}
+  });
+  anime({
+    targets: '#thirdPlace',
+    opacity:
+      {value: 1, duration: 1600, delay: 1000}
+  });
+  anime({
+    targets: '#secondPlace',
+    opacity:
+      {value: 1, duration: 1600, delay: 1000}
+  });
+  anime({
+    targets: '#firstPlace',
+    opacity:
+      {value: 1, duration: 1600, delay: 1000}
+  });  
+  break
+}
+
+
+if ($('#roundNumber').html() != roundNumber) {
+
+$('#roundNumber').html(roundNumber);
+
+}    
+
+				doUpdate = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+
+
+      
+</script>
+</head>
+<body onload="init()">
+
+
+
+    <div id="gpad">
+      <div id="revealApp">
+        <div id="roundNumber">1</div>
+        <button id="next">Next</button>
+        <select id="roundSelector">
+          <option value="Groups Part 1">Groups 1</option>
+          <option value="Groups Part 2">Groups 2</option>
+          <option value="8th-Finals">8th-Finals</option>
+          <option value="Quarterfinals">Quarterfinals</option>
+          <option value="Finals">Finals</option>
+        </select>
+
+        <div id="fourthPlace">Fourth Place</div>
+        <div id="thirdPlace">Third Place</div>
+        <div id="secondPlace">Second Place</div>
+        <div id="firstPlace">First Place</div>
+      </div>
+
+    <div id="number1" class="scene scene--card">
+        <div id="card1" class="card">
+          <div id="hidden1" class="card__face card__face--front">Jim Bondo</div>
+          <div id="reveal1" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number2" class="scene scene--card">
+        <div id="card2" class="card">
+          <div id="hidden2" class="card__face card__face--front">Clarice Sofia Mortgenstern</div>
+          <div id="reveal2" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number3" class="scene scene--card">
+        <div id="card3" class="card">
+          <div id="hidden3" class="card__face card__face--front">Johnny English</div>
+          <div id="reveal3" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number4" class="scene scene--card">
+        <div id="card4" class="card">
+          <div id="hidden4" class="card__face card__face--front">James Bond</div>
+          <div id="reveal4" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number5" class="scene scene--card">
+        <div id="card5" class="card">
+          <div id="hidden5" class="card__face card__face--front">Generalissimo</div>
+          <div id="reveal5" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number6" class="scene scene--card">
+        <div id="card6" class="card">
+          <div id="hidden6" class="card__face card__face--front">Johnny English</div>
+          <div id="reveal6" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number7" class="scene scene--card">
+        <div id="card7" class="card">
+          <div id="hidden7" class="card__face card__face--front">James Bond</div>
+          <div id="reveal7" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number8" class="scene scene--card">
+        <div id="card8" class="card">
+          <div id="hidden8" class="card__face card__face--front">Generalissimo</div>
+          <div id="reveal8" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number9" class="scene scene--card">
+        <div id="card9" class="card">
+          <div id="hidden9" class="card__face card__face--front">Johnny English</div>
+          <div id="reveal9" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number10" class="scene scene--card">
+        <div id="card10" class="card">
+          <div id="hidden10" class="card__face card__face--front">James Bond</div>
+          <div id="reveal10" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number11" class="scene scene--card">
+        <div id="card11" class="card">
+          <div id="hidden11" class="card__face card__face--front">James Bond</div>
+          <div id="reveal11" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number12" class="scene scene--card">
+        <div id="card12" class="card">
+          <div id="hidden12" class="card__face card__face--front">James Bond</div>
+          <div id="reveal12" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number13" class="scene scene--card">
+        <div id="card13" class="card">
+          <div id="hidden13" class="card__face card__face--front">James Bond</div>
+          <div id="reveal13" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number14" class="scene scene--card">
+        <div id="card14" class="card">
+          <div id="hidden14" class="card__face card__face--front">James Bond</div>
+          <div id="reveal14" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number15" class="scene scene--card">
+        <div id="card15" class="card">
+          <div id="hidden15" class="card__face card__face--front">James Bond</div>
+          <div id="reveal15" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+      <div id="number16" class="scene scene--card">
+        <div id="card16" class="card">
+          <div id="hidden16" class="card__face card__face--front">James Bond</div>
+          <div id="reveal16" class="card__face card__face--back">Gabrio</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $('#roundSelector').change(updateBoard);
+
+      $('#next').click(function() {
+    $('#roundSelector option:selected').next().attr('selected', 'selected');
+    updateBoard();
+
+});
+  </script>
+</body>
+</html>

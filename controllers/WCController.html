@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../css/WCC.css">
+	<link rel="stylesheet" href="../css/farbtastic.css">
+	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="../js/jquery-ui.js"></script>
+	<script src="../js/hotkeys.js"></script>
+	<script src="../js/csv.js"></script>
+	<script src="../js/farbtastic.js"></script>
+	<script src="../js/jquery.ddslick.min.js"></script>
+	<title>Custom SpyParty Overlay Controller</title>
+
+</head>
+
+<body>
+	<div id="sortable">
+		<div class="sectional" id="update">
+			<!--Big Update Button-->
+			<custom-update-matches></custom-update-matches>
+		</div>
+
+		<!--Players/Countries/Scores/characters-->
+		<div class="sectional" id="players">
+			<players-scores id="playersModule"></players-scores>
+		</div>
+
+		<!--Players/Countries/Scores/characters-->
+		<div class="sectional" id="playerRolls">
+			<sniper-divs id="divisionsModule"></sniper-divs>
+		</div>
+
+		<!--Custom and Preset Tooltips-->
+		<div class="sectional" id="tooltips">
+			<tool-tips></tool-tips>
+		</div>
+
+		<!--Custom Colors-->
+		<div class="sectional" id="customColors">
+			<color-changer></color-changer>
+		</div>
+
+		<!--Venue Pool-->
+		<div class="sectional" id="venueLoadouts">
+			<venue-loadout></venue-loadout>
+		</div>
+
+		<!--Save/Load-->
+		<div class="sectional" id="saveLoad">
+			<save-load></save-load>
+		</div>
+		<!--Draft-->
+		<div class="sectional" id="picksBans">
+			<wc-draft></wc-draft>
+		</div>
+	</div>
+
+	<script src="Controller Components/custom_names.js"></script>
+	<script src="Controller Components/custom_sniper_divisions.js"></script>
+	<script src="Controller Components/custom_tooltips.js"></script>
+	<script src="Controller Components/custom_color.js"></script>
+	<script src="Controller Components/custom_venuepools.js"></script>
+	<script src="Controller Components/WCDraft.js"></script>
+	<script src="Controller Components/custom_save_load.js"></script>
+	<script src="Controller Components/custom_update_matches.js"></script>
+	<script>
+
+
+
+
+		var venueDecoder;
+		var scorePaste;
+		var scoreSource;
+		var spyPaste;
+		var gameCounter;
+
+		var matchMatchMatch;
+		var checkerLoader;
+
+
+		//Things to do when the page first loads.
+		$(document).ready(function () {
+			if (localStorage.getObj('saveMatchStatesCustom') != null) {
+				$('#matchMemory').val(localStorage.getObj('saveMatchStatesCustom'));
+			}
+			/*Recall array of div ids in previous sorting order
+			then adds # to the front each element so the sortDom function works*/
+			rememberMe = localStorage.getObj("sortOrderCustom");
+			if (rememberMe != null) {
+				for (i = 0; i < rememberMe.length; i++) {
+					rememberMe[i] = "#" + rememberMe[i];
+				}
+				sortDom(rememberMe);
+			}
+			//Recall array which contains ids of every accordion panel that was previously open.
+			var panState = localStorage.getObj("accStateCustom");
+			//Opens every div that was previously open. 	
+			var i;
+			if (panState != null) {
+				for (i = 0; i < panState.length; i++) {
+					if (panState[i] != null) {
+						panel = panState[i];
+						beDone = document.getElementById(panel);
+						beDone.style.maxHeight = beDone.scrollHeight + "px";
+						accClass = document.getElementById('accordion' + panel);
+						$(accClass).html('Collapse');
+						accClass.classList.toggle("active");
+					}
+				}
+			}
+
+			matchMemLoader = localStorage.getObj('saveStatesCustom');
+			poolMemLoader = localStorage.getObj('savePoolsCustom');
+			chkMemLoader = localStorage.getObj('saveChkStatesCustom');
+
+
+			if (matchMemLoader != null) {
+				matchMemArr = matchMemLoader;
+				if (diffArr.length > 0) {
+					$('#matchMemory').val('1').change();
+					setTimeout(() => {
+						$('#matchMemory').val('2').change();
+					}, 500);
+					setTimeout(() => {
+						$('#matchMemory').val('0').change();
+					}, 600);
+				}
+			} else if (matchMemLoader == null) {
+				aMatchClearer();
+			}
+			if (chkMemLoader != null) {
+				checkboxMemArr = chkMemLoader;
+			} else if (chkMemLoader == null) {
+				$("#rollSelectorA").prop('checked', true);
+			}
+
+			if (poolMemLoader != null) {
+				poolMemArr = poolMemLoader;
+
+			}
+
+
+			updatePools();
+			venuePool();
+			setTimeout(() => {
+				updateMatch();
+			}, 200);
+			checkSeason();
+
+		});
+		
+		//Enables mouse-over tooltips
+		$(function () {
+			$(document).tooltip({
+				show: {
+					duration: 200,
+					delay: 500
+				}
+			});
+		});
+
+		//Makes sending arrays through localStorage easy. Don't ask me how this works.
+		Storage.prototype.setObj = function (key, obj) {
+			return this.setItem(key, JSON.stringify(obj))
+		}
+		Storage.prototype.getObj = function (key) {
+			return JSON.parse(this.getItem(key))
+		}
+
+		//Changes order of Sortable Divs based on array order.
+		function sortDom(selectorArray) {
+			while (selectorArray.length) {
+				let $el = $(selectorArray.pop());
+				$el.parent().prepend($el);
+			}
+		}
+		//Sets sortable divisions and saves to localStorage
+		$(function () {
+			$("#sortable").sortable({
+				handle: ".titleBox",
+				update: function () {
+					var order = $("#sortable").sortable('toArray');
+					localStorage.setObj("sortOrderCustom", order);
+
+				}
+			});
+			$("#sortable").disableSelection();
+		});
+		//Sets accordion divisions and saves to localStorage
+		var acc = document.getElementsByClassName("accordion");
+
+		if (localStorage.getObj('accStateCustom') != null) {
+			panOpen = localStorage.getObj('accStateCustom');
+		} else {
+			panOpen = [];
+		}
+		/*Open and close accordion divs and
+		adds div ids to array whenever open and
+		removes div ids from array whenever closed*/
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function () {
+
+				this.classList.toggle("active");
+				$(this).html('Expand');
+				var panel = this.nextElementSibling;
+				var pSt = panel.id;
+				if (panel.style.maxHeight) {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+
+					var panState;
+
+					setTimeout(() => {
+						panel.style.maxHeight = null;
+
+					}, 200);
+				} else {
+
+					panel.style.maxHeight = panel.scrollHeight + "px";
+					$(this).html('Collapse');
+					setTimeout(() => {
+						panel.style.maxHeight = 10000 + "px";
+
+					}, 200);
+				}
+				var accordArr = [];
+				var accordOpenArr = $('.active').map(function () {
+			return this.id;
+				});
+				for (q=0;q<accordOpenArr.length;q++) {
+						accordArr[q] = accordOpenArr[q].replace('accordion', '');
+					}
+
+				/*Array of div ids comes with some extra text I don't want. 
+				To get rid of it, I turn the array into a string, match the string
+				to just the part of the div Ids I need, which is then automatically
+				matches */
+				setTimeout(() => {
+					localStorage.setObj("accStateCustom", accordArr);
+				}, 350);
+			});
+		}
+
+		matchMemory;
+		matchMemArr = [];
+		matchMemArr[0] = [];
+		matchMemArr[1] = [];
+		matchMemArr[2] = [];
+		memorySplitter = [];
+
+		matchMatchArr = [];
+
+		indepMemArr = [];
+		venuePoolMemArr = [];
+		memory2Splitter = [];
+
+
+		checkboxMemArr = [];
+		checkboxMemArr[0] = [];
+		checkboxMemArr[1] = [];
+		checkboxMemArr[2] = [];
+
+
+
+
+		var matchDepIdArr = $('.storable').map(function () {
+			return this.id;
+		});
+
+		var matchIndepIddArr = $('.storable2').map(function () {
+			return this.id;
+		});
+
+		var venuePoolIdArr = $('.loadoutBoy').map(function () {
+			return this.id;
+		});
+
+		var checkboxArray = $('.storable-ckbx').map(function () {
+			return this.id;
+		});
+
+
+
+
+		compareArr = localStorage.getObj('oldStates');
+
+		var convArray = jQuery.makeArray(matchDepIdArr);
+
+
+		localStorage.setObj('oldStates', convArray);
+
+
+		Array.prototype.diff = function (arr2) {
+			var ret = [];
+			this.sort();
+			arr2.sort();
+			for (var i = 0; i < this.length; i += 1) {
+				if (arr2.indexOf(this[i]) == -1) {
+					ret.push(this[i]);
+				}
+			}
+			return ret;
+		};
+
+		try {
+			diffArr = compareArr.diff(convArray);
+		}
+		catch {
+			$('#matchMemory').val('1').change();
+					setTimeout(() => {
+						$('#matchMemory').val('2').change();
+					}, 500);
+					setTimeout(() => {
+						$('#matchMemory').val('0').change();
+					}, 600);
+		}
+
+
+
+
+
+		//Clear buttons for Current and all match memory.
+		document.getElementById("cMatchSave").addEventListener("click", cMatchClearer);
+		document.getElementById("aMatchSave").addEventListener("click", aMatchClearer);
+
+		function cMatchClearer() {
+			namesClear(); //names_scores
+			draftClear(); //custom_draft
+			rollClear(); //sniper_divisions
+			tooltipsClear(); //tooltips
+			$('#venueDecoder').val('');
+			$('#scorePaste').val('');
+			$('#scoreSource').val('');
+			$('#rollPaste').val('');
+			$('#gameCounter').val('0');
+		}
+
+		function aMatchClearer() {
+			cMatchClearer();
+			for (q = 0; q < 3; q++) {
+				for (i = 0; i < matchDepIdArr.length; i++) {
+					matchMemArr[q][i] = $('#' + matchDepIdArr[i]).val();
+				}
+			}
+			for (q = 0; q < 3; q++) {
+				for (i = 0; i < checkboxArray.length; i++) {
+					checkboxMemArr[q][i] = $('#' + checkboxArray[i]).prop('checked');
+				}
+			}
+		}
+
+		//Updates match memory for currently selected match slot and recalls memory when a match slot is selected.
+
+		$('#matchMemory').change(updateMatch);
+
+
+
+		function updateMatch() {
+
+			matchMemory = parseInt($('#matchMemory').val());
+
+			for (i = 0; i < matchMemArr[0].length; i++) {
+
+				try {
+					memorySplitter = matchMemArr[matchMemory][i].split(';;');
+					$('#' + memorySplitter[0]).val(memorySplitter[1]);
+				}
+				catch {
+					console.log(memorySplitter[0]);
+				}
+
+			}
+
+			for (q = 0; q < checkboxArray.length; q++) {
+				$('#' + checkboxArray[q]).prop('checked', checkboxMemArr[matchMemory][q]);
+			}
+
+
+		};
+
+		function updatePools() {
+
+			for (i = 0; i < matchIndepIddArr.length; i++) {
+				try {
+					memory2Splitter = poolMemArr[i].split(';;');
+					$('#' + memory2Splitter[0]).val(memory2Splitter[1]);
+				}
+				catch {
+					console.log(memory2Splitter[0]);
+				}
+
+			}
+
+		};
+		
+		
+
+
+		function matchSaver() {
+			matchMatchMatch = $("#matchMemory").val();
+			matchMemory = parseInt($('#matchMemory').val());
+			for (i = 0; i < matchDepIdArr.length; i++) {
+				matchMemArr[matchMemory][i] = (matchDepIdArr[i] + ';;' + $('#' + matchDepIdArr[i]).val());
+
+			}
+			for (i = 0; i < matchIndepIddArr.length; i++) {
+				indepMemArr[i] = (matchIndepIddArr[i] + ';;' + $('#' + matchIndepIddArr[i]).val());
+			}
+			for (i = 0; i < venuePoolIdArr.length; i++) {
+				venuePoolMemArr[i] = $('#' + venuePoolIdArr[i]).val();
+			}
+			for (q = 0; q < checkboxArray.length; q++) {
+				checkboxMemArr[matchMemory][q] = $('#' + checkboxArray[q]).prop('checked');
+			}
+
+			localStorage.setObj('saveMatchStatesCustom', matchMatchMatch);
+			localStorage.setObj('saveStatesCustom', matchMemArr);
+			localStorage.setObj('savePoolsCustom', indepMemArr);
+			localStorage.setObj('saveChkStatesCustom', checkboxMemArr);
+
+
+		}
+
+
+		//Broadcast channels for each overlay
+
+
+		//Save current values of all the inputs to variables and send to all overlays
+
+
+		//Hotkeys
+		var pScore1UpOld = pScore1Up;
+		var pScore2UpOld = pScore2Up;
+		var gamesPlayedUpOld = gamesPlayedUp;
+		var clearPlayersOld = clearPlayers;
+		var clearDraftOld = clearDraft;
+		var clearCharacterOld = clearCharacter;
+		var clearTooltipsOld = clearTooltips;
+		var clearDraftPasteOld = clearDraftPaste;
+		var clearScorePasteOld = clearScorePaste;
+		var clearSpyPasteOld = clearSpyPaste;
+		var match1Old = match1;
+		var match2Old = match2;
+		var match3Old = match3;
+		var bigUpdateOld = bigUpdate;
+
+		//Format data from hotkeys.js
+		function updateHotkeys() {
+			src = '../js/hotkeys.js';
+			$('script[src="' + src + '"]').remove();
+			var head = document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.src = src;
+			head.appendChild(script);
+		}
+		//Set hotkey functions
+		function checkHotkeys() {
+			if (pScore1Up != pScore1UpOld) {
+				let scoreUpper = document.getElementById('pScore1');
+				scoreUpper.stepUp();
+				pScore1UpOld = pScore1Up;
+			}
+			if (pScore2Up != pScore2UpOld) {
+				let score2Upper = document.getElementById('pScore2');
+				score2Upper.stepUp();
+				pScore2UpOld = pScore2Up;
+			}
+			if (gamesPlayedUp != gamesPlayedUpOld) {
+				let gPlayed = document.getElementById('gameCounter');
+				gPlayed.stepUp();
+				gamesPlayedUpOld = gamesPlayedUp;
+			}
+			if (clearPlayers != clearPlayersOld) {
+				$('#pName1').val('');
+				$('#pCountry1').val('');
+				$('#pScore1').val(0);
+				$('#pName2').val('');
+				$('#pCountry2').val('');
+				$('#pScore2').val(0);
+				clearPlayersOld = clearPlayers;
+			}
+			if (clearDraft != clearDraftOld) {
+				$('.venueSelect').val('');
+				clearDraftOld = clearDraft;
+			}
+			if (clearCharacter != clearCharacterOld) {
+				$('#Rolla').val('');
+				clearCharacterOld = clearCharacter;
+			}
+			if (clearTooltips != clearTooltipsOld) {
+				$('#cTipName').val('');
+				$('#cTipDesc').val('');
+				$('#tText').val('');
+				clearTooltipsOld = clearTooltips;
+			}
+			if (clearDraftPaste != clearDraftPasteOld) {
+				$('#venueDecoder').val('');
+				clearDraftPasteOld = clearDraftPaste;
+			}
+			if (clearScorePaste != clearScorePasteOld) {
+				$('#scoreSource').val('');
+				$('#scorePaste').val('');
+				$('#gameCounter').val('0');
+				clearScorePasteOld = clearScorePaste;
+			}
+			if (clearSpyPaste != clearSpyPasteOld) {
+				$('#rollPaste').val('');
+				clearSpyPasteOld = clearSpyPaste;
+			}
+			if (match1Old != match1) {
+				$('#matchMemory').val('0').change();
+				match1Old = match1;
+			}
+			if (match2Old != match2) {
+				$('#matchMemory').val('1').change();
+				match2Old = match2;
+			}
+			if (match3Old != match3) {
+				$('#matchMemory').val('2').change();
+				match3Old = match3;
+			}
+			if (bigUpdate != bigUpdateOld) {
+				pleaseWork();
+				bigUpdateOld = bigUpdate;
+			}
+		}
+
+
+
+		//Check hotkey variable states and Match type dropdown every 200ms
+		function checkUpdates() {
+			checkHotkeys();
+			updateHotkeys();
+		}
+		setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut()), 200);
+		setTimeout(() => {
+			setInterval(() => (matchSaver()), 200);
+		}, 400);
+
+	</script>
+</body>
+
+</html>
