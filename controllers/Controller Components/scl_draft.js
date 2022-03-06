@@ -37,6 +37,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -54,6 +55,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -70,6 +72,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -87,6 +90,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -119,6 +123,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -136,6 +141,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -152,6 +158,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -169,6 +176,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -198,6 +206,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -214,6 +223,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -229,6 +239,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -245,6 +256,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -260,6 +272,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
@@ -276,6 +289,7 @@ class SclDraft extends HTMLElement {
                 <option value="gallery">Gallery</option>
                 <option value="high-rise">High-rise</option>
                 <option value="library">Library</option>
+                <option value="moderne">Moderne</option>
                 <option value="pub">Pub</option>
                 <option value="redwoods">Redwoods</option>
                 <option value="teien">Teien</option>
