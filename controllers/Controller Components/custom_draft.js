@@ -10,9 +10,7 @@ class CustomDraft extends HTMLElement {
                 <label class="pbTitle" id="draftPlayer1">Player 1</label>
                 <label class="pbTitle2" id="draftPlayer2">Player 2</label>
                 <div class="break"></div>
-                <input class="selectTypeS storable  draft" title="Blah blah blah" type="text" id="venueType1R"
-                    placeholder="Title">
-					<input class="selectTypeS storable  draft" title="Blah blah blah" type="text" id="venueType1L"
+                <input class="selectType storable  draft" title="Blah blah blah" type="text" id="venueType1"
                     placeholder="Title">
                 <div class="break"></div>
                 <div class="venueSpinners">
