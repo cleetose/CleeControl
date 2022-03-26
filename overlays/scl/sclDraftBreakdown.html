@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../js/jquery-2.0.2.min.js" type="text/javascript"
+            charset="utf-8"></script>
+        <script src="../../js/anime.min.js" type="text/javascript"
+            charset="utf-8"></script>
+        <link rel="stylesheet" href="css/breakdownDraft.css" type="text/css"
+            charset="utf-8">
+        <title>SCL Score Breakdown 2022</title>
+
+        <script type="text/javascript">
+
+        var venue11NameOld;
+        var venue12NameOld;
+        var venue13NameOld;
+        var venue14NameOld;
+        var venue15NameOld;
+        var venue16NameOld;
+
+        var venue21NameOld;
+        var venue22NameOld;
+        var venue23NameOld;
+        var venue24NameOld;
+        var venue25NameOld;
+        var venue26NameOld;
+        
+        var breakdownToggler = 0;
+        var loadIn = 'once';
+
+
+            function init() {
+                bc.postMessage('hello');
+                bdbc.postMessage('hello');
+            }
+
+            function breakdownToggle() {
+
+                anime({
+                    targets: '#centerBand',
+                    translateX:
+                        [
+                            { value: 0, duration: 0, delay: 0, easing: 'easeOutQuad'},
+                            { value: 2000, duration: 300, delay: 0, easing: 'easeOutQuad'},
+                        ]
+                });
+                anime({
+                    targets: '.boxBorder',
+                    translateX:
+                    [
+                            { value: 0, duration: 0, delay: 0, easing: 'easeOutQuad'},
+                            { value: 2000, duration: 300, delay: 50, easing: 'easeOutQuad'}
+                            ],
+                    opacity:
+                    { value: 1, duration: 200, delay: 0, easing: 'easeOutQuad'}
+                });
+
+                anime({
+                    targets: '#p1VenueImages',
+                    translateX:
+                        [
+                            { value: 0, duration: 0, delay: 0, easing: 'easeOutQuad'},
+                            { value: 2000, duration: 300, delay: 50, easing: 'easeOutQuad'},
+                        ],
+                        opacity:
+                        
+                            { value: 1, duration: 200, delay: 0, easing: 'easeOutQuad'}
+                });
+                anime({
+                    targets: '#p2VenueImages',
+                    translateX:
+                        [
+                            { value: 0, duration: 0, delay: 0, easing: 'easeOutQuad'},
+                            { value: 2000, duration: 300, delay: 50, easing: 'easeOutQuad'},
+                        ],
+                        opacity:
+                        
+                            { value: 1, duration: 200, delay: 0, easing: 'easeOutQuad'}
+                });
+            }
+
+        function breakdownToggleReverse() {
+
+anime({
+    targets: '#centerBand',
+    translateX:
+        [
+            { value: 2000, duration: 0, delay: 0, easing: 'easeOutQuad'},
+            { value: 0, duration: 300, delay: 0, easing: 'easeOutQuad'},
+        ]
+});
+anime({
+    targets: '.boxBorder',
+    translateX:
+    [
+            { value: 2000, duration: 0, delay: 0, easing: 'easeOutQuad'},
+            { value: 0, duration: 400, delay: 0, easing: 'easeOutQuad'}
+            ],
+    opacity:
+    { value: 0, duration: 200, delay: 0, easing: 'easeOutQuad'}
+});
+
+anime({
+    targets: '#p1VenueImages',
+    translateX:
+        [
+            { value: 2000, duration: 0, delay: 0, easing: 'easeOutQuad'},
+            { value: 0, duration: 400, delay: 0, easing: 'easeOutQuad'},
+        ],
+        opacity:
+        
+            { value: 0, duration: 200, delay: 0, easing: 'easeOutQuad'}
+});
+anime({
+    targets: '#p2VenueImages',
+    translateX:
+        [
+            { value: 2000, duration: 0, delay: 0, easing: 'easeOutQuad'},
+            { value: 0, duration: 400, delay: 0, easing: 'easeOutQuad'},
+        ],
+        opacity:
+        
+            { value: 0, duration: 200, delay: 0, easing: 'easeOutQuad'}
+});
+}
+
+            const bc = new BroadcastChannel('picks');
+            const bdbc = new BroadcastChannel("breakdownDraft");
+            const bdbtbc = new BroadcastChannel("BreakdownDraftToggle");
+
+            bdbtbc.onmessage = function() {
+                if (breakdownToggler == 0) {
+                    breakdownToggle();
+                    breakdownToggler = 1;
+                }
+                else if (breakdownToggler == 1) {
+                    breakdownToggleReverse();
+                    breakdownToggler = 0;
+                }
+            };
+
+            bdbc.onmessage = function (ev) {
+    const received_data = ev.data;
+    var { breakdownVars } = received_data;
+                console.log(breakdownVars);
+    varSplitter = [];
+    for (let i = 0; i < breakdownVars.length; i++) {
+        varSplitter = breakdownVars[i].split(';;');
+        window[varSplitter[0]] = varSplitter[1];
+
+    }
+    if (pScore12 == 0 && pScore22 == 0) {
+        $('#breakdown23').css('visibility','hidden');
+    } else {
+        $('#breakdown23').css('visibility','visible');
+    }
+
+    if (pScore13 == 0 && pScore23 == 0) {
+        $('#breakdown14').css('visibility','hidden');
+    } else {
+        $('#breakdown14').css('visibility','visible');
+    }
+
+    if (pScore14 == 0 && pScore24 == 0) {
+        $('#breakdown24').css('visibility','hidden');
+    } else {
+        $('#breakdown24').css('visibility','visible');
+    }
+
+    if (pScore15 == 0 && pScore25 == 0) {
+        $('#breakdown15').css('visibility','hidden');
+    } else {
+        $('#breakdown15').css('visibility','visible');
+    }
+
+    if (pScore16 == 0 && pScore26 == 0) {
+        $('#breakdown25').css('visibility','hidden');
+    } else {
+        $('#breakdown25').css('visibility','visible');
+    }
+
+    if (pScore17 == 0 && pScore27 == 0) {
+        $('#breakdown16').css('visibility','hidden');
+    } else {
+        $('#breakdown16').css('visibility','visible');
+    }
+
+    if (pScore18== 0 && pScore28 == 0) {
+        $('#breakdown26').css('visibility','hidden');
+    } else {
+        $('#breakdown26').css('visibility','visible');
+    }
+    $('#breakdown13').html(pScore11+' - '+pScore21);
+
+    $('#breakdown23').html(pScore12+' - '+pScore22);
+
+    $('#breakdown14').html(pScore13+' - '+pScore23);
+
+    $('#breakdown24').html(pScore14+' - '+pScore24);
+
+    $('#breakdown15').html(pScore15+' - '+pScore25);
+
+    $('#breakdown25').html(pScore16+' - '+pScore26);
+
+    $('#breakdown16').html(pScore17+' - '+pScore27);
+
+    $('#breakdown26').html(pScore18+' - '+pScore28);
+}
+
+
+bc.onmessage = function (ev) {
+    const received_data = ev.data;
+    var { draftVars } = received_data;
+
+    varSplitter = [];
+    for (let i = 0; i < draftVars.length; i++) {
+        varSplitter = draftVars[i].split(';;');
+        window[varSplitter[0]] = varSplitter[1];
+
+    }
+
+    switch (matchType) {
+        case 'regularSeason':
+            $('#venue15').css('display','none');
+            $('#venue25').css('display','none');
+            $('#venue16').css('display','none');
+            $('#venue26').css('display','none');
+            $('.champDouble').css('display','none');
+            $('.venueTextLarge').css('font-size','28pt');
+            break;
+
+        case 'postSeason':
+        $('#venue16').css('display','none');
+        $('#venue26').css('display','none');
+        $('#venue15').css('display','flex');
+        $('#venue25').css('display','flex');
+        $('.champDouble').css('display','none');
+        $('.venueTextLarge').css('font-size','24pt');
+            break;
+
+        case 'championship':
+        $('#venue15').css('display','flex');
+        $('#venue25').css('display','flex');
+        $('#venue16').css('display','flex');
+        $('#venue26').css('display','flex');
+        $('.champDouble').css('display','block');
+        $('.venueTextLarge').css('font-size','18pt');
+            break;
+    }
+
+    switch (pDivision1) {
+        case 'oak':
+    document.body.style.setProperty('--top-band-color', '#6c2c04');
+    document.body.style.setProperty('--top-band-border-color', '#521f03');
+    document.body.style.setProperty('--top-band-text-color', '#eec680');
+    $('.badges').css('background-image','url("./images_badges/oak.svg")');
+    console.log('test');
+            break;
+            case 'obsidian':
+    document.body.style.setProperty('--top-band-color', '#343434');
+    document.body.style.setProperty('--top-band-border-color', '#5b5b5b');
+    document.body.style.setProperty('--top-band-text-color', '#a13c24');
+    $('.badges').css('background-image','url("./images_badges/obsidian.svg")');
+            break;
+            case 'iron':
+    document.body.style.setProperty('--top-band-color', '#556060');
+    document.body.style.setProperty('--top-band-border-color', '#808e8d');
+    document.body.style.setProperty('--top-band-text-color', '#abb2b2');
+    $('.badges').css('background-image','url("./images_badges/iron.svg")');
+            break;
+        case 'copper':
+    document.body.style.setProperty('--top-band-color', '#a04120');
+    document.body.style.setProperty('--top-band-border-color', '#a5927f');
+    document.body.style.setProperty('--top-band-text-color', '#eff4ce');
+    $('.badges').css('background-image','url("./images_badges/copper.svg")');
+            break;
+            case 'bronze':
+    document.body.style.setProperty('--top-band-color', '#e24d0c');
+    document.body.style.setProperty('--top-band-border-color', '#f79857');
+    document.body.style.setProperty('--top-band-text-color', '#f7eeb0');
+    $('.badges').css('background-image','url("./images_badges/bronze.svg")');
+            break;
+            case 'silver':
+    document.body.style.setProperty('--top-band-color', '#b1e8e8');
+    document.body.style.setProperty('--top-band-border-color', '#0c0c0b');
+    document.body.style.setProperty('--top-band-text-color', '#5a7270');
+    $('.badges').css('background-image','url("./images_badges/silver.svg")');
+            break;
+            case 'gold':
+    document.body.style.setProperty('--top-band-color', '#ea9313');
+    document.body.style.setProperty('--top-band-border-color', '#6d3b09');
+    document.body.style.setProperty('--top-band-text-color', '#efd659');
+    $('.badges').css('background-image','url("./images_badges/gold.svg")');
+            break;
+            case 'platinum':
+    document.body.style.setProperty('--top-band-color', '#cccccc');
+    document.body.style.setProperty('--top-band-border-color', '#666666');
+    document.body.style.setProperty('--top-band-text-color', '#ffffff');
+    $('.badges').css('background-image','url("./images_badges/platinum.svg")');
+            break;
+            case 'diamond':
+    document.body.style.setProperty('--top-band-color', '#01daf9');
+    document.body.style.setProperty('--top-band-border-color', '#16495e');
+    document.body.style.setProperty('--top-band-text-color', '#feffff');
+    $('.badges').css('background-image','url("./images_badges/diamond.svg")');
+            break;
+        default:
+            break;
+    }
+
+
+
+    if (pName1 != $('#pName1').html()) {
+        
+        anime({
+            targets: "#pName1",
+            opacity: {value: 0, duration: 500, delay: 0, easing: "easeOutQuad"},
+            complete: function() {
+                $('#pName1').html(pName1);
+                anime({
+                    targets: "#pName1",
+            opacity: {value: 1, duration: 500, delay: 0, easing: "easeOutQuad"},
+                });
+            }
+        });
+    }
+
+    if (pName2 != $('#pName2').html()) {
+        
+        anime({
+            targets: "#pName2",
+            opacity: {value: 0, duration: 500, delay: 0, easing: "easeOutQuad"},
+            complete: function() {
+                $('#pName2').html(pName2);
+                anime({
+                    targets: "#pName2",
+            opacity: {value: 1, duration: 500, delay: 0, easing: "easeOutQuad"},
+                });
+            }
+        });
+    }
+
+    for (let i = 1; i < 3; i++) {
+       for (let q = 1; q < 7; q++) {
+           tempArr = window["venue"+i+q].split(';');
+           window["venue"+i+q+'Name'] = tempArr[0];
+           window["venue"+i+q+'TextLeft'] = tempArr[1];
+           window["venue"+i+q+'TextRight'] = tempArr[2];
+       }
+        
+    }
+
+
+
+
+    function smallVenueChange(venueNumber) {
+        anime({
+            targets: "#"+venueNumber,
+            opacity: {value: 0, duration: 200, delay: 0, easing: "easeOutQuad"},
+            translateY: {value: 300, duration: 200, delay: 0, easing: "easeOutQuad"},
+            complete: function() {
+                venueNumberName = window[venueNumber+"Name"];
+                venueNumberLeft = window[venueNumber+"TextLeft"];
+                venueNumberRight = window[venueNumber+"TextRight"];
+                $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
+                $('#'+venueNumber+'TextRight').html(venueNumberRight);
+                $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
+                venueSplitter = venueNumber.split('venue1');
+                console.log(venueSplitter.length);
+                if (venueSplitter.length == 1) {
+                    anime({
+                    targets: "#"+venueNumber,
+            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+            translateY: [{value: -300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                });
+                }
+                else if (venueSplitter.length == 2) {
+
+                    anime({
+                    targets: "#"+venueNumber,
+            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+            translateY: [{value: 300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                });
+
+                }
+                
+            }
+        });
+
+    }
+
+
+
+
+
+    function bigVenueChange(venueNumber) {
+        anime({
+            targets: "#"+venueNumber,
+            opacity: {value: 0, duration: 200, delay: 0, easing: "easeOutQuad"},
+
+            complete: function() {
+                venueNumberName = window[venueNumber+"Name"];
+                venueNumberLeft = window[venueNumber+"TextLeft"];
+                venueNumberRight = window[venueNumber+"TextRight"];
+                $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
+                $('#'+venueNumber+'Holder').html("<video muted autoplay class='video' id='"+venueNumberName+"Video'><source src='./videos/"+venueNumberName+".mp4' type='video/mp4'></video>");
+                $('#'+venueNumber+'Holder').css('opacity','1');
+                $('#'+venueNumber+'TextRight').html(venueNumberRight);
+                $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
+                venueSplitter = venueNumber.split('venue1');
+                console.log(venueSplitter.length);
+                if (venueSplitter.length == 1) {
+                    anime({
+                    targets: "#"+venueNumber,
+            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+            translateY: [{value: -300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                });
+                }
+                else if (venueSplitter.length == 2) {
+
+                    anime({
+                    targets: "#"+venueNumber,
+            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+            translateY: [{value: 300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                });
+
+                }
+                anime({
+                    targets: '#'+venueNumberName+'Video',
+                    opacity: {value: 0, duration: 1000, delay: 10000, easing: "easeOutQuad"},
+
+                });
+            }
+
+        });
+
+    }
+    
+    if(loadIn == "done") {
+
+        console.log(loadIn);
+        if (venue11Name != venue11NameOld && venue11Name != "") {
+        smallVenueChange('venue11')
+        venue11NameOld = venue11Name;
+        }
+
+        if (venue21Name != venue21NameOld && venue21Name != "") {
+            smallVenueChange('venue21')
+            venue21NameOld = venue21Name;
+        }
+
+
+        if (venue12Name != venue12NameOld && venue12Name != "") {
+            smallVenueChange('venue12')
+            venue12NameOld = venue12Name;
+        }
+
+        if (venue22Name != venue22NameOld && venue22Name != "") {
+            smallVenueChange('venue22')
+            venue22NameOld = venue22Name;
+        }
+
+
+        if (venue13Name != venue13NameOld && venue13Name != "") {
+            bigVenueChange('venue13');
+            venue13NameOld = venue13Name;
+        }
+
+        if (venue23Name != venue23NameOld && venue23Name != "") {
+            bigVenueChange('venue23');
+            venue23NameOld = venue23Name;
+        }
+
+
+        if (venue14Name != venue14NameOld && venue14Name != "") {
+            bigVenueChange('venue14');
+            venue14NameOld = venue14Name;
+        }
+
+        if (venue24Name != venue24NameOld && venue24Name != "") {
+            bigVenueChange('venue24');
+            venue24NameOld = venue24Name;
+        }
+
+
+        if (venue15Name != venue15NameOld && venue15Name != "") {
+            bigVenueChange('venue15');
+            venue15NameOld = venue15Name;
+        }
+
+        if (venue25Name != venue25NameOld && venue25Name != "") {
+            bigVenueChange('venue25');
+            venue25NameOld = venue25Name;
+        }
+
+        if (venue16Name != venue16NameOld && venue16Name != "") {
+            bigVenueChange('venue16');
+            venue16NameOld = venue16Name;
+        }
+
+        if (venue26Name != venue26NameOld && venue26Name != "") {
+            bigVenueChange('venue26');
+            venue26NameOld = venue26Name;
+        }
+
+    }
+
+
+
+
+    if (loadIn == 'once') {
+        loadIn = 'twice';
+        console.log(loadIn);
+        if (venue11Name != venue11NameOld && venue11Name != "") {
+           setTimeout(() => {
+            smallVenueChange('venue11');
+           }, 400); 
+            venue11NameOld = venue11Name;
+        }
+
+        if (venue21Name != venue21NameOld && venue21Name != "") {
+            setTimeout(() => {
+            smallVenueChange('venue21');
+        }, 400); 
+            venue21NameOld = venue21Name;
+        }
+
+
+        if (venue12Name != venue12NameOld && venue12Name != "") {
+            setTimeout(() => {
+            smallVenueChange('venue12');
+        }, 500); 
+            venue12NameOld = venue12Name;
+        }
+
+        if (venue22Name != venue22NameOld && venue22Name != "") {
+            setTimeout(() => {
+            smallVenueChange('venue22');
+        }, 500); 
+            venue22NameOld = venue22Name;
+        }
+
+
+        if (venue13Name != venue13NameOld && venue13Name != "") {
+            setTimeout(() => {
+            bigVenueChange('venue13');
+        }, 700); 
+            venue13NameOld = venue13Name;
+        }
+
+        if (venue23Name != venue23NameOld && venue23Name != "") {
+            setTimeout(() => {
+            bigVenueChange('venue23');
+        }, 700); 
+            venue23NameOld = venue23Name;
+        }
+
+
+        if (venue14Name != venue14NameOld && venue14Name != "") {
+            setTimeout(() => {
+            bigVenueChange('venue14');
+        }, 800); 
+            venue14NameOld = venue14Name;
+        }
+
+        if (venue24Name != venue24NameOld && venue24Name != "") {
+            setTimeout(() => {
+            bigVenueChange('venue24');
+        }, 800); 
+            venue24NameOld = venue24Name;
+        }
+
+    if (matchType == 'postSeason') {
+
+        if (venue15Name != venue15NameOld && venue15Name != "") {
+        setTimeout(() => {
+        bigVenueChange('venue15');
+    }, 900); 
+        venue15NameOld = venue15Name;
+    }
+
+    if (venue25Name != venue25NameOld && venue25Name != "") {
+        setTimeout(() => {
+        bigVenueChange('venue25');
+    }, 900); 
+        venue25NameOld = venue25Name;
+    }
+        setTimeout(() => {
+            loadIn = "done";
+        }, 1000);
+    }
+    else if (matchType == 'championship') {
+
+        if (venue15Name != venue15NameOld && venue15Name != "") {
+        setTimeout(() => {
+        bigVenueChange('venue15');
+    }, 1000); 
+        venue15NameOld = venue15Name;
+    }
+
+    if (venue25Name != venue25NameOld && venue25Name != "") {
+        setTimeout(() => {
+        bigVenueChange('venue25');
+    }, 1000); 
+        venue25NameOld = venue25Name;
+    }
+    if (venue15Name != venue16NameOld && venue16Name != "") {
+        setTimeout(() => {
+        bigVenueChange('venue16');
+    }, 1100); 
+        venue16NameOld = venue16Name;
+    }
+
+    if (venue26Name != venue26NameOld && venue26Name != "") {
+        setTimeout(() => {
+        bigVenueChange('venue26');
+    }, 1100); 
+        venue26NameOld = venue26Name;
+    }
+
+setTimeout(() => {
+loadIn = "done";
+}, 1200);
+}
+    else if (matchType == 'regularSeason') {
+
+        venue15NameOld = venue15Name;
+        venue25NameOld = venue25Name;
+        venue16NameOld = venue16Name;
+        venue26NameOld = venue26Name;
+    setTimeout(() => {
+        loadIn = "done";
+    }, 1000);
+    }
+
+    }
+
+    
+
+}
+
+        </script>
+    </head>
+    <body onLoad="init()">
+        <div id="sclLogo">
+            <img src="./images_draft/sclLogo.png">
+        </div>
+        <div id="everything">
+
+            <div id="p1VenueImages">
+                <div class="topImage smallImage venueImage" id="venue11">
+                    <p class="venueName venueTextSmall" id="venue11TextLeft">Courtyard<br>Any
+                        4/8</p>
+                    <p class="venueGuestsTime venueTextSmall"
+                        id="venue11TextRight">69 Guests<br>4:20 Mins</p>
+                </div>
+                <div id="spacer1"></div>
+                <div class="topImage smallImage venueImage" id="venue12">
+                    <p class="venueName venueTextSmall"
+                        id="venue12TextLeft">Courtyard<br>Any 4/8</p>
+                    <p class="venueGuestsTime venueTextSmall"
+                        id="venue12TextRight">69 Guests<br>4:20 Mins</p>
+                </div>
+                <div id="spacer2"></div>
+                <div class="pickHolder">
+                    <div class="topImage largeImage venueImage" id="venue13">
+                        <div class="double">
+                            <p class="doubleText">Doubled</p>
+                        </div>
+                        <div class="breakdown">
+                            <p id="breakdown13">2 - 1</p>
+                        </div>
+
+                        <p class="venueName venueTextLarge"
+                            id="venue13TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue13TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                    <div class="topImage largeImage venueImage" id="venue14">
+                        <div class="double champDouble">
+                            <p class="doubleText">Doubled</p>
+                        </div>
+                        <div class="breakdown">
+                            <p id="breakdown14">2 - 1</p>
+                        </div>
+                        <p class="venueName venueTextLarge"
+                            id="venue14TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue14TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                    <div class="topImage largeImage venueImage" id="venue15">
+                        <div class="breakdown">
+                            <p id="breakdown15">2 - 1</p>
+                        </div>
+
+                        <p class="venueName venueTextLarge"
+                            id="venue15TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue15TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                    <div class="topImage largeImage venueImage" id="venue16">
+                        <div class="breakdown">
+                            <p id="breakdown16">2 - 1</p>
+                        </div>
+
+
+                        <p class="venueName venueTextLarge"
+                            id="venue16TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue16TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                </div>
+            </div>
+            <div id="p2VenueImages">
+                <div class="bottomImage smallImage venueImage" id="venue21">
+                    <p class="venueName venueTextSmall" id="venue21TextLeft">Courtyard<br>Any
+                        4/8</p>
+                    <p class="venueGuestsTime venueTextSmall"
+                        id="venue21TextRight">69 Guests<br>4:20 Mins</p>
+                </div>
+                <div id="spacer1"></div>
+                <div class="bottomImage smallImage venueImage" id="venue22">
+                    <p class="venueName venueTextSmall"
+                        id="venue22TextLeft">Courtyard<br>Any 4/8</p>
+                    <p class="venueGuestsTime venueTextSmall"
+                        id="venue22TextRight">69 Guests<br>4:20 Mins</p>
+                </div>
+                <div id="spacer2"></div>
+                <div class="pickHolder">
+                    <div class="bottomImage largeImage venueImage" id="venue23">
+                        <div class="double">
+                            <p class="doubleText">Doubled</p>
+                        </div>
+                        <div class="breakdown">
+                            <p id="breakdown23">2 - 1</p>
+                        </div>
+
+                        <p class="venueName venueTextLarge"
+                            id="venue23TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue23TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                    <div class="bottomImage largeImage venueImage" id="venue24">
+                        <div class="double champDouble" id="champDouble2">
+                            <p class="doubleText">Doubled</p>
+                        </div>
+                        <div class="breakdown">
+                            <p id="breakdown24">2 - 1</p>
+                        </div>
+
+                        <p class="venueName venueTextLarge"
+                            id="venue24TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue24TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                    <div class="bottomImage largeImage venueImage" id="venue25">
+                        <div class="breakdown">
+                            <p id="breakdown25">2 - 1</p>
+                        </div>
+
+                        <p class="venueName venueTextLarge"
+                            id="venue25TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue25TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                    <div class="bottomImage largeImage venueImage" id="venue26">
+                        <div class="breakdown">
+                            <p id="breakdown26">2 - 1</p>
+                        </div>
+
+                        <p class="venueName venueTextLarge"
+                            id="venue26TextLeft">Teien<br>Any 4/8</p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue26TextRight">69 Guests<br>4:20 Mins</p>
+                    </div>
+                </div>
+            </div>
+            <div id="selectionType">
+                <div class="selectionBlock" id="bans">
+                    <div class="boxBorder">
+                        <div class="sTBox" id="banBox">
+                            <p class="sTText textTop">
+                                Ban
+                            </p>
+                            <p class="sTText textBottom">
+                                Ban
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="selectionBlock" id="restricts">
+                    <div class="boxBorder">
+                        <div class="sTBox" id="restrictBox">
+                            <p class="sTText textTop">
+                                Restrict
+                            </p>
+                            <p class="sTText textBottom">
+                                Restrict
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="selectionBlock" id="picks">
+                    <div class="boxBorder" id="picksBorder">
+                        <div class="sTBox" id="picksBox">
+                            <p class="sTText textTop">
+                                Picks
+                            </p>
+                            <p class="sTText textBottom">
+                                Picks
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="centerBand">
+                <div id="pName1">CLEETOSE</div>
+                <div id="vsBand">
+                    <p id="vs">
+                        vs
+                    </p>
+                </div>
+                <div id="pName2">CLEETOSE</div>
+                <div class="badges" id="divisionBadgeLeft"></div>
+                <div class="badges" id="divisionBadgeRight"></div>
+            </div>
+        </div>
+    </body>
+</html>

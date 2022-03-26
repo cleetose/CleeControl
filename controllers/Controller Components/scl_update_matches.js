@@ -28,12 +28,14 @@ class CustomUpdateMatches extends HTMLElement {
 window.customElements.define('custom-update-matches', CustomUpdateMatches);
 
 const pbc = new BroadcastChannel("picks");
+const bdbc = new BroadcastChannel("breakdownDraft");
 const sbc = new BroadcastChannel("score");
 const tbc = new BroadcastChannel('tooltip');
 const cbbc = new BroadcastChannel('casterBanner');
 
 var scoreBoardVars;
 var draftVars;
+var breakdownVars;
 var tooltipsVars;
 var casterbannerVars;
 
@@ -78,9 +80,10 @@ function chkbxSaver(className) {
 
 
 function pleaseWork() {
+
     scoreBoardVars = inputSaver('scoreBoard');
     draftVars = inputSaver('draft');
-
+    breakdownVars = inputSaver('breakDraft');
     tooltipsVars = inputSaver('tooltips');
     casterbannerVars = inputSaver('banner');
 
@@ -95,6 +98,9 @@ function pleaseWork() {
     });
     cbbc.postMessage({
         casterbannerVars
+    });
+    bdbc.postMessage({
+        breakdownVars
     });
 
 }
@@ -119,5 +125,11 @@ sbc.onmessage = function () {
 cbbc.onmessage = function () {
     cbbc.postMessage({
         casterbannerVars
+    });
+}
+
+bdbc.onmessage = function () {
+    bdbc.postMessage({
+        breakdownVars
     });
 }

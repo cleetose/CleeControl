@@ -411,6 +411,14 @@ input[type=number]:focus {outline:none !important}
 	width: fit-content;
 }
 
+#breakdownButton {
+	position: relative;
+	height: 30px;
+	font-size: 14px;
+	margin: 5px 0px 0px 27px;
+	width: fit-content;
+}
+
 #hostName {
 	position: relative;
 	margin-top: 5px;
@@ -427,7 +435,47 @@ input[type=number]:focus {outline:none !important}
 	width: 95%;
 }
 
+#breakdownText {
+	margin-top: 10px;
+	width: 100%;
+	text-align: center;
+}
 
+#flexFlex {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+
+}
+
+#playerNamesBreakdown {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	padding-top: 5px;
+	font-size: 10pt;
+}
+
+.flexdown {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 5px;
+	gap: 20px;
+}
+
+#flexText {
+	padding-top: 5px;
+	padding-left: 5px;
+	gap: 30px;
+	width: 40%;
+	align-items: center;
+	
+
+}
 
   /*First Sniper and Divisions*/
 
@@ -543,6 +591,7 @@ input[type=number]:focus {outline:none !important}
 	position: relative;
 	top: -20px;
 	left: 20px;
+
 }
 
 #colorC {
