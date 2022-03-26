@@ -109,7 +109,7 @@
 
 
 		const bc = new BroadcastChannel('score');
-		const ibc = new BroadcastChannel('scoreReturn');
+		const srbc = new BroadcastChannel('scoreReturn');
 
 		bc.onmessage = function (ev) {
 			const received_data = ev.data;
@@ -131,37 +131,44 @@
 
 				FinalValue = gameCounterInt + parseInt(sniper);
 				if (scoreSource == "results") {
-					scoreDecoder = new RegExp(pName1 + ' wins as|' + pName2 + ' wins as|' + pName1 + ' wins 4|' + pName1 + ' wins 3|' + pName1 + ' wins 2|' + pName2 + ' wins 4|' + pName2 + ' wins 3|' + pName2 + ' wins 2|' + snScore + ' wins 4|' + snScore + ' wins 2|'  + snScore + ' wins 1|' + spScore + ' wins 4|' + spScore + ' wins 2|' + spScore + ' wins 1', 'gi');
-					scoreSeparator = scorePaste.match(scoreDecoder);
+					pName1noSteam = pName1.replace('/steam','');
+					pName2noSteam = pName2.replace('/steam','');
+					scoreDecoder = new RegExp(pName1noSteam + ' wins as|' + pName2noSteam + ' wins as|' + pName1noSteam + ' wins 4|' + pName1noSteam + ' wins 3|' + pName1noSteam + ' wins 2|' + pName2noSteam + ' wins 4|' + pName2noSteam + ' wins 3|' + pName2noSteam + ' wins 2|' + snScore + ' wins 4|' + snScore + ' wins 2|'  + snScore + ' wins 1|' + spScore + ' wins 4|' + spScore + ' wins 2|' + spScore + ' wins 1', 'gi');
+					steamSplitter = scorePaste.replaceAll('/steam','');
+
+					scoreSeparator = steamSplitter.match(scoreDecoder);
+					console.log(steamSplitter);
+					console.log(scoreSeparator);
 					scoreSeparator = scoreSeparator.toLocaleString().toLowerCase().split(',');
 
+
 					for (var q = 0; q < scoreSeparator.length; q++) {
-						if (scoreSeparator[q] == pName1.toLowerCase() + ' wins as') {
+						if (scoreSeparator[q] == pName1noSteam.toLowerCase() + ' wins as') {
 							scoreSeparator[q] = pName1;
 						}
-						if (scoreSeparator[q] == pName1.toLowerCase() + ' wins 1') {
+						if (scoreSeparator[q] == pName1noSteam.toLowerCase() + ' wins 1') {
 							scoreSeparator[q] = [pName1];
 						}
-						if (scoreSeparator[q] == pName1.toLowerCase() + ' wins 2') {
+						if (scoreSeparator[q] == pName1noSteam.toLowerCase() + ' wins 2') {
 							scoreSeparator[q] = [pName1, pName1];
 						}
-						if (scoreSeparator[q] == pName1.toLowerCase() + ' wins 3') {
+						if (scoreSeparator[q] == pName1noSteam.toLowerCase() + ' wins 3') {
 							scoreSeparator[q] = [pName1, pName1, pName1];
 						}
-						if (scoreSeparator[q] == pName1.toLowerCase() + ' wins 4') {
+						if (scoreSeparator[q] == pName1noSteam.toLowerCase() + ' wins 4') {
 							scoreSeparator[q] = [pName1, pName1, pName1, pName1];
 						}
 
-						if (scoreSeparator[q] == pName2.toLowerCase() + ' wins as') {
+						if (scoreSeparator[q] == pName2noSteam.toLowerCase() + ' wins as') {
 							scoreSeparator[q] = pName2;
 						}
-						if (scoreSeparator[q] == pName2.toLowerCase() + ' wins 2') {
+						if (scoreSeparator[q] == pName2noSteam.toLowerCase() + ' wins 2') {
 							scoreSeparator[q] = [pName2, pName2];
 						}
-						if (scoreSeparator[q] == pName2.toLowerCase() + ' wins 3') {
+						if (scoreSeparator[q] == pName2noSteam.toLowerCase() + ' wins 3') {
 							scoreSeparator[q] = [pName2, pName2, pName2];
 						}
-						if (scoreSeparator[q] == pName2.toLowerCase() + ' wins 4') {
+						if (scoreSeparator[q] == pName2noSteam.toLowerCase() + ' wins 4') {
 							scoreSeparator[q] = [pName2, pName2, pName2, pName2];
 						}
 						if (sniper == "0") {
@@ -222,10 +229,18 @@
 						pScore2Int++;
 
 					}
-
+					pScore1IntGC = pScore1Int;
+					pScore2IntGC = pScore2Int;
+					srbc.postMessage({pScore1IntGC,pScore2IntGC});
 				}
 				pScore1Paste = pScore1Int.toString();
 				pScore2Paste = pScore2Int.toString();
+
+				if (gameCounterInt == 0) {
+					pScore1IntGC = pScore1Int;
+					pScore2IntGC = pScore2Int;
+					srbc.postMessage({pScore1IntGC,pScore2IntGC});
+				}
 
 
 			} else if (scorePaste == "") {

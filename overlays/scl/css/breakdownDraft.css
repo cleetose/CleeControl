@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'JosefinSansRegular';
+    src: url('../../../fonts/JosefinSans-Regular.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JosefinSansBold';
+    src: url('../../../fonts/JosefinSans-Bold.woff') format('woff');
+    src: url('../../../fonts/JosefinSans-Bold.ttf') format('truetype');               
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+:root {
+    --top-band-color: #380a15;
+    --bottom-band-color: #380a15;
+    --top-band-border-color: #460f1c;
+    --bottom-band-border-color: #460f1c;
+    --top-band-text-color: #f2e5ad;
+    --bottom-band-text-color: #f2e5ad;
+
+}
+
+body {
+    width: 1920px;
+	height: 1080px;
+    font-family: 'JosefinSansBold';
+    margin: 0px;
+    overflow: hidden;
+}
+
+p {
+    margin: 0px;
+}
+
+#sclLogo {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: -25px;
+    left: 50px;
+    opacity: 0;
+}
+
+
+#everything {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+#p1VenueImages {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    width: 1920px;
+    height: 1080px;
+    left: -2000px;
+}
+
+#p2VenueImages {
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    width: 1920px;
+    height: 1080px;
+    left: -2000px;
+}
+
+.venueImage {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: 7px #ffff solid;
+    border-radius: 6px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#spacer1 {
+    width: 12px;
+}
+
+#spacer2 {
+    width: 38px;
+}
+
+.pickHolder {
+    display: flex;
+    width: 1245px;
+    height: fit-content;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+
+.smallImage {
+    width: 264px;
+    height: 150px;
+    margin-left: 24px;
+}
+
+
+
+.largeImage {
+    width: 594px;
+    min-width: 100px;
+    height: 338px;
+}
+
+.topImage {
+    top: -695px;
+
+}
+
+.bottomImage {
+    top: 695px;
+}
+
+
+
+
+
+.videoHolder {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+
+.video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#venue11 {
+
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+}
+
+#venue12 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+#venue13 {
+    opacity: 0;
+    background-image: url("../images_venues/galleryWideTest.png");
+    z-index: -2;
+}
+
+#venue14 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+#venue15 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+#venue16 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+
+#venue21 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+}
+
+#venue22 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+#venue23 {
+    opacity: 0;
+    background-image: url("../images_venues/galleryWideTest.png");
+    z-index: -2;
+}
+
+#venue24 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+#venue25 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+#venue26 {
+    opacity: 0;
+    background-image: url("../images_venues/teienWideTest.png");
+
+}
+
+.venueName {
+    text-align: left;
+    color: white;
+    padding: 10px;
+}
+
+.venueGuestsTime {
+    text-align: right;
+    color: white;
+    padding: 10px;
+}
+
+.venueTextSmall {
+    font-size: 17pt;
+    text-shadow: black;
+    text-shadow: 2px 2px 4px black;
+}
+
+.venueTextLarge {
+    font-size: 28pt;
+    text-shadow: 2px 2px 4px black;
+}
+
+.double {
+    position: absolute;
+    background-color: red;
+    width: 100%;
+    height: fit-content;
+    align-self: flex-start;
+}
+
+.doubleText {
+    font-size: 34px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.breakdown {
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: fit-content;
+    align-self: center;
+    font-size: 64pt;
+    text-align: center;
+}
+
+
+
+#selectionType {
+    display: flex;
+    width: 1920px;
+    height: fit-content;
+}
+
+
+.selectionBlock {
+    width: fit-content;
+    margin-left: 10px;
+}
+
+
+#picksBorder {
+    width: 1250px;
+}
+
+
+.boxBorder {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 300px;
+    width: 280px;
+    left: -2000px;
+    border: 12px #d5c999 solid;
+    border-radius: 10px;
+    background-color: #d5c999;
+
+}
+
+.sTBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background-color: #f3e7b3;
+    border: 5px solid;
+    border-radius: 10px;
+    border-color: #f3e7b3;
+    box-shadow: 0px 0px 10px black;
+    height: 290px;
+    width: 100%;
+
+}
+
+
+.sTText {
+    position: relative;
+    top: 6px;
+    font-size: 38pt;
+    text-align: center;
+    color: #380a15;
+}
+
+
+
+#centerBand {
+    position: absolute;
+    width: 1920px;
+    height: fit-content;
+    left: -2000px;
+    background-color: var(--top-band-color);
+    border: solid var(--top-band-border-color) 8px; 
+    border-left: 0px;
+    border-right: 0px;
+
+    
+}
+
+.badges {
+    position: absolute;
+    height: 80px;
+    width: 60px;
+    opacity: 0.6;
+    z-index: -1;
+    top: -2px;
+    background-repeat: no-repeat;
+}
+
+
+#divisionBadgeRight {
+    top: 94px;
+    left: 1860px;
+}
+
+#pName1 {
+    text-align: center;
+    font-size: 40pt;
+    padding-top: 10px;
+    color: var(--top-band-text-color);
+}
+
+#vsBand {
+    text-align: center;
+    background-color: lightgray;
+    height: 30px;
+    background: linear-gradient(180deg, rgba(222,225,226,1) 0%, rgba(242,242,242,1) 50%, rgba(222,225,226,1) 100%);
+    box-shadow: 0px 0px 4px black;
+    z-index: 2;
+}
+
+#vs {
+    position: relative;
+    top: -6px;
+    font-size: 30pt;
+    color: #b2122c;
+    padding: 0px;
+}
+
+#pName2 {
+    text-align: center;
+    font-size: 40pt;
+    padding-top: 10px;
+    padding-bottom: -15px;
+    color: var(--top-band-text-color);
+}
