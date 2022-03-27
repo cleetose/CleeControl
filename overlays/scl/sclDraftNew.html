@@ -92,6 +92,8 @@ bc.onmessage = function (ev) {
 
     switch (matchType) {
         case 'regularSeason':
+            $('#restrictTextTop').html('Restrict');
+            $('#restrictTextBottom').html('Restrict');   
             $('#venue15').css('display','none');
             $('#venue25').css('display','none');
             $('#venue16').css('display','none');
@@ -101,6 +103,8 @@ bc.onmessage = function (ev) {
             break;
 
         case 'postSeason':
+        $('#restrictTextTop').html('Restrict');
+        $('#restrictTextBottom').html('Restrict');   
         $('#venue16').css('display','none');
         $('#venue26').css('display','none');
         $('#venue15').css('display','flex');
@@ -110,6 +114,8 @@ bc.onmessage = function (ev) {
             break;
 
         case 'championship':
+        $('#restrictTextTop').html('Ban');
+        $('#restrictTextBottom').html('Ban');    
         $('#venue15').css('display','flex');
         $('#venue25').css('display','flex');
         $('#venue16').css('display','flex');
@@ -666,10 +672,10 @@ loadIn = "done";
                 <div class="selectionBlock" id="restricts">
                     <div class="boxBorder">
                         <div class="sTBox" id="restrictBox">
-                            <p class="sTText textTop">
+                            <p class="sTText textTop" id="restrictTextTop">
                                 Restrict
                             </p>
-                            <p class="sTText textBottom">
+                            <p class="sTText textBottom" id="restrictTextBottom">
                                 Restrict
                             </p>
                         </div>
