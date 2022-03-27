@@ -43,7 +43,7 @@ class SclDraft extends HTMLElement {
                 <option value="teien;Teien<br>Any 4/8;13 guests<br>3:15mins">Teien</option>
                 <option value="terrace;Terrace<br>Any 3/6;11 guests<br>3:30mins">Terrace</option>
                 <option value="veranda;Veranda<br>Any 5/8;21 guests<br>4:15mins">Veranda</option>
-                <option value="ban">No Ban</option>
+                <option value="declined; ; ;">No Ban</option>
                 </select>
 
                 <select class="venueSelect storable draft" id="venue21">
@@ -61,7 +61,7 @@ class SclDraft extends HTMLElement {
                 <option value="teien;Teien<br>Any 4/8;13 guests<br>3:15mins">Teien</option>
                 <option value="terrace;Terrace<br>Any 3/6;11 guests<br>3:30mins">Terrace</option>
                 <option value="veranda;Veranda<br>Any 5/8;21 guests<br>4:15mins">Veranda</option>
-                <option value="ban">No Ban</option>
+                <option value="declined; ; ;">No Ban</option>
                 </select>
 
                 <div class="break"></div>
@@ -93,7 +93,7 @@ class SclDraft extends HTMLElement {
                 <option value="teien;Teien<br>Any 4/8;13 guests<br>3:15mins">Teien</option>
                 <option value="terrace;Terrace<br>Any 3/6;11 guests<br>3:30mins">Terrace</option>
                 <option value="veranda;Veranda<br>Any 5/8;21 guests<br>4:15mins">Veranda</option>
-                <option value="restrict">No restrict</option>
+                <option value="declined; ; ;">No restrict</option>
                 </select>
 
                 <select class="venueSelect storable draft" id="venue22">
@@ -111,7 +111,7 @@ class SclDraft extends HTMLElement {
                 <option value="teien;Teien<br>Any 4/8;13 guests<br>3:15mins">Teien</option>
                 <option value="terrace;Terrace<br>Any 3/6;11 guests<br>3:30mins">Terrace</option>
                 <option value="veranda;Veranda<br>Any 5/8;21 guests<br>4:15mins">Veranda</option>
-                <option value="restrict">No restrict</option>
+                <option value="declined; ; ;">No restrict</option>
                 </select>
 
                 <input class="selectType storable2 draft" type="text" id="venueType3"

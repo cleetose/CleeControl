@@ -784,6 +784,16 @@ input[type=number]:focus {outline:none !important}
 	resize: none;
 }
 
+#updateAutoVenue {
+	position: relative;
+	width: 100%;
+	height: 40px;
+	top: -10px;
+	font-size: 14pt;
+	margin-bottom: 0px;
+}
+
+
 #clearAutoVenue {
 	width: 100%;
 }
@@ -808,6 +818,8 @@ input[type=number]:focus {outline:none !important}
 	top: -180px;
 
 }
+
+
 
 #clearAutoScore {
 	width: 100%;
