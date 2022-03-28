@@ -282,7 +282,7 @@ bc.onmessage = function (ev) {
                 venueNumberLeft = window[venueNumber+"TextLeft"];
                 venueNumberRight = window[venueNumber+"TextRight"];
                 $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
-                $('#'+venueNumber+'Holder').html("<video muted autoplay class='video' id='"+venueNumberName+"Video'><source src='./videos/"+venueNumberName+".mp4' type='video/mp4'></video>");
+                $('#'+venueNumber+'Holder').html("<video muted autoplay loop class='video' id='"+venueNumberName+"Video'><source src='./videos/"+venueNumberName+".mp4' type='video/mp4'></video>");
                 $('#'+venueNumber+'Holder').css('opacity','1');
                 $('#'+venueNumber+'TextRight').html(venueNumberRight);
                 $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
@@ -306,11 +306,6 @@ bc.onmessage = function (ev) {
                 });
 
                 }
-                anime({
-                    targets: '#'+venueNumberName+'Video',
-                    opacity: {value: 0, duration: 1000, delay: 10000, easing: "easeOutQuad"},
-
-                });
             }
 
         });
