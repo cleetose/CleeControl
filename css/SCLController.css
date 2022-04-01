@@ -546,143 +546,6 @@ input[type=number]:focus {outline:none !important}
 }
 
 
-/*Custom Colors*/
-
-
-#colorPickers {
-	height: 750px;
-	width: 300px;
-}
-
-.colorNames {
-	position: relative;
-	width: fit-content;
-	top: 5px;
-	left: 50px;
-	text-align: center;
-}
-
-.cPicker {
-	transform: scale(0.75,0.75);
-	width: 150px;
-	height: 100px;
-}
-
-#colorpickerB {
-	position: relative;
-	top: -100px;
-	left: 150px;
-
-}
-
-#colorpickerD {
-	position: relative;
-	top: -100px;
-	left: 150px;
-}
-
-#colorA {
-	position: relative;
-	top: -20px;
-	left: 20px;
-}
-
-#colorB {
-	position: relative;
-	top: -20px;
-	left: 20px;
-
-}
-
-#colorC {
-	position: relative;
-	top: -20px;
-	left: 20px;
-}
-
-#colorD {
-	position: relative;
-	top: -20px;
-	left: 20px;
-}
-
-#colorE {
-	position: relative;
-	top: 70px;
-	left: 20px;
-}
-
-#selectImgText {
-	position: relative;
-	top: 50px;
-	left: 50px;
-}
-
-#middleImage {
-	position: relative;
-	top: 50px;
-	left: 200px;
-}
-
-#resetColors {
-	position: relative;
-	left: 0px;
-	top: 100px;
-}
-
-/*Pool Customizer*/
-
-.loadoutDropdown {
-	width: 160px;
-	margin-left: 15px;
-	margin-right: 5px;
-	margin-bottom: 5px;
-}
-
-.pak {
-	position: relative;
-	margin-right: 5px;
-}
-
-.powerToughness {
-	position: relative;
-	width: 20px;
-}
-
-#updateLoadouts {
-	position: relative;
-	margin-right: 205px;
-	margin-left: 15px;
-	margin-top: 10px;
-}
-
-/*Loadout Saver*/
-
-#saveText {
-	width: 100px;
-	height: 100px;
-	resize: none;
-}
-
-#loadText {
-	position: relative;
-	width: 100px;
-	height: 100px;
-	left: 100px;
-	resize: none;
-}
-
-#saveButton {
-	position: relative;
-	top: 20px;
-	left: -15px;
-}
-
-#clearsaveButton {
-	position: relative;
-	top: 20px;
-	left: -15px;
-}
 
 
 /*Draft*/
@@ -793,11 +656,9 @@ input[type=number]:focus {outline:none !important}
 	margin-bottom: 0px;
 }
 
-
 #clearAutoVenue {
 	width: 100%;
 }
-
 
 #autoScore {
 	position: relative;
@@ -818,8 +679,6 @@ input[type=number]:focus {outline:none !important}
 	top: -180px;
 
 }
-
-
 
 #clearAutoScore {
 	width: 100%;
@@ -863,7 +722,6 @@ input[type=number]:focus {outline:none !important}
   top: 31px;
   left: 35px;
 }
-
 
 #rollPaste {
 	position: relative;

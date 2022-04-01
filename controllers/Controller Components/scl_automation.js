@@ -53,7 +53,6 @@ window.customElements.define('scl-automation', SclAutomation);
 
 document.getElementById('clearAutoVenue').addEventListener('click', function() {
     $('#venueDecoder').val('');
-    $('.venueSelect').val('');
 });
 
 document.getElementById('clearAutoCharacters').addEventListener('click', function() {
@@ -65,95 +64,86 @@ document.getElementById('clearAutoScore').addEventListener('click', function() {
 });
 
 
-//Attemts to figure out where auto score was copied by looking for specific text
-
-
+//Takes
 $('#updateAutoVenue').on('click',function() {
     if ($('#venueDecoder').val() != "") {
         venueSeparator = [];
         venueDecoder = $('#venueDecoder').val();
         venueSeparator = venueDecoder.match(/Aquarium|Ballroom|Balcony|Courtyard|Gallery|High-Rise|Library|Moderne|Pub|Redwoods|Teien|Terrace|Veranda|Nothing/g);
         venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue23","venue14","venue24","venue15","venue25","venue16","venue26"];
-    
-        console.log(venueSeparator);
+        
         if (venueSeparator != null) {
             for (let l = 0; l < venueSeparator.length; l++) {
                 switch (venueSeparator[l]) {
                     case 'Aquarium':
                         $('#'+venueAssignerArr[l]).val('aquarium;Aquarium<br>Any 4/8;19 Guests<br>4:00mins');
-        
                         break;
+
                     case 'Balcony':
                         $('#'+venueAssignerArr[l]).val('balcony;Balcony<br>Any 2/3;7 guests<br>2:00mins');
-        
                         break;    
+
                     case 'Ballroom':
-                        $('#'+venueAssignerArr[l]).val('ballroom;Ballroom<br>Any 4/8;16 guests<br>3:30mins');
-        
+                        $('#'+venueAssignerArr[l]).val('ballroom;Ballroom<br>Any 4/8;16 guests<br>3:30mins')
                         break;
+
                     case 'Courtyard':
-                        $('#'+venueAssignerArr[l]).val('courtyard;Courtyard<br>Any 4/7;16 guests<br>3:15mins');
-        
+                        $('#'+venueAssignerArr[l]).val('courtyard;Courtyard<br>Any 4/7;16 guests<br>3:15mins');        
                         break;   
+
                     case 'Gallery':
-                        $('#'+venueAssignerArr[l]).val('gallery;Gallery<br>Any 4/8;21 guests<br>4:00mins');
-        
+                        $('#'+venueAssignerArr[l]).val('gallery;Gallery<br>Any 4/8;21 guests<br>4:00mins');       
                         break;
-                    case 'High-rise':
+
+                    case 'High-Rise':
                         $('#'+venueAssignerArr[l]).val('high-rise;High-rise<br>Any 3/5;12 guests<br>3:30mins');
-        
                         break;    
+
                     case 'Library':
                         $('#'+venueAssignerArr[l]).val('library;Library<br>Any 5/8;21 guests<br>4:45mins');
-        
                         break;
+
                     case 'Moderne':
                         $('#'+venueAssignerArr[l]).val('moderne;Moderne<br>Any 4/8;21 guests<br>4:15mins');
-        
                         break;  
+
                     case 'Pub':
                         $('#'+venueAssignerArr[l]).val('pub;Pub<br>Any 3/7;16 guests<br>2:30mins');
-        
                         break;   
+
                     case 'Redwoods':
                         $('#'+venueAssignerArr[l]).val('redwoods;Redwoods<br>Any 4/8;15 guests<br>3:30mins');
-        
                         break;
+
                     case 'Teien':
                         $('#'+venueAssignerArr[l]).val('teien;Teien<br>Any 4/8;13 guests<br>3:15mins');
-        
                         break;    
+
                     case 'Terrace':
                         $('#'+venueAssignerArr[l]).val('terrace;Terrace<br>Any 3/6;11 guests<br>3:30mins');
-        
                         break;
+
                     case 'Veranda':
                         $('#'+venueAssignerArr[l]).val('veranda;Veranda<br>Any 5/8;21 guests<br>4:15mins');
-        
                         break;  
+
                     case 'Nothing':
                         $('#'+venueAssignerArr[l]).val('declined; ; ;');
-        
                         break; 
+
                     default:
                         break;
-                };
-                
+                };   
             }
             venueSeparator.length = 0;
         }
-
-
-    }
-    else {
-        $('.venueSelect').val('');
     }
 });
 
     
 
-
-
+/* Figures out where auto score was copied by looking for the presence of
+text exclusive to the #scl_results channel. */
 var scorePasteValOld;
 function checkScorePaste() {
     var scorePasteVal = $('#scorePaste').val();

@@ -231,10 +231,10 @@ bc.onmessage = function (ev) {
 
 
     function smallVenueChange(venueNumber) {
+        
         anime({
             targets: "#"+venueNumber,
-            opacity: {value: 0, duration: 200, delay: 0, easing: "easeOutQuad"},
-            translateY: {value: 300, duration: 200, delay: 0, easing: "easeOutQuad"},
+            opacity: {value: 0, duration: 300, delay: 0, easing: "easeOutQuad"},
             complete: function() {
                 venueNumberName = window[venueNumber+"Name"];
                 venueNumberLeft = window[venueNumber+"TextLeft"];
@@ -245,6 +245,7 @@ bc.onmessage = function (ev) {
                 venueSplitter = venueNumber.split('venue1');
                 console.log(venueSplitter.length);
                 if (venueSplitter.length == 1) {
+                    console.log('hello');
                     anime({
                     targets: "#"+venueNumber,
             opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
@@ -253,7 +254,7 @@ bc.onmessage = function (ev) {
                 });
                 }
                 else if (venueSplitter.length == 2) {
-
+                    console.log('hello2');
                     anime({
                     targets: "#"+venueNumber,
             opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
@@ -314,7 +315,6 @@ bc.onmessage = function (ev) {
     
     if(loadIn == "done") {
 
-        console.log(loadIn);
         if (venue11Name != venue11NameOld && venue11Name != "") {
         smallVenueChange('venue11')
         venue11NameOld = venue11Name;
@@ -383,10 +383,8 @@ bc.onmessage = function (ev) {
 
 
 
-
     if (loadIn == 'once') {
         loadIn = 'twice';
-        console.log(loadIn);
         if (venue11Name != venue11NameOld && venue11Name != "") {
            setTimeout(() => {
             smallVenueChange('venue11');

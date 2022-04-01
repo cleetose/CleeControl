@@ -67,19 +67,22 @@ var pDivision2;
 var Sniper;
 var behavior;
 
+/*Sets the value of an invisible text box to be equal to 0 or 1 based on the First Sniper radio buttons.
+Makes the value easier to deal with in the scoreboard.*/
 function sniperVal() {
 	$('#sniper').val($("input[name='sniper']:checked").val());
 }
-
 setInterval(() => (sniperVal()), 200);
+
 		//Clear button for Divisions Division
+
 		document.getElementById("resetter").addEventListener("click", function () {
 			$('#pDivision1').val('');
 			$('#pDivision2').val('');
 		});
 
 
-        		//Replace Player 1/Player 2 text in Draft and First Sniper pannels with current player names.
+        //Replace Player 1/Player 2 text in Draft and First Sniper pannels with current player names.
 		function checkNames() {
 			var pName1Current = $('#pName1').val();
 			var pName2Current = $('#pName2').val();
@@ -87,7 +90,6 @@ setInterval(() => (sniperVal()), 200);
 				$('#pRadio1').html(pName1Current + ' First Sniper');
 				$('#draftPlayer1').html(pName1Current);
                 $('#pName1Breakdown').html(pName1Current);
-                
 			} else {
 				$('#pRadio1').html('Player One First Sniper');
 				$('#draftPlayer1').html('Player 1');
