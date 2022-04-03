@@ -1,3 +1,5 @@
+
+/*Fonts*/
 @font-face {
     font-family: 'JosefinSansRegular';
     src: url('../../../fonts/JosefinSans-Regular.ttf') format('truetype');         
@@ -15,6 +17,7 @@
 
 }
 
+/*Color variables*/
 :root {
     --top-band-color: #380a15;
     --bottom-band-color: #380a15;
@@ -37,16 +40,8 @@ p {
     margin: 0px;
 }
 
-#sclLogo {
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-    top: -25px;
-    left: 50px;
-    opacity: 0;
-}
 
-
+/*Container to center everything*/
 #everything {
     display: flex;
     align-items: center;
@@ -55,22 +50,92 @@ p {
 }
 
 
-#p1VenueImages {
+/*Breakdown scores*/
+.breakdown {
     position: absolute;
-    display: flex;
-    align-items: flex-end;
-    width: 1920px;
-    height: 1080px;
-    left: -2000px;
+    color: white;
+    width: 100%;
+    height: 150px;
+    align-self: center;
+    font-size: 40pt;
+    text-align: center;
 }
 
-#p2VenueImages {
+.selectionBlock {
+    width: 100%;
+
+}
+
+#selectionType {
     position: absolute;
     display: flex;
-    align-items: flex-start;
     width: 1920px;
-    height: 1080px;
+    height: fit-content;
+}
+
+
+.boxBorder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 580px;
     left: -2000px;
+    border: 12px #d5c999 solid;
+    border-radius: 10px;
+    background-color: #d5c999;
+
+}
+
+.sTBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background-color: #f3e7b3;
+    border: 5px solid;
+    border-radius: 10px;
+    border-color: #f3e7b3;
+    box-shadow: 0px 0px 10px black;
+    height: 570px;
+    width: 100%;
+
+}
+
+.sTText {
+    position: relative;
+    top: 6px;
+    font-size: 56pt;
+    text-align: center;
+    color: #380a15;
+}
+
+/*Player Names and Venue Images*/
+#centerBand {
+    position: absolute;
+    width: 1920px;
+    height: fit-content;
+    left: -2000px;
+    background-color: var(--top-band-color);
+    border: solid var(--top-band-border-color) 8px; 
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pName1 {
+    text-align: center;
+    font-size: 40pt;
+    padding-top: 10px;
+    color: var(--top-band-text-color);
+}
+
+#vsBand {
+    display: flex;
+    background-color: lightgray;
+    height: fit-content;
+    background: linear-gradient(180deg, rgba(222,225,226,1) 0%, rgba(242,242,242,1) 50%, rgba(222,225,226,1) 100%);
+    box-shadow: 0px 0px 5px black;
+    z-index: 2;
 }
 
 .venueImage {
@@ -78,142 +143,18 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border: 7px #ffff solid;
-    border-radius: 6px;
+    border: 4px whitesmoke solid;
+    border-top: 8px whitesmoke solid;
+    border-bottom: 8px whitesmoke solid;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-#spacer1 {
-    width: 12px;
-}
-
-#spacer2 {
-    width: 38px;
-}
-
-.pickHolder {
-    display: flex;
-    width: 1245px;
-    height: fit-content;
-    justify-content: space-evenly;
-    gap: 10px;
-}
-
-
-.smallImage {
-    width: 264px;
-    height: 150px;
-    margin-left: 24px;
-}
-
-
-
 .largeImage {
     width: 594px;
     min-width: 100px;
-    height: 338px;
-}
-
-.topImage {
-    top: -695px;
-
-}
-
-.bottomImage {
-    top: 695px;
-}
-
-
-
-
-
-.videoHolder {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-}
-
-
-.video {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-
-#venue11 {
-
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-}
-
-#venue12 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-#venue13 {
-    opacity: 0;
-    background-image: url("../images_venues/galleryWideTest.png");
-    z-index: -2;
-}
-
-#venue14 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-#venue15 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-#venue16 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-
-#venue21 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-}
-
-#venue22 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-#venue23 {
-    opacity: 0;
-    background-image: url("../images_venues/galleryWideTest.png");
-    z-index: -2;
-}
-
-#venue24 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-#venue25 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
-}
-
-#venue26 {
-    opacity: 0;
-    background-image: url("../images_venues/teienWideTest.png");
-
+    height: 250px;
 }
 
 .venueName {
@@ -254,86 +195,12 @@ p {
     margin-top: 10px;
 }
 
-.breakdown {
-    position: absolute;
-    color: white;
-    width: 100%;
-    height: fit-content;
-    align-self: center;
-    font-size: 64pt;
+#pName2 {
     text-align: center;
-}
-
-
-
-#selectionType {
-    display: flex;
-    width: 1920px;
-    height: fit-content;
-}
-
-
-.selectionBlock {
-    width: fit-content;
-    margin-left: 10px;
-}
-
-
-#picksBorder {
-    width: 1250px;
-}
-
-
-.boxBorder {
-    display: flex;
-    align-items: center;
-    position: relative;
-    height: 300px;
-    width: 280px;
-    left: -2000px;
-    border: 12px #d5c999 solid;
-    border-radius: 10px;
-    background-color: #d5c999;
-
-}
-
-.sTBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    background-color: #f3e7b3;
-    border: 5px solid;
-    border-radius: 10px;
-    border-color: #f3e7b3;
-    box-shadow: 0px 0px 10px black;
-    height: 290px;
-    width: 100%;
-
-}
-
-
-.sTText {
-    position: relative;
-    top: 6px;
-    font-size: 38pt;
-    text-align: center;
-    color: #380a15;
-}
-
-
-
-#centerBand {
-    position: absolute;
-    width: 1920px;
-    height: fit-content;
-    left: -2000px;
-    background-color: var(--top-band-color);
-    border: solid var(--top-band-border-color) 8px; 
-    border-left: 0px;
-    border-right: 0px;
-
-    
+    font-size: 40pt;
+    padding-top: 10px;
+    padding-bottom: -15px;
+    color: var(--top-band-text-color);
 }
 
 .badges {
@@ -346,40 +213,7 @@ p {
     background-repeat: no-repeat;
 }
 
-
 #divisionBadgeRight {
-    top: 94px;
+    top: 330px;
     left: 1860px;
-}
-
-#pName1 {
-    text-align: center;
-    font-size: 40pt;
-    padding-top: 10px;
-    color: var(--top-band-text-color);
-}
-
-#vsBand {
-    text-align: center;
-    background-color: lightgray;
-    height: 30px;
-    background: linear-gradient(180deg, rgba(222,225,226,1) 0%, rgba(242,242,242,1) 50%, rgba(222,225,226,1) 100%);
-    box-shadow: 0px 0px 4px black;
-    z-index: 2;
-}
-
-#vs {
-    position: relative;
-    top: -6px;
-    font-size: 30pt;
-    color: #b2122c;
-    padding: 0px;
-}
-
-#pName2 {
-    text-align: center;
-    font-size: 40pt;
-    padding-top: 10px;
-    padding-bottom: -15px;
-    color: var(--top-band-text-color);
 }
