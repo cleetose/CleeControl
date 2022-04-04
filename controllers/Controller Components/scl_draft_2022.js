@@ -247,53 +247,15 @@ $(document).ready(function () {
     $('#venueType1').val("Bans");
     $('#venueType2').val("Restrictions");
     $('#venueType3').val("Picks");
-    draftType();
+
 });
 
-
-//Change value of hidden spinbox as well as the center text box based on draft type drop-down.
-$('#matchType').change(draftType);
-
+//Changes the configuration of the draft dropdowns as well as the center text box based on draft type drop-down.
 function draftType() {
     if ($('#matchType').val() == 'regularSeason') {
         $('#venueType1').val("Bans");
         $('#venueType2').val("Restrictions");
         $('#venueType3').val("Picks");
-        $('#venueTypeCount3').val(1);
-    }
-
-    if ($('#matchType').val() == 'postSeason') {
-        $('#venueType1').val("Bans");
-        $('#venueType2').val("Restrictions");
-        $('#venueType3').val("Picks");
-        $('#venueTypeCount3').val(2);
-    }
-
-    if ($('#matchType').val() == 'championship') {
-        $('#venueType2').val("More Bans");
-        $('#venueType3').val("Picks");
-        $('#venueTypeCount3').val(3);
-    }
-}
-
-
-/*Displays and hides venue dropdowns based on the value of the hidden spinbox 
-controlled by the draft type drop-down.*/
-function checkSeason() {
-
-    pickCount = $('#venueTypeCount3').val();
-    if (pickCount == 0) {
-
-        $('#venue13').css('display', 'none');
-        $('#venue23').css('display', 'none');
-        $('#venue14').css('display', 'none');
-        $('#venue24').css('display', 'none');
-        $('#venue15').css('display', 'none');
-        $('#venue25').css('display', 'none');
-
-    }
-    if (pickCount == 1) {
-
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
         $('#venue14').css('display', 'block');
@@ -302,10 +264,12 @@ function checkSeason() {
         $('#venue25').css('display', 'none');
         $('#venue16').css('display', 'none');
         $('#venue26').css('display', 'none');
-
     }
-    if (pickCount == 2) {
 
+    if ($('#matchType').val() == 'postSeason') {
+        $('#venueType1').val("Bans");
+        $('#venueType2').val("Restrictions");
+        $('#venueType3').val("Picks");
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
         $('#venue14').css('display', 'block');
@@ -314,10 +278,11 @@ function checkSeason() {
         $('#venue25').css('display', 'block');
         $('#venue16').css('display', 'none');
         $('#venue26').css('display', 'none');
-
     }
-    if (pickCount == 3) {
 
+    if ($('#matchType').val() == 'championship') {
+        $('#venueType2').val("More Bans");
+        $('#venueType3').val("Picks");
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
         $('#venue14').css('display', 'block');
@@ -326,8 +291,8 @@ function checkSeason() {
         $('#venue25').css('display', 'block');
         $('#venue16').css('display', 'block');
         $('#venue26').css('display', 'block');
-
     }
+}
 
     /*clears the venue selections on drop-downs that are hidden
     when the draft type is changed.*/
@@ -340,8 +305,6 @@ function checkSeason() {
             $('#' + venueSelectArr[i]).val('');
         }
     }
-
-}
 
     //Clear button for Draft
     document.getElementById("resetti").addEventListener("click", function () {

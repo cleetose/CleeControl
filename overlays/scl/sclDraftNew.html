@@ -8,31 +8,34 @@
             charset="utf-8"></script>
         <script src="../../js/anime.min.js" type="text/javascript"
             charset="utf-8"></script>
-        <link rel="stylesheet" href="css/newDraft.css" type="text/css"
+        <link rel="stylesheet" href="css/sclDraftNew.css" type="text/css"
             charset="utf-8">
         <title>SCL Draft 2022</title>
 
         <script type="text/javascript">
 
-        var venue11NameOld;
-        var venue12NameOld;
-        var venue13NameOld;
-        var venue14NameOld;
-        var venue15NameOld;
-        var venue16NameOld;
-
-        var venue21NameOld;
-        var venue22NameOld;
-        var venue23NameOld;
-        var venue24NameOld;
-        var venue25NameOld;
-        var venue26NameOld;
-        
-        var loadIn = 'once';
+            //Variables to prevent venues from animating if they haven't changed since last upday.
+            var venue11NameOld;
+            var venue12NameOld;
+            var venue13NameOld;
+            var venue14NameOld;
+            var venue15NameOld;
+            var venue16NameOld;
+            var venue21NameOld;
+            var venue22NameOld;
+            var venue23NameOld;
+            var venue24NameOld;
+            var venue25NameOld;
+            var venue26NameOld;
+            
+            //Variable to control which version of the draft updater runs on first load.
+            var loadIn = 'once';
 
 
             function init() {
+                //Sends a message to the controller to trigger an update on load.
                 bc.postMessage('hello');
+                //Inital animations run when the overlay loads.
                 anime({
                     targets: '#sclLogo',
                     translateY:
@@ -41,7 +44,7 @@
                             { value: 0, duration: 300, delay: 100, easing: 'easeOutQuad'},
                         ],
                         opacity:
-                        
+
                             { value: 1, duration: 100, delay: 0, easing: 'easeOutQuad'}
                 });
                 anime({
@@ -72,446 +75,443 @@
                     opacity:
                     { value: 1, duration: 200, delay: 900, easing: 'easeOutQuad'}
                 });
-
-
             }
-
+            
             const bc = new BroadcastChannel('picks');
 
 
-bc.onmessage = function (ev) {
-    const received_data = ev.data;
-    var { draftVars } = received_data;
-
-    varSplitter = [];
-    for (let i = 0; i < draftVars.length; i++) {
-        varSplitter = draftVars[i].split(';;');
-        window[varSplitter[0]] = varSplitter[1];
-
-    }
-
-    switch (matchType) {
-        case 'regularSeason':
-            $('#restrictTextTop').html('Restrict');
-            $('#restrictTextBottom').html('Restrict');   
-            $('#venue15').css('display','none');
-            $('#venue25').css('display','none');
-            $('#venue16').css('display','none');
-            $('#venue26').css('display','none');
-            $('.champDouble').css('display','none');
-            $('.venueTextLarge').css('font-size','28pt');
-            break;
-
-        case 'postSeason':
-        $('#restrictTextTop').html('Restrict');
-        $('#restrictTextBottom').html('Restrict');   
-        $('#venue16').css('display','none');
-        $('#venue26').css('display','none');
-        $('#venue15').css('display','flex');
-        $('#venue25').css('display','flex');
-        $('.champDouble').css('display','none');
-        $('.venueTextLarge').css('font-size','24pt');
-            break;
-
-        case 'championship':
-        $('#restrictTextTop').html('Ban');
-        $('#restrictTextBottom').html('Ban');    
-        $('#venue15').css('display','flex');
-        $('#venue25').css('display','flex');
-        $('#venue16').css('display','flex');
-        $('#venue26').css('display','flex');
-        $('.champDouble').css('display','block');
-        $('.venueTextLarge').css('font-size','18pt');
-            break;
-    }
-
-    switch (pDivision1) {
-        case 'oak':
-    document.body.style.setProperty('--top-band-color', '#6c2c04');
-    document.body.style.setProperty('--top-band-border-color', '#521f03');
-    document.body.style.setProperty('--top-band-text-color', '#eec680');
-    $('.badges').css('background-image','url("./images_badges/oak.svg")');
-    console.log('test');
-            break;
-            case 'obsidian':
-    document.body.style.setProperty('--top-band-color', '#343434');
-    document.body.style.setProperty('--top-band-border-color', '#5b5b5b');
-    document.body.style.setProperty('--top-band-text-color', '#a13c24');
-    $('.badges').css('background-image','url("./images_badges/obsidian.svg")');
-            break;
-            case 'iron':
-    document.body.style.setProperty('--top-band-color', '#556060');
-    document.body.style.setProperty('--top-band-border-color', '#808e8d');
-    document.body.style.setProperty('--top-band-text-color', '#abb2b2');
-    $('.badges').css('background-image','url("./images_badges/iron.svg")');
-            break;
-        case 'copper':
-    document.body.style.setProperty('--top-band-color', '#a04120');
-    document.body.style.setProperty('--top-band-border-color', '#a5927f');
-    document.body.style.setProperty('--top-band-text-color', '#eff4ce');
-    $('.badges').css('background-image','url("./images_badges/copper.svg")');
-            break;
-            case 'bronze':
-    document.body.style.setProperty('--top-band-color', '#e24d0c');
-    document.body.style.setProperty('--top-band-border-color', '#f79857');
-    document.body.style.setProperty('--top-band-text-color', '#f7eeb0');
-    $('.badges').css('background-image','url("./images_badges/bronze.svg")');
-            break;
-            case 'silver':
-    document.body.style.setProperty('--top-band-color', '#b1e8e8');
-    document.body.style.setProperty('--top-band-border-color', '#0c0c0b');
-    document.body.style.setProperty('--top-band-text-color', '#5a7270');
-    $('.badges').css('background-image','url("./images_badges/silver.svg")');
-            break;
-            case 'gold':
-    document.body.style.setProperty('--top-band-color', '#ea9313');
-    document.body.style.setProperty('--top-band-border-color', '#6d3b09');
-    document.body.style.setProperty('--top-band-text-color', '#efd659');
-    $('.badges').css('background-image','url("./images_badges/gold.svg")');
-            break;
-            case 'platinum':
-    document.body.style.setProperty('--top-band-color', '#cccccc');
-    document.body.style.setProperty('--top-band-border-color', '#666666');
-    document.body.style.setProperty('--top-band-text-color', '#ffffff');
-    $('.badges').css('background-image','url("./images_badges/platinum.svg")');
-            break;
-            case 'diamond':
-    document.body.style.setProperty('--top-band-color', '#01daf9');
-    document.body.style.setProperty('--top-band-border-color', '#16495e');
-    document.body.style.setProperty('--top-band-text-color', '#feffff');
-    $('.badges').css('background-image','url("./images_badges/diamond.svg")');
-            break;
-        default:
-            break;
-    }
-
-
-
-    if (pName1 != $('#pName1').html()) {
-        
-        anime({
-            targets: "#pName1",
-            opacity: {value: 0, duration: 500, delay: 0, easing: "easeOutQuad"},
-            complete: function() {
-                $('#pName1').html(pName1);
-                anime({
-                    targets: "#pName1",
-            opacity: {value: 1, duration: 500, delay: 0, easing: "easeOutQuad"},
-                });
-            }
-        });
-    }
-
-    if (pName2 != $('#pName2').html()) {
-        
-        anime({
-            targets: "#pName2",
-            opacity: {value: 0, duration: 500, delay: 0, easing: "easeOutQuad"},
-            complete: function() {
-                $('#pName2').html(pName2);
-                anime({
-                    targets: "#pName2",
-            opacity: {value: 1, duration: 500, delay: 0, easing: "easeOutQuad"},
-                });
-            }
-        });
-    }
-
-    for (let i = 1; i < 3; i++) {
-       for (let q = 1; q < 7; q++) {
-           tempArr = window["venue"+i+q].split(';');
-           window["venue"+i+q+'Name'] = tempArr[0];
-           window["venue"+i+q+'TextLeft'] = tempArr[1];
-           window["venue"+i+q+'TextRight'] = tempArr[2];
-       }
-        
-    }
-
-
-
-
-    function smallVenueChange(venueNumber) {
-        
-        anime({
-            targets: "#"+venueNumber,
-            opacity: {value: 0, duration: 300, delay: 0, easing: "easeOutQuad"},
-            complete: function() {
-                venueNumberName = window[venueNumber+"Name"];
-                venueNumberLeft = window[venueNumber+"TextLeft"];
-                venueNumberRight = window[venueNumber+"TextRight"];
-                $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
-                $('#'+venueNumber+'TextRight').html(venueNumberRight);
-                $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
-                venueSplitter = venueNumber.split('venue1');
-                console.log(venueSplitter.length);
-                if (venueSplitter.length == 1) {
-                    console.log('hello');
-                    anime({
-                    targets: "#"+venueNumber,
-            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
-            translateY: [{value: -300, duration: 50, delay: 0, easing: "easeOutQuad"},
-                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
-                });
-                }
-                else if (venueSplitter.length == 2) {
-                    console.log('hello2');
-                    anime({
-                    targets: "#"+venueNumber,
-            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
-            translateY: [{value: 300, duration: 50, delay: 0, easing: "easeOutQuad"},
-                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
-                });
-
-                }
+            bc.onmessage = function (ev) {
+                const received_data = ev.data;
+                var { draftVars } = received_data;
+            
+                varSplitter = [];
+                for (let i = 0; i < draftVars.length; i++) {
+                    varSplitter = draftVars[i].split(';;');
+                    window[varSplitter[0]] = varSplitter[1];
                 
-            }
-        });
-
-    }
-
-
-
-
-
-    function bigVenueChange(venueNumber) {
-        anime({
-            targets: "#"+venueNumber,
-            opacity: {value: 0, duration: 200, delay: 0, easing: "easeOutQuad"},
-
-            complete: function() {
-                venueNumberName = window[venueNumber+"Name"];
-                venueNumberLeft = window[venueNumber+"TextLeft"];
-                venueNumberRight = window[venueNumber+"TextRight"];
-                $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
-                $('#'+venueNumber+'Holder').html("<video muted autoplay loop class='video' id='"+venueNumberName+"Video'><source src='./videos/"+venueNumberName+".mp4' type='video/mp4'></video>");
-                $('#'+venueNumber+'Holder').css('opacity','1');
-                $('#'+venueNumber+'TextRight').html(venueNumberRight);
-                $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
-                venueSplitter = venueNumber.split('venue1');
-                console.log(venueSplitter.length);
-                if (venueSplitter.length == 1) {
-                    anime({
-                    targets: "#"+venueNumber,
-            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
-            translateY: [{value: -300, duration: 50, delay: 0, easing: "easeOutQuad"},
-                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
-                });
                 }
-                else if (venueSplitter.length == 2) {
+            
+                switch (matchType) {
+                    case 'regularSeason':
+                        $('#restrictTextTop').html('Restrict');
+                        $('#restrictTextBottom').html('Restrict');   
+                        $('#venue15').css('display','none');
+                        $('#venue25').css('display','none');
+                        $('#venue16').css('display','none');
+                        $('#venue26').css('display','none');
+                        $('.champDouble').css('display','none');
+                        $('.venueTextLarge').css('font-size','28pt');
+                        break;
+                
+                    case 'postSeason':
+                        $('#restrictTextTop').html('Restrict');
+                        $('#restrictTextBottom').html('Restrict');   
+                        $('#venue16').css('display','none');
+                        $('#venue26').css('display','none');
+                        $('#venue15').css('display','flex');
+                        $('#venue25').css('display','flex');
+                        $('.champDouble').css('display','none');
+                        $('.venueTextLarge').css('font-size','24pt');
+                        break;
+                
+                    case 'championship':
+                        $('#restrictTextTop').html('Ban');
+                        $('#restrictTextBottom').html('Ban');    
+                        $('#venue15').css('display','flex');
+                        $('#venue25').css('display','flex');
+                        $('#venue16').css('display','flex');
+                        $('#venue26').css('display','flex');
+                        $('.champDouble').css('display','block');
+                        $('.venueTextLarge').css('font-size','18pt');
+                        break;
+                }
+            
+                switch (pDivision1) {
+                    case 'oak':
+                document.body.style.setProperty('--top-band-color', '#6c2c04');
+                document.body.style.setProperty('--top-band-border-color', '#521f03');
+                document.body.style.setProperty('--top-band-text-color', '#eec680');
+                $('.badges').css('background-image','url("./images_badges/oak.svg")');
+                        break;
+                        case 'obsidian':
+                document.body.style.setProperty('--top-band-color', '#343434');
+                document.body.style.setProperty('--top-band-border-color', '#5b5b5b');
+                document.body.style.setProperty('--top-band-text-color', '#a13c24');
+                $('.badges').css('background-image','url("./images_badges/obsidian.svg")');
+                        break;
+                        case 'iron':
+                document.body.style.setProperty('--top-band-color', '#556060');
+                document.body.style.setProperty('--top-band-border-color', '#808e8d');
+                document.body.style.setProperty('--top-band-text-color', '#abb2b2');
+                $('.badges').css('background-image','url("./images_badges/iron.svg")');
+                        break;
+                    case 'copper':
+                document.body.style.setProperty('--top-band-color', '#a04120');
+                document.body.style.setProperty('--top-band-border-color', '#a5927f');
+                document.body.style.setProperty('--top-band-text-color', '#eff4ce');
+                $('.badges').css('background-image','url("./images_badges/copper.svg")');
+                        break;
+                        case 'bronze':
+                document.body.style.setProperty('--top-band-color', '#e24d0c');
+                document.body.style.setProperty('--top-band-border-color', '#f79857');
+                document.body.style.setProperty('--top-band-text-color', '#f7eeb0');
+                $('.badges').css('background-image','url("./images_badges/bronze.svg")');
+                        break;
+                        case 'silver':
+                document.body.style.setProperty('--top-band-color', '#b1e8e8');
+                document.body.style.setProperty('--top-band-border-color', '#0c0c0b');
+                document.body.style.setProperty('--top-band-text-color', '#5a7270');
+                $('.badges').css('background-image','url("./images_badges/silver.svg")');
+                        break;
+                        case 'gold':
+                document.body.style.setProperty('--top-band-color', '#ea9313');
+                document.body.style.setProperty('--top-band-border-color', '#6d3b09');
+                document.body.style.setProperty('--top-band-text-color', '#efd659');
+                $('.badges').css('background-image','url("./images_badges/gold.svg")');
+                        break;
+                        case 'platinum':
+                document.body.style.setProperty('--top-band-color', '#cccccc');
+                document.body.style.setProperty('--top-band-border-color', '#666666');
+                document.body.style.setProperty('--top-band-text-color', '#ffffff');
+                $('.badges').css('background-image','url("./images_badges/platinum.svg")');
+                        break;
+                        case 'diamond':
+                document.body.style.setProperty('--top-band-color', '#01daf9');
+                document.body.style.setProperty('--top-band-border-color', '#16495e');
+                document.body.style.setProperty('--top-band-text-color', '#feffff');
+                $('.badges').css('background-image','url("./images_badges/diamond.svg")');
+                        break;
+                    default:
+                        break;
+                }
+            
+            
+            
+                if (pName1 != $('#pName1').html()) {
 
                     anime({
-                    targets: "#"+venueNumber,
-            opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
-            translateY: [{value: 300, duration: 50, delay: 0, easing: "easeOutQuad"},
-                        {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
-                });
+                        targets: "#pName1",
+                        opacity: {value: 0, duration: 500, delay: 0, easing: "easeOutQuad"},
+                        complete: function() {
+                            $('#pName1').html(pName1);
+                            anime({
+                                targets: "#pName1",
+                        opacity: {value: 1, duration: 500, delay: 0, easing: "easeOutQuad"},
+                            });
+                        }
+                    });
+                }
+            
+                if (pName2 != $('#pName2').html()) {
+
+                    anime({
+                        targets: "#pName2",
+                        opacity: {value: 0, duration: 500, delay: 0, easing: "easeOutQuad"},
+                        complete: function() {
+                            $('#pName2').html(pName2);
+                            anime({
+                                targets: "#pName2",
+                        opacity: {value: 1, duration: 500, delay: 0, easing: "easeOutQuad"},
+                            });
+                        }
+                    });
+                }
+            
+                for (let i = 1; i < 3; i++) {
+                   for (let q = 1; q < 7; q++) {
+                       tempArr = window["venue"+i+q].split(';');
+                       window["venue"+i+q+'Name'] = tempArr[0];
+                       window["venue"+i+q+'TextLeft'] = tempArr[1];
+                       window["venue"+i+q+'TextRight'] = tempArr[2];
+                   }
 
                 }
-            }
+            
+            
+            
+            
+                function smallVenueChange(venueNumber) {
 
-        });
+                    anime({
+                        targets: "#"+venueNumber,
+                        opacity: {value: 0, duration: 300, delay: 0, easing: "easeOutQuad"},
+                        complete: function() {
+                            venueNumberName = window[venueNumber+"Name"];
+                            venueNumberLeft = window[venueNumber+"TextLeft"];
+                            venueNumberRight = window[venueNumber+"TextRight"];
+                            $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
+                            $('#'+venueNumber+'TextRight').html(venueNumberRight);
+                            $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
+                            venueSplitter = venueNumber.split('venue1');
+                            console.log(venueSplitter.length);
+                            if (venueSplitter.length == 1) {
+                                console.log('hello');
+                                anime({
+                                targets: "#"+venueNumber,
+                        opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+                        translateY: [{value: -300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                                    {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                            });
+                            }
+                            else if (venueSplitter.length == 2) {
+                                console.log('hello2');
+                                anime({
+                                targets: "#"+venueNumber,
+                        opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+                        translateY: [{value: 300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                                    {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                            });
+                        
+                            }
 
-    }
-    
-    if(loadIn == "done") {
+                        }
+                    });
+                
+                }
+            
+            
+            
+            
+            
+                function bigVenueChange(venueNumber) {
+                    anime({
+                        targets: "#"+venueNumber,
+                        opacity: {value: 0, duration: 200, delay: 0, easing: "easeOutQuad"},
+                    
+                        complete: function() {
+                            venueNumberName = window[venueNumber+"Name"];
+                            venueNumberLeft = window[venueNumber+"TextLeft"];
+                            venueNumberRight = window[venueNumber+"TextRight"];
+                            $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
+                            $('#'+venueNumber+'Holder').html("<video muted autoplay loop class='video' id='"+venueNumberName+"Video'><source src='./videos/"+venueNumberName+".mp4' type='video/mp4'></video>");
+                            $('#'+venueNumber+'Holder').css('opacity','1');
+                            $('#'+venueNumber+'TextRight').html(venueNumberRight);
+                            $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
+                            venueSplitter = venueNumber.split('venue1');
+                            console.log(venueSplitter.length);
+                            if (venueSplitter.length == 1) {
+                                anime({
+                                targets: "#"+venueNumber,
+                        opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+                        translateY: [{value: -300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                                    {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                            });
+                            }
+                            else if (venueSplitter.length == 2) {
+                            
+                                anime({
+                                targets: "#"+venueNumber,
+                        opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
+                        translateY: [{value: 300, duration: 50, delay: 0, easing: "easeOutQuad"},
+                                    {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                            });
+                        
+                            }
+                        }
+                    
+                    });
+                
+                }
 
-        if (venue11Name != venue11NameOld && venue11Name != "") {
-        smallVenueChange('venue11')
-        venue11NameOld = venue11Name;
-        }
-
-        if (venue21Name != venue21NameOld && venue21Name != "") {
-            smallVenueChange('venue21')
-            venue21NameOld = venue21Name;
-        }
-
-
-        if (venue12Name != venue12NameOld && venue12Name != "") {
-            smallVenueChange('venue12')
-            venue12NameOld = venue12Name;
-        }
-
-        if (venue22Name != venue22NameOld && venue22Name != "") {
-            smallVenueChange('venue22')
-            venue22NameOld = venue22Name;
-        }
-
-
-        if (venue13Name != venue13NameOld && venue13Name != "") {
-            bigVenueChange('venue13');
-            venue13NameOld = venue13Name;
-        }
-
-        if (venue23Name != venue23NameOld && venue23Name != "") {
-            bigVenueChange('venue23');
-            venue23NameOld = venue23Name;
-        }
-
-
-        if (venue14Name != venue14NameOld && venue14Name != "") {
-            bigVenueChange('venue14');
-            venue14NameOld = venue14Name;
-        }
-
-        if (venue24Name != venue24NameOld && venue24Name != "") {
-            bigVenueChange('venue24');
-            venue24NameOld = venue24Name;
-        }
-
-
-        if (venue15Name != venue15NameOld && venue15Name != "") {
-            bigVenueChange('venue15');
-            venue15NameOld = venue15Name;
-        }
-
-        if (venue25Name != venue25NameOld && venue25Name != "") {
-            bigVenueChange('venue25');
-            venue25NameOld = venue25Name;
-        }
-
-        if (venue16Name != venue16NameOld && venue16Name != "") {
-            bigVenueChange('venue16');
-            venue16NameOld = venue16Name;
-        }
-
-        if (venue26Name != venue26NameOld && venue26Name != "") {
-            bigVenueChange('venue26');
-            venue26NameOld = venue26Name;
-        }
-
-    }
-
-
-
-    if (loadIn == 'once') {
-        loadIn = 'twice';
-        if (venue11Name != venue11NameOld && venue11Name != "") {
-           setTimeout(() => {
-            smallVenueChange('venue11');
-           }, 1000); 
-            venue11NameOld = venue11Name;
-        }
-
-        if (venue21Name != venue21NameOld && venue21Name != "") {
+                if(loadIn == "done") {
+                
+                    if (venue11Name != venue11NameOld && venue11Name != "") {
+                    smallVenueChange('venue11')
+                    venue11NameOld = venue11Name;
+                    }
+                
+                    if (venue21Name != venue21NameOld && venue21Name != "") {
+                        smallVenueChange('venue21')
+                        venue21NameOld = venue21Name;
+                    }
+                
+                
+                    if (venue12Name != venue12NameOld && venue12Name != "") {
+                        smallVenueChange('venue12')
+                        venue12NameOld = venue12Name;
+                    }
+                
+                    if (venue22Name != venue22NameOld && venue22Name != "") {
+                        smallVenueChange('venue22')
+                        venue22NameOld = venue22Name;
+                    }
+                
+                
+                    if (venue13Name != venue13NameOld && venue13Name != "") {
+                        bigVenueChange('venue13');
+                        venue13NameOld = venue13Name;
+                    }
+                
+                    if (venue23Name != venue23NameOld && venue23Name != "") {
+                        bigVenueChange('venue23');
+                        venue23NameOld = venue23Name;
+                    }
+                
+                
+                    if (venue14Name != venue14NameOld && venue14Name != "") {
+                        bigVenueChange('venue14');
+                        venue14NameOld = venue14Name;
+                    }
+                
+                    if (venue24Name != venue24NameOld && venue24Name != "") {
+                        bigVenueChange('venue24');
+                        venue24NameOld = venue24Name;
+                    }
+                
+                
+                    if (venue15Name != venue15NameOld && venue15Name != "") {
+                        bigVenueChange('venue15');
+                        venue15NameOld = venue15Name;
+                    }
+                
+                    if (venue25Name != venue25NameOld && venue25Name != "") {
+                        bigVenueChange('venue25');
+                        venue25NameOld = venue25Name;
+                    }
+                
+                    if (venue16Name != venue16NameOld && venue16Name != "") {
+                        bigVenueChange('venue16');
+                        venue16NameOld = venue16Name;
+                    }
+                
+                    if (venue26Name != venue26NameOld && venue26Name != "") {
+                        bigVenueChange('venue26');
+                        venue26NameOld = venue26Name;
+                    }
+                
+                }
+            
+            
+            
+                if (loadIn == 'once') {
+                    loadIn = 'twice';
+                    if (venue11Name != venue11NameOld && venue11Name != "") {
+                       setTimeout(() => {
+                        smallVenueChange('venue11');
+                       }, 1000); 
+                        venue11NameOld = venue11Name;
+                    }
+                
+                    if (venue21Name != venue21NameOld && venue21Name != "") {
+                        setTimeout(() => {
+                        smallVenueChange('venue21');
+                    }, 1000); 
+                        venue21NameOld = venue21Name;
+                    }
+                
+                
+                    if (venue12Name != venue12NameOld && venue12Name != "") {
+                        setTimeout(() => {
+                        smallVenueChange('venue12');
+                    }, 1300); 
+                        venue12NameOld = venue12Name;
+                    }
+                
+                    if (venue22Name != venue22NameOld && venue22Name != "") {
+                        setTimeout(() => {
+                        smallVenueChange('venue22');
+                    }, 1300); 
+                        venue22NameOld = venue22Name;
+                    }
+                
+                
+                    if (venue13Name != venue13NameOld && venue13Name != "") {
+                        setTimeout(() => {
+                        bigVenueChange('venue13');
+                    }, 1900); 
+                        venue13NameOld = venue13Name;
+                    }
+                
+                    if (venue23Name != venue23NameOld && venue23Name != "") {
+                        setTimeout(() => {
+                        bigVenueChange('venue23');
+                    }, 1900); 
+                        venue23NameOld = venue23Name;
+                    }
+                
+                
+                    if (venue14Name != venue14NameOld && venue14Name != "") {
+                        setTimeout(() => {
+                        bigVenueChange('venue14');
+                    }, 2400); 
+                        venue14NameOld = venue14Name;
+                    }
+                
+                    if (venue24Name != venue24NameOld && venue24Name != "") {
+                        setTimeout(() => {
+                        bigVenueChange('venue24');
+                    }, 2400); 
+                        venue24NameOld = venue24Name;
+                    }
+                
+                if (matchType == 'postSeason') {
+                
+                    if (venue15Name != venue15NameOld && venue15Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue15');
+                }, 2900); 
+                    venue15NameOld = venue15Name;
+                }
+            
+                if (venue25Name != venue25NameOld && venue25Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue25');
+                }, 2900); 
+                    venue25NameOld = venue25Name;
+                }
+                    setTimeout(() => {
+                        loadIn = "done";
+                    }, 3000);
+                }
+                else if (matchType == 'championship') {
+                
+                    if (venue15Name != venue15NameOld && venue15Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue15');
+                }, 2900); 
+                    venue15NameOld = venue15Name;
+                }
+            
+                if (venue25Name != venue25NameOld && venue25Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue25');
+                }, 2900); 
+                    venue25NameOld = venue25Name;
+                }
+                if (venue15Name != venue16NameOld && venue16Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue16');
+                }, 3400); 
+                    venue16NameOld = venue16Name;
+                }
+            
+                if (venue26Name != venue26NameOld && venue26Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue26');
+                }, 3400); 
+                    venue26NameOld = venue26Name;
+                }
+            
             setTimeout(() => {
-            smallVenueChange('venue21');
-        }, 1000); 
-            venue21NameOld = venue21Name;
-        }
-
-
-        if (venue12Name != venue12NameOld && venue12Name != "") {
-            setTimeout(() => {
-            smallVenueChange('venue12');
-        }, 1300); 
-            venue12NameOld = venue12Name;
-        }
-
-        if (venue22Name != venue22NameOld && venue22Name != "") {
-            setTimeout(() => {
-            smallVenueChange('venue22');
-        }, 1300); 
-            venue22NameOld = venue22Name;
-        }
-
-
-        if (venue13Name != venue13NameOld && venue13Name != "") {
-            setTimeout(() => {
-            bigVenueChange('venue13');
-        }, 1900); 
-            venue13NameOld = venue13Name;
-        }
-
-        if (venue23Name != venue23NameOld && venue23Name != "") {
-            setTimeout(() => {
-            bigVenueChange('venue23');
-        }, 1900); 
-            venue23NameOld = venue23Name;
-        }
-
-
-        if (venue14Name != venue14NameOld && venue14Name != "") {
-            setTimeout(() => {
-            bigVenueChange('venue14');
-        }, 2400); 
-            venue14NameOld = venue14Name;
-        }
-
-        if (venue24Name != venue24NameOld && venue24Name != "") {
-            setTimeout(() => {
-            bigVenueChange('venue24');
-        }, 2400); 
-            venue24NameOld = venue24Name;
-        }
-
-    if (matchType == 'postSeason') {
-
-        if (venue15Name != venue15NameOld && venue15Name != "") {
-        setTimeout(() => {
-        bigVenueChange('venue15');
-    }, 2900); 
-        venue15NameOld = venue15Name;
-    }
-
-    if (venue25Name != venue25NameOld && venue25Name != "") {
-        setTimeout(() => {
-        bigVenueChange('venue25');
-    }, 2900); 
-        venue25NameOld = venue25Name;
-    }
-        setTimeout(() => {
             loadIn = "done";
-        }, 3000);
-    }
-    else if (matchType == 'championship') {
+            }, 2500);
+            }
+                else if (matchType == 'regularSeason') {
+                
+                    venue15NameOld = venue15Name;
+                    venue25NameOld = venue25Name;
+                    venue16NameOld = venue16Name;
+                    venue26NameOld = venue26Name;
+                setTimeout(() => {
+                    loadIn = "done";
+                }, 2500);
+                }
+            
+                }
+            
 
-        if (venue15Name != venue15NameOld && venue15Name != "") {
-        setTimeout(() => {
-        bigVenueChange('venue15');
-    }, 2900); 
-        venue15NameOld = venue15Name;
-    }
-
-    if (venue25Name != venue25NameOld && venue25Name != "") {
-        setTimeout(() => {
-        bigVenueChange('venue25');
-    }, 2900); 
-        venue25NameOld = venue25Name;
-    }
-    if (venue15Name != venue16NameOld && venue16Name != "") {
-        setTimeout(() => {
-        bigVenueChange('venue16');
-    }, 3400); 
-        venue16NameOld = venue16Name;
-    }
-
-    if (venue26Name != venue26NameOld && venue26Name != "") {
-        setTimeout(() => {
-        bigVenueChange('venue26');
-    }, 3400); 
-        venue26NameOld = venue26Name;
-    }
-
-setTimeout(() => {
-loadIn = "done";
-}, 2500);
-}
-    else if (matchType == 'regularSeason') {
-
-        venue15NameOld = venue15Name;
-        venue25NameOld = venue25Name;
-        venue16NameOld = venue16Name;
-        venue26NameOld = venue26Name;
-    setTimeout(() => {
-        loadIn = "done";
-    }, 2500);
-    }
-
-    }
-
-    
-
-}
+            
+            }
 
         </script>
     </head>
