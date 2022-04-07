@@ -110,6 +110,80 @@
 
                 /*Hide score sections if the value of both score variables is zero.
                 (A zero on both sides indicates the match hasn't reached that venue yet)*/
+                p1Score = parseInt(pScore11) + parseInt(pScore12) + parseInt(pScore13) + parseInt(pScore14) + parseInt(pScore15) + parseInt(pScore16) + parseInt(pScore17) + parseInt(pScore18)
+                p2Score = parseInt(pScore21) + parseInt(pScore22) + parseInt(pScore23) + parseInt(pScore24) + parseInt(pScore25) + parseInt(pScore26) + parseInt(pScore27) + parseInt(pScore28);
+                pScoreTotal  = p1Score + p2Score;
+                console.log(p1Score);
+                switch (matchType) {
+                    case 'regularSeason':
+                        if (pScoreTotal == 4) {
+                            pScore12 = 'Next';
+                            pScore22 = 'Venue';
+                        }
+                        if (pScoreTotal == 8 && p1Score < 7 && p2Score < 7) {
+                            pScore13 = 'Next';
+                            pScore23 = 'Venue';
+                        }
+                        if (pScoreTotal == 10 && p1Score < 7 && p2Score < 7) {
+                            pScore14 = 'Next';
+                            pScore24 = 'Venue';
+                        }
+                        break;
+
+                    case 'postSeason':
+                        if (pScoreTotal == 4) {
+                        pScore12 = 'Next';
+                        pScore22 = 'Venue';
+                        }
+                        if (pScoreTotal == 8 && p1Score < 9 && p2Score < 9) {
+                            pScore13 = 'Next';
+                            pScore23 = 'Venue';
+                        }
+                        if (pScoreTotal == 10 && p1Score < 9 && p2Score < 9) {
+                            pScore14 = 'Next';
+                            pScore24 = 'Venue';
+                        }
+                        if (pScoreTotal == 12 && p1Score < 9 && p2Score < 9) {
+                            pScore15 = 'Next';
+                            pScore25 = 'Venue';
+                        }
+                        if (pScoreTotal == 14 && p1Score < 9 && p2Score < 9) {
+                            pScore16 = 'Next';
+                            pScore26 = 'Venue';
+                        }
+                        break;
+
+                    case 'championship': 
+                        if (pScoreTotal == 4) {
+                        pScore12 = 'Next';
+                        pScore22 = 'Venue';
+                        }
+                        if (pScoreTotal == 8 && p1Score < 13 && p2Score < 13) {
+                            pScore13 = 'Next';
+                            pScore23 = 'Venue';
+                        }
+                        if (pScoreTotal == 12 && p1Score < 13 && p2Score < 13) {
+                            pScore14 = 'Next';
+                            pScore24 = 'Venue';
+                        }
+                        if (pScoreTotal == 16 && p1Score < 13 && p2Score < 13) {
+                            pScore15 = 'Next';
+                            pScore25 = 'Venue';
+                        }
+                        if (pScoreTotal == 18 && p1Score < 13 && p2Score < 13) {
+                            pScore16 = 'Next';
+                            pScore26 = 'Venue';
+                        }
+                        if (pScoreTotal == 20 && p1Score < 13 && p2Score < 13) {
+                            pScore17 = 'Next';
+                            pScore27 = 'Venue';
+                        }
+                        if (pScoreTotal == 22 && p1Score < 13 && p2Score < 13) {
+                            pScore18 = 'Next';
+                            pScore28 = 'Venue';
+                        }
+                        break;
+                }
                 if (pScore12 == 0 && pScore22 == 0) {
                     $('#breakdownBlock2').css('visibility','hidden');
                 } else {
@@ -249,7 +323,7 @@
                         break;
                     case 'silver':
                         document.body.style.setProperty('--top-band-color', '#b1e8e8');
-                        document.body.style.setProperty('--top-band-border-color', '#0c0c0b');
+                        document.body.style.setProperty('--top-band-border-color', '#f2f2f2');
                         document.body.style.setProperty('--top-band-text-color', '#5a7270');
                         $('.badges').css('background-image','url("./images_badges/silver.svg")');
                         break;

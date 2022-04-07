@@ -292,9 +292,7 @@ function draftType() {
         $('#venue16').css('display', 'block');
         $('#venue26').css('display', 'block');
     }
-}
-
-    /*clears the venue selections on drop-downs that are hidden
+        /*clears the venue selections on drop-downs that are hidden
     when the draft type is changed.*/
     venueSelectArr = $('.venueSelect').map(function () {
         return this.id;
@@ -305,6 +303,9 @@ function draftType() {
             $('#' + venueSelectArr[i]).val('');
         }
     }
+}
+
+
 
     //Clear button for Draft
     document.getElementById("resetti").addEventListener("click", function () {

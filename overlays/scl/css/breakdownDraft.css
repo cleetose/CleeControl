@@ -116,7 +116,7 @@ p {
     width: 1920px;
     height: fit-content;
     left: -2000px;
-    background-color: var(--top-band-color);
+    background: linear-gradient(180deg, var(--top-band-color) 0%, var(--top-band-color) 50%, var(--top-band-text-color) 50%, var(--top-band-text-color) 100%);
     border: solid var(--top-band-border-color) 8px; 
     border-left: 0px;
     border-right: 0px;
@@ -134,7 +134,6 @@ p {
     background-color: lightgray;
     height: fit-content;
     background: linear-gradient(180deg, rgba(222,225,226,1) 0%, rgba(242,242,242,1) 50%, rgba(222,225,226,1) 100%);
-    box-shadow: 0px 0px 5px black;
     z-index: 2;
 }
 
@@ -143,12 +142,44 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    border: 4px whitesmoke solid;
-    border-top: 8px whitesmoke solid;
-    border-bottom: 8px whitesmoke solid;
+    border: 8px solid;
+    border-top: 8px solid;
+    border-bottom: 8px solid;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+#venue13 {
+    border-color: var(--top-band-color);
+}
+
+#venue14 {
+    border-color: var(--top-band-color);
+}
+
+#venue15 {
+    border-color: var(--top-band-color);
+}
+
+#venue16 {
+    border-color: var(--top-band-color);
+}
+
+#venue23 {
+    border-color: var(--top-band-text-color);
+}
+
+#venue24 {
+    border-color: var(--top-band-text-color);
+}
+
+#venue25 {
+    border-color: var(--top-band-text-color);
+}
+
+#venue26 {
+    border-color: var(--top-band-text-color);
 }
 
 .largeImage {
@@ -200,7 +231,7 @@ p {
     font-size: 40pt;
     padding-top: 10px;
     padding-bottom: -15px;
-    color: var(--top-band-text-color);
+    color: var(--top-band-color);
 }
 
 .badges {
