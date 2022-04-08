@@ -21,6 +21,12 @@ body {
 
 }
 
+#sortable {
+	display: grid;
+	justify-items: stretch;
+	grid-template-columns: repeat(auto-fit, minmax(360px,375px));
+}
+
 /* Custom Scrollbar*/
 
 ::-webkit-scrollbar {
@@ -89,7 +95,7 @@ select:focus {outline:none !important}
 	height: fit-content;
 	border-radius: 4px;
 	padding: 10px;
-	margin: 10px;
+	margin: 5px;
 	margin-left: 0px;
 	color: white;
 	background-color: rgb(44, 44, 44);
