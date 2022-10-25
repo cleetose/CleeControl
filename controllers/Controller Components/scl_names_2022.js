@@ -62,6 +62,7 @@ class PlayersScores extends HTMLElement {
 					<option value="r">Teal</option>
 					<option value="p">Tex</option>
 					<option value="i">Wheels</option>
+					<option value="spy">Generic</option>
 				</select>
 				<input type="button" class="buttony" id="clearRolls" value="Clear" />
 				<input type="button" class="buttony" id="breakdownButton" value="Breakdown Toggle" />
