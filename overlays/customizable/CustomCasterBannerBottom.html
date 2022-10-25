@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/CustomCasterBannerBottomStyle.css" type="text/css" charset="utf-8">
+    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+            var colorAOld;
+			var colorBOld;
+			var colorCOld;
+			var colorDOld;
+            var colorEOld;
+            var colorADarkOld;
+            var colorBDarkOld;
+            var hostNameOld;
+            var casterNamesOld;
+            
+        const bc = new BroadcastChannel('casterBanner');
+
+
+
+        function init() {
+            bc.postMessage('Hello');
+        }
+
+  
+
+        bc.onmessage = function (ev) {
+            const received_data = ev.data;
+            var { casterbannerVars } = received_data;
+
+            varSplitter = [];
+			for (let i = 0; i < casterbannerVars.length; i++) {
+				varSplitter = casterbannerVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+				
+			}
+
+            const colorShade = (col, amt) => {
+                col = col.replace(/^#/, '')
+                if (col.length === 3) col = col[0] + col[0] + col[1] + col[1] + col[2] + col[2]
+
+                let [r, g, b] = col.match(/.{2}/g);
+                ([r, g, b] = [parseInt(r, 16) + amt, parseInt(g, 16) + amt, parseInt(b, 16) + amt])
+
+                r = Math.max(Math.min(255, r), 0).toString(16)
+                g = Math.max(Math.min(255, g), 0).toString(16)
+                b = Math.max(Math.min(255, b), 0).toString(16)
+
+                const rr = (r.length < 2 ? '0' : '') + r
+                const gg = (g.length < 2 ? '0' : '') + g
+                const bb = (b.length < 2 ? '0' : '') + b
+
+                return `#${rr}${gg}${bb}`
+            }
+
+            colorADark = colorShade(colorA, -40);
+
+            if (colorAOld != colorA) {
+					$(':root')[0].style.setProperty('--left-bg-color', colorA);
+					colorAOld = colorA;
+				}
+
+				if (colorBOld != colorB) {
+					$(':root')[0].style.setProperty('--right-bg-color', colorB);
+					colorBOld = colorB;
+				}
+
+				if (colorCOld != colorC) {
+					$(':root')[0].style.setProperty('--left-text-color', colorC);
+					colorCOld = colorC;
+				}
+
+				if (colorDOld != colorD) {
+					$(':root')[0].style.setProperty('--right-text-color', colorD);
+					colorDOld = colorD;
+				}
+         
+                if (colorEOld != colorE) {
+					$(':root')[0].style.setProperty('--divider-bg-color', colorE);
+					colorEOld = colorE;
+				}
+
+                if (colorADarkOld != colorADark) {
+					$(':root')[0].style.setProperty('--left-dark-bg-color', colorADark);
+					colorADarkOld = colorADark;
+				}
+
+
+
+                if (hostNameOld != hostName) {
+
+							$('#hostName').html(hostName);
+                            hostNameOld = hostName;
+
+                }
+
+                if (casterNamesOld != casterNames) {
+
+							$('#casterNames').html(casterNames);
+                            casterNamesOld = casterNames;
+
+
+        }
+        }
+
+    </script>
+    <title>Custom Caster Banner</title>
+</head>
+
+<body onload="init()">
+    <div class="bannerContainer">
+        <div class="banner">
+            <span id="host">HOST:</span>
+            <span id="hostName"></span>
+            <span id="casters">CASTERS:</span>
+            <span id="casterNames"></span>
+        </div>
+    </div>
+</body>
+
+</html>

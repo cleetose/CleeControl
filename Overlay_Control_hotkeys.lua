@@ -22,6 +22,9 @@ local clearSpyPaste = 0;
 local match1 = 0;
 local match2 = 0;
 local match3 = 0;
+local match4 = 0;
+local match5 = 0;
+local match6 = 0;
 local bigUpdate = 0;
 
 
@@ -39,6 +42,9 @@ local hotkeys = {
 	match_1 = "Switch to Match 1",
 	match_2 = "Switch to Match 2",
 	match_3 = "Switch to Match 3",
+	match_4 = "Switch to Match 4",
+	match_5 = "Switch to Match 5",
+	match_6 = "Switch to Match 6",
 	Big_Update = "Update All",
 
 }
@@ -139,6 +145,27 @@ elseif action == "match_3" then
 		match3 = 0
 	end
 	update_hotkeys_js()
+elseif action == "match_4" then
+	if match4 == 0 then
+		match4 = 1
+	else
+		match4 = 0
+	end
+	update_hotkeys_js()
+elseif action == "match_4" then
+	if match4 == 0 then
+		match4 = 1
+	else
+		match4 = 0
+	end
+	update_hotkeys_js()
+elseif action == "match_5" then
+	if match5 == 0 then
+		match5 = 1
+	else
+		match5 = 0
+	end
+	update_hotkeys_js()
 elseif action == "Big_Update" then
 	if bigUpdate == 0 then
 		bigUpdate = 1
@@ -168,6 +195,9 @@ function update_hotkeys_js()
 	output:write('match1 = '.. match1 .. ';\n')
 	output:write('match2 = '.. match2 .. ';\n')
 	output:write('match3 = '.. match3 .. ';\n')
+	output:write('match4 = '.. match4 .. ';\n')
+	output:write('match5 = '.. match5 .. ';\n')
+	output:write('match6 = '.. match6 .. ';\n')
 	output:write('bigUpdate = '.. bigUpdate .. ';\n')
 	output:close()
 end

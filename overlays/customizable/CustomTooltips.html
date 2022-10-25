@@ -21,6 +21,7 @@
             var colorBDarkOld;
 			var tTextOld;
 			var TitleHeight;
+			var toolTipTimer;
 			var Pluser = 50;
 			var Blank = "blank";
 			var Blank2 = "";
@@ -104,7 +105,9 @@
 					$(':root')[0].style.setProperty('--right-dark-bg-color', colorBDark);
 					colorBDarkOld = colorBDark;
 				}
-				console.log(tTipArr[1]);
+				
+				toolTipTimerInt = parseInt(toolTipTimer) * 1000;
+				
 				if ((tTextOld != tTipArr[1]) && (tTipArr[1] != null)) {					
 					anime({
 					targets: '#tText',
@@ -123,8 +126,8 @@
 						anime({
 						targets: '#tName',
 							top: [
-							{value: [-1000,24], duration: 1000, delay: 0 },
-								{value: [24, -1000], duration: 1000, delay: 9750 }
+								{value: [-1000,24], duration: 800, delay: 0 },
+								{value: [24, -1000], duration: 800, delay: 750 + toolTipTimerInt }
 								],
 							opacity: 0.95,
 							duration: 500,
@@ -137,9 +140,9 @@
 						targets: '#tText',
 						
 						top: [
-						{value: [-1000,PluserPre], duration: 1100, delay: 1200 },
-								{value: [PluserPre, -1000], duration: 1100, delay: 8000 }
-								],
+							{value: [-1000,Pluser], duration: 900, delay: 400 },
+							{value: [Pluser, -1000], duration: 900, delay: 0 + toolTipTimerInt }
+							],
 							opacity: 0.85,
 							duration: 500,
 							delay: 0,
@@ -169,8 +172,8 @@
 							anime({
 						targets: '#cTipName',
 							top: [
-								{value: [-1000,24], duration: 1000, delay: 0 },
-								{value: [24, -1000], duration: 1000, delay: 9750 }
+								{value: [-1000,24], duration: 800, delay: 0 },
+								{value: [24, -1000], duration: 800, delay: 750 + toolTipTimerInt }
 								],
 							opacity: 0.95,
 							duration: 500,
@@ -182,8 +185,8 @@
 						anime({
 						targets: '#cTipDesc',
 							top: [
-								{value: [-1000,Pluser], duration: 1100, delay: 1200 },
-								{value: [Pluser, -1000], duration: 1100, delay: 8000 }
+								{value: [-1000,Pluser], duration: 900, delay: 400 },
+								{value: [Pluser, -1000], duration: 900, delay: 0 + toolTipTimerInt }
 								],
 							opacity: 0.85,
 							duration: 500,

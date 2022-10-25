@@ -315,6 +315,7 @@ function draftClear() {
 	$('#venue32').val('');
 }
 
+var spanAdder = 0;
 		//Displays and hides venue dropdowns based on spinboxes.
 		function checkSeason() {
 			bansCount = $('#venueTypeCount1').val();
@@ -671,6 +672,22 @@ function draftClear() {
 			$("#doubleO").prop('checked', false);
 			$("#doubleP").prop('checked', false);
 		});
+
+			totalCount = parseInt(pickCount) + parseInt(restrictCount) + parseInt(bansCount) + parseInt(somethingCount);
+
+
+			if ($('#accordiondraftPan').hasClass('active') == false) {
+				$('#picksBans').css('grid-row','span 1');
+			}
+			else {
+				if (totalCount % 4 == 0) {
+					spanAdder = totalCount/4;
+				}
+	
+				spanCount = 6 + spanAdder;
+	
+					$('#picksBans').css('grid-row','span ' + spanCount);
+			}
 
 
 

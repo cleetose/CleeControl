@@ -87,7 +87,7 @@ document.getElementById("saveButton").addEventListener("click", function () {
     $('#doubleP').prop('checked', doubleBoolP);
 
     for (i = 29; i < updateOverlaysArr.length; i++) {
-        $('#' + input3Array[i - 29]).val(updateOverlaysArr[i]);
+        $('#' + venuePoolIdArr[i - 29]).val(updateOverlaysArr[i]);
     }
 });
 

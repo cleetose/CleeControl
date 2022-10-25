@@ -4,8 +4,6 @@ class CustomUpdateMatches extends HTMLElement {
         this.innerHTML = 
         `
         <div id="updateTitle" class="titleBox">Update - Match Memory</div>
-        <button class="accordion" id="accordionupdatePan">Expand</button>
-        <div class="panel" id="updatePan">
             <br>
             <div id="matchMaker">
                 <select class="" title="Input data automatically saved to selected match" id="matchMemory">
@@ -18,7 +16,6 @@ class CustomUpdateMatches extends HTMLElement {
                 <input title="Clear all match memory" type="button" class="buttony" id="aMatchSave"
                     value="Clear All">
             </div>
-        </div>
         <br>
         <input title="Update Overlays" type="button" class="buttony" id="weee" value="Update">
         `

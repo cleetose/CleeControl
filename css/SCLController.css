@@ -142,7 +142,7 @@ select:focus {outline:none !important}
   .panel {
 	padding-top: 0 18px;;
 	border-radius: 3px;
-	max-height: 0;
+	max-height: 9px;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
   }

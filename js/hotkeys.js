@@ -11,4 +11,7 @@ clearSpyPaste = 0;
 match1 = 0;
 match2 = 0;
 match3 = 0;
+match4 = 0;
+match5 = 0;
+match6 = 0;
 bigUpdate = 0;

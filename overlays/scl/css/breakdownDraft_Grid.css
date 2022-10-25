@@ -1,0 +1,250 @@
+
+/*Fonts*/
+@font-face {
+    font-family: 'JosefinSansRegular';
+    src: url('../../../fonts/JosefinSans-Regular.ttf') format('truetype');         
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'JosefinSansBold';
+    src: url('../../../fonts/JosefinSans-Bold.woff') format('woff');
+    src: url('../../../fonts/JosefinSans-Bold.ttf') format('truetype');               
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+/*Color variables*/
+:root {
+    --top-band-color: #380a15;
+    --bottom-band-color: #380a15;
+    --top-band-border-color: #460f1c;
+    --bottom-band-border-color: #460f1c;
+    --top-band-text-color: #f2e5ad;
+    --bottom-band-text-color: #f2e5ad;
+
+}
+
+body {
+    width: 1920px;
+	height: 1080px;
+    font-family: 'JosefinSansBold';
+    margin: 0px;
+    overflow: hidden;
+}
+
+p {
+    margin: 0px;
+}
+
+
+/*Container to center everything*/
+#everything {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*Breakdown scores*/
+.breakdown {
+    position: absolute;
+    color: white;
+    width: 100%;
+    height: 150px;
+    align-self: center;
+    font-size: 40pt;
+    text-align: center;
+}
+
+.selectionBlock {
+    width: 100%;
+
+}
+
+#selectionType {
+    position: absolute;
+    display: flex;
+    width: 1920px;
+    height: fit-content;
+}
+
+
+.boxBorder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 580px;
+    left: -2000px;
+    border: 12px #d5c999 solid;
+    border-radius: 10px;
+    background-color: #d5c999;
+
+}
+
+.sTBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background-color: #f3e7b3;
+    border: 5px solid;
+    border-radius: 10px;
+    border-color: #f3e7b3;
+    box-shadow: 0px 0px 10px black;
+    height: 570px;
+    width: 100%;
+
+}
+
+.sTText {
+    position: relative;
+    top: 6px;
+    font-size: 56pt;
+    text-align: center;
+    color: #380a15;
+}
+
+/*Player Names and Venue Images*/
+#centerBand {
+    position: absolute;
+    width: 1920px;
+    height: fit-content;
+    left: -2000px;
+    background: linear-gradient(180deg, var(--top-band-color) 0%, var(--top-band-color) 50%, var(--top-band-text-color) 50%, var(--top-band-text-color) 100%);
+    border: solid var(--top-band-border-color) 8px; 
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#pName1 {
+    text-align: center;
+    font-size: 40pt;
+    padding-top: 10px;
+    color: var(--top-band-text-color);
+}
+
+#vsBand {
+    display: flex;
+    background-color: lightgray;
+    height: fit-content;
+    background: linear-gradient(180deg, rgba(222,225,226,1) 0%, rgba(242,242,242,1) 50%, rgba(222,225,226,1) 100%);
+    z-index: 2;
+}
+
+.venueImage {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: 8px solid;
+    border-top: 8px solid;
+    border-bottom: 8px solid;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#venue13 {
+    border-color: var(--top-band-color);
+}
+
+#venue14 {
+    border-color: var(--top-band-color);
+}
+
+#venue15 {
+    border-color: var(--top-band-color);
+}
+
+#venue16 {
+    border-color: var(--top-band-color);
+}
+
+#venue23 {
+    border-color: var(--top-band-text-color);
+}
+
+#venue24 {
+    border-color: var(--top-band-text-color);
+}
+
+#venue25 {
+    border-color: var(--top-band-text-color);
+}
+
+#venue26 {
+    border-color: var(--top-band-text-color);
+}
+
+.largeImage {
+    width: 594px;
+    min-width: 100px;
+    height: 250px;
+}
+
+.venueName {
+    text-align: left;
+    color: white;
+    padding: 10px;
+}
+
+.venueGuestsTime {
+    text-align: right;
+    color: white;
+    padding: 10px;
+}
+
+.venueTextSmall {
+    font-size: 17pt;
+    text-shadow: black;
+    text-shadow: 2px 2px 4px black;
+}
+
+.venueTextLarge {
+    font-size: 28pt;
+    text-shadow: 2px 2px 4px black;
+}
+
+.double {
+    position: absolute;
+    background-color: red;
+    width: 100%;
+    height: fit-content;
+    align-self: flex-start;
+}
+
+.doubleText {
+    font-size: 34px;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#pName2 {
+    text-align: center;
+    font-size: 40pt;
+    padding-top: 10px;
+    padding-bottom: -15px;
+    color: var(--top-band-color);
+}
+
+.badges {
+    position: absolute;
+    height: 80px;
+    width: 60px;
+    opacity: 0.6;
+    z-index: -1;
+    top: -2px;
+    background-repeat: no-repeat;
+}
+
+#divisionBadgeRight {
+    top: 330px;
+    left: 1860px;
+}

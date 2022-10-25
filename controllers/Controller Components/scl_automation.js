@@ -24,26 +24,25 @@ class SclAutomation extends HTMLElement {
                 <br>
                 <input id="clearAutoCharacters" class="buttony" type="reset" value="Clear" /> </div>
             <p>____________________________________</p>
-            <br>
             <div id="autoScore">
                 <div id="autoScoreLeft">
                     <label for="scorePaste" id="scoreSourceLabel">Auto Score</label>
-                    <br>
+
                     <textarea class="storable scoreBoard" title="Copy score data from scl.spyparty.com (The list of names in front of the venue images) or the #scl_results channel (everything behind the spoiler text)" id="scorePaste" placeholder="Paste Results here"></textarea>
                 </div>
                 <div id="autoScoreRight">
                     <label for="scoreSource">Results Copy Source</label>
-                    <br>
+
                     <select class="storable scoreBoard" title="Gets set automatically when score text is entered (can be overridden if it guessed incorrectly)" id="scoreSource">
                         <option value=""></option>
                         <option value="results">Discord Results</option>
                         <option value="manager">SCL Manager</option>
                     </select>
+
                 </div>
-                <br>
-                <br> </div>
-            <br>
-            <input id="clearAutoScore" class="buttony" type="reset" value="Clear" /> </div>
+                <input id="clearAutoScore" class="buttony" type="reset" value="Clear" />
+            </div>
+        </div>
         `
     }
 }

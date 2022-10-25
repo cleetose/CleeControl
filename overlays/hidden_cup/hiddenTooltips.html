@@ -47,96 +47,101 @@
 					var tTipArr = tText.split(';');
 				}
 
-			console.log(tTipArr[1]);
-			if ((tTextOld != tTipArr[1]) && (tTipArr[1] != null)) {
-				anime({
+			toolTipTimerInt = parseInt(toolTipTimer) * 1000;
+
+			if ((tTextOld != tTipArr[1]) && (tTipArr[1] != null)) {					
+					anime({
 					targets: '#tText',
-					opacity: 0,
-					duration: 250,
-					delay: 0,
-					easing: 'easeOutQuad',
-					complete: function () {
-						$('#tText').html(tTipArr[1]);
-						$('#tName').html(tTipArr[0]);
-						tTextOld = tTipArr[1];
-						PluserPre = $('#tName').height() + 60;
+						opacity: 0,
+						duration: 250,
+						delay: 0,
+						easing: 'easeOutQuad',
+						complete: function()
+							{					
+							$('#tText').html(tTipArr[1]);
+							$('#tName').html(tTipArr[0]);
+							tTextOld = tTipArr[1];
+							PluserPre = $('#tName').height() + 60;
 
-
+					
 						anime({
-							targets: '#tName',
+						targets: '#tName',
 							top: [
-								{ value: [-1000, 24], duration: 1000, delay: 0 },
-								{ value: [24, -1000], duration: 1000, delay: 9750 }
-							],
+								{value: [-1000,24], duration: 800, delay: 0 },
+								{value: [24, -1000], duration: 800, delay: 750 + toolTipTimerInt }
+								],
 							opacity: 0.95,
 							duration: 500,
 							delay: 0,
 							easing: 'easeOutQuad',
 
-						});
+						});						
 
 						anime({
-							targets: '#tText',
-
-							top: [
-								{ value: [-1000, PluserPre], duration: 1100, delay: 1200 },
-								{ value: [PluserPre, -1000], duration: 1100, delay: 8000 }
+						targets: '#tText',
+						
+						top: [
+							{value: [-1000,PluserPre], duration: 900, delay: 400 },
+							{value: [PluserPre, -1000], duration: 900, delay: 0 + toolTipTimerInt }
 							],
 							opacity: 0.85,
 							duration: 500,
 							delay: 0,
 							easing: 'easeOutQuad',
 
-							complete: function () {
+							complete: function()
+								{					
+									
+								}
+						});	
 
-							}
-						});
-
-					}
-				});
-
-
-			}
+						}
+					});
 
 
-			if (($('#cTipDesc').html() != cTipDesc) && (cTipDesc != '')) {
+				}
+				
 
-				$('#cTipDesc').html(cTipDesc);
-				$('#cTipName').html(cTipName);
-				Pluser = $('#cTipName').height() + 60;
-
-
-				anime({
-					targets: '#cTipName',
-					top: [
-						{ value: [-1000, 24], duration: 1000, delay: 0 },
-						{ value: [24, -1000], duration: 1000, delay: 9750 }
-					],
-					opacity: 0.95,
-					duration: 500,
-					delay: 0,
-					easing: 'easeOutQuad',
-
-				});
-
-				anime({
-					targets: '#cTipDesc',
-					top: [
-						{ value: [-1000, Pluser], duration: 1100, delay: 1200 },
-						{ value: [Pluser, -1000], duration: 1100, delay: 8000 }
-					],
-					opacity: 0.85,
-					duration: 500,
-					delay: 0,
-					easing: 'easeOutQuad',
-
-					complete: function () {
-
-					}
-				});
+						
+				if (($('#cTipDesc').html() != cTipDesc) && (cTipDesc != '')) {
+					
+							$('#cTipDesc').html(cTipDesc);					
+							$('#cTipName').html(cTipName);
+							Pluser = $('#cTipName').height() + 60;
 
 
-			}
+							anime({
+						targets: '#cTipName',
+							top: [
+								{value: [-1000,24], duration: 800, delay: 0 },
+								{value: [24, -1000], duration: 800, delay: 750 + toolTipTimerInt }
+								],
+							opacity: 0.95,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+						});	
+
+						anime({
+						targets: '#cTipDesc',
+							top: [
+								{value: [-1000,Pluser], duration: 900, delay: 400 },
+								{value: [Pluser, -1000], duration: 900, delay: 0 + toolTipTimerInt }
+								],
+							opacity: 0.85,
+							duration: 500,
+							delay: 0,
+							easing: 'easeOutQuad',
+
+							complete: function()
+								{					
+									
+								}
+						});	
+
+
+				}
 
 			else {
 				$('#cTipDesc').html(cTipDesc);

@@ -4,21 +4,21 @@ class CustomUpdateMatches extends HTMLElement {
         this.innerHTML = 
         `
         <div id="updateTitle" class="titleBox">Update - Match Memory</div>
-        <button class="accordion" id="accordionupdatePan">Expand</button>
-        <div class="panel" id="updatePan">
             <br>
             <div id="matchMaker">
                 <select class="" title="Input data automatically saved to selected match" id="matchMemory">
                     <option value="0" selected>Match 1</option>
                     <option value="1">Match 2</option>
                     <option value="2">Match 3</option>
+                    <option value="3">Match 4</option>
+                    <option value="4">Match 5</option>
+                    <option value="5">Match 6</option>
                 </select>
                 <input title="Clear input fields and memory for selected match" type="button" class="buttony"
                     id="cMatchSave" value="Clear Current Match">
                 <input title="Clear all match memory" type="button" class="buttony" id="aMatchSave"
                     value="Clear All">
             </div>
-        </div>
         <br>
         <input title="Update Overlays" type="button" class="buttony" id="weee" value="Update">
         `

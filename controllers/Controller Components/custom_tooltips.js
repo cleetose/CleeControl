@@ -47,10 +47,23 @@ class ToolTips extends HTMLElement {
                         value="Overtime;If the spy completes a mission in the last seconds, the game will go into overtime. If mission is pending, the clock will hang at 00:00 till it's completed.">
                         Overtime</option>
                 </select>
+                
                 <textarea class="storable tooltips"
                     title="Tooltip will not appear if descrition is blank (enter a single space if you want a descriptionless tooltip). Will also not drop for the same Description twice in a row."
                     id="cTipDesc" placeholder="Description"></textarea>
+                    <div id="tooltipSpinner">
+                    Tooltip timer
+                    <div class="scoreSpinners">
+					<input class="spinBoy storable2 tooltips" id="toolTipTimer" type="number" name="value" value="1" min="1"
+						readonly>
+					<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+						class="down"></button>
+					<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+						class="up"></button>
+				</div>
+                </div>
             </div>
+            
             <input type="button" class="buttony" id="clearTooltips" value="Clear" />
         </div>
         `

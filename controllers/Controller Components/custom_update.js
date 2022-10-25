@@ -11,6 +11,9 @@ class updateMatches extends HTMLElement {
                     <option value="0" selected>Match 1</option>
                     <option value="1">Match 2</option>
                     <option value="2">Match 3</option>
+                    <option value="3">Match 4</option>
+                    <option value="4">Match 5</option>
+                    <option value="5">Match 6</option>
                 </select>
                 <input title="Clear input fields and memory for selected match" type="button" class="buttony"
                     id="cMatchSave" value="Clear Current Match">

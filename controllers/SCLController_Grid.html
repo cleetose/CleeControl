@@ -4,8 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../css/BSV2.css">
-	<link rel="stylesheet" href="../css/farbtastic.css">
+	<link rel="stylesheet" href="../css/SCLController_Grid.css">
 	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.css">
 	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -13,22 +12,27 @@
 	<script src="../js/jquery-ui.js"></script>
 	<script src="../js/hotkeys.js"></script>
 	<script src="../js/csv.js"></script>
-	<script src="../js/farbtastic.js"></script>
 	<script src="../js/jquery.ddslick.min.js"></script>
-	<title>Custom SpyParty Overlay Controller</title>
+	<title>SCL Overlay Controller</title>
 
 </head>
 
 <body>
+
 	<div id="sortable">
+					
+		<!--Big Update Button-->
 		<div class="sectional" id="update">
-			<!--Big Update Button-->
 			<custom-update-matches></custom-update-matches>
 		</div>
 
 		<!--Players/Countries/Scores/characters-->
 		<div class="sectional" id="players">
 			<players-scores id="playersModule"></players-scores>
+		</div>
+
+		<div class="sectional" id="breakdown">
+			<breakdown-scores id="breakdownModule"></breakdown-scores>
 		</div>
 
 		<!--Players/Countries/Scores/characters-->
@@ -41,53 +45,40 @@
 			<tool-tips></tool-tips>
 		</div>
 
-		<!--Custom Colors-->
-		<div class="sectional" id="customColors">
-			<color-changer></color-changer>
+		<!--Automation-->
+		<div class="sectional" id="autoDraft">
+			<scl-automation></scl-automation>
 		</div>
 
-		<!--Venue Pool-->
-		<div class="sectional" id="venueLoadouts">
-			<venue-loadout></venue-loadout>
-		</div>
-
-		<!--Save/Load-->
-		<div class="sectional" id="saveLoad">
-			<save-load></save-load>
-		</div>
 		<!--Draft-->
 		<div class="sectional" id="picksBans">
-			<custom-draft></custom-draft>
+			<scl-draft></scl-draft>
 		</div>
+
 	</div>
 
-	<script src="Controller Components/custom_names.js"></script>
-	<script src="Controller Components/custom_sniper_divisions.js"></script>
+	<script src="Controller Components/scl_names_2022.js"></script>
+	<script src="Controller Components/scl_breakdown_2022.js"></script>
+	<script src="Controller Components/scl_sniper_divisions_2022.js"></script>
 	<script src="Controller Components/custom_tooltips.js"></script>
-	<script src="Controller Components/custom_color.js"></script>
-	<script src="Controller Components/custom_venuepools.js"></script>
-	<script src="Controller Components/custom_draft.js"></script>
-	<script src="Controller Components/custom_save_load.js"></script>
-	<script src="Controller Components/custom_update_matches.js"></script>
+	<script src="Controller Components/scl_draft_2022.js"></script>
+	<script src="Controller Components/scl_automation.js"></script>
+	<script src="Controller Components/scl_update_matches.js"></script>
+	
 	<script>
-
-
-
 
 		var venueDecoder;
 		var scorePaste;
 		var scoreSource;
 		var spyPaste;
 		var gameCounter;
-
 		var matchMatchMatch;
 		var checkerLoader;
 
-
 		//Things to do when the page first loads.
 		$(document).ready(function () {
-			if (localStorage.getObj('saveMatchStatesCustom') != null) {
-				$('#matchMemory').val(localStorage.getObj('saveMatchStatesCustom'));
+			if (localStorage.getObj('saveMatchStatesSCL') != null) {
+				$('#matchMemory').val(localStorage.getObj('saveMatchStatesSCL'));
 			}
 			/*Recall array of div ids in previous sorting order
 			then adds # to the front each element so the sortDom function works*/
@@ -98,8 +89,11 @@
 				}
 				sortDom(rememberMe);
 			}
-			//Recall array which contains ids of every accordion panel that was previously open.
-			var panState = localStorage.getObj("accStateCustom");
+
+			/*Recall array which contains ids of every accordion panel 
+			that was open when the overlay was previously loaded.*/
+			var panState = localStorage.getObj("accStateSCL");
+			
 			//Opens every div that was previously open. 	
 			var i;
 			if (panState != null) {
@@ -122,16 +116,16 @@
                         accTest = 'accordion' + accordCloseArr[p];
 
                     if ($('#' + accTest).hasClass('active') == false) {
-
+                        console.log(accordCloseArr[p]);
                         $('#' + accordCloseArr[p]).parent().parent().css("grid-row","span 1");
                     };
                 }
 
-			matchMemLoader = localStorage.getObj('saveStatesCustom');
-			poolMemLoader = localStorage.getObj('savePoolsCustom');
-			chkMemLoader = localStorage.getObj('saveChkStatesCustom');
 
-			console.log(checkboxMemArr.length);
+			matchMemLoader = localStorage.getObj('saveStatesSCL');
+			poolMemLoader = localStorage.getObj('savePoolsSCL');
+			chkMemLoader = localStorage.getObj('saveChkStatesSCL');
+
 
 			if (matchMemLoader != null) {
 				matchMemArr = matchMemLoader;
@@ -141,47 +135,31 @@
 						$('#matchMemory').val('2').change();
 					}, 500);
 					setTimeout(() => {
-						$('#matchMemory').val('3').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('4').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('5').change();
-					}, 500);
-					setTimeout(() => {
 						$('#matchMemory').val('0').change();
 					}, 600);
 				}
-
 			} else if (matchMemLoader == null) {
 				aMatchClearer();
 			}
-			if (chkMemLoader != null) {
-				if (chkMemLoader.length == checkboxMemArr.length) {
-					checkboxMemArr = chkMemLoader;
-				}
 
+			if (chkMemLoader != null) {
+				checkboxMemArr = chkMemLoader;
 			} else if (chkMemLoader == null) {
 				$("#rollSelectorA").prop('checked', true);
 			}
 
 			if (poolMemLoader != null) {
 				poolMemArr = poolMemLoader;
-
 			}
-			console.log(checkboxMemArr);
 
 			updatePools();
-			venuePool();
 			setTimeout(() => {
 				updateMatch();
 			}, 200);
-			checkSeason();
-
+			draftType();
 		});
 		
-		//Enables mouse-over tooltips
+		//Enables mouse-over tooltips.
 		$(function () {
 			$(document).tooltip({
 				show: {
@@ -206,6 +184,7 @@
 				$el.parent().prepend($el);
 			}
 		}
+
 		//Sets sortable divisions and saves to localStorage
 		$(function () {
 			$("#sortable").sortable({
@@ -218,14 +197,16 @@
 			});
 			$("#sortable").disableSelection();
 		});
+
 		//Sets accordion divisions and saves to localStorage
 		var acc = document.getElementsByClassName("accordion");
 
-		if (localStorage.getObj('accStateCustom') != null) {
-			panOpen = localStorage.getObj('accStateCustom');
+		if (localStorage.getObj('accStateSCL') != null) {
+			panOpen = localStorage.getObj('accStateSCL');
 		} else {
 			panOpen = [];
 		}
+
 		/*Open and close accordion divs and
 		adds div ids to array whenever open and
 		removes div ids from array whenever closed*/
@@ -266,21 +247,16 @@
 					}
 
 				setTimeout(() => {
-					localStorage.setObj("accStateCustom", accordArr);
+					localStorage.setObj("accStateSCL", accordArr);
 				}, 350);
 			});
 		}
 
 		matchMemory;
 		matchMemArr = [];
-		
 		matchMemArr[0] = [];
 		matchMemArr[1] = [];
 		matchMemArr[2] = [];
-		matchMemArr[3] = [];
-		matchMemArr[4] = [];
-		matchMemArr[5] = [];
-		matchMemArr[6] = [];
 		memorySplitter = [];
 
 		matchMatchArr = [];
@@ -294,24 +270,25 @@
 		checkboxMemArr[0] = [];
 		checkboxMemArr[1] = [];
 		checkboxMemArr[2] = [];
-		checkboxMemArr[3] = [];
-		checkboxMemArr[4] = [];
-		checkboxMemArr[5] = [];
-		checkboxMemArr[6] = [];
 
 
+
+		/*Creates an array for all inputs with the storable class.
+		Used for inputs that change as the match memory drop-down is changed.*/
 
 		var matchDepIdArr = $('.storable').map(function () {
 			return this.id;
 		});
 
+		/*Creates an array for all inputs with the storable class.
+		Used for inputs that stay the same as the match memory drop-down is changed.*/
+
 		var matchIndepIddArr = $('.storable2').map(function () {
 			return this.id;
 		});
 
-		var venuePoolIdArr = $('.loadoutBoy').map(function () {
-			return this.id;
-		});
+		/*Creates an array for checkbox and radio buttons with the storable-ckbx class.
+		Used for inputs that change as the match memory drop-down is changed.*/
 
 		var checkboxArray = $('.storable-ckbx').map(function () {
 			return this.id;
@@ -323,7 +300,6 @@
 		compareArr = localStorage.getObj('oldStates');
 
 		var convArray = jQuery.makeArray(matchDepIdArr);
-
 
 		localStorage.setObj('oldStates', convArray);
 
@@ -349,21 +325,9 @@
 						$('#matchMemory').val('2').change();
 					}, 500);
 					setTimeout(() => {
-						$('#matchMemory').val('3').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('4').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('5').change();
-					}, 500);
-					setTimeout(() => {
 						$('#matchMemory').val('0').change();
 					}, 600);
 		}
-
-
-
 
 
 		//Clear buttons for Current and all match memory.
@@ -372,7 +336,7 @@
 
 		function cMatchClearer() {
 			namesClear(); //names_scores
-			draftClear(); //custom_draft
+			$('.venueSelect').val('');
 			rollClear(); //sniper_divisions
 			tooltipsClear(); //tooltips
 			$('#venueDecoder').val('');
@@ -380,6 +344,7 @@
 			$('#scoreSource').val('');
 			$('#rollPaste').val('');
 			$('#gameCounter').val('0');
+			scoreBreakdowner();
 		}
 
 		function aMatchClearer() {
@@ -400,33 +365,25 @@
 
 		$('#matchMemory').change(updateMatch);
 
-
-
 		function updateMatch() {
-
 			matchMemory = parseInt($('#matchMemory').val());
 
 			for (i = 0; i < matchMemArr[0].length; i++) {
-
 				try {
 					memorySplitter = matchMemArr[matchMemory][i].split(';;');
 					$('#' + memorySplitter[0]).val(memorySplitter[1]);
 				}
 				catch {
-
+					console.log(memorySplitter[0]);
 				}
-
 			}
 
 			for (q = 0; q < checkboxArray.length; q++) {
 				$('#' + checkboxArray[q]).prop('checked', checkboxMemArr[matchMemory][q]);
 			}
-
-
 		};
 
 		function updatePools() {
-
 			for (i = 0; i < matchIndepIddArr.length; i++) {
 				try {
 					memory2Splitter = poolMemArr[i].split(';;');
@@ -435,49 +392,46 @@
 				catch {
 					console.log(memory2Splitter[0]);
 				}
-
 			}
-
 		};
 		
-		
-
 
 		function matchSaver() {
+			if (matchMemArr[matchMemory].length > matchDepIdArr.length) {
+				matchMemArr[matchMemory] = [];
+			}
+			if (indepMemArr.length > matchIndepIddArr.length) {
+				indepMemArr = [];
+			}
+			if (venuePoolMemArr.length > matchIndepIddArr.length) {
+				venuePoolMemArr = [];
+			}
+
 			matchMatchMatch = $("#matchMemory").val();
 			matchMemory = parseInt($('#matchMemory').val());
-			
-
 			for (i = 0; i < matchDepIdArr.length; i++) {
 				matchMemArr[matchMemory][i] = (matchDepIdArr[i] + ';;' + $('#' + matchDepIdArr[i]).val());
-
 			}
+
 			for (i = 0; i < matchIndepIddArr.length; i++) {
 				indepMemArr[i] = (matchIndepIddArr[i] + ';;' + $('#' + matchIndepIddArr[i]).val());
 			}
-			for (i = 0; i < venuePoolIdArr.length; i++) {
-				venuePoolMemArr[i] = $('#' + venuePoolIdArr[i]).val();
-			}
+
 			for (q = 0; q < checkboxArray.length; q++) {
 				checkboxMemArr[matchMemory][q] = $('#' + checkboxArray[q]).prop('checked');
 			}
 
-			localStorage.setObj('saveMatchStatesCustom', matchMatchMatch);
-			localStorage.setObj('saveStatesCustom', matchMemArr);
-			localStorage.setObj('savePoolsCustom', indepMemArr);
-			localStorage.setObj('saveChkStatesCustom', checkboxMemArr);
-
-
+			localStorage.setObj('saveMatchStatesSCL', matchMatchMatch);
+			localStorage.setObj('saveStatesSCL', matchMemArr);
+			localStorage.setObj('savePoolsSCL', indepMemArr);
+			localStorage.setObj('saveChkStatesSCL', checkboxMemArr);
+		
 		}
 
 
-		//Broadcast channels for each overlay
-
-
-		//Save current values of all the inputs to variables and send to all overlays
-
 
 		//Hotkeys
+
 		var pScore1UpOld = pScore1Up;
 		var pScore2UpOld = pScore2Up;
 		var gamesPlayedUpOld = gamesPlayedUp;
@@ -491,9 +445,6 @@
 		var match1Old = match1;
 		var match2Old = match2;
 		var match3Old = match3;
-		var match4Old = match4;
-		var match5Old = match5;
-		var match6Old = match6;
 		var bigUpdateOld = bigUpdate;
 
 		//Format data from hotkeys.js
@@ -510,11 +461,13 @@
 			if (pScore1Up != pScore1UpOld) {
 				let scoreUpper = document.getElementById('pScore1');
 				scoreUpper.stepUp();
+				scoreBreakdowner();
 				pScore1UpOld = pScore1Up;
 			}
 			if (pScore2Up != pScore2UpOld) {
 				let score2Upper = document.getElementById('pScore2');
 				score2Upper.stepUp();
+				scoreBreakdowner();
 				pScore2UpOld = pScore2Up;
 			}
 			if (gamesPlayedUp != gamesPlayedUpOld) {
@@ -571,32 +524,18 @@
 				$('#matchMemory').val('2').change();
 				match3Old = match3;
 			}
-			if (match4Old != match4) {
-				$('#matchMemory').val('3').change();
-				match4Old = match4;
-			}
-			if (match5Old != match5) {
-				$('#matchMemory').val('4').change();
-				match5Old = match5;
-			}
-			if (match6Old != match6) {
-				$('#matchMemory').val('5').change();
-				match6Old = match6;
-			}
 			if (bigUpdate != bigUpdateOld) {
 				pleaseWork();
 				bigUpdateOld = bigUpdate;
 			}
 		}
 
-
-
 		//Check hotkey variable states and Match type dropdown every 200ms
 		function checkUpdates() {
 			checkHotkeys();
 			updateHotkeys();
 		}
-		setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut()), 200);
+		setInterval(() => (draftType(), checkNames(), checkUpdates()), 200);
 		setTimeout(() => {
 			setInterval(() => (matchSaver()), 200);
 		}, 400);
