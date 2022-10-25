@@ -563,6 +563,9 @@ input[type=number]:focus {outline:none !important}
 	margin: 6px 2px 2px 45px;
 }
 
+#tooltipSpinner {
+	margin-left: 25px;
+}
 
 #cTipName {
 	position: relative;
