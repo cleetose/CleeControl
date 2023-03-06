@@ -54,11 +54,28 @@ function inputSaver(className) {
     return dataSaver;
 }
 
+function chkbxSaver(className) {
+    dataSaver = [];
+    classArr = $('.' + className).map(function () {
+        return this.id;
+    });
+    for (let i = 0; i < classArr.length; i++) {
+        try {
+            dataSaver[i] = (classArr[i] + ';;' + $('#' + classArr[i]).is(':checked'));
+
+        }
+        catch {
+            console.log('face');
+        }
+    }
+    return dataSaver;
+}
+
 function pleaseWork() {
 
     scoreBoardVars = inputSaver('scoreBoard');
     draftVars = inputSaver('draft');
-
+    doubleChk = chkbxSaver('doubleCheck');
     tooltipsVars = inputSaver('tooltips');
     casterbannerVars = inputSaver('banner');
 
@@ -93,7 +110,7 @@ function pleaseWork() {
     hostName = $('#hostName').val();
     casterNames = $('#casterNames').val();
     pbc.postMessage({
-        draftVars
+        draftVars, doubleChk
     });
     sbc.postMessage({
         scoreBoardVars
@@ -113,7 +130,7 @@ function pleaseWork() {
 //Send current variable states when Draft overlay initializes
 pbc.onmessage = function () {
     pbc.postMessage({
-        draftVars
+        draftVars, doubleChk
     });
 };
 

@@ -15,6 +15,38 @@ class HiddenDraft extends HTMLElement {
 					</select>
 					<div class="break"></div>
 					<div class="break"></div>
+					<select class="venueSelect storable draft" id="ban1">
+					<option value="" selected>Player 1Ban</option>
+					<option value="Aquarium">Aquarium</option>
+					<option value="Balcony">Balcony</option>
+					<option value="Ballroom">Ballroom</option>
+					<option value="Courtyard">Courtyard</option>
+					<option value="Gallery">Gallery</option>
+					<option value="High-rise">High-rise</option>
+					<option value="Library">Library</option>
+					<option value="Pub">Pub</option>
+					<option value="Redwoods">Redwoods</option>
+					<option value="Teien">Teien</option>
+					<option value="Terrace">Terrace</option>
+					<option value="Veranda">Veranda</option>
+					<option value="ban">No Ban</option>
+				</select>
+				<select class="venueSelect storable draft" id="ban2">
+				<option value="" selected>Player 1Ban</option>
+				<option value="Aquarium">Aquarium</option>
+				<option value="Balcony">Balcony</option>
+				<option value="Ballroom">Ballroom</option>
+				<option value="Courtyard">Courtyard</option>
+				<option value="Gallery">Gallery</option>
+				<option value="High-rise">High-rise</option>
+				<option value="Library">Library</option>
+				<option value="Pub">Pub</option>
+				<option value="Redwoods">Redwoods</option>
+				<option value="Teien">Teien</option>
+				<option value="Terrace">Terrace</option>
+				<option value="Veranda">Veranda</option>
+				<option value="ban">No Ban</option>
+			</select>
 					<select class="venueSelect storable draft" id="pick1">
 						<option value="" selected>Pick 1</option>
 						<option value="aquarium">Aquarium</option>
@@ -29,8 +61,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="ban">No Ban</option>
+
 					</select>
+					<input type="checkbox" id="doubleA" name="doubleATest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">					
 					<select class="venueSelect storable draft" id="pick2">
 						<option value="" selected>Pick 2</option>
 						<option value="aquarium">Aquarium</option>
@@ -45,8 +79,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="ban">No Ban</option>
+
 					</select>
+					<input type="checkbox" id="doubleB" name="doubleBTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick3">
 						<option value="" selected>Pick 3</option>
 						<option value="aquarium">Aquarium</option>
@@ -61,8 +97,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="ban">No Ban</option>
+
 					</select>
+					<input type="checkbox" id="doubleC" name="doubleCTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick4">
 						<option value="" selected>Pick 4</option>
 						<option value="aquarium">Aquarium</option>
@@ -77,9 +115,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="ban">No Ban</option>
-					</select>
 
+					</select>
+					<input type="checkbox" id="doubleD" name="doubleDTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick5">
 						<option value="" selected>Pick 5</option>
 						<option value="aquarium">Aquarium</option>
@@ -94,8 +133,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="restriction">No Restrict</option>
+
 					</select>
+					<input type="checkbox" id="doubleE" name="doubleETest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick6">
 						<option value="" selected>Pick 6</option>
 						<option value="aquarium">Aquarium</option>
@@ -110,8 +151,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="restriction">No Restrict</option>
+
 					</select>
+					<input type="checkbox" id="doubleF" name="doubleFTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick7">
 						<option value="" selected>Pick 7</option>
 						<option value="aquarium">Aquarium</option>
@@ -126,8 +169,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="restriction">No Restrict</option>
+
 					</select>
+					<input type="checkbox" id="doubleG" name="doubleGTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick8">
 						<option value="" selected>Pick 8</option>
 						<option value="aquarium">Aquarium</option>
@@ -142,9 +187,10 @@ class HiddenDraft extends HTMLElement {
 						<option value="teien">Teien</option>
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
-						<option value="restriction">No Restrict</option>
+						
 					</select>
-
+					<input type="checkbox" id="doubleH" name="doubleHTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick9">
 						<option value="" selected>Pick 9</option>
 						<option value="aquarium">Aquarium</option>
@@ -160,6 +206,8 @@ class HiddenDraft extends HTMLElement {
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
 					</select>
+					<input type="checkbox" id="doubleI" name="doubleITest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 					<select class="venueSelect storable draft" id="pick10">
 						<option value="" selected>Pick 10</option>
 						<option value="aquarium">Aquarium</option>
@@ -175,7 +223,8 @@ class HiddenDraft extends HTMLElement {
 						<option value="terrace">Terrace</option>
 						<option value="veranda">Veranda</option>
 					</select>
-
+					<input type="checkbox" id="doubleJ" name="doubleJTest" class="storable-ckbx2 doubleCheck" title="Double"
+                    value="double">	
 				</div>
 				<input id="resetti" class="buttony" type="button" value="Clear" /> </div>
 		</div>

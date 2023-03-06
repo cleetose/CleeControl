@@ -20,21 +20,58 @@
   <div id="venueband"></div>
 
 
-  <div id="pName1"></div>
+  <div id="pName1"></div> 
+
+
+
+
+  
   <div id="pName2"></div>
 
   <div id="picksband"></div>
-  <div id="pick1"></div>
-  <div id="pick2"></div>
-  <div id="pick3"></div>
-  <div id="pick4"></div>
-  <div id="pick5"></div>
-  <div id="pick6"></div>
-  <div id="pick7"></div>
-  <div id="pick8"></div>
-  <div id="pick9"></div>
-  <div id="pick10"></div>
-  <div id="double"></div>
+  <div id="venueHolder">
+    <div class="pickbox" id="pB1">
+      <div id="pick1"></div>
+      <p class="doubleText" id="doubleA">Double</p>
+    </div>
+    <div class="pickbox" id="pB2">
+      <div id="pick2"></div>
+      <p class="doubleText" id="doubleB">Double</p>
+    </div>
+    <div class="pickbox" id="pB3">
+      <div id="pick3"></div>
+      <p class="doubleText" id="doubleC">Double</p>
+    </div>
+    <div class="pickbox" id="pB4">
+      <div id="pick4"></div>
+      <p class="doubleText" id="doubleD">Double</p>
+    </div>
+    <div class="pickbox" id="pB5">
+      <div id="pick5"></div>
+      <p class="doubleText" id="doubleE">Double</p>
+    </div>
+    <div class="pickbox" id="pB6">
+      <div id="pick6"></div>
+      <p class="doubleText" id="doubleF">Double</p>
+    </div>
+    <div class="pickbox" id="pB7">
+      <div id="pick7"></div>
+      <p class="doubleText" id="doubleG">Double</p>
+    </div>
+    <div class="pickbox" id="pB8">
+      <div id="pick8"></div>
+      <p class="doubleText" id="doubleH">Double</p>
+    </div>
+    <div class="pickbox" id="pB9">
+      <div id="pick9"></div>
+      <p class="doubleText" id="doubleI">Double</p>
+    </div>
+    <div class="pickbox" id="pB10">
+      <div id="pick10"></div>
+      <p class="doubleText" id="doubleJ">Double</p>
+    </div>
+  </div>
+
   <div id="gabriotron">
     <div id="gabriotronbody"></div>
     <div id="gabriotronscreen"></div>
@@ -108,7 +145,16 @@
         easing: 'easeOutQuad',
         complete: function () {
           delayer = 1;
-          bbbbb();
+        }
+      });
+
+      anime({
+        targets: '#venueHolder',
+        left: 0,
+        duration: 1000,
+        delay: 13000,
+        easing: 'easeOutQuad',
+        complete: function () {
         }
       });
 
@@ -120,7 +166,7 @@
 
     bc.onmessage = function (ev) {
       const received_data = ev.data;
-      var { draftVars } = received_data;
+      var { draftVars, doubleChk } = received_data;
 
       varSplitter = [];
       for (let i = 0; i < draftVars.length; i++) {
@@ -129,6 +175,13 @@
 
       }
 
+      ckbxSplitter = [];
+		for (let q = 0; q < doubleChk.length; q++) {
+			ckbxSplitter = doubleChk[q].split(';;');
+				window[ckbxSplitter[0]] = ckbxSplitter[1];
+
+			
+		}
 
       if ($('#pName1').html() != pName1) {
 
@@ -140,7 +193,7 @@
           delay: 0,
           easing: 'linear',
           complete: function () {
-            $('#pName1').html(pName1);
+            $('#pName1').html(pName1 + " doesn't like " + ban1);
 
             anime({
               targets: '#pName1',
@@ -169,7 +222,7 @@
           delay: 0,
           easing: 'linear',
           complete: function () {
-            $('#pName2').html(pName2);
+            $('#pName2').html(pName2 + " doesn't like " + ban2);
 
             anime({
               targets: '#pName2',
@@ -246,7 +299,7 @@
               delay: 520,
               easing: 'easeOutQuad',
               complete: function () {
-
+                $('#doubleA').css("opacity","1");
               },
 
             });
@@ -515,539 +568,133 @@
         });
 
       }
+      
+      setTimeout(() => {
+        if (pick1 == "") {
+          $('#pB1').css('display','none');
+        } else {
+          $('#pB1').css('display','block');
+        }
+
+        if (doubleA == 'true') {	
+          $('#doubleA').css("visibility", "visible");
+        }  else if (doubleA == 'false') {
+          $('#doubleA').css("visibility", "hidden");
+        }
+
+        if (pick2 == "") {
+          $('#pB2').css('display','none');
+        } else {
+          $('#pB2').css('display','block');
+        }
+
+        if (doubleB == 'true') {	
+          $('#doubleB').css("visibility", "visible");
+        }  else if (doubleB == 'false') {
+          $('#doubleB').css("visibility", "hidden");
+        }
+
+        if (pick3 == "") {
+          $('#pB3').css('display','none');
+        } else {
+          $('#pB3').css('display','block');
+        }
+
+        if (doubleC == 'true') {	
+          $('#doubleC').css("visibility", "visible");
+        }  else if (doubleC == 'false') {
+          $('#doubleC').css("visibility", "hidden");
+        }
+
+        if (pick4 == "") {
+          $('#pB4').css('display','none');
+        } else {
+          $('#pB4').css('display','block');
+        }
+        if (doubleD == 'true') {	
+          $('#doubleD').css("visibility", "visible");
+        }  else if (doubleD == 'false') {
+          $('#doubleD').css("visibility", "hidden");
+        }
+
+        if (pick5 == "") {
+          $('#pB5').css('display','none');
+        } else {
+          $('#pB5').css('display','block');
+        }
+        if (doubleE == 'true') {	
+          $('#doubleE').css("visibility", "visible");
+        }  else if (doubleE == 'false') {
+          $('#doubleE').css("visibility", "hidden");
+        }
+
+        if (pick6 == "") {
+          $('#pB6').css('display','none');
+        } else {
+          $('#pB6').css('display','block');
+        }
+        if (doubleF == 'true') {	
+          $('#doubleF').css("visibility", "visible");
+        }  else if (doubleF == 'false') {
+          $('#doubleF').css("visibility", "hidden");
+        }
+
+        if (pick7 == "") {
+          $('#pB7').css('display','none');
+        } else {
+          $('#pB7').css('display','block');
+        }
+        if (doubleG == 'true') {	
+          $('#doubleG').css("visibility", "visible");
+        }  else if (doubleG == 'false') {
+          $('#doubleG').css("visibility", "hidden");
+        }
+
+        if (pick8 == "") {
+          $('#pB8').css('display','none');
+        } else {
+          $('#pB8').css('display','block');
+        }
+        if (doubleH == 'true') {	
+          $('#doubleH').css("visibility", "visible");
+        }  else if (doubleH == 'false') {
+          $('#doubleH').css("visibility", "hidden");
+        }
+
+        if (pick9 == "") {
+          $('#pB9').css('display','none');
+        } else {
+          $('#pB9').css('display','block');
+        }
+        if (doubleI == 'true') {	
+          $('#doubleI').css("visibility", "visible");
+        }  else if (doubleI == 'false') {
+          $('#doubleI').css("visibility", "hidden");
+        }
+
+        if (pick10 == "") {
+          $('#pB10').css('display','none');
+        } else {
+          $('#pB10').css('display','block');
+        }
+        if (doubleJ == 'true') {	
+          $('#doubleJ').css("visibility", "visible");
+        }  else if (doubleJ == 'false') {
+          $('#doubleJ').css("visibility", "hidden");
+        }
+      }, 600);
 
       if (oldMatch != $('#roundnumber').html()) {
         oldMatch = $('#roundnumber').html();
-        bbbbb();
-        console.log("face");
+
       }
 
     }
 
 
 
-    function bbbbb() {
-      setTimeout(() => {
-        matchType = $('#roundnumber').html();
-        if (delayer == 1) {
-          if (matchType == "Round 1 Match") {
-            anime({
-              targets: '#double',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
 
-            });
 
-            anime({
-              targets: '#pick1',
-              left: 482,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick2',
-              left: 677,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick3',
-              left: 872,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick4',
-              left: 1067,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick5',
-              left: 1262,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick6',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick7',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick8',
-              left: -200,
-              duration: 600,
-              delay: '500',
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick9',
-              left: -200,
-              duration: 600,
-              delay: '500',
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick10',
-              left: -200,
-              duration: 600,
-              delay: '500',
-              easing: 'easeOutQuad',
-
-            });
-
-          }
-
-
-          if (matchType == "Round 2 Match") {
-
-
-            anime({
-              targets: '#double',
-              left: 482,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick1',
-              left: 482,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick2',
-              left: 677,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick3',
-              left: 872,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick4',
-              left: 1067,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick5',
-              left: 1262,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick6',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick7',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick8',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick9',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick10',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-          }
-
-
-          if (matchType == "Round 3 Match") {
-
-
-            anime({
-              targets: '#double',
-              left: 287,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick1',
-              left: 287,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick2',
-              left: 482,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick3',
-              left: 677,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick4',
-              left: 872,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick5',
-              left: 1067,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick6',
-              left: 1262,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick7',
-              left: 1457,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick8',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick9',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick10',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-          }
-
-          if (matchType == "Round 4 Match") {
-
-
-            anime({
-              targets: '#double',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick1',
-              left: 95,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick2',
-              left: 287,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick3',
-              left: 482,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick4',
-              left: 677,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick5',
-              left: 872,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick6',
-              left: 1067,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick7',
-              left: 1262,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick8',
-              left: 1457,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-
-            anime({
-              targets: '#pick9',
-              left: 1652,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick10',
-              left: -200,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-          }
-
-          if (matchType == "Round 5 Match") {
-
-
-            anime({
-              targets: '#double',
-              left: 12,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick1',
-              left: 12,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick2',
-              left: 203,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick3',
-              left: 394,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick4',
-              left: 585,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick5',
-              left: 776,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick6',
-              left: 967,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick7',
-              left: 1158,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-            anime({
-              targets: '#pick8',
-              left: 1349,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick9',
-              left: 1540,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-            anime({
-              targets: '#pick10',
-              left: 1731,
-              duration: 600,
-              delay: 500,
-              easing: 'easeOutQuad',
-
-            });
-
-          }
-          console.log(matchType);
-        }
-      }, 600);
-
-    }
 
 
 

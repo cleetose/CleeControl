@@ -73,325 +73,6 @@ body {
     z-index: 9;
 }
 
-#boxholder1 {
-    position: absolute;
-    width: 1920px;
-    height: 1080px;
-    top: 130px;
-    opacity: 0;
-}
-
-#boxholder2 {
-    position: absolute;
-    width: 1920px;
-    height: 1080px;
-    top:-130px;
-    opacity: 0;
-}
-
-#rankingboxtop {
-    position: absolute;
-    top: 10px;
-    width: 1920px;
-    height: 1080px;
-    background-image: url('../images_draft/rankingboxestop.png');
-    z-index: 7;
-}
-
-#rankingboxbottom {
-    position: absolute;
-    top: -10px;
-    width: 1920px;
-    height: 1080px;
-    background-image: url('../images_draft/rankingboxesbottom.png');
-    z-index: 7;
-}
-
-#aquariumrankA {
-    position: absolute;
-    width: 140px;
-    top: 365px;
-    left: 15px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-    text-align: center;
-}
-
-#aquariumrankB {
-    position: absolute;
-    width: 140px;
-    top: 640px;
-    left: 15px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-    text-align: center;
-}
-
-#balconyrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 160px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#balconyrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 160px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#ballroomrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 305px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#ballroomrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 305px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#courtyardrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 450px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#courtyardrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 450px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#galleryrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 595px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#galleryrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 595px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#highriserankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 740px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#highriserankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 740px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#libraryrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 888px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#libraryrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 888px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#modernerankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 1037px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#modernerankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 1037px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#pubrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 1180px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#pubrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 1180px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#redwoodsrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 1325px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#redwoodsrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 1325px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#teienrankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 1475px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#teienrankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 1475px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#terracerankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 1620px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#terracerankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 1620px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#verandarankA {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 365px;
-    left: 1765px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
-
-#verandarankB {
-    position: absolute;
-    width: 140px;
-    text-align: center;
-    top: 640px;
-    left: 1765px;
-    font-size: 70pt;
-    color: white;
-    z-index: 8;
-}
 
 #picksband {
     position: absolute;
@@ -401,116 +82,123 @@ body {
     background-image: url('../images_draft/picksband.png');
 }
 
-#pick1 {
-    position: absolute;
+#venueHolder {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    top: -10px;
+    left: -1920px;
+    border-color: greenyellow;
+    width: 1920px;
+    height: 180px;
+}
+
+.pickBox {
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
-    color: rgba(0, 0, 0, 0);
+    color: rgb(0, 0, 0, 0);
+    z-index: 0;
+}
 
+#pick1 {
+    position: relative;
+    width: 176px;
+    height: 178px;
+    color: rgb(0, 0, 0, 0);
+    z-index: 0;
+}
+
+.doubleText {
+    display: inline-block;
+    position: relative;
+    top: -174px;
+    left: 5px;
+    width: 95%;
+    height: 25px;
+    background: red;
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    padding-top: 10px;
+    z-index: 2;
 }
 
 #pick2 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick3 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick4 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick5 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick6 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick7 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick8 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick9 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 #pick10 {
-    position: absolute;
+    position: relative;
     width: 176px;
     height: 178px;
-    top: 442px;
-    left: -200px;
     color: rgba(0, 0, 0, 0);
 
 }
 
 
 
-#double {
-    position: absolute;
-    width: 176px;
-    height: 178px;
-    top: 442px;
-    left: -200px;
-    background-image: url('../images_draft/doubled.png');
-}
 #gabriotron {
     position: absolute;
     width: 810px;
