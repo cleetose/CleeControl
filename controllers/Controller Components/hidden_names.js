@@ -9,7 +9,7 @@ class HiddenPlayersScores extends HTMLElement {
 		<div class="panel" id="playersPan">
 			<div id="player1">
 				<input type="text" class="storable playerNames scoreBoard draft" id="pName1" placeholder="Player One Name" />
-				<input type="text" class="country storable draft" id="ban1" placeholder="Flag" />
+				<input type="text" class="country storable draft" id="ban1" placeholder="Ban" />
 				<div class="scoreSpinners" id="scoreSpinner1">
 					<input class="spinBoy storable scoreBoard" id="pScore1" type="number" name="value" value="0" min="0"
 						readonly>
@@ -20,7 +20,7 @@ class HiddenPlayersScores extends HTMLElement {
 				</div>
 				<input type="button" class="buttony" id="swapNames" value="Swap">
 				<input type="text" class="storable playerNames scoreBoard draft" id="pName2" placeholder="Player Two Name" />
-				<input type="text" class="country storable draft" id="ban2" placeholder="Flag" />
+				<input type="text" class="country storable draft" id="ban2" placeholder="Ban" />
 				<div class="scoreSpinners" id="scoreSpinner2">
 					<input class="spinBoy storable scoreBoard" id="pScore2" type="number" name="value" value="0" min="0"
 						readonly>
