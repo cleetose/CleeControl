@@ -9,7 +9,7 @@ class HiddenPlayersScores extends HTMLElement {
 		<div class="panel" id="playersPan">
 			<div id="player1">
 				<input type="text" class="storable playerNames scoreBoard draft" id="pName1" placeholder="Player One Name" />
-				<input type="text" class="country storable scoreBoard" id="pCountry1" placeholder="Flag" />
+				<input type="text" class="country storable draft" id="ban1" placeholder="Flag" />
 				<div class="scoreSpinners" id="scoreSpinner1">
 					<input class="spinBoy storable scoreBoard" id="pScore1" type="number" name="value" value="0" min="0"
 						readonly>
@@ -20,7 +20,7 @@ class HiddenPlayersScores extends HTMLElement {
 				</div>
 				<input type="button" class="buttony" id="swapNames" value="Swap">
 				<input type="text" class="storable playerNames scoreBoard draft" id="pName2" placeholder="Player Two Name" />
-				<input type="text" class="country storable scoreBoard" id="pCountry2" placeholder="Flag" />
+				<input type="text" class="country storable draft" id="ban2" placeholder="Flag" />
 				<div class="scoreSpinners" id="scoreSpinner2">
 					<input class="spinBoy storable scoreBoard" id="pScore2" type="number" name="value" value="0" min="0"
 						readonly>
@@ -80,7 +80,7 @@ var pName2;
 var pScore1;
 var pScore2;
 var pCountry1;
-var pCountry2;
+var ban2;
 var Rolla;
 var Sniper;
 var hostName;
@@ -121,9 +121,9 @@ var casterNames;
 				},
 				select: function (event, ui) {
 					$("#pName1").val(ui.item.label);
-					$("#pCountry1").val(ui.item.value);
-					if ($("#pName1").val() == $("#pCountry1").val()) {
-						$("#pCountry1").val('');
+					$("#ban1").val(ui.item.value);
+					if ($("#pName1").val() == $("#ban1").val()) {
+						$("#ban1").val('');
 					}
 					return false;
 				}
@@ -137,9 +137,9 @@ var casterNames;
 				},
 				select: function (event, ui) {
 					$("#pName2").val(ui.item.label);
-					$("#pCountry2").val(ui.item.value);
-					if ($("#pName2").val() == $("#pCountry2").val()) {
-						$("#pCountry2").val('');
+					$("#ban2").val(ui.item.value);
+					if ($("#pName2").val() == $("#ban2").val()) {
+						$("#ban2").val('');
 					}
 					return false;
 				}
@@ -149,25 +149,25 @@ var casterNames;
         //Swap button for Players and Score Division
 		document.getElementById("swapNames").addEventListener("click", function () {
 			sName1 = $('#pName1').val();
-			sCountry1 = $('#pCountry1').val();
+			sban1 = $('#ban1').val();
 			sScore1 = $('#pScore1').val();
 			sName2 = $('#pName2').val();
-			sCountry2 = $('#pCountry2').val();
+			sban2 = $('#ban2').val();
 			sScore2 = $('#pScore2').val();
 			$('#pName1').val(sName2);
-			$('#pCountry1').val(sCountry2);
+			$('#ban1').val(sban2);
 			$('#pScore1').val(sScore2);
 			$('#pName2').val(sName1);
-			$('#pCountry2').val(sCountry1);
+			$('#ban2').val(sban1);
 			$('#pScore2').val(sScore1);
 		});
 		//Clear button for Players and Score Division
 		document.getElementById("blankNames").addEventListener("click", function () {
 			$('#pName1').val('');
-			$('#pCountry1').val('');
+			$('#ban1').val('');
 			$('#pScore1').val(0);
 			$('#pName2').val('');
-			$('#pCountry2').val('');
+			$('#ban2').val('');
 			$('#pScore2').val(0);
 			$('#gameCounter').val('0');
 		});
@@ -181,6 +181,6 @@ var casterNames;
 			$('#pName2').val('');
 			$('#pScore1').val('0');
 			$('#pScore2').val('0');
-			$('#pCountry1').val('');
-			$('#pCountry2').val('');
+			$('#ban1').val('');
+			$('#ban2').val('');
 		}

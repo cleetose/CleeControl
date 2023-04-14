@@ -15,38 +15,6 @@ class HiddenDraft extends HTMLElement {
 					</select>
 					<div class="break"></div>
 					<div class="break"></div>
-					<select class="venueSelect storable draft" id="ban1">
-					<option value="" selected>Player 1Ban</option>
-					<option value="Aquarium">Aquarium</option>
-					<option value="Balcony">Balcony</option>
-					<option value="Ballroom">Ballroom</option>
-					<option value="Courtyard">Courtyard</option>
-					<option value="Gallery">Gallery</option>
-					<option value="High-rise">High-rise</option>
-					<option value="Library">Library</option>
-					<option value="Pub">Pub</option>
-					<option value="Redwoods">Redwoods</option>
-					<option value="Teien">Teien</option>
-					<option value="Terrace">Terrace</option>
-					<option value="Veranda">Veranda</option>
-					<option value="ban">No Ban</option>
-				</select>
-				<select class="venueSelect storable draft" id="ban2">
-				<option value="" selected>Player 1Ban</option>
-				<option value="Aquarium">Aquarium</option>
-				<option value="Balcony">Balcony</option>
-				<option value="Ballroom">Ballroom</option>
-				<option value="Courtyard">Courtyard</option>
-				<option value="Gallery">Gallery</option>
-				<option value="High-rise">High-rise</option>
-				<option value="Library">Library</option>
-				<option value="Pub">Pub</option>
-				<option value="Redwoods">Redwoods</option>
-				<option value="Teien">Teien</option>
-				<option value="Terrace">Terrace</option>
-				<option value="Veranda">Veranda</option>
-				<option value="ban">No Ban</option>
-			</select>
 					<select class="venueSelect storable draft" id="pick1">
 						<option value="" selected>Pick 1</option>
 						<option value="aquarium">Aquarium</option>
