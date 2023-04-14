@@ -183,7 +183,7 @@
 			
 		}
 
-      if ($('#pName1').html() != pName1) {
+      if ($('#pName1').html() != (pName1 + " doesn't like " + ban1)) {
 
 
         anime({
@@ -213,7 +213,7 @@
       }
 
 
-      if ($('#pName2').html() != pName2) {
+      if ($('#pName2').html() != (pName2 + " doesn't like " + ban2)) {
 
         anime({
           targets: '#pName2',
@@ -551,7 +551,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick10').css("background-image", "url(images_draft/" + pick10 + ".png)");
-
+            $('#pick10').html(pick10);
             anime({
               targets: '#pick10',
               opacity: 1,
