@@ -24,6 +24,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -34,19 +35,20 @@ class HiddenDraft extends HTMLElement {
 					<input type="checkbox" id="doubleA" name="doubleATest" class="storable-ckbx2 doubleCheck" title="Double"
                     value="double">					
 					<select class="venueSelect storable draft" id="pick2">
-						<option value="" selected>Pick 2</option>
-						<option value="aquarium">Aquarium</option>
-						<option value="balcony">Balcony</option>
-						<option value="ballroom">Ballroom</option>
-						<option value="courtyard">Courtyard</option>
-						<option value="gallery">Gallery</option>
-						<option value="high-rise">High-rise</option>
-						<option value="library">Library</option>
-						<option value="pub">Pub</option>
-						<option value="redwoods">Redwoods</option>
-						<option value="teien">Teien</option>
-						<option value="terrace">Terrace</option>
-						<option value="veranda">Veranda</option>
+					<option value="" selected>Pick 2</option>
+					<option value="aquarium">Aquarium</option>
+					<option value="balcony">Balcony</option>
+					<option value="ballroom">Ballroom</option>
+					<option value="courtyard">Courtyard</option>
+					<option value="gallery">Gallery</option>
+					<option value="high-rise">High-rise</option>
+					<option value="library">Library</option>
+					<option value="moderne">Moderne</option>
+					<option value="pub">Pub</option>
+					<option value="redwoods">Redwoods</option>
+					<option value="teien">Teien</option>
+					<option value="terrace">Terrace</option>
+					<option value="veranda">Veranda</option>
 
 					</select>
 					<input type="checkbox" id="doubleB" name="doubleBTest" class="storable-ckbx2 doubleCheck" title="Double"
@@ -60,6 +62,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -78,6 +81,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -96,6 +100,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -114,6 +119,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -132,6 +138,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -150,6 +157,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -168,6 +176,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>
@@ -185,6 +194,7 @@ class HiddenDraft extends HTMLElement {
 						<option value="gallery">Gallery</option>
 						<option value="high-rise">High-rise</option>
 						<option value="library">Library</option>
+						<option value="moderne">Moderne</option>
 						<option value="pub">Pub</option>
 						<option value="redwoods">Redwoods</option>
 						<option value="teien">Teien</option>

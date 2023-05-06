@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet"
+         href="../../js/jquery-ui-1.12.1.custom/jquery-ui.css">
+      <link rel="stylesheet"
+         href="../../js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
+      <script src="https://code.jquery.com/jquery-3.5.1.js"
+         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>
+      <script src="../../js/jquery-ui.js"></script>
+      <script src="../../js/hotkeys.js"></script>
+      <script src="../../js/csv.js"></script>
+      <script src="../../js/farbtastic.js"></script>
+      <script src="../../js/jquery.ddslick.min.js"></script>
+      <title>SMC Predictions</title>
+      <style>
+
+@font-face {
+    font-family: JosefinSans;
+    src: url('../../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansSemiBold;
+    src: url('../../fonts/JosefinSans-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansBold;
+    src: url('../../fonts/JosefinSans-Bold.ttf');
+}
+
+
+@font-face {
+    font-family: Agency;
+    src: url('../../fonts/Agency_FB_Bold.ttf');
+}
+
+/* Custom Scrollbar*/
+
+::-webkit-scrollbar {
+	width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #2b2b2b; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #888; 
+	border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+  }
+
+        body {
+           background: none;
+            font-family: 'JosefinSans';
+            overflow-x: hidden;
+            overflow-y: visible;
+            margin-left: 60px;
+        }
+        .section {
+            height: 1100px;
+            margin-bottom: 100px;
+        }
+
+        .divisionTitle {
+            margin-top: 50px;
+            margin-bottom: 30px;
+            width: 1920px;
+            height: 100px;
+            background-size: 5.5%;
+            background-position-x: center;
+            background-position-y: top;
+            background-repeat: no-repeat;
+        }
+
+
+
+        .divisionText {
+            position: relative;
+            width: 100%;
+            top: -40px;
+            text-align: center;
+            display: inline-block;
+            font-size: 54pt;
+            -webkit-text-stroke: 1px white;
+            font-family: 'JosefinSansBold';
+            opacity: 1;
+        }
+        
+        .expertBox {
+            display: inline-block;
+            width: 24%;
+            height: 500px;
+
+                      
+        }
+        .connectedSortable {
+         
+          width: 100%;
+          max-height: fit-content;
+          list-style-type: none;
+          margin: 0;
+          padding: 5px 0 0 0;
+          float: left;
+          margin-right: 10px;
+        }
+
+        .rankLists {
+          border: 1px solid #eee;
+          list-style-type: decimal;
+          list-style-position: inside;
+          margin: 0;
+          padding: 5px 0 0 0;
+          float: left;
+          margin-right: 10px;
+          min-height: 350px;
+            max-height: fit-content;
+        }
+
+        .rankLists li {
+            margin: 0 5px 5px 1px;
+          padding-top: 5px;
+          padding-left: 15px;
+          font-size: 3em;
+          font-weight: bold;
+          width: 95%;
+          border-style: solid;
+          text-align: center;
+        }
+
+        .poolList {
+            margin-top: 20px;
+            min-height: 350px;
+            max-height: fit-content;
+
+        }
+
+        .poolList li {
+            margin: 0 5px 5px 1px;
+          padding-top: 5px;
+          padding-left: 15px;
+          font-size: 3em;
+          font-weight: bold;
+          width: 95%;
+          border-style: solid;
+          text-align: center;
+        }
+
+        .expertNames {
+            color: white;
+            font-size: 45pt;
+        }
+
+        .topazLists {            
+            color: #303030;
+
+        }
+
+        .topazLists li {
+          background: linear-gradient(180deg, #ffc87c 60%, #836740 100%);
+          border-color: #fddcae;
+        }
+
+        #topazText {
+           color: #ffc87c;
+        } 
+
+        .sapphireLists {            
+            color: #ffffff;
+
+        }
+
+        .sapphireLists li {
+          background: linear-gradient(180deg, #0f52ba 60%, rgb(5, 37, 85) 100%);
+          border-color: #2368cf;
+        }
+
+        #sapphireText {
+           color: #0f52ba;
+        } 
+
+        .emeraldLists {            
+            color: #2b2b2b;
+
+        }
+
+        .emeraldLists li {
+          background: linear-gradient(180deg, #42c56e 60%, #133f21 100%);
+          border-color: #48a768;
+        }
+
+        #emeraldText {
+           color: #42c56e;
+        }
+
+         .rubyLists {
+            color: white;
+        }
+
+         .rubyLists li {
+          background: linear-gradient(180deg, #9b111e 60%, #5a0a12 100%);
+          border-color: #9c3640;
+        }
+
+        #rubyText {
+           color: #9b111e;
+        }
+
+        .masterLists {
+            color: white;
+        }
+
+        .masterLists li {
+          background: linear-gradient(180deg, #00008b 60%, #00002b 100%);
+          border-color: rgb(27, 27, 122);
+        }
+
+        #masterText {
+           color: #00008b;
+        }
+
+        .grandmasterLists {
+            color: #000000;
+        }
+
+        .grandmasterLists li {
+          background: linear-gradient(180deg, #ffa500 60%, #e6a62e 100%);
+          border-color: #c28006;
+        }
+
+        #grandmasterText {
+           color: #ffa500;
+        }
+
+
+
+        </style>
+      <script>
+            $( function() {
+              $( ".poolList, .rankLists" ).sortable({
+                connectWith: ".connectedSortable"
+              }).disableSelection();
+            } );
+
+            function scrollBottom() {window.scrollTo(0, 99999);}
+if (document.addEventListener) document.addEventListener("DOMContentLoaded", scrollBottom, false)
+else if (window.attachEvent) window.attachEvent("onload", scrollBottom);
+            </script>
+   </head>
+
+   <body>
+
+      <div class="section">
+         <div class="divisionTitle grandmasterBadge">
+            <p class="divisionText" id='grandmasterText'>
+               GrandMaster
+            </p>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Rov</div>
+            <ol class="connectedSortable grandmasterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList grandmasterLists">
+               <li>Rov</li>
+               <li>Nebula</li>
+               <li>miniorek</li>
+               <li>Sauerkraut</li>
+               <li>OpiWrites</li>
+               <li>Koopa</li>
+               <li>Pofke</li>
+               <li>Turnipboy</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Miniorek</div>
+            <ol class="connectedSortable grandmasterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList grandmasterLists">
+               <li>Rov</li>
+               <li>Nebula</li>
+               <li>miniorek</li>
+               <li>Sauerkraut</li>
+               <li>OpiWrites</li>
+               <li>Koopa</li>
+               <li>Pofke</li>
+               <li>Turnipboy</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Silverthorn</div>
+            <ol class="connectedSortable grandmasterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList grandmasterLists">
+               <li>Rov</li>
+               <li>Nebula</li>
+               <li>miniorek</li>
+               <li>Sauerkraut</li>
+               <li>OpiWrites</li>
+               <li>Koopa</li>
+               <li>Pofke</li>
+               <li>Turnipboy</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Pwndnoob</div>
+            <ol class="connectedSortable grandmasterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList grandmasterLists">
+               <li>Rov</li>
+               <li>Nebula</li>
+               <li>miniorek</li>
+               <li>Sauerkraut</li>
+               <li>OpiWrites</li>
+               <li>Koopa</li>
+               <li>Pofke</li>
+               <li>Turnipboy</li>
+            </ul>
+         </div>
+      </div>
+
+      <div class="section">
+         <div class="divisionTitle masterBadge">
+            <p class="divisionText" id="masterText">
+               Master
+            </p>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Rov</div>
+            <ol class="connectedSortable masterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList masterLists">
+               <li>Martini</li>
+               <li>Adafheyesh</li>
+               <li>Monaters</li>
+               <li>Pwndnoob</li>
+               <li>Sheph</li>
+               <li>Dampsquib</li>
+               <li>C-RAMs</li>
+               <li>Zerodoom</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Miniorek</div>
+            <ol class="connectedSortable masterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList masterLists">
+               <li>Martini</li>
+               <li>Adafheyesh</li>
+               <li>Monaters</li>
+               <li>Pwndnoob</li>
+               <li>Sheph</li>
+               <li>Dampsquib</li>
+               <li>C-RAMs</li>
+               <li>Zerodoom</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Silverthorn</div>
+            <ol class="connectedSortable masterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList masterLists">
+               <li>Martini</li>
+               <li>Adafheyesh</li>
+               <li>Monaters</li>
+               <li>Pwndnoob</li>
+               <li>Sheph</li>
+               <li>Dampsquib</li>
+               <li>C-RAMs</li>
+               <li>Zerodoom</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Pwndnoob</div>
+            <ol class="connectedSortable masterLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList masterLists">
+               <li>Martini</li>
+               <li>Adafheyesh</li>
+               <li>Monaters</li>
+               <li>Pwndnoob</li>
+               <li>Sheph</li>
+               <li>Dampsquib</li>
+               <li>C-RAMs</li>
+               <li>Zerodoom</li>
+            </ul>
+         </div>
+      </div>
+
+
+      <div class="section">
+         <div class="divisionTitle rubyBadge">
+            <p class="divisionText" id="rubyText">
+               Ruby
+            </p>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Rov</div>
+            <ol class="connectedSortable rubyLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList rubyLists">
+               <li>Nanthelas</li>
+               <li>Graash</li>
+               <li>Slappydavis</li>
+               <li>Wrestler</li>
+               <li>DavidW</li>
+               <li>Guggie</li>
+               <li>Beanie</li>
+               <li>Banana Bread</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Miniorek</div>
+            <ol class="connectedSortable rubyLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList rubyLists">
+               <li>Nanthelas</li>
+               <li>Graash</li>
+               <li>Slappydavis</li>
+               <li>Wrestler</li>
+               <li>DavidW</li>
+               <li>Guggie</li>
+               <li>Beanie</li>
+               <li>Banana Bread</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Silverthorn</div>
+            <ol class="connectedSortable rubyLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList rubyLists">
+               <li>Nanthelas</li>
+               <li>Graash</li>
+               <li>Slappydavis</li>
+               <li>Wrestler</li>
+               <li>DavidW</li>
+               <li>Guggie</li>
+               <li>Beanie</li>
+               <li>Banana Bread</li>
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Pwndnoob</div>
+            <ol class="connectedSortable rubyLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList rubyLists">
+               <li>Nanthelas</li>
+               <li>Graash</li>
+               <li>Slappydavis</li>
+               <li>Wrestler</li>
+               <li>DavidW</li>
+               <li>Guggie</li>
+               <li>Beanie</li>
+               <li>Banana Bread</li>
+            </ul>
+         </div>
+      </div>
+
+      <div class="section" id="emeraldIV">
+         <div class="divisionTitle emeraldBadge" id="emeraldVBadge">
+            <p class="divisionText" id="emeraldText">
+               Emerald
+            </p>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Rov</div>
+            <ol class="connectedSortable emeraldLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList emeraldLists">
+               <li>Scout</li>
+               <li>Hunu</li>
+               <li>Iggythegrifter</li>
+               <li>AstatineEffect</li>
+               <li>gENTleman</li>
+               <li>SykoSloth</li>
+               <li>Verdruss</li>
+               <li>June</li>
+
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Miniorek</div>
+            <ol class="connectedSortable emeraldLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList emeraldLists">
+               <li>Scout</li>
+               <li>Hunu</li>
+               <li>Iggythegrifter</li>
+               <li>AstatineEffect</li>
+               <li>gENTleman</li>
+               <li>SykoSloth</li>
+               <li>Verdruss</li>
+               <li>June</li>
+
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Silverthorn</div>
+            <ol class="connectedSortable emeraldLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList emeraldLists">
+               <li>Scout</li>
+               <li>Hunu</li>
+               <li>Iggythegrifter</li>
+               <li>AstatineEffect</li>
+               <li>gENTleman</li>
+               <li>SykoSloth</li>
+               <li>Verdruss</li>
+               <li>June</li>
+
+            </ul>
+         </div>
+         <div class="expertBox">
+            <div class="expertNames">Pwndnoob</div>
+            <ol class="connectedSortable emeraldLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList emeraldLists">
+               <li>Scout</li>
+               <li>Hunu</li>
+               <li>Iggythegrifter</li>
+               <li>AstatineEffect</li>
+               <li>gENTleman</li>
+               <li>SykoSloth</li>
+               <li>Verdruss</li>
+               <li>June</li>
+
+            </ul>
+         </div>
+      </div>
+
+      <div class="section" id="sapphire">
+         <div class="divisionTitle sapphireBadge" id="sapphireVBadge">
+            <p class="divisionText" id="sapphireText">
+               Sapphire
+            </p>
+         </div>
+         <div class="expertBox" id="expert1">
+            <div class="expertNames" id="opi">Rov</div>
+            <ol class="connectedSortable sapphireLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList sapphireLists">
+               <li>Roxo</li>
+               <li>Hornet</li>
+               <li>AiCoVT</li>
+               <li>Catnip</li>
+               <li>Calamay</li>
+               <li>Lavinuke</li>
+               <li>Yosh</li>
+            </ul>
+         </div>
+         <div class="expertBox" id="expert2">
+            <div class="expertNames" id="noob">Miniorek</div>
+            <ol class="connectedSortable sapphireLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList sapphireLists">
+               <li>Roxo</li>
+               <li>Hornet</li>
+               <li>AiCoVT</li>
+               <li>Catnip</li>
+               <li>Calamay</li>
+               <li>Lavinuke</li>
+               <li>Yosh</li>
+            </ul>
+         </div>
+         <div class="expertBox" id="expert3">
+            <div class="expertNames" id="wodar">Silverthorn</div>
+            <ol class="connectedSortable sapphireLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList sapphireLists">
+               <li>Roxo</li>
+               <li>Hornet</li>
+               <li>AiCoVT</li>
+               <li>Catnip</li>
+               <li>Calamay</li>
+               <li>Lavinuke</li>
+               <li>Yosh</li>
+            </ul>
+         </div>
+         <div class="expertBox" id="expert4">
+            <div class="expertNames" id="someone">Pwndnoob</div>
+            <ol class="connectedSortable sapphireLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList sapphireLists">
+               <li>Roxo</li>
+               <li>Hornet</li>
+               <li>AiCoVT</li>
+               <li>Catnip</li>
+               <li>Calamay</li>
+               <li>Lavinuke</li>
+               <li>Yosh</li>
+            </ul>
+         </div>
+      </div>
+      <div class="section" id="topaz">
+         <div class="divisionTitle topazBadge" id="topazVBadge">
+            <p class="divisionText" id="topazText">
+               topaz
+            </p>
+         </div>
+         <div class="expertBox" id="expert1">
+            <div class="expertNames" id="opi">Rov</div>
+            <ol class="connectedSortable topazLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList topazLists">
+               <li>OneHoppingBunny</li>
+               <li>Itsmedash</li>
+               <li>Bloodredyeti</li>
+               <li>Coding</li>
+            </ul>
+         </div>
+         <div class="expertBox" id="expert2">
+            <div class="expertNames" id="noob">Miniorek</div>
+            <ol class="connectedSortable topazLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList topazLists">
+               <li>OneHoppingBunny</li>
+               <li>Itsmedash</li>
+               <li>Bloodredyeti</li>
+               <li>Coding</li>
+            </ul>
+         </div>
+         <div class="expertBox" id="expert3">
+            <div class="expertNames" id="wodar">Silverthorn</div>
+            <ol class="connectedSortable topazLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList topazLists">
+               <li>OneHoppingBunny</li>
+               <li>Itsmedash</li>
+               <li>Bloodredyeti</li>
+               <li>Coding</li>
+            </ul>
+         </div>
+         <div class="expertBox" id="expert4">
+            <div class="expertNames" id="someone">Pwndnoob</div>
+            <ol class="connectedSortable topazLists rankLists">
+            </ol>
+            <ul class="connectedSortable poolList topazLists">
+               <li>OneHoppingBunny</li>
+               <li>Itsmedash</li>
+               <li>Bloodredyeti</li>
+               <li>Coding</li>
+            </ul>
+         </div>
+      </div>
+   </body>
+</html>
