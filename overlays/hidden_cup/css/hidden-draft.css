@@ -65,132 +65,83 @@ body {
     z-index: 7;
 }
 
-#venueband {
-    position: absolute;
-    width: 1920px;
-    height: 1080px;
-    left: -2000px;
-    z-index: 9;
-}
-
-
-#picksband {
-    position: absolute;
-    width: 1920px;
-    height: 1080px;
-    left: -2000px;
-    background-image: url('../images_draft/picksband.png');
-}
-
 #venueHolder {
     position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 5px;
-    top: -10px;
+    top: 0px;
     left: -1920px;
-    border-color: greenyellow;
+    box-shadow: 0px 0px 15px black;
     width: 1920px;
-    height: 180px;
+    height: fit-content;
+    background-color: #adecff;
+    z-index: 1;
 }
 
-.pickBox {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgb(0, 0, 0, 0);
+#overtimeVenueHolder {
+    position: absolute;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 435px;
+    left: -1920px;
+    box-shadow: 0px 0px 15px black;
+    width: 1920px;
+    height: fit-content;
+    background-color: rgb(16, 172, 172);
     z-index: 0;
 }
 
-#pick1 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgb(0, 0, 0, 0);
-    z-index: 0;
+#otHolder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    margin-left: 40px;
+    background-color: rgb(8, 94, 94);
+    border-color: rgb(14, 139, 139);
+    border-style: solid;
+    border-width: 6px;
+}
+
+#showHolder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    margin-right: 40px;
+    background-color: rgb(8, 94, 94);
+    border-color: rgb(14, 139, 139);
+    border-style: solid;
+    border-width: 6px;
 }
 
 .doubleText {
-    display: inline-block;
+    visibility: hidden;
+    display: block;
     position: relative;
-    top: -174px;
-    left: 5px;
-    width: 95%;
-    height: 25px;
+    top: 1px;
+    left: 4px;
+    width: 96%;
+    height: 15px;
     background: red;
     color: white;
     font-size: 20pt;
     text-align: center;
-    padding-top: 10px;
+    padding-top: 20px;
     z-index: 2;
 }
 
-#pick2 {
+.venueImage {
     position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick3 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick4 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick5 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick6 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick7 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick8 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick9 {
-    position: relative;
-    width: 176px;
-    height: 178px;
-    color: rgba(0, 0, 0, 0);
-
-}
-
-#pick10 {
-    position: relative;
+    line-height: 0;
     width: 176px;
     height: 178px;
     color: rgba(0, 0, 0, 0);
@@ -224,15 +175,6 @@ body {
     background-image: url('../images_draft/GE_Screen.gif');
 }
 
-#timer {
-    position: absolute;
-    width: 1920px;
-    height: 10px;
-    top: 936px;
-    opacity: 0;
-    background-image: url('../images_draft/timer.png');
-}
-
 #roundnumber {
     position: absolute;
     width: 1920px;
@@ -244,25 +186,33 @@ body {
     color: seashell;
 }
 
-#ratings {
-    position: absolute;
-    width: 1920px;
-    height: 100px;
+
+.otText {
     font-size: 50pt;
-    top: 240px;
-    text-align: center;
-    opacity: 0;
-    color: seashell;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+    
 }
 
-#ratingsExp1 {
-    position: absolute;
-    width: 1920px;
-    height: 100px;
-    font-size: 40pt;
-    top: 840px;
-    text-align: center;
-    opacity: 0;
-    color: seashell;
+#ovt {
+    margin-right: 10px;
 }
 
+#fnl {
+    margin-right: 10px;
+}
+
+
+#picksText {
+    width: 100%;
+    text-align: center;
+    font-size: 50pt;
+    margin-top: 0px;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.break {
+	flex-basis: 100%;
+	height: 0;
+  }

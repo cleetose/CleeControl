@@ -1,84 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <title>Hidden Draft</title>
-  <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel="stylesheet" href="css/hidden-draft.css">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hidden Draft</title>
+    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript"
+      charset="utf-8"></script>
+    <script
+      src='http://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'></script>
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="css/hidden-draft.css">
 
-  <script type="text/javascript">
+    <script type="text/javascript">
   </script>
 
-</head>
+  </head>
 
-<body onLoad="init()">
-  <div id="nameboxtop"></div>
-  <div id="nameboxbottom"></div>
-  <div id="venueband"></div>
+  <body onLoad="init()">
+    <div id="nameboxtop"></div>
+    <div id="nameboxbottom"></div>
 
 
+
+    <div id="pName1"></div>
   <div id="pName1"></div> 
+    <div id="pName1"></div>
 
 
+    <div id="pName2"></div>
+
+    <div id="venueHolder">
+
+      <p id="picksText">GabrioTron's Picks</p>
+      <div class="break"></div>
+        <div class="venueImage" id="pick1">
+          <p class="doubleText" id="doubleA">Double</p>
+        </div>
+        
+
+        <div class="venueImage" id="pick2">
+          <p class="doubleText" id="doubleB">Double</p>
+        </div>
 
 
-  
-  <div id="pName2"></div>
+        <div class="venueImage" id="pick3">
+          <p class="doubleText" id="doubleC">Double</p>
+        </div>
 
-  <div id="picksband"></div>
-  <div id="venueHolder">
-    <div class="pickbox" id="pB1">
-      <div id="pick1"></div>
-      <p class="doubleText" id="doubleA">Double</p>
-    </div>
-    <div class="pickbox" id="pB2">
-      <div id="pick2"></div>
-      <p class="doubleText" id="doubleB">Double</p>
-    </div>
-    <div class="pickbox" id="pB3">
-      <div id="pick3"></div>
-      <p class="doubleText" id="doubleC">Double</p>
-    </div>
-    <div class="pickbox" id="pB4">
-      <div id="pick4"></div>
-      <p class="doubleText" id="doubleD">Double</p>
-    </div>
-    <div class="pickbox" id="pB5">
-      <div id="pick5"></div>
-      <p class="doubleText" id="doubleE">Double</p>
-    </div>
-    <div class="pickbox" id="pB6">
-      <div id="pick6"></div>
-      <p class="doubleText" id="doubleF">Double</p>
-    </div>
-    <div class="pickbox" id="pB7">
-      <div id="pick7"></div>
-      <p class="doubleText" id="doubleG">Double</p>
-    </div>
-    <div class="pickbox" id="pB8">
-      <div id="pick8"></div>
-      <p class="doubleText" id="doubleH">Double</p>
-    </div>
-    <div class="pickbox" id="pB9">
-      <div id="pick9"></div>
-      <p class="doubleText" id="doubleI">Double</p>
-    </div>
-    <div class="pickbox" id="pB10">
-      <div id="pick10"></div>
-      <p class="doubleText" id="doubleJ">Double</p>
-    </div>
-  </div>
 
-  <div id="gabriotron">
-    <div id="gabriotronbody"></div>
-    <div id="gabriotronscreen"></div>
-  </div>
-  <div id="timer"></div>
-  <div id="roundnumber"></div>
-  <script>
+        <div class="venueImage" id="pick4">
+          <p class="doubleText" id="doubleD">Double</p>
+        </div>
+        
+
+        <div class="venueImage" id="pick5">
+          <p class="doubleText" id="doubleE">Double</p>
+        </div>
+        
+
+        <div class="venueImage" id="pick6">
+          <p class="doubleText" id="doubleF">Double</p>
+        </div>
+        
+
+        <div class="venueImage" id="pick7">
+          <p class="doubleText" id="doubleG">Double</p>
+        </div>
+        
+
+        <div class="venueImage" id="pick8">
+          <p class="doubleText" id="doubleH">Double</p>
+      </div>
+
+
+        <div class="venueImage" id="pick9">
+          <p class="doubleText" id="doubleI">Double</p>
+        </div>
+        
+
+        <div class="venueImage" id="pick10">
+          <p class="doubleText" id="doubleJ">Double</p>
+        </div>
+        
+    </div>
+
+    <div id="overtimeVenueHolder">
+      <div id="otHolder">
+        <p class="otText" id="ovt">Overtime</p>
+
+        <div class="venueImage" id="pick11">
+          <p class="doubleText" id="doubleK">Double</p>
+        </div>
+        
+
+
+        <div class="venueImage" id="pick12">
+          <p class="doubleText" id="doubleL">Double</p>
+        </div>
+        
+
+
+        <div class="venueImage" id="pick13">
+          <p class="doubleText" id="doubleM">Double</p>
+        </div>
+        
+
+
+        <div class="venueImage" id="pick14">
+          <p class="doubleText" id="doubleN">Double</p>
+        </div>
+        
+
+
+        <div class="venueImage" id="pick15">
+          <p class="doubleText" id="doubleO">Double</p>
+        </div>
+      </div>
+
+        
+      <div id="showHolder">
+        <p class="otText" id="fnl">Final<br />Showdown</p>
+
+        <div class="venueImage" id="pick16"></div>
+      </div>
+
+
+    </div>
+    <div id="gabriotron">
+      <div id="gabriotronbody"></div>
+      <div id="gabriotronscreen"></div>
+    </div>
+    <div id="timer"></div>
+    <div id="roundnumber"></div>
+    <script>
     var timestampOld;
     var timestamp;
     var pName1;
@@ -88,8 +143,22 @@
     var matchType;
     var xmlDoc;
     var pvenueA1 = "veranda";
-
-
+    var pick1Old;
+    var pick2Old;
+    var pick3Old;
+    var pick4Old;
+    var pick5Old;
+    var pick6Old;
+    var pick7Old;
+    var pick8Old;
+    var pick9Old;
+    var pick10Old;
+    var pick11Old;
+    var pick12Old;
+    var pick13Old;
+    var pick14Old;
+    var pick15Old;
+    var pick16Old;
     var animating = false;
     var doUpdate = false;
 
@@ -131,17 +200,18 @@
         targets: '#gabriotron',
         top: [
           { value: 200, duration: 600, delay: 1500, easing: 'easeOutQuad' },
-          { value: 1500, duration: 900, delay: 9500, easing: 'easeOutQuad' }
+          { value: 1500, duration: 900, delay: 7500, easing: 'easeOutQuad' }
         ]
 
 
       });
 
+
       anime({
-        targets: '#picksband',
+        targets: '#venueHolder',
         left: 0,
         duration: 1000,
-        delay: 12000,
+        delay: 9700,
         easing: 'easeOutQuad',
         complete: function () {
           delayer = 1;
@@ -149,16 +219,20 @@
       });
 
       anime({
-        targets: '#venueHolder',
+        targets: '#overtimeVenueHolder',
         left: 0,
         duration: 1000,
-        delay: 13000,
+        delay: 9700,
         easing: 'easeOutQuad',
         complete: function () {
         }
       });
 
     }
+
+    function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 
 
 
@@ -183,6 +257,8 @@
 			
 		}
 
+    var randomBoy = getRndInteger(1, 5);
+    
       if ($('#pName1').html() != (pName1 + " doesn't like " + ban1)) {
 
 
@@ -241,17 +317,33 @@
 
       }
 
-      if (matchType == "1" || matchType == "2") {
+
+      if (randomBoy == 1) {
         $('#gabriotronbody').css("background-image", "url('images_draft/GT5000.png')");
         $('#gabriotronscreen').css("background-image", "url('images_draft/GT5002.gif')");
       }
 
-      if (matchType == "3" || matchType == "4") {
+      if (randomBoy == 2) {
         $('#gabriotronbody').css("background-image", "url('images_draft/GTC_Body2.png')");
         $('#gabriotronscreen').css("background-image", "url('images_draft/GTC_Screen.gif')");
       }
 
-      if ($('#roundnumber').html() != ("Round " + matchType + " Match")) {
+      if (randomBoy == 3) {
+        $('#gabriotronbody').css("background-image", "url('images_draft/GE_Body.png')");
+        $('#gabriotronscreen').css("background-image", "url('images_draft/GE_Screen.gif')");
+      }
+
+      if (randomBoy == 4) {
+        $('#gabriotronbody').css("background-image", "url('images_draft/GTA.png')");
+        $('#gabriotronscreen').css("background-image", "url('images_draft/GTA_Screen.gif')");
+      }
+
+      if (randomBoy == 5) {
+        $('#gabriotronbody').css("background-image", "url('images_draft/GTA2.png')");
+        $('#gabriotronscreen').css("background-image", "url('images_draft/GTA_Screen2.gif')");
+      }
+
+      if ($('#roundnumber').html() != (matchType)) {
 
 
         anime({
@@ -261,7 +353,7 @@
           delay: 0,
           easing: 'linear',
           complete: function () {
-            $('#roundnumber').html("Round " + matchType + " Match");
+            $('#roundnumber').html(matchType);
 
             anime({
               targets: '#roundnumber',
@@ -280,7 +372,7 @@
 
       }
 
-      if ($('#pick1').html() != pick1) {
+      if ($('#pick1').html() != pick1 && pick1Old != pick1) {
 
         anime({
           targets: '#pick1',
@@ -290,7 +382,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick1').css("background-image", "url(images_draft/" + pick1 + ".png)");
-            $('#pick1').html(pick1);
+            pick1Old = pick1;
 
             anime({
               targets: '#pick1',
@@ -319,7 +411,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick2').css("background-image", "url(images_draft/" + pick2 + ".png)");
-            $('#pick2').html(pick2);
+            pick2Old = pick2;
 
             anime({
               targets: '#pick2',
@@ -348,7 +440,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick3').css("background-image", "url(images_draft/" + pick3 + ".png)");
-            $('#pick3').html(pick3);
+            pick3Old = pick3;
 
             anime({
               targets: '#pick3',
@@ -377,7 +469,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick4').css("background-image", "url(images_draft/" + pick4 + ".png)");
-            $('#pick4').html(pick4);
+            pick4Old = pick4;
 
             anime({
               targets: '#pick4',
@@ -406,7 +498,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick5').css("background-image", "url(images_draft/" + pick5 + ".png)");
-            $('#pick5').html(pick5);
+            pick5Old = pick5;
 
             anime({
               targets: '#pick5',
@@ -435,7 +527,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick6').css("background-image", "url(images_draft/" + pick6 + ".png)");
-            $('#pick6').html(pick6);
+            pick6Old = pick6;
 
             anime({
               targets: '#pick6',
@@ -464,7 +556,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick7').css("background-image", "url(images_draft/" + pick7 + ".png)");
-            $('#pick7').html(pick7);
+            pick7Old = pick7;
 
             anime({
               targets: '#pick7',
@@ -493,7 +585,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick8').css("background-image", "url(images_draft/" + pick8 + ".png)");
-            $('#pick8').html(pick8);
+            pick8Old = pick8;
 
             anime({
               targets: '#pick8',
@@ -522,7 +614,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick9').css("background-image", "url(images_draft/" + pick9 + ".png)");
-            $('#pick9').html(pick9);
+            pick9Old = pick9;
 
             anime({
               targets: '#pick9',
@@ -551,7 +643,7 @@
           easing: 'easeOutQuad',
           complete: function () {
             $('#pick10').css("background-image", "url(images_draft/" + pick10 + ".png)");
-            $('#pick10').html(pick10);
+            pick10Old = pick10;
             anime({
               targets: '#pick10',
               opacity: 1,
@@ -568,12 +660,231 @@
         });
 
       }
+
+      if ($('#pick11').html() != pick11) {
+
+anime({
+  targets: '#pick11',
+  opacity: 0,
+  duration: 500,
+  delay: 0,
+  easing: 'easeOutQuad',
+  complete: function () {
+    $('#pick11').css("background-image", "url(images_draft/" + pick11 + ".png)");
+    $('#pick11').html(pick11);
+    anime({
+      targets: '#pick11',
+      opacity: 1,
+      duration: 500,
+      delay: 520,
+      easing: 'easeOutQuad',
+      complete: function () {
+
+      },
+
+    });
+  },
+
+});
+
+}
+
+if ($('#pick12').html() != pick12) {
+
+anime({
+  targets: '#pick12',
+  opacity: 0,
+  duration: 500,
+  delay: 0,
+  easing: 'easeOutQuad',
+  complete: function () {
+    $('#pick12').css("background-image", "url(images_draft/" + pick12 + ".png)");
+    $('#pick12').html(pick12);
+    anime({
+      targets: '#pick12',
+      opacity: 1,
+      duration: 500,
+      delay: 520,
+      easing: 'easeOutQuad',
+      complete: function () {
+
+      },
+
+    });
+  },
+
+});
+
+}
+
+if ($('#pick13').html() != pick13) {
+
+anime({
+  targets: '#pick13',
+  opacity: 0,
+  duration: 500,
+  delay: 0,
+  easing: 'easeOutQuad',
+  complete: function () {
+    $('#pick13').css("background-image", "url(images_draft/" + pick13 + ".png)");
+    $('#pick13').html(pick13);
+    anime({
+      targets: '#pick13',
+      opacity: 1,
+      duration: 500,
+      delay: 520,
+      easing: 'easeOutQuad',
+      complete: function () {
+
+      },
+
+    });
+  },
+
+});
+
+}
+
+if ($('#pick14').html() != pick14) {
+
+anime({
+  targets: '#pick14',
+  opacity: 0,
+  duration: 500,
+  delay: 0,
+  easing: 'easeOutQuad',
+  complete: function () {
+    $('#pick14').css("background-image", "url(images_draft/" + pick14 + ".png)");
+    $('#pick14').html(pick14);
+    anime({
+      targets: '#pick14',
+      opacity: 1,
+      duration: 500,
+      delay: 520,
+      easing: 'easeOutQuad',
+      complete: function () {
+
+      },
+
+    });
+  },
+
+});
+
+}
+
+if ($('#pick15').html() != pick15) {
+
+anime({
+  targets: '#pick15',
+  opacity: 0,
+  duration: 500,
+  delay: 0,
+  easing: 'easeOutQuad',
+  complete: function () {
+    $('#pick15').css("background-image", "url(images_draft/" + pick15 + ".png)");
+    $('#pick15').html(pick15);
+    anime({
+      targets: '#pick15',
+      opacity: 1,
+      duration: 500,
+      delay: 520,
+      easing: 'easeOutQuad',
+      complete: function () {
+
+      },
+
+    });
+  },
+
+});
+
+}
+
+if ($('#pick16').html() != pick16) {
+
+anime({
+  targets: '#pick16',
+  opacity: 0,
+  duration: 500,
+  delay: 0,
+  easing: 'easeOutQuad',
+  complete: function () {
+    $('#pick16').css("background-image", "url(images_draft/" + pick16 + ".png)");
+    $('#pick16').html(pick16);
+    anime({
+      targets: '#pick16',
+      opacity: 1,
+      duration: 500,
+      delay: 520,
+      easing: 'easeOutQuad',
+      complete: function () {
+
+      },
+
+    });
+  },
+
+});
+
+}
+
+if ((pick11 != '') && delayer != 1 ) {
+
+  anime({
+        targets: '#venueHolder',
+        translateY: -185,
+        duration: 1000,
+        delay: 10700,
+        easing: 'easeOutQuad',
+        complete: function () {
+        }
+      });
+
+      anime({
+        targets: '#overtimeVenueHolder',
+        translateY: 65,
+        duration: 1000,
+        delay: 10700,
+        easing: 'easeOutQuad',
+        complete: function () {
+        }
+      });
+
+}
+
+if ((pick11 != '') && delayer == 1 ) {
+
+anime({
+      targets: '#venueHolder',
+      translateY: -185,
+      duration: 1000,
+      delay: 50,
+      easing: 'easeOutQuad',
+      complete: function () {
+      }
+    });
+
+    anime({
+      targets: '#overtimeVenueHolder',
+      translateY: 65,
+      duration: 1000,
+      delay: 50,
+      easing: 'easeOutQuad',
+      complete: function () {
+      }
+    });
+
+}
+
+
       
       setTimeout(() => {
+
         if (pick1 == "") {
-          $('#pB1').css('display','none');
+          $('#pick1').css('display','none');
         } else {
-          $('#pB1').css('display','block');
+          $('#pick1').css('display','block');
         }
 
         if (doubleA == 'true') {	
@@ -582,10 +893,11 @@
           $('#doubleA').css("visibility", "hidden");
         }
 
+
         if (pick2 == "") {
-          $('#pB2').css('display','none');
+          $('#pick2').css('display','none');
         } else {
-          $('#pB2').css('display','block');
+          $('#pick2').css('display','block');
         }
 
         if (doubleB == 'true') {	
@@ -594,10 +906,11 @@
           $('#doubleB').css("visibility", "hidden");
         }
 
+
         if (pick3 == "") {
-          $('#pB3').css('display','none');
+          $('#pick3').css('display','none');
         } else {
-          $('#pB3').css('display','block');
+          $('#pick3').css('display','block');
         }
 
         if (doubleC == 'true') {	
@@ -606,44 +919,52 @@
           $('#doubleC').css("visibility", "hidden");
         }
 
+
         if (pick4 == "") {
-          $('#pB4').css('display','none');
+          $('#pick4').css('display','none');
         } else {
-          $('#pB4').css('display','block');
+          $('#pick4').css('display','block');
         }
+
         if (doubleD == 'true') {	
           $('#doubleD').css("visibility", "visible");
         }  else if (doubleD == 'false') {
           $('#doubleD').css("visibility", "hidden");
         }
 
+
         if (pick5 == "") {
-          $('#pB5').css('display','none');
+          $('#pick5').css('display','none');
         } else {
-          $('#pB5').css('display','block');
+          $('#pick5').css('display','block');
         }
+
         if (doubleE == 'true') {	
           $('#doubleE').css("visibility", "visible");
         }  else if (doubleE == 'false') {
           $('#doubleE').css("visibility", "hidden");
         }
 
+
         if (pick6 == "") {
-          $('#pB6').css('display','none');
+          $('#pick6').css('display','none');
         } else {
-          $('#pB6').css('display','block');
+          $('#pick6').css('display','block');
         }
+
         if (doubleF == 'true') {	
           $('#doubleF').css("visibility", "visible");
         }  else if (doubleF == 'false') {
           $('#doubleF').css("visibility", "hidden");
         }
 
+
         if (pick7 == "") {
-          $('#pB7').css('display','none');
+          $('#pick7').css('display','none');
         } else {
-          $('#pB7').css('display','block');
+          $('#pick7').css('display','block');
         }
+
         if (doubleG == 'true') {	
           $('#doubleG').css("visibility", "visible");
         }  else if (doubleG == 'false') {
@@ -651,37 +972,116 @@
         }
 
         if (pick8 == "") {
-          $('#pB8').css('display','none');
+          $('#pick8').css('display','none');
         } else {
-          $('#pB8').css('display','block');
+          $('#pick8').css('display','block');
         }
+
         if (doubleH == 'true') {	
           $('#doubleH').css("visibility", "visible");
         }  else if (doubleH == 'false') {
           $('#doubleH').css("visibility", "hidden");
         }
 
+
         if (pick9 == "") {
-          $('#pB9').css('display','none');
+          $('#pick9').css('display','none');
         } else {
-          $('#pB9').css('display','block');
+          $('#pick9').css('display','block');
         }
+
         if (doubleI == 'true') {	
           $('#doubleI').css("visibility", "visible");
         }  else if (doubleI == 'false') {
           $('#doubleI').css("visibility", "hidden");
         }
 
+        
         if (pick10 == "") {
-          $('#pB10').css('display','none');
+          $('#pick10').css('display','none');
         } else {
-          $('#pB10').css('display','block');
+          $('#pick10').css('display','block');
         }
+
         if (doubleJ == 'true') {	
           $('#doubleJ').css("visibility", "visible");
         }  else if (doubleJ == 'false') {
           $('#doubleJ').css("visibility", "hidden");
         }
+
+
+        if (pick11 == "") {
+          $('#pick11').css('display','none');
+        } else {
+          $('#pick11').css('display','block');
+        }
+
+        if (doubleK == 'true') {	
+          $('#doubleK').css("visibility", "visible");
+        }  else if (doubleK == 'false') {
+          $('#doubleK').css("visibility", "hidden");
+        }
+
+
+        if (pick12 == "") {
+          $('#pick12').css('display','none');
+        } else {
+          $('#pick12').css('display','block');
+        }
+
+        if (doubleL == 'true') {	
+          $('#doubleL').css("visibility", "visible");
+        }  else if (doubleL == 'false') {
+          $('#doubleL').css("visibility", "hidden");
+        }  
+        
+
+        if (pick13 == "") {
+          $('#pick13').css('display','none');
+        } else {
+          $('#pick13').css('display','block');
+        }
+
+        if (doubleM == 'true') {	
+          $('#doubleM').css("visibility", "visible");
+        }  else if (doubleM == 'false') {
+          $('#doubleM').css("visibility", "hidden");
+        }  
+
+
+        if (pick14 == "") {
+          $('#pick14').css('display','none');
+        } else {
+          $('#pick14').css('display','block');
+        }
+
+        if (doubleM == 'true') {	
+          $('#doubleN').css("visibility", "visible");
+        }  else if (doubleN == 'false') {
+          $('#doubleN').css("visibility", "hidden");
+        } 
+
+
+        if (pick15 == "") {
+          $('#pick15').css('display','none');
+        } else {
+          $('#pick15').css('display','block');
+        }
+
+        if (doubleO == 'true') {	
+          $('#doubleO').css("visibility", "visible");
+        }  else if (doubleO == 'false') {
+          $('#doubleO').css("visibility", "hidden");
+        } 
+
+
+        if (pick16 == "") {
+          $('#pick16').css('display','none');
+        } else {
+          $('#pick16').css('display','block');
+        }
+
+        
       }, 600);
 
       if (oldMatch != $('#roundnumber').html()) {
@@ -700,6 +1100,6 @@
 
 
   </script>
-</body>
+  </body>
 
 </html>
