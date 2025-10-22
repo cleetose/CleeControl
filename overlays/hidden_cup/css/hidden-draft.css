@@ -123,13 +123,29 @@ body {
     border-width: 6px;
 }
 
+.showdownText {
+    visibility: hidden;
+    display: block;
+    position: relative;
+    top: 5px;
+    left: 4px;
+    width: 95%;
+    height: 15px;
+    background: rgb(20, 77, 182);
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    padding-top: 20px;
+    z-index: 2;
+}
+
 .doubleText {
     visibility: hidden;
     display: block;
     position: relative;
-    top: 1px;
+    top: 5px;
     left: 4px;
-    width: 96%;
+    width: 95%;
     height: 15px;
     background: red;
     color: white;

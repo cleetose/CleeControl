@@ -90,38 +90,37 @@
                     window[varSplitter[0]] = varSplitter[1];
                 
                 }
+
+               
             
                 switch (matchType) {
-                    case 'regularSeason':
+                    case 'regularSeasonA':
                         $('#restrictTextTop').html('Restrict');
                         $('#restrictTextBottom').html('Restrict');   
                         $('#venue15').css('display','none');
                         $('#venue25').css('display','none');
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
-                        $('.champDouble').css('display','none');
                         $('.venueTextLarge').css('font-size','28pt');
                         break;
                 
-                    case 'postSeason':
+                    case 'regularSeasonB':
                         $('#restrictTextTop').html('Restrict');
                         $('#restrictTextBottom').html('Restrict');   
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
-                        $('.champDouble').css('display','none');
                         $('.venueTextLarge').css('font-size','24pt');
                         break;
                 
-                    case 'championship':
+                    case 'postSeason':
                         $('#restrictTextTop').html('Ban');
                         $('#restrictTextBottom').html('Ban');    
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
                         $('#venue16').css('display','flex');
-                        $('#venue26').css('display','flex');
-                        $('.champDouble').css('display','block');
+                        $('#venue26').css('display','none');
                         $('.venueTextLarge').css('font-size','18pt');
                         break;
                 }
@@ -282,11 +281,13 @@
                             venueNumberName = window[venueNumber+"Name"];
                             venueNumberLeft = window[venueNumber+"TextLeft"];
                             venueNumberRight = window[venueNumber+"TextRight"];
+                            
                             $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
                             $('#'+venueNumber+'Holder').html("<video muted autoplay loop class='video' id='"+venueNumberName+"Video'><source src='./videos/"+venueNumberName+".mp4' type='video/mp4'></video>");
                             $('#'+venueNumber+'Holder').css('opacity','1');
                             $('#'+venueNumber+'TextRight').html(venueNumberRight);
                             $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
+                           
                             venueSplitter = venueNumber.split('venue1');
                             console.log(venueSplitter.length);
                             if (venueSplitter.length == 1) {
@@ -313,69 +314,112 @@
                 
                 }
 
+                if ($('#multiplySelect13').html() != $('#multiplySelect13').html(multiplySelect13)) {
+                    $('#multiplySelect13').html(multiplySelect13);
+                }
+
+                if ($('#multiplySelect14').html() != $('#multiplySelect14').html(multiplySelect14)) {
+                    $('#multiplySelect14').html(multiplySelect14);
+                }
+
+                if ($('#multiplySelect15').html() != $('#multiplySelect15').html(multiplySelect15)) {
+                    $('#multiplySelect15').html(multiplySelect15);
+                }
+
+                if ($('#multiplySelect16').html() != $('#multiplySelect16').html(multiplySelect16)) {
+                    $('#multiplySelect16').html(multiplySelect16);
+                }
+
+
+                if ($('#multiplySelect23').html() != $('#multiplySelect23').html(multiplySelect23)) {
+                    $('#multiplySelect23').html(multiplySelect23);
+                }
+
+                if ($('#multiplySelect24').html() != $('#multiplySelect24').html(multiplySelect24)) {
+                    $('#multiplySelect24').html(multiplySelect24);
+                }
+
+                if ($('#multiplySelect25').html() != $('#multiplySelect25').html(multiplySelect25)) {
+                    $('#multiplySelect25').html(multiplySelect25);
+                }
+
+                if ($('#multiplySelect26').html() != $('#multiplySelect26').html(multiplySelect26)) {
+                    $('#multiplySelect26').html(multiplySelect26);
+                }
+
+
+
                 if(loadIn == "done") {
                 
                     if (venue11Name != venue11NameOld && venue11Name != "") {
-                    smallVenueChange('venue11')
+                    smallVenueChange('venue11');
                     venue11NameOld = venue11Name;
                     }
                 
                     if (venue21Name != venue21NameOld && venue21Name != "") {
-                        smallVenueChange('venue21')
+                        smallVenueChange('venue21');
                         venue21NameOld = venue21Name;
                     }
                 
                 
                     if (venue12Name != venue12NameOld && venue12Name != "") {
-                        smallVenueChange('venue12')
+                        smallVenueChange('venue12');
                         venue12NameOld = venue12Name;
                     }
                 
                     if (venue22Name != venue22NameOld && venue22Name != "") {
-                        smallVenueChange('venue22')
+                        smallVenueChange('venue22');
                         venue22NameOld = venue22Name;
                     }
                 
                 
                     if (venue13Name != venue13NameOld && venue13Name != "") {
                         bigVenueChange('venue13');
+                       
                         venue13NameOld = venue13Name;
                     }
                 
                     if (venue23Name != venue23NameOld && venue23Name != "") {
                         bigVenueChange('venue23');
+                       
                         venue23NameOld = venue23Name;
                     }
                 
                 
                     if (venue14Name != venue14NameOld && venue14Name != "") {
                         bigVenueChange('venue14');
+                        
                         venue14NameOld = venue14Name;
                     }
                 
                     if (venue24Name != venue24NameOld && venue24Name != "") {
                         bigVenueChange('venue24');
+                        
                         venue24NameOld = venue24Name;
                     }
                 
                 
                     if (venue15Name != venue15NameOld && venue15Name != "") {
                         bigVenueChange('venue15');
+                        
                         venue15NameOld = venue15Name;
                     }
                 
                     if (venue25Name != venue25NameOld && venue25Name != "") {
                         bigVenueChange('venue25');
+                        
                         venue25NameOld = venue25Name;
                     }
                 
                     if (venue16Name != venue16NameOld && venue16Name != "") {
                         bigVenueChange('venue16');
+                        
                         venue16NameOld = venue16Name;
                     }
                 
                     if (venue26Name != venue26NameOld && venue26Name != "") {
                         bigVenueChange('venue26');
+                        
                         venue26NameOld = venue26Name;
                     }
                 
@@ -418,6 +462,7 @@
                     if (venue13Name != venue13NameOld && venue13Name != "") {
                         setTimeout(() => {
                         bigVenueChange('venue13');
+                        
                     }, 1900); 
                         venue13NameOld = venue13Name;
                     }
@@ -425,6 +470,7 @@
                     if (venue23Name != venue23NameOld && venue23Name != "") {
                         setTimeout(() => {
                         bigVenueChange('venue23');
+                        
                     }, 1900); 
                         venue23NameOld = venue23Name;
                     }
@@ -433,6 +479,7 @@
                     if (venue14Name != venue14NameOld && venue14Name != "") {
                         setTimeout(() => {
                         bigVenueChange('venue14');
+                        
                     }, 2400); 
                         venue14NameOld = venue14Name;
                     }
@@ -440,15 +487,17 @@
                     if (venue24Name != venue24NameOld && venue24Name != "") {
                         setTimeout(() => {
                         bigVenueChange('venue24');
+                        
                     }, 2400); 
                         venue24NameOld = venue24Name;
                     }
                 
-                if (matchType == 'postSeason') {
+
                 
                     if (venue15Name != venue15NameOld && venue15Name != "") {
                     setTimeout(() => {
                     bigVenueChange('venue15');
+                   
                 }, 2900); 
                     venue15NameOld = venue15Name;
                 }
@@ -456,14 +505,15 @@
                 if (venue25Name != venue25NameOld && venue25Name != "") {
                     setTimeout(() => {
                     bigVenueChange('venue25');
+                    
                 }, 2900); 
                     venue25NameOld = venue25Name;
                 }
                     setTimeout(() => {
                         loadIn = "done";
                     }, 3000);
-                }
-                else if (matchType == 'championship') {
+                
+                if (matchType == 'championship') {
                 
                     if (venue15Name != venue15NameOld && venue15Name != "") {
                     setTimeout(() => {
@@ -539,7 +589,7 @@
                 <div class="pickHolder">
                     <div class="topImage largeImage venueImage" id="venue13">
                         <div class="double">
-                            <p class="doubleText">Doubled</p>
+                            <p class="doubleText" id="multiplySelect13">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue13Holder">
                             <video class="video" id="venue13Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
@@ -551,8 +601,8 @@
                             id="venue13TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="topImage largeImage venueImage" id="venue14">
-                        <div class="double champDouble">
-                            <p class="doubleText">Doubled</p>
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect14">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue14Holder">
                             <video class="video" id="venue14Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
@@ -564,6 +614,9 @@
                             id="venue14TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="topImage largeImage venueImage" id="venue15">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect15">Doubled</p>
+                        </div>
                         <div class="videoHolder" id="venue15Holder">
                             <video class="video" id="venue15Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
                             </video>
@@ -574,6 +627,9 @@
                             id="venue15TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="topImage largeImage venueImage" id="venue16">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect16">Doubled</p>
+                        </div>
                         <div class="videoHolder" id="venue16Holder">
                             <video class="video" id="venue16Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
                             </video>
@@ -603,7 +659,7 @@
                 <div class="pickHolder">
                     <div class="bottomImage largeImage venueImage" id="venue23">
                         <div class="double">
-                            <p class="doubleText">Doubled</p>
+                            <p class="doubleText" id="multiplySelect23">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue23Holder">
                             <video class="video" id="venue23Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
@@ -615,8 +671,8 @@
                             id="venue23TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="bottomImage largeImage venueImage" id="venue24">
-                        <div class="double champDouble" id="champDouble2">
-                            <p class="doubleText">Doubled</p>
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect24">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue24Holder">
                             <video class="video" id="venue24Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
@@ -628,6 +684,9 @@
                             id="venue24TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="bottomImage largeImage venueImage" id="venue25">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect25">Doubled</p>
+                        </div>
                         <div class="videoHolder" id="venue25Holder">
                             <video class="video" id="venue25Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
                             </video>
@@ -638,6 +697,9 @@
                             id="venue25TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="bottomImage largeImage venueImage" id="venue26">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect26">Doubled</p>
+                        </div>
                         <div class="videoHolder" id="venue26Holder">
                             <video class="video" id="venue26Video" src="./videos/balcony.mp4" width="100%" autoplay muted>
                             </video>

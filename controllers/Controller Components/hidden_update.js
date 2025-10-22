@@ -79,36 +79,6 @@ function pleaseWork() {
     tooltipsVars = inputSaver('tooltips');
     casterbannerVars = inputSaver('banner');
 
-    pName1 = $('#pName1').val();
-    pName2 = $('#pName2').val();
-
-    pick1 = $('#pick1').val();
-    pick2 = $('#pick2').val();
-    pick3 = $('#pick3').val();
-    pick4 = $('#pick4').val();
-    pick5 = $('#pick5').val();
-    pick6 = $('#pick6').val();
-    pick7 = $('#pick7').val();
-    pick8 = $('#pick8').val();
-    pick9 = $('#pick9').val();
-    pick10 = $('#pick10').val();
-    matchType = $('#matchType').val();
-    matchMemoryReloader = $("#matchMemory").val();
-
-    pScore1 = $('#pScore1').val();
-    pScore2 = $('#pScore2').val();
-    pCountry1 = $('#pCountry1').val();
-    pCountry2 = $('#pCountry2').val();
-    pDivision1 = $('#pDivision1').val();
-    pDivision2 = $('#pDivision2').val();
-    tText = $('#tText').val();
-    cTipName = $('#cTipName').val();
-    cTipDesc = $('#cTipDesc').val();
-    Rolla = $('#Rolla').val();
-    Sniper = $("input[name='sniper']:checked").val();
-    behavior = $('#behavior').val();
-    hostName = $('#hostName').val();
-    casterNames = $('#casterNames').val();
     pbc.postMessage({
         draftVars, doubleChk
     });

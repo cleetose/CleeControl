@@ -238,7 +238,6 @@
 		matchMatchArr = [];
 
 		poolMemArr = [];
-		poolMemArr2 = [];
 		memory2Splitter = [];
 
 		matchUpdater = 1;
@@ -255,10 +254,6 @@
 		});
 
 		var matchIndepIddArr = $('.storable2').map(function () {
-			return this.id;
-		});
-
-		var input3Array = $('.loadoutBoy').map(function () {
 			return this.id;
 		});
 
@@ -391,9 +386,6 @@
 			}
 			for (i = 0; i < matchIndepIddArr.length; i++) {
 				poolMemArr[i] = (matchIndepIddArr[i] + ';;' + $('#' + matchIndepIddArr[i]).val());
-			}
-			for (i = 0; i < input3Array.length; i++) {
-				poolMemArr2[i] = $('#' + input3Array[i]).val();
 			}
 			for (q = 0; q < checkboxArray.length; q++) {
 				checkboxMemArr[matchMemory][q] = $('#' + checkboxArray[q]).prop('checked');

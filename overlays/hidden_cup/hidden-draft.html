@@ -122,7 +122,9 @@
       <div id="showHolder">
         <p class="otText" id="fnl">Final<br />Showdown</p>
 
-        <div class="venueImage" id="pick16"></div>
+        <div class="venueImage" id="pick16">
+          <p class="showdownText" id="showdownTime">Double</p>
+        </div>
       </div>
 
 
@@ -317,6 +319,8 @@
 
       }
 
+      $('#showdownTime').html("Time: "+showdownTime);
+    $('#showdownTime').css("visibility", "visible");
 
       if (randomBoy == 1) {
         $('#gabriotronbody').css("background-image", "url('images_draft/GT5000.png')");
@@ -401,7 +405,7 @@
 
       }
 
-      if ($('#pick2').html() != pick2) {
+      if ($('#pick2').html() != pick2 && pick2Old != pick2) {
 
         anime({
           targets: '#pick2',
@@ -430,7 +434,7 @@
 
       }
 
-      if ($('#pick3').html() != pick3) {
+      if ($('#pick3').html() != pick3 && pick3Old != pick3) {
 
         anime({
           targets: '#pick3',
@@ -459,7 +463,7 @@
 
       }
 
-      if ($('#pick4').html() != pick4) {
+      if ($('#pick4').html() != pick4 && pick4Old != pick4) {
 
         anime({
           targets: '#pick4',
@@ -488,7 +492,7 @@
 
       }
 
-      if ($('#pick5').html() != pick5) {
+      if ($('#pick5').html() != pick5 && pick5Old != pick5) {
 
         anime({
           targets: '#pick5',
@@ -517,7 +521,7 @@
 
       }
 
-      if ($('#pick6').html() != pick6) {
+      if ($('#pick6').html() != pick6 && pick6Old != pick6) {
 
         anime({
           targets: '#pick6',
@@ -546,7 +550,7 @@
 
       }
 
-      if ($('#pick7').html() != pick7) {
+      if ($('#pick7').html() != pick7 && pick7Old != pick7) {
 
         anime({
           targets: '#pick7',
@@ -575,7 +579,7 @@
 
       }
 
-      if ($('#pick8').html() != pick8) {
+      if ($('#pick8').html() != pick8 && pick8Old != pick8) {
 
         anime({
           targets: '#pick8',
@@ -604,7 +608,7 @@
 
       }
 
-      if ($('#pick9').html() != pick9) {
+      if ($('#pick9').html() != pick9 && pick9Old != pick9) {
 
         anime({
           targets: '#pick9',
@@ -633,7 +637,7 @@
 
       }
 
-      if ($('#pick10').html() != pick10) {
+      if ($('#pick10').html() != pick10 && pick10Old != pick10) {
 
         anime({
           targets: '#pick10',
@@ -661,7 +665,7 @@
 
       }
 
-      if ($('#pick11').html() != pick11) {
+      if ($('#pick11').html() != pick11 && pick11Old != pick11) {
 
 anime({
   targets: '#pick11',
@@ -671,7 +675,7 @@ anime({
   easing: 'easeOutQuad',
   complete: function () {
     $('#pick11').css("background-image", "url(images_draft/" + pick11 + ".png)");
-    $('#pick11').html(pick11);
+    pick11Old = pick11;
     anime({
       targets: '#pick11',
       opacity: 1,
@@ -689,7 +693,7 @@ anime({
 
 }
 
-if ($('#pick12').html() != pick12) {
+if ($('#pick12').html() != pick12 && pick12Old != pick12) {
 
 anime({
   targets: '#pick12',
@@ -699,7 +703,7 @@ anime({
   easing: 'easeOutQuad',
   complete: function () {
     $('#pick12').css("background-image", "url(images_draft/" + pick12 + ".png)");
-    $('#pick12').html(pick12);
+    pick12Old = pick12;
     anime({
       targets: '#pick12',
       opacity: 1,
@@ -717,7 +721,7 @@ anime({
 
 }
 
-if ($('#pick13').html() != pick13) {
+if ($('#pick13').html() != pick13 && pick13Old != pick13) {
 
 anime({
   targets: '#pick13',
@@ -727,7 +731,7 @@ anime({
   easing: 'easeOutQuad',
   complete: function () {
     $('#pick13').css("background-image", "url(images_draft/" + pick13 + ".png)");
-    $('#pick13').html(pick13);
+    pick13Old = pick13;
     anime({
       targets: '#pick13',
       opacity: 1,
@@ -745,7 +749,7 @@ anime({
 
 }
 
-if ($('#pick14').html() != pick14) {
+if ($('#pick14').html() != pick14 && pick14Old != pick14) {
 
 anime({
   targets: '#pick14',
@@ -755,7 +759,7 @@ anime({
   easing: 'easeOutQuad',
   complete: function () {
     $('#pick14').css("background-image", "url(images_draft/" + pick14 + ".png)");
-    $('#pick14').html(pick14);
+    pick14Old = pick14;
     anime({
       targets: '#pick14',
       opacity: 1,
@@ -773,7 +777,7 @@ anime({
 
 }
 
-if ($('#pick15').html() != pick15) {
+if ($('#pick15').html() != pick15 && pick15Old != pick15) {
 
 anime({
   targets: '#pick15',
@@ -783,7 +787,7 @@ anime({
   easing: 'easeOutQuad',
   complete: function () {
     $('#pick15').css("background-image", "url(images_draft/" + pick15 + ".png)");
-    $('#pick15').html(pick15);
+    pick15Old = pick15;
     anime({
       targets: '#pick15',
       opacity: 1,
@@ -801,7 +805,7 @@ anime({
 
 }
 
-if ($('#pick16').html() != pick16) {
+if ($('#pick16').html() != pick16 && pick16Old != pick16) {
 
 anime({
   targets: '#pick16',
@@ -811,7 +815,8 @@ anime({
   easing: 'easeOutQuad',
   complete: function () {
     $('#pick16').css("background-image", "url(images_draft/" + pick16 + ".png)");
-    $('#pick16').html(pick16);
+    pick16Old = pick16;
+
     anime({
       targets: '#pick16',
       opacity: 1,

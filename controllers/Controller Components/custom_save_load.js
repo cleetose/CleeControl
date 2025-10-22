@@ -1,24 +1,3 @@
-class SaveLoad extends HTMLElement {
-    constructor() {
-        super();
-        this.innerHTML = `
-        <p class="titleBox">Save/Load Custom Settings</p>
-        <button class="accordion" id="accordionsaveLoadPan">Expand</button>
-        <div class="panel" id="saveLoadPan">
-            <p id="saveDescriptions">Copy Loadout
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Update Loadout
-            </p>
-            <textarea id="saveText" readonly></textarea>
-            <textarea id="loadText"></textarea>
-            <input type="button" id="saveButton" class="buttony" value="Update">
-            <input type="button" id="clearsaveButton" class="buttony" value="Clear">
-            <input type="button" id="downloadButton" class="buttony" value="Copy to Clipboard">
-        </div>
-        `
-    }
-}
-
-window.customElements.define('save-load', SaveLoad);
 
 document.getElementById("downloadButton").addEventListener("click", function () {
     var copyText = document.getElementById("saveText");

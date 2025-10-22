@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../css/BSV2.css">
+	<link rel="stylesheet" href="../css/customController.css">
 	<link rel="stylesheet" href="../css/farbtastic.css">
 	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.css">
 	<link rel="stylesheet" href="../js/jquery-ui-1.12.1.custom/jquery-ui.theme.css">
@@ -23,585 +23,978 @@
 	<div id="sortable">
 		<div class="sectional" id="update">
 			<!--Big Update Button-->
-			<custom-update-matches></custom-update-matches>
+			<div id="updateTitle" class="titleBox">Update - Match Memory</div>
+            <br>
+            <div id="matchMaker">
+                <select class="" title="Input data automatically saved to selected match" id="matchMemory">
+                    <option value="0" selected>Match 1</option>
+                    <option value="1">Match 2</option>
+                    <option value="2">Match 3</option>
+                    <option value="3">Match 4</option>
+                    <option value="4">Match 5</option>
+                    <option value="5">Match 6</option>
+                </select>
+                <input title="Clear input fields and memory for selected match" type="button" class="buttony"
+                    id="cMatchSave" value="Clear Current Match">
+                <input title="Clear all match memory" type="button" class="buttony" id="aMatchSave"
+                    value="Clear All">
+            </div>
+        <br>
+        <input title="Update Overlays" type="button" class="buttony" id="weee" value="Update">
+		<div id="hideSections">
+			<div class="hideStuff">
+				<p>Draft</p>
+				<input type="checkbox" class="storable-ckbx" id="draftHidder" value="hideDraft">
+			</div>
+			<div class="hideStuff">
+				<p>Colors</p>
+				<input type="checkbox" class="storable-ckbx"  id="colorHidder" value="hideColor">
+			</div>
+			<div class="hideStuff">
+				<p>Pool</p>
+				<input type="checkbox" class="storable-ckbx"  id="poolHidder" value="hidePool">
+			</div>
+			<div class="hideStuff">
+				<p>Save/Load</p>
+				<input type="checkbox" class="storable-ckbx"  id="saveLoadHidder" value="hideSaveLoad">
+			</div>
+			<div class="hideStuff">
+				<p>First Sniper</p>
+				<input type="checkbox" class="storable-ckbx"  id="saveLoadHidder" value="hideSaveLoad">
+			</div>
+		</div>
+		
 		</div>
 
 		<!--Players/Countries/Scores/characters-->
 		<div class="sectional" id="players">
-			<players-scores id="playersModule"></players-scores>
+			<p class="titleBox">Names - Scores - Characters</p>
+		
+			<div class="panel" id="playersPan">
+				<div id="player1">
+					<input type="text" class="storable playerNames scoreBoard draft" id="pName1" placeholder="Player One Name" />
+					<input type="text" class="country storable scoreBoard" id="pCountry1" placeholder="Flag" />
+					<div class="scoreSpinners regScore" id="scoreSpinner1">
+						<input class="spinBoy storable scoreBoard" id="pScore1" type="number" name="value" value="0" min="0"
+							readonly>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+							class="down"></button>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+							class="up"></button>
+					</div>
+					<input type="button" class="buttony" id="swapNames" value="Swap">
+					<input type="text" class="storable playerNames scoreBoard draft" id="pName2" placeholder="Player Two Name" />
+					<input type="text" class="country storable scoreBoard" id="pCountry2" placeholder="Flag" />
+					<div class="scoreSpinners regScore" id="scoreSpinner2">
+						<input class="spinBoy storable scoreBoard" id="pScore2" type="number" name="value" value="0" min="0"
+							readonly>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+							class="down"></button>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+							class="up"></button>
+					</div>
+					<div class="scoreSpinners" id="gameCounterDiv">
+						<input title="Game Counter. Used with Auto Score." class="spinBoy storable scoreBoard" type="number"
+							id="gameCounter" type="number" name="value" value="0" min="0" readonly>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+							class="down"></button>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+							class="up"></button>
+					</div>
+					<input type="button" class="buttony" id="blankNames" value="Clear">
+	
+					<select class="storable scoreBoard" id="Rolla">
+						<option value="" selected="selected">Spy Character</option>
+						<option value="f">Alice</option>
+						<option value="a">Andrew Ryan</option>
+						<option value="n">Bling Twin</option>
+						<option value="b">Boots</option>
+						<option value="u">Duke</option>
+						<option value="g">General</option>
+						<option value="o">Irish</option>
+						<option value="h">Oprah</option>
+						<option value="t">Orange Sari</option>
+						<option value="d">Papa Danger</option>
+						<option value="e">Pearls</option>
+						<option value="m">Plain Twin</option>
+						<option value="j">Queen</option>
+						<option value="l">Rocker</option>
+						<option value="q">Salmon</option>
+						<option value="k">Sikh</option>
+						<option value="s">Smallman</option>
+						<option value="c">Taft</option>
+						<option value="r">Teal</option>
+						<option value="p">Tex</option>
+						<option value="i">Wheels</option>
+						<option value="spy">Generic</option>
+					</select>
+					<input type="button" class="buttony" id="clearRolls" value="Clear" />
+				</div>
+				<input type="text" class="storable2 banner" id="hostName" placeholder="Host Name">
+				<input type="text" class="storable2 banner" id="casterNames" placeholder="Caster Names">
+			</div>
 		</div>
 
 		<!--Players/Countries/Scores/characters-->
 		<div class="sectional" id="playerRolls">
-			<sniper-divs id="divisionsModule"></sniper-divs>
+			<p class="titleBox">First Sniper - Divisions</p>
+			
+			<div class="panel" id="rollsPan">
+				<form id="behave">
+					<select class="storable scoreBoard" id="behavior">
+						<option value="radioBased" selected>Double Update to Change Rolls</option>
+						<option value="scoreBased">Single Update to Change Rolls</option>
+					</select>
+				</form>
+				<div id="rollSelector">
+					<input type="radio" class="storable-ckbx scoreBoard" id="rollSelectorA" name="sniper" value="0" checked>
+					<label for="rollSelectorA" id="pRadio1">Player One First Sniper</label>
+					<br>
+					<input type="radio" class="storable-ckbx" id="rollSelectorB" name="sniper" value="1">
+					<label for="rollSelectorB" id="pRadio2">Player Two First Sniper</label>
+					<input type="text" class="scoreBoard" id="sniper" style="display:none">
+				</div>
+				<br>
+				<div id="divContent">
+					<select class="storable scoreBoard draft" id="pDivision1">
+						<option value="" selected>Player 1 Division</option>
+						<option value="diamond">Diamond</option>
+						<option value="platinum">Platinum</option>
+						<option value="gold">Gold</option>
+						<option value="silver">Silver</option>
+						<option value="bronze">Bronze</option>
+						<option value="copper">Copper</option>
+						<option value="iron">Iron</option>
+						<option value="obsidian">Obsidian</option>
+						<option value="oak">Oak</option>
+						<option value="Challenger">Challenger</option>
+						<option value="aluminum">Aluminum</option>
+						<option value="bamboo">Bamboo</option>
+					</select>
+					<select class="storable scoreBoard draft" title="Only use for multi-divisional matches" id="pDivision2">
+						<option value="" selected>Player 2 Division</option>
+						<option value="diamond">Diamond</option>
+						<option value="platinum">Platinum</option>
+						<option value="gold">Gold</option>
+						<option value="silver">Silver</option>
+						<option value="bronze">Bronze</option>
+						<option value="copper">Copper</option>
+						<option value="iron">Iron</option>
+						<option value="obsidian">Obsidian</option>
+						<option value="oak">Oak</option>
+						<option value="Challenger">Challenger</option>
+						<option value="aluminum">Aluminum</option>
+						<option value="bamboo">Bamboo</option>
+					</select>
+					<input type="button" class="buttony" id="resetter" value="clear">
+				</div>
+			</div>
 		</div>
 
 		<!--Custom and Preset Tooltips-->
 		<div class="sectional" id="tooltips">
-			<tool-tips></tool-tips>
+			<p class="titleBox">Tooltips</p>
+			
+			<div class="panel" id="tooltipsPan">
+				<div id="flexTips">
+					<label for="cTipName" id="custom">Custom Tooltips</label>
+					<label for="tText" id="premade">Premade Tooltips</label>
+					<input class="storable tooltips" title="This is a tooltip about tooltips" type="text" id="cTipName"
+						placeholder="Title">
+					<select class="storable tooltips"
+						title="Will not drop for the same selection twice in a row (select Reset/Blank and then update if you want to get around that)."
+						id="tText">
+						<option value="">Reset/Blank</option>
+						<option value="BananaBread (BB);This is the code phrase the spy uses to contact the  agent.">BB
+						</option>
+						<option
+							value="Ambassador (Amba);The ambassador is known to the sniper and is important in the “fingerprint” and “bug ambassador” missions.">
+							Amba</option>
+						<option
+							value="Bug the Ambassador (bug);A mission that requires the spy to stand close to the ambassador to plant a bug onto their body. Skilled spies can plant bugs while walking past the ambassador.">
+							Bug</option>
+						<option
+							value="Reverse Drive-by Bug;Instead of the spy walking past and bugging on a stationary Ambassador, the spy stands still and plants the bug while the ambassador walks by.">
+							Reverse Drive-by</option>
+						<option
+							value="Seduction Target (ST); A cast member which the spy must flirt with to complete a mission. Their identity is unknown to the sniper.">
+							Seduction Target</option>
+						<option
+							value="Double Agent;A cast member the spy contacts to complete a mission. The sniper may see multiple Suspected Double Agents, or none at all.">
+							Double Agent</option>
+						<option
+							value="Hard Tell;An action only the spy can perform which can confirm their identity to the sniper. Some missions require hard tells.">
+							Hard Tell</option>
+						<option
+							value="Soft Tell;An action that any AI and the spy can perform. If the sniper sees a character perform a lot of soft tells, they may suspect that they are the spy.">
+							Soft Tell</option>
+						<option
+							value="Purloin the Guest List;A mission where the spy needs to steal the guest list from Toby, the waiter. The guest list may be located on Toby's tray or in his pocket at the bar.">
+							Purloin</option>
+						<option
+							value="Time Add;Spies can go to any window pad and add 45 seconds to the game clock by checking their watch. Spies and AI can also check their watch without adding time.">
+							Time Add</option>
+						<option
+							value="Overtime;If the spy completes a mission in the last seconds, the game will go into overtime. If mission is pending, the clock will hang at 00:00 till it's completed.">
+							Overtime</option>
+					</select>
+					
+					<textarea class="storable tooltips"
+						title="Tooltip will not appear if descrition is blank (enter a single space if you want a descriptionless tooltip). Will also not drop for the same Description twice in a row."
+						id="cTipDesc" placeholder="Description"></textarea>
+						<div id="tooltipSpinner">
+						Tooltip timer
+						<div class="scoreSpinners">
+						<input class="spinBoy storable2 tooltips" id="toolTipTimer" type="number" name="value" value="1" min="1"
+							readonly>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+							class="down"></button>
+						<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+							class="up"></button>
+					</div>
+					</div>
+				</div>
+				
+				<input type="button" class="buttony" id="clearTooltips" value="Clear" />
+			</div>
 		</div>
 
 		<!--Custom Colors-->
 		<div class="sectional" id="customColors">
-			<color-changer></color-changer>
+			<p class="titleBox">Custom Colors</p>
+
+        <div class="panel" id="colorsPan">
+            <div id="colorPickers">
+                <form>
+                    <p class="colorNames">Left Colors &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        Right Colors</p>
+                    <div class="cPicker" id="colorpickerA"></div>
+                    <div class="cPicker" id="colorpickerB"></div>
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorA" name="colorA" value="#123456" />
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorB" name="colorB" value="#123456" />
+                    <p class="colorNames">Left Text Color&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Right Text Color
+                    </p>
+                    <div class="cPicker" id="colorpickerC"></div>
+                    <div class="cPicker" id="colorpickerD"></div>
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorC" name="colorC" value="#ffffff" />
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorD" name="colorD" value="#ffffff" />
+                    <p class="colorNames">Divider Color</p>
+                    <div class="cPicker" id="colorpickerE"></div>
+                    <input class="storable2 colorText scoreBoard draft tooltips banner" type="text" id="colorE" name="colorE" value="#123456" />
+                    <label id="selectImgText" for="middleImage">Middle image:</label>
+                    <input class="storable2 draft" type="text" id="middleImage"
+                        title="Enter image name and extension. Image needs to be in the images folder." name="img">
+                    <input type="reset" id="resetColors" class="buttony">
+                </form>
+            </div>
+        </div>
 		</div>
 
 		<!--Venue Pool-->
 		<div class="sectional" id="venueLoadouts">
-			<venue-loadout></venue-loadout>
+			<p class="titleBox">Venue Pool</p>
+
+        <div class="panel" id="loadoutPan">
+            <form>
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout1">
+                    <option value=""></option>
+                    <option value="Aquarium" selected>Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak1">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power1" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness1" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout2">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony" selected>Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak2">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power2" value="2">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness2" value="3">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout3">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom" selected>Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak3">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power3" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness3" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout4">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard" selected>Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak4">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power4" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness4" value="7">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout5">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery" selected>Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak5">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power5" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness5" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout6">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise" selected>High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak6">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power6" value="3">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness6" value="5">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout7">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library" selected>Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak7">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power7" value="5">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness7" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout8">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne" selected>Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak8">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power8" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness8" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout9">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub" selected>Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak9">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power9" value="3">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness9" value="5">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout10">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods" selected>Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak10">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power10" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness10" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout11">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien" selected>Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak11">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power11" value="4">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness11" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout12">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace" selected>Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak12">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power12" value="3">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness12" value="5">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout13">
+                    <option value=""></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda" selected>Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak13">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power13" value="5">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness13" value="8">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout14">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak14">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power14">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness14">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout15">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak15">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power15">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness15">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout16">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak16">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power16">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness16">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout17">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak17">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power17">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness17">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout18">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak18">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power18">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness18">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout19">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak19">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power19">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness19">
+                <select class="loadoutDropdown storable2 loadoutBoy" id="venueLoadout20">
+                    <option value="" selected></option>
+                    <option value="Aquarium">Aquarium</option>
+                    <option value="Balcony">Balcony</option>
+                    <option value="Ballroom">Ballroom</option>
+                    <option value="Courtyard">Courtyard</option>
+                    <option value="Gallery">Gallery</option>
+                    <option value="High-rise">High-rise</option>
+                    <option value="Library">Library</option>
+                    <option value="Moderne">Moderne</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Redwoods">Redwoods</option>
+                    <option value="Teien">Teien</option>
+                    <option value="Terrace">Terrace</option>
+                    <option value="Veranda">Veranda</option>
+                </select>
+                <select class="pak storable2 loadoutBoy" id="pak20">
+                    <option value="a">Any</option>
+                    <option value="p">Pick</option>
+                    <option value="k">Known</option>
+                </select>
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="power20">
+                /
+                <input type="text" class="powerToughness storable2 loadoutBoy" id="toughness20">
+                <input type="button" class="buttony" id="updateLoadouts" value="Update">
+                <input type="reset" class="buttony">
+            </form>
+        </div>
 		</div>
 
 		<!--Save/Load-->
 		<div class="sectional" id="saveLoad">
-			<save-load></save-load>
+			<p class="titleBox">Save/Load Custom Settings</p>
+       
+			<div class="panel" id="saveLoadPan">
+				<p id="saveDescriptions">Copy Loadout
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Update Loadout
+				</p>
+				<textarea id="saveText" readonly></textarea>
+				<textarea id="loadText"></textarea>
+				<input type="button" id="saveButton" class="buttony" value="Update">
+				<input type="button" id="clearsaveButton" class="buttony" value="Clear">
+				<input type="button" id="downloadButton" class="buttony" value="Copy to Clipboard">
+			</div>
 		</div>
 		<!--Draft-->
 		<div class="sectional" id="picksBans">
-			<custom-draft></custom-draft>
+			<p class="titleBox">Draft</p>
+			
+			<div class="panel" id="draftPan">
+				<div id="flexDraft">
+					<div class="break"></div>
+					<label class="pbTitle" id="draftPlayer1">Player 1</label>
+					<label class="pbTitle2" id="draftPlayer2">Player 2</label>
+					<div class="break"></div>
+					<input class="selectType storable  draft" title="Blah blah blah" type="text" id="venueType1"
+						placeholder="Title">
+					<div class="break"></div>
+					<div class="venueSpinners">
+						<div class="scoreSpinners" id="venueSpinner1">
+							<input class="spinBoy storable draft" id="venueTypeCount1" type="number" name="value" value="0"
+								min="0" max="4" readonly>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+								class="down"></button>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+								class="up"></button>
+						</div>
+					</div>
+					<select class="venueSelect storable draft" id="venue1">
+	
+					</select>
+					<input type="checkbox" id="doubleA" name="doubleATest" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue2">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue3">
+	
+					</select>
+					<input type="checkbox" id="doubleB" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue4">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue5">
+	
+					</select>
+					<input type="checkbox" id="doubleC" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue6">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue7">
+	
+					</select>
+					<input type="checkbox" id="doubleD" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue8">
+	
+					</select>
+	
+					<div class="break"></div>
+					<input class="selectType storable draft" title="Blah blah blah" type="text" id="venueType2"
+						placeholder="Title">
+					<div class="break"></div>
+					<div class="venueSpinners">
+						<div class="scoreSpinners" id="venueSpinner2">
+							<input class="spinBoy storable draft" id="venueTypeCount2" type="number" name="value" value="0"
+								min="0" max="4" readonly>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+								class="down"></button>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+								class="up"></button>
+						</div>
+					</div>
+					<select class="venueSelect storable draft" id="venue9">
+	
+					</select>
+					<input type="checkbox" id="doubleE" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue10">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue11">
+	
+					</select>
+					<input type="checkbox" id="doubleF" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue12">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue13">
+	
+					</select>
+					<input type="checkbox" id="doubleG" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue14">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue15">
+	
+					</select>
+					<input type="checkbox" id="doubleH" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue16">
+	
+					</select>
+					<input class="selectType storable draft" title="Blah blah blah" type="text" id="venueType3"
+						placeholder="Title">
+					<div class="venueSpinners">
+						<div class="scoreSpinners" id="venueSpinner3">
+							<input class="spinBoy storable draft" id="venueTypeCount3" type="number" name="value" value="0"
+								min="0" max="4" readonly>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+								class="down"></button>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+								class="up"></button>
+						</div>
+					</div>
+					<select class="venueSelect storable draft" id="venue17">
+	
+					</select>
+					<input type="checkbox" id="doubleI" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue18">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue19">
+	
+					</select>
+					<input type="checkbox" id="doubleJ" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue20">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue21">
+	
+					</select>
+					<input type="checkbox" id="doubleK" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue22">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue23">
+	
+					</select>
+					<input type="checkbox" id="doubleL" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue24">
+	
+					</select>
+					<div class="break"></div>
+					<input class="selectType storable draft" title="Blah blah blah" type="text" id="venueType4"
+						placeholder="Title">
+					<div class="break"></div>
+					<div class="venueSpinners">
+						<div class="scoreSpinners" id="venueSpinner4">
+							<input class="spinBoy storable draft" id="venueTypeCount4" type="number" name="value" value="0"
+								min="0" max="4" readonly>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+								class="down"></button>
+							<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+								class="up"></button>
+						</div>
+					</div>
+					<select class="venueSelect storable draft" id="venue25">
+	
+					</select>
+					<input type="checkbox" id="doubleM" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue26">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue27">
+	
+					</select>
+					<input type="checkbox" id="doubleN" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue28">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue29">
+	
+					</select>
+					<input type="checkbox" id="doubleO" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue30">
+	
+					</select>
+					<select class="venueSelect storable draft" id="venue31">
+	
+					</select>
+					<input type="checkbox" id="doubleP" class="storable-ckbx2 doubleCheck" title="Double"
+						value="double">
+					<select class="venueSelect storable draft" id="venue32">
+	
+					</select>
+				</div>
+				<input id="resetti" class="buttony" type="button" value="Clear" />
+			</div>
 		</div>
 	</div>
-
-	<script src="Controller Components/custom_names.js"></script>
-	<script src="Controller Components/custom_sniper_divisions.js"></script>
-	<script src="Controller Components/custom_tooltips.js"></script>
-	<script src="Controller Components/custom_color.js"></script>
-	<script src="Controller Components/custom_venuepools.js"></script>
-	<script src="Controller Components/custom_draft.js"></script>
-	<script src="Controller Components/custom_save_load.js"></script>
-	<script src="Controller Components/custom_update_matches.js"></script>
-	<script>
-
-
-
-
-		var venueDecoder;
-		var scorePaste;
-		var scoreSource;
-		var spyPaste;
-		var gameCounter;
-
-		var matchMatchMatch;
-		var checkerLoader;
-
-
-		//Things to do when the page first loads.
-		$(document).ready(function () {
-			if (localStorage.getObj('saveMatchStatesCustom') != null) {
-				$('#matchMemory').val(localStorage.getObj('saveMatchStatesCustom'));
-			}
-			/*Recall array of div ids in previous sorting order
-			then adds # to the front each element so the sortDom function works*/
-			rememberMe = localStorage.getObj("sortOrderCustom");
-			if (rememberMe != null) {
-				for (i = 0; i < rememberMe.length; i++) {
-					rememberMe[i] = "#" + rememberMe[i];
-				}
-				sortDom(rememberMe);
-			}
-			//Recall array which contains ids of every accordion panel that was previously open.
-			var panState = localStorage.getObj("accStateCustom");
-			//Opens every div that was previously open. 	
-			var i;
-			if (panState != null) {
-				for (i = 0; i < panState.length; i++) {
-					if (panState[i] != null) {
-						panel = panState[i];
-						beDone = document.getElementById(panel);
-						beDone.style.maxHeight = beDone.scrollHeight + "px";
-						accClass = document.getElementById('accordion' + panel);
-						$(accClass).html('Collapse');
-						accClass.classList.toggle("active");
-					}
-				}
-			}
-			//Closes divs that were previosly closed.
-            var accordCloseArr = $('.panel').map(function () {
-			return this.id;
-				});
-                    for (let p = 0; p < accordCloseArr.length; p++) {
-                        accTest = 'accordion' + accordCloseArr[p];
-
-                    if ($('#' + accTest).hasClass('active') == false) {
-
-                        $('#' + accordCloseArr[p]).parent().parent().css("grid-row","span 1");
-                    };
-                }
-
-			matchMemLoader = localStorage.getObj('saveStatesCustom');
-			poolMemLoader = localStorage.getObj('savePoolsCustom');
-			chkMemLoader = localStorage.getObj('saveChkStatesCustom');
-
-			console.log(checkboxMemArr.length);
-
-			if (matchMemLoader != null) {
-				matchMemArr = matchMemLoader;
-				if (diffArr.length > 0) {
-					$('#matchMemory').val('1').change();
-					setTimeout(() => {
-						$('#matchMemory').val('2').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('3').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('4').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('5').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('0').change();
-					}, 600);
-				}
-
-			} else if (matchMemLoader == null) {
-				aMatchClearer();
-			}
-			if (chkMemLoader != null) {
-				if (chkMemLoader.length == checkboxMemArr.length) {
-					checkboxMemArr = chkMemLoader;
-				}
-
-			} else if (chkMemLoader == null) {
-				$("#rollSelectorA").prop('checked', true);
-			}
-
-			if (poolMemLoader != null) {
-				poolMemArr = poolMemLoader;
-
-			}
-			console.log(checkboxMemArr);
-
-			updatePools();
-			venuePool();
-			setTimeout(() => {
-				updateMatch();
-			}, 200);
-			checkSeason();
-
-		});
-		
-		//Enables mouse-over tooltips
-		$(function () {
-			$(document).tooltip({
-				show: {
-					duration: 200,
-					delay: 500
-				}
-			});
-		});
-
-		//Makes sending arrays through localStorage easy. Don't ask me how this works.
-		Storage.prototype.setObj = function (key, obj) {
-			return this.setItem(key, JSON.stringify(obj))
-		}
-		Storage.prototype.getObj = function (key) {
-			return JSON.parse(this.getItem(key))
-		}
-
-		//Changes order of Sortable Divs based on array order.
-		function sortDom(selectorArray) {
-			while (selectorArray.length) {
-				let $el = $(selectorArray.pop());
-				$el.parent().prepend($el);
-			}
-		}
-		//Sets sortable divisions and saves to localStorage
-		$(function () {
-			$("#sortable").sortable({
-				handle: ".titleBox",
-				update: function () {
-					var order = $("#sortable").sortable('toArray');
-					localStorage.setObj("sortOrderCustom", order);
-
-				}
-			});
-			$("#sortable").disableSelection();
-		});
-		//Sets accordion divisions and saves to localStorage
-		var acc = document.getElementsByClassName("accordion");
-
-		if (localStorage.getObj('accStateCustom') != null) {
-			panOpen = localStorage.getObj('accStateCustom');
-		} else {
-			panOpen = [];
-		}
-		/*Open and close accordion divs and
-		adds div ids to array whenever open and
-		removes div ids from array whenever closed*/
-		for (i = 0; i < acc.length; i++) {
-			acc[i].addEventListener("click", function () {
-
-				this.classList.toggle("active");
-				$(this).html('Expand');
-				var panel = this.nextElementSibling;
-				if (panel.style.maxHeight) {
-					panel.style.maxHeight = panel.scrollHeight + "px";
-   
-					setTimeout(() => {
-
-						setTimeout(() => {
-                        $(this).parent().parent().css("grid-row","span 1");
-					
-					}, 200);
-						panel.style.maxHeight = null;						
-					}, 200);
-				} else {
-					panel.style.maxHeight = panel.scrollHeight + "px";
-					$(this).html('Collapse');
-                    $(this).parent().parent().css("grid-row","");
-					setTimeout(() => {
-                        
-						panel.style.maxHeight = 10000 + "px";
-
-					}, 200);
-				}
-				var accordArr = [];
-				var accordOpenArr = $('.active').map(function () {
-			return this.id;
-				});
-
-				for (q=0;q<accordOpenArr.length;q++) {
-						accordArr[q] = accordOpenArr[q].replace('accordion', '');
-					}
-
-				setTimeout(() => {
-					localStorage.setObj("accStateCustom", accordArr);
-				}, 350);
-			});
-		}
-
-		matchMemory;
-		matchMemArr = [];
-		
-		matchMemArr[0] = [];
-		matchMemArr[1] = [];
-		matchMemArr[2] = [];
-		matchMemArr[3] = [];
-		matchMemArr[4] = [];
-		matchMemArr[5] = [];
-		matchMemArr[6] = [];
-		memorySplitter = [];
-
-		matchMatchArr = [];
-
-		indepMemArr = [];
-		venuePoolMemArr = [];
-		memory2Splitter = [];
-
-
-		checkboxMemArr = [];
-		checkboxMemArr[0] = [];
-		checkboxMemArr[1] = [];
-		checkboxMemArr[2] = [];
-		checkboxMemArr[3] = [];
-		checkboxMemArr[4] = [];
-		checkboxMemArr[5] = [];
-		checkboxMemArr[6] = [];
-
-
-
-		var matchDepIdArr = $('.storable').map(function () {
-			return this.id;
-		});
-
-		var matchIndepIddArr = $('.storable2').map(function () {
-			return this.id;
-		});
-
-		var venuePoolIdArr = $('.loadoutBoy').map(function () {
-			return this.id;
-		});
-
-		var checkboxArray = $('.storable-ckbx').map(function () {
-			return this.id;
-		});
-
-
-
-
-		compareArr = localStorage.getObj('oldStates');
-
-		var convArray = jQuery.makeArray(matchDepIdArr);
-
-
-		localStorage.setObj('oldStates', convArray);
-
-
-		Array.prototype.diff = function (arr2) {
-			var ret = [];
-			this.sort();
-			arr2.sort();
-			for (var i = 0; i < this.length; i += 1) {
-				if (arr2.indexOf(this[i]) == -1) {
-					ret.push(this[i]);
-				}
-			}
-			return ret;
-		};
-
-		try {
-			diffArr = compareArr.diff(convArray);
-		}
-		catch {
-			$('#matchMemory').val('1').change();
-					setTimeout(() => {
-						$('#matchMemory').val('2').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('3').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('4').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('5').change();
-					}, 500);
-					setTimeout(() => {
-						$('#matchMemory').val('0').change();
-					}, 600);
-		}
-
-
-
-
-
-		//Clear buttons for Current and all match memory.
-		document.getElementById("cMatchSave").addEventListener("click", cMatchClearer);
-		document.getElementById("aMatchSave").addEventListener("click", aMatchClearer);
-
-		function cMatchClearer() {
-			namesClear(); //names_scores
-			draftClear(); //custom_draft
-			rollClear(); //sniper_divisions
-			tooltipsClear(); //tooltips
-			$('#venueDecoder').val('');
-			$('#scorePaste').val('');
-			$('#scoreSource').val('');
-			$('#rollPaste').val('');
-			$('#gameCounter').val('0');
-		}
-
-		function aMatchClearer() {
-			cMatchClearer();
-			for (q = 0; q < 3; q++) {
-				for (i = 0; i < matchDepIdArr.length; i++) {
-					matchMemArr[q][i] = $('#' + matchDepIdArr[i]).val();
-				}
-			}
-			for (q = 0; q < 3; q++) {
-				for (i = 0; i < checkboxArray.length; i++) {
-					checkboxMemArr[q][i] = $('#' + checkboxArray[i]).prop('checked');
-				}
-			}
-		}
-
-		//Updates match memory for currently selected match slot and recalls memory when a match slot is selected.
-
-		$('#matchMemory').change(updateMatch);
-
-
-
-		function updateMatch() {
-
-			matchMemory = parseInt($('#matchMemory').val());
-
-			for (i = 0; i < matchMemArr[0].length; i++) {
-
-				try {
-					memorySplitter = matchMemArr[matchMemory][i].split(';;');
-					$('#' + memorySplitter[0]).val(memorySplitter[1]);
-				}
-				catch {
-
-				}
-
-			}
-
-			for (q = 0; q < checkboxArray.length; q++) {
-				$('#' + checkboxArray[q]).prop('checked', checkboxMemArr[matchMemory][q]);
-			}
-
-
-		};
-
-		function updatePools() {
-
-			for (i = 0; i < matchIndepIddArr.length; i++) {
-				try {
-					memory2Splitter = poolMemArr[i].split(';;');
-					$('#' + memory2Splitter[0]).val(memory2Splitter[1]);
-				}
-				catch {
-					console.log(memory2Splitter[0]);
-				}
-
-			}
-
-		};
-		
-		
-
-
-		function matchSaver() {
-			matchMatchMatch = $("#matchMemory").val();
-			matchMemory = parseInt($('#matchMemory').val());
-			
-
-			for (i = 0; i < matchDepIdArr.length; i++) {
-				matchMemArr[matchMemory][i] = (matchDepIdArr[i] + ';;' + $('#' + matchDepIdArr[i]).val());
-
-			}
-			for (i = 0; i < matchIndepIddArr.length; i++) {
-				indepMemArr[i] = (matchIndepIddArr[i] + ';;' + $('#' + matchIndepIddArr[i]).val());
-			}
-			for (i = 0; i < venuePoolIdArr.length; i++) {
-				venuePoolMemArr[i] = $('#' + venuePoolIdArr[i]).val();
-			}
-			for (q = 0; q < checkboxArray.length; q++) {
-				checkboxMemArr[matchMemory][q] = $('#' + checkboxArray[q]).prop('checked');
-			}
-
-			localStorage.setObj('saveMatchStatesCustom', matchMatchMatch);
-			localStorage.setObj('saveStatesCustom', matchMemArr);
-			localStorage.setObj('savePoolsCustom', indepMemArr);
-			localStorage.setObj('saveChkStatesCustom', checkboxMemArr);
-
-
-		}
-
-
-		//Broadcast channels for each overlay
-
-
-		//Save current values of all the inputs to variables and send to all overlays
-
-
-		//Hotkeys
-		var pScore1UpOld = pScore1Up;
-		var pScore2UpOld = pScore2Up;
-		var gamesPlayedUpOld = gamesPlayedUp;
-		var clearPlayersOld = clearPlayers;
-		var clearDraftOld = clearDraft;
-		var clearCharacterOld = clearCharacter;
-		var clearTooltipsOld = clearTooltips;
-		var clearDraftPasteOld = clearDraftPaste;
-		var clearScorePasteOld = clearScorePaste;
-		var clearSpyPasteOld = clearSpyPaste;
-		var match1Old = match1;
-		var match2Old = match2;
-		var match3Old = match3;
-		var match4Old = match4;
-		var match5Old = match5;
-		var match6Old = match6;
-		var bigUpdateOld = bigUpdate;
-
-		//Format data from hotkeys.js
-		function updateHotkeys() {
-			src = '../js/hotkeys.js';
-			$('script[src="' + src + '"]').remove();
-			var head = document.getElementsByTagName('head')[0];
-			var script = document.createElement('script');
-			script.src = src;
-			head.appendChild(script);
-		}
-		//Set hotkey functions
-		function checkHotkeys() {
-			if (pScore1Up != pScore1UpOld) {
-				let scoreUpper = document.getElementById('pScore1');
-				scoreUpper.stepUp();
-				pScore1UpOld = pScore1Up;
-			}
-			if (pScore2Up != pScore2UpOld) {
-				let score2Upper = document.getElementById('pScore2');
-				score2Upper.stepUp();
-				pScore2UpOld = pScore2Up;
-			}
-			if (gamesPlayedUp != gamesPlayedUpOld) {
-				let gPlayed = document.getElementById('gameCounter');
-				gPlayed.stepUp();
-				gamesPlayedUpOld = gamesPlayedUp;
-			}
-			if (clearPlayers != clearPlayersOld) {
-				$('#pName1').val('');
-				$('#pCountry1').val('');
-				$('#pScore1').val(0);
-				$('#pName2').val('');
-				$('#pCountry2').val('');
-				$('#pScore2').val(0);
-				clearPlayersOld = clearPlayers;
-			}
-			if (clearDraft != clearDraftOld) {
-				$('.venueSelect').val('');
-				clearDraftOld = clearDraft;
-			}
-			if (clearCharacter != clearCharacterOld) {
-				$('#Rolla').val('');
-				clearCharacterOld = clearCharacter;
-			}
-			if (clearTooltips != clearTooltipsOld) {
-				$('#cTipName').val('');
-				$('#cTipDesc').val('');
-				$('#tText').val('');
-				clearTooltipsOld = clearTooltips;
-			}
-			if (clearDraftPaste != clearDraftPasteOld) {
-				$('#venueDecoder').val('');
-				clearDraftPasteOld = clearDraftPaste;
-			}
-			if (clearScorePaste != clearScorePasteOld) {
-				$('#scoreSource').val('');
-				$('#scorePaste').val('');
-				$('#gameCounter').val('0');
-				clearScorePasteOld = clearScorePaste;
-			}
-			if (clearSpyPaste != clearSpyPasteOld) {
-				$('#rollPaste').val('');
-				clearSpyPasteOld = clearSpyPaste;
-			}
-			if (match1Old != match1) {
-				$('#matchMemory').val('0').change();
-				match1Old = match1;
-			}
-			if (match2Old != match2) {
-				$('#matchMemory').val('1').change();
-				match2Old = match2;
-			}
-			if (match3Old != match3) {
-				$('#matchMemory').val('2').change();
-				match3Old = match3;
-			}
-			if (match4Old != match4) {
-				$('#matchMemory').val('3').change();
-				match4Old = match4;
-			}
-			if (match5Old != match5) {
-				$('#matchMemory').val('4').change();
-				match5Old = match5;
-			}
-			if (match6Old != match6) {
-				$('#matchMemory').val('5').change();
-				match6Old = match6;
-			}
-			if (bigUpdate != bigUpdateOld) {
-				pleaseWork();
-				bigUpdateOld = bigUpdate;
-			}
-		}
-
-
-
-		//Check hotkey variable states and Match type dropdown every 200ms
-		function checkUpdates() {
-			checkHotkeys();
-			updateHotkeys();
-		}
-		setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut()), 200);
-		setTimeout(() => {
-			setInterval(() => (matchSaver()), 200);
-		}, 400);
-
-	</script>
+	<script src="Controller Components/customController.js"></script>
 </body>
 
 </html>

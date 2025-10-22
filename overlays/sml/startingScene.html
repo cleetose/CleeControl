@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/startingScene.css" type="text/css" charset="utf-8">
+    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+
+            var hostNameOld;
+            var casterNamesOld;
+            
+        const bc = new BroadcastChannel('soon');
+
+
+/*
+        function init() {
+            bc.postMessage('Hello');
+        }
+
+  
+
+        bc.onmessage = function (ev) {
+            const received_data = ev.data;
+            var { casterbannerVars } = received_data;
+
+            varSplitter = [];
+			for (let i = 0; i < casterbannerVars.length; i++) {
+				varSplitter = casterbannerVars[i].split(';;');
+				window[varSplitter[0]] = varSplitter[1];
+				
+			}
+
+
+
+                if (hostNameOld != hostName) {
+
+							$('#hostName').html(hostName);
+                            hostNameOld = hostName;
+
+                }
+
+                if (casterNamesOld != casterNames) {
+
+							$('#casterNames').html(casterNames);
+                            casterNamesOld = casterNames;
+
+
+        }
+        }
+*/
+    </script>
+    <title>Starting Screen</title>
+</head>
+
+<body onLoad="init()">
+    <div id="topBar">
+        <img src="images/SML_Badge_Emerald.png" height="60px">
+        <img src="images/SML_Badge_Ruby.png" height="60px">
+        <img src="images/SpyPartyLogoShadow.png" height="100px">
+        <img src="images/SML_Badge_Master.png" height="60px">
+        <img src="images/SML_Badge_Grandmaster.png" height="60px">
+    </div>
+    <div id="board">
+        <div class="textBox" id="hostAndCasters">
+            <h5>-Host-</h5>
+            <p>Cleetose</p>
+            <br />
+            <h5>-Casters-</h5>
+            <p>Scout</p>
+            <p>Hornet</p>
+        </div>
+        <div id="videoBox">
+            <iframe id="videoEmbed" src="https://www.youtube.com/embed/yap9fPbKN0I?si=EDWdtI0IBJX6Lc3L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div id="rightSideInfo">
+            <div id="SML">
+                <img id="logo" src="images/SML-Logo.png" width="150px"/>
+                <p id="titleText">SpyParty Major<br />League</p>
+            </div>
+            <div class="textBox" id="countdown">
+            </div>
+            <div class="textBox" id="nextMatch">
+                <h5>Next Match:</h5>
+                <p>Someone vs Someone Else</p>
+            </div>
+        </div>
+    </div>
+    <div id="playerCards">
+        <div class="pCard" id="leftPlayerCard">
+            <img class="avatar" height="200px" src="./avatars/graash.png">
+            <div id="namesAndFlags">
+                <div id="flagAndCharacter">
+                    <img height="40px" src="../../GoSquared/cropped/iso/64flat/_scotland.png">
+                    <img height="80px" src="../images_scoreboard_icons/a.png">
+                </div>
+                <div class="playerNames"  id="pName1">
+                    <span>Legorve Genine</span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="pCard" id="rightPlayerCard">
+            <div id="namesAndFlags">
+                <div id="flagAndCharacter">
+                    <img height="80px" src="../images_scoreboard_icons/a.png">
+                    <img height="40px" src="../../GoSquared/cropped/iso/64flat/_scotland.png">
+                </div>
+                <div class="playerNames" id="pName2">
+                    <span>FireLordEthanFireLordEthan</span>
+                </div>
+            </div>
+            <img class="avatar" height="200px" src="./avatars/graash.png">
+        </div>
+    </div>
+    <div id="divisionAndWeek">
+        <img src="images/SML_Badge_Ruby.png" height="160px">
+        <p class="weekAndDivision">Ruby</p>
+        <p class="weekAndDivision">Week 6</p>
+    </div>
+    <script>
+        function test() {
+            while($("#pName1").find("span").width() > $("#pName1").width()) {
+    		var currentFontSize = parseInt($("#pName1").find("span").css("font-size")); 
+    		$("#pName1").find("span").css("font-size",currentFontSize-1); 
+							}
+
+            while($("#pName2").find("span").width() > $("#pName2").width()) {
+    		var currentFontSize = parseInt($("#pName2").find("span").css("font-size")); 
+    		$("#pName2").find("span").css("font-size",currentFontSize-1); 
+							}
+                            console.log("test2");
+        }
+        
+        function init() {
+            test();
+        }
+        
+    </script>
+</body>
+
+</html>

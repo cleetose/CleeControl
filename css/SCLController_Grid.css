@@ -245,6 +245,19 @@ input[type=number]:focus {outline:none !important}
 	color: white;
 }
 
+.spinBoySmall {
+	width: 20px;
+	height: 20px;
+	background-color: #302f30;
+	border-radius: 5px;
+	border-width: 2px;
+	padding: 1px 0;
+	border-style: solid;
+	border-color: #464546;
+	font-size: 13px;
+	color: white;
+}
+
 .up {
   position: absolute;
   outline:none;
@@ -283,12 +296,61 @@ input[type=number]:focus {outline:none !important}
   border-radius: 3px;
 }
 
+.upSmall {
+	position: absolute;
+	outline:none;
+	-webkit-appearance: none;
+	background-color: #5c5c5c;
+	border: none;
+	align-items: center;
+	justify-content: center;
+	height: 14px;
+	width: 5px;
+	padding: 5px 6px;
+	cursor: pointer;
+	left: 66%;
+	top: 0px;
+	margin: 0;
+	bottom: -11px;
+	border-radius: 3px;
+  }
+  
+  .downSmall {
+	position: absolute;
+	left: 66%;
+	top: 50%;
+	outline:none;
+	-webkit-appearance: none;
+	background-color: #5c5c5c;
+	border: none;
+	align-items: center;
+	justify-content: center;
+	height: 14px;
+	width: 5px;
+	padding: 5px 6px;
+	cursor: pointer;
+	margin: 0;
+	bottom: -11px;
+	border-radius: 3px;
+  }
+
 .scoreSpinners button:before,
 .scoreSpinners button:after {
   display: inline-block;
   position: absolute;
   content: '';
-  width: 9.6px;
+  width: 5.6px;
+  height: 3px;
+  background-color: white;
+  transform: translate(-75%, -50%) rotate(-45deg);
+}
+
+.scoreSpinnersSmall button:before,
+.scoreSpinnersSmall button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  width: 5.6px;
   height: 3px;
   background-color: white;
   transform: translate(-75%, -50%) rotate(-45deg);
@@ -304,6 +366,16 @@ input[type=number]:focus {outline:none !important}
   transform: translate(-25%, -50%) rotate(-45deg);
 }
 
+.scoreSpinnersSmall button.upSmall:after {
+	transform: translate(-25%, -50%) rotate(45deg);
+  }
+  .scoreSpinnersSmall button.downSmall:before {
+	transform: translate(-75%, -50%) rotate(45deg);
+  }
+  .scoreSpinnersSmall button.downSmall:after {
+	transform: translate(-25%, -50%) rotate(-45deg);
+  }
+
 .scoreSpinners button:hover {
 	background-color: #929292;
   }
@@ -315,6 +387,11 @@ input[type=number]:focus {outline:none !important}
 	margin: 0 2px;
 }
 
+.scoreSpinnersSmall {
+	position: relative;
+	width: fit-content;
+	margin: 0 2px;
+}
 
 
   /*Line break for flexboxes*/
@@ -611,9 +688,9 @@ input[type=number]:focus {outline:none !important}
 }
 
 .venueSpinners {
-	display: none;
+	display: block;
 	justify-content: center;
-	width: 100%;
+	width: 10%;
 
 }
 
@@ -653,7 +730,14 @@ input[type=number]:focus {outline:none !important}
 
 .venueSelect {
 	position: relative;
-	width: 40%;
+	width: 35%;
+	height: 25px;
+	font-size: 16px;
+}
+
+.multiSelect {
+	position: relative;
+	width: 10%;
 	height: 25px;
 	font-size: 16px;
 }
