@@ -247,25 +247,9 @@ class SclDraft extends HTMLElement {
         <option value="Triple">T</option>
     </select>
         <select class="venueSelect storable draft" id="venue26">
-            <option value="" selected></option>
-            <option value="aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins">Aquarium</option>
-            <option value="balcony;Balcony<br>Any 2/3;7 Guests<br>2:00mins">Balcony</option>
-            <option value="ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins">Ballroom</option>
-            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard</option>
-            <option value="gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins">Gallery</option>
-            <option value="high-rise;High-rise<br>Any 3/6;12 Guests<br>3:15mins">High-rise</option>
-            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library</option>
-            <option value="moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins">Moderne</option>
-            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub</option>
-            <option value="redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins">Redwoods</option>
-            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien</option>
-            <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
-            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
         <select class="storable multiSelect draft" id="multiplySelect26">
-        <option value="Single">S</option>
-        <option value="Double">D</option>
-        <option value="Triple">T</option>
+
     </select>
 
         <input id="resetti" class="buttony" type="button" value="Clear" />
@@ -351,6 +335,7 @@ function draftType() {
         $('#venue25').css('display', 'block');
         $('#venue16').css('display', 'block');
         $('#venue26').css('display', 'block');
+        $('#venue26').css('visibility', 'hidden');
         
         $('#multiplySelect13').css('display', 'block');
         $('#multiplySelect23').css('display', 'block');
@@ -360,6 +345,7 @@ function draftType() {
         $('#multiplySelect25').css('display', 'block');
         $('#multiplySelect16').css('display', 'block');
         $('#multiplySelect26').css('display', 'block');
+        $('#multiplySelect26').css('visibility', 'hidden');
        
     }
 
