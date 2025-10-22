@@ -126,6 +126,12 @@
                 }
             
                 switch (pDivision1) {
+                    case 'Challenger':
+                document.body.style.setProperty('--top-band-color', '#65ba7f');
+                document.body.style.setProperty('--top-band-border-color', '#8cedad');
+                document.body.style.setProperty('--top-band-text-color', '#ffffff');
+                $('.badges').css('background-image','url("./images_badges/challenger.svg")');
+                        break;
                     case 'oak':
                 document.body.style.setProperty('--top-band-color', '#6c2c04');
                 document.body.style.setProperty('--top-band-border-color', '#521f03');
@@ -513,34 +519,18 @@
                         loadIn = "done";
                     }, 3000);
                 
-                if (matchType == 'championship') {
+                if (matchType == 'postSeason') {
                 
-                    if (venue15Name != venue15NameOld && venue15Name != "") {
-                    setTimeout(() => {
-                    bigVenueChange('venue15');
-                }, 2900); 
-                    venue15NameOld = venue15Name;
-                }
-            
-                if (venue25Name != venue25NameOld && venue25Name != "") {
-                    setTimeout(() => {
-                    bigVenueChange('venue25');
-                }, 2900); 
-                    venue25NameOld = venue25Name;
-                }
-                if (venue15Name != venue16NameOld && venue16Name != "") {
+
+                if (venue16Name != venue16NameOld && venue16Name != "") {
                     setTimeout(() => {
                     bigVenueChange('venue16');
+                   
                 }, 3400); 
                     venue16NameOld = venue16Name;
                 }
             
-                if (venue26Name != venue26NameOld && venue26Name != "") {
-                    setTimeout(() => {
-                    bigVenueChange('venue26');
-                }, 3400); 
-                    venue26NameOld = venue26Name;
-                }
+
             
             setTimeout(() => {
             loadIn = "done";
