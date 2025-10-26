@@ -30,8 +30,8 @@
         "monitoring_type": 0,
         "private_settings": {}
     },
-    "current_scene": "Starting Soon",
-    "current_program_scene": "Starting Soon",
+    "current_scene": "Main Game",
+    "current_program_scene": "Main Game",
     "scene_order": [
         {
             "name": "Starting Soon"
@@ -96,7 +96,7 @@
     "transition_duration": 650,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -12,
+    "scaling_level": -2,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
@@ -175,7 +175,7 @@
                     "sec_sub_3_hotkey": [],
                     "split_hotkey": [],
                     "start_hotkey": [],
-                    "sw_current_seconds": 0,
+                    "sw_current_seconds": 0.0,
                     "text_arr_marker_a": [
                         {
                             "hidden": false,
@@ -221,12 +221,12 @@
             }
         ],
         "source-dock": {
-            "corner_bl": false,
-            "corner_br": false,
+            "docks": [],
+            "windows": [],
             "corner_tl": false,
             "corner_tr": false,
-            "docks": [],
-            "windows": []
+            "corner_br": false,
+            "corner_bl": false
         }
     },
     "resolution": {
@@ -1485,7 +1485,7 @@
             "versioned_id": "scene",
             "settings": {
                 "custom_size": false,
-                "id_counter": 28,
+                "id_counter": 29,
                 "items": [
                     {
                         "name": "Live Game",
@@ -1761,6 +1761,61 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "sclDraftBreakdown.html",
+                        "source_uuid": "b8c1bfda-2cd3-4a7f-a396-48b237b2febe",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 29,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -1786,7 +1841,9 @@
                 "libobs.show_scene_item.24": [],
                 "libobs.hide_scene_item.24": [],
                 "libobs.show_scene_item.28": [],
-                "libobs.hide_scene_item.28": []
+                "libobs.hide_scene_item.28": [],
+                "libobs.show_scene_item.29": [],
+                "libobs.hide_scene_item.29": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -2221,6 +2278,43 @@
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870913,
+            "name": "sclDraftBreakdown.html",
+            "uuid": "b8c1bfda-2cd3-4a7f-a396-48b237b2febe",
+            "id": "browser_source",
+            "versioned_id": "browser_source",
+            "settings": {
+                "is_local_file": false,
+                "local_file": "C:/Users/cleet/Documents/CleeControlGit/CleeControl/overlays/scl/sclDraftBreakdown.html",
+                "url": "file:///C:/Users/cleet/Documents/CleeControlGit/CleeControl/overlays/scl/sclDraftBreakdown.html",
+                "width": 1920,
+                "height": 1080,
+                "css": ""
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "ObsBrowser.Refresh": []
+            },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
             "monitoring_type": 0,

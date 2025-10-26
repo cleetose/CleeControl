@@ -110,12 +110,91 @@
 
                 /*Hide score sections if the value of both score variables is zero.
                 (A zero on both sides indicates the match hasn't reached that venue yet)*/
-                p1Score = parseInt(pScore11) + parseInt(pScore12) + parseInt(pScore13) + parseInt(pScore14) + parseInt(pScore15) + parseInt(pScore16) + parseInt(pScore17) + parseInt(pScore18)
-                p2Score = parseInt(pScore21) + parseInt(pScore22) + parseInt(pScore23) + parseInt(pScore24) + parseInt(pScore25) + parseInt(pScore26) + parseInt(pScore27) + parseInt(pScore28);
+                p1Score = parseInt(pScore11) + parseInt(pScore12) + parseInt(pScore13) + parseInt(pScore14) + parseInt(pScore15) + parseInt(pScore16) + parseInt(pScore17);
+                p2Score = parseInt(pScore21) + parseInt(pScore22) + parseInt(pScore23) + parseInt(pScore24) + parseInt(pScore25) + parseInt(pScore26) + parseInt(pScore27);
+
+            if (multiplySelect13 == "Single") {
+				multiplyInt13 = 2;
+			}
+			if (multiplySelect13 == "Double") {
+				multiplyInt13 = 4;
+			}
+			if (multiplySelect13 == "Triple") {
+				multiplyInt13 = 6;
+			}			
+
+			if (multiplySelect23 == "Single") {
+				multiplyInt23 = 2;
+			}
+			if (multiplySelect23 == "Double") {
+				multiplyInt23 = 4;
+			}
+			if (multiplySelect23 == "Triple") {
+				multiplyInt23 = 6;
+			}
+
+			if (multiplySelect14 == "Single") {
+				multiplyInt14 = 2;
+			}
+			if (multiplySelect14 == "Double") {
+				multiplyInt14 = 4;
+			}
+			if (multiplySelect14 == "Triple") {
+				multiplyInt14 = 6;
+			}
+
+			if (multiplySelect24 == "Single") {
+				multiplyInt24 = 2;
+			}
+			if (multiplySelect24 == "Double") {
+				multiplyInt24 = 4;
+			}
+			if (multiplySelect24 == "Triple") {
+				multiplyInt24 = 6;
+			}
+
+			if (multiplySelect15 == "Single") {
+				multiplyInt15 = 2;
+			}
+			if (multiplySelect15 == "Double") {
+				multiplyInt15 = 4;
+			}
+			if (multiplySelect15 == "Triple") {
+				multiplyInt15 = 6;
+			}
+
+			if (multiplySelect25 == "Single") {
+				multiplyInt25 = 2;
+			}
+			if (multiplySelect25 == "Double") {
+				multiplyInt25 = 4;
+			}
+			if (multiplySelect25 == "Triple") {
+				multiplyInt25 = 6;
+			}
+
+			if (multiplySelect16 == "Single") {
+				multiplyInt16 = 2;
+			}
+			if (multiplySelect16 == "Double") {
+				multiplyInt16 = 4;
+			}
+			if (multiplySelect16 == "Triple") {
+				multiplyInt16 = 6;
+			}
+
+            multiplyValue1 = multiplyInt13;
+			multiplyValue2 = multiplyInt13 + multiplyInt23;
+			multiplyValue3 = multiplyValue2 + multiplyInt14;
+			multiplyValue4 = multiplyValue3 + multiplyInt24;
+			multiplyValue5 = multiplyValue4 + multiplyInt15;
+			multiplyValue6 = multiplyValue5 + multiplyInt25;
+			multiplyValue7 = multiplyValue6 + multiplyInt16;
+
                 pScoreTotal  = p1Score + p2Score;
                 console.log(p1Score);
                 switch (matchType) {
-                    case 'regularSeason':
+                    case 'regularSeasonA':
                         if (pScoreTotal == 4) {
                             pScore12 = 'Next';
                             pScore22 = 'Venue';
@@ -130,57 +209,49 @@
                         }
                         break;
 
-                    case 'postSeason':
-                        if (pScoreTotal == 4) {
+                    case 'regularSeasonB':
+                        if (pScoreTotal == multiplyValue1) {
                         pScore12 = 'Next';
                         pScore22 = 'Venue';
                         }
-                        if (pScoreTotal == 8 && p1Score < 9 && p2Score < 9) {
+                        if (pScoreTotal == multiplyValue2) {
                             pScore13 = 'Next';
                             pScore23 = 'Venue';
                         }
-                        if (pScoreTotal == 10 && p1Score < 9 && p2Score < 9) {
+                        if (pScoreTotal == multiplyValue3) {
                             pScore14 = 'Next';
                             pScore24 = 'Venue';
                         }
-                        if (pScoreTotal == 12 && p1Score < 9 && p2Score < 9) {
+                        if (pScoreTotal == multiplyValue4) {
                             pScore15 = 'Next';
                             pScore25 = 'Venue';
                         }
-                        if (pScoreTotal == 14 && p1Score < 9 && p2Score < 9) {
+                        if (pScoreTotal == multiplyValue5) {
                             pScore16 = 'Next';
                             pScore26 = 'Venue';
                         }
                         break;
 
-                    case 'championship': 
-                        if (pScoreTotal == 4) {
+                    case 'postSeason': 
+                    if (pScoreTotal == multiplyValue1) {
                         pScore12 = 'Next';
                         pScore22 = 'Venue';
                         }
-                        if (pScoreTotal == 8 && p1Score < 13 && p2Score < 13) {
+                        if (pScoreTotal == multiplyValue2) {
                             pScore13 = 'Next';
                             pScore23 = 'Venue';
                         }
-                        if (pScoreTotal == 12 && p1Score < 13 && p2Score < 13) {
+                        if (pScoreTotal == multiplyValue3) {
                             pScore14 = 'Next';
                             pScore24 = 'Venue';
                         }
-                        if (pScoreTotal == 16 && p1Score < 13 && p2Score < 13) {
+                        if (pScoreTotal == multiplyValue4) {
                             pScore15 = 'Next';
                             pScore25 = 'Venue';
                         }
-                        if (pScoreTotal == 18 && p1Score < 13 && p2Score < 13) {
+                        if (pScoreTotal == multiplyValue5) {
                             pScore16 = 'Next';
                             pScore26 = 'Venue';
-                        }
-                        if (pScoreTotal == 20 && p1Score < 13 && p2Score < 13) {
-                            pScore17 = 'Next';
-                            pScore27 = 'Venue';
-                        }
-                        if (pScoreTotal == 22 && p1Score < 13 && p2Score < 13) {
-                            pScore18 = 'Next';
-                            pScore28 = 'Venue';
                         }
                         break;
                 }
@@ -214,11 +285,7 @@
                 } else {
                     $('#breakdownBlock7').css('visibility','visible');
                 }
-                if (pScore18== 0 && pScore28 == 0) {
-                    $('#breakdownBlock8').css('visibility','hidden');
-                } else {
-                    $('#breakdownBlock8').css('visibility','visible');
-                }
+
 
                 /*Updates all the score sections with the current values.
                 No need for fancy animations here has the change should be off screen.*/
@@ -236,8 +303,39 @@
                 $('#breakdown26').html(pScore26);
                 $('#breakdown17').html(pScore17);
                 $('#breakdown27').html(pScore27);
-                $('#breakdown18').html(pScore18);
-                $('#breakdown28').html(pScore28);
+                if ($('#multiplySelect13').html() != $('#multiplySelect13').html(multiplySelect13)) {
+                    $('#multiplySelect13').html(multiplySelect13);
+                }
+
+                if ($('#multiplySelect14').html() != $('#multiplySelect14').html(multiplySelect14)) {
+                    $('#multiplySelect14').html(multiplySelect14);
+                }
+
+                if ($('#multiplySelect15').html() != $('#multiplySelect15').html(multiplySelect15)) {
+                    $('#multiplySelect15').html(multiplySelect15);
+                }
+
+                if ($('#multiplySelect16').html() != $('#multiplySelect16').html(multiplySelect16)) {
+                    $('#multiplySelect16').html(multiplySelect16);
+                }
+
+
+                if ($('#multiplySelect23').html() != $('#multiplySelect23').html(multiplySelect23)) {
+                    $('#multiplySelect23').html(multiplySelect23);
+                }
+
+                if ($('#multiplySelect24').html() != $('#multiplySelect24').html(multiplySelect24)) {
+                    $('#multiplySelect24').html(multiplySelect24);
+                }
+
+                if ($('#multiplySelect25').html() != $('#multiplySelect25').html(multiplySelect25)) {
+                    $('#multiplySelect25').html(multiplySelect25);
+                }
+
+                if ($('#multiplySelect26').html() != $('#multiplySelect26').html(multiplySelect26)) {
+                    $('#multiplySelect26').html(multiplySelect26);
+                }
+
             }
 
             //Update player names and venue data when message is received from the controller.
@@ -254,7 +352,7 @@
 
                 //Adds/removes/alters parts of the overlay depending on the current match type.
                 switch (matchType) {
-                    case 'regularSeason':
+                    case 'regularSeasonA':
                         $('#venue15').css('display','none');
                         $('#venue25').css('display','none');
                         $('#venue16').css('display','none');
@@ -265,7 +363,7 @@
                         $('.venueTextLarge').css('font-size','24pt');
                         break;
 
-                    case 'postSeason':
+                    case 'regularSeasonB':
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
                         $('#venue15').css('display','flex');
@@ -276,7 +374,7 @@
                         $('.venueTextLarge').css('font-size','20pt');
                         break;
 
-                    case 'championship': 
+                    case 'postSeason': 
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
                         $('#venue16').css('display','flex');
@@ -290,6 +388,12 @@
 
                 //Changes colors of the name bars to match division selection.
                 switch (pDivision1) {
+                    case 'Challenger':
+                        document.body.style.setProperty('--top-band-color', '#65ba7f');
+                        document.body.style.setProperty('--top-band-border-color', '#8cedad');
+                        document.body.style.setProperty('--top-band-text-color', '#ffffff');
+                        $('.badges').css('background-image','url("./images_badges/challenger.svg")');
+                        break;
                     case 'oak':
                         document.body.style.setProperty('--top-band-color', '#6c2c04');
                         document.body.style.setProperty('--top-band-border-color', '#521f03');
@@ -506,18 +610,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="selectionBlock champBreak" id="breakdownBlock8">
-                    <div class="boxBorder">
-                        <div class="sTBox">
-                            <p class="sTText textTop" id="breakdown18">
-                                0
-                            </p>
-                            <p class="sTText textBottom" id="breakdown28">
-                                0
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div id="centerBand">
                 <div id="pName1">
@@ -526,7 +619,7 @@
                 <div id="vsBand">
                     <div class="largeImage venueImage" id="venue13">
                         <div class="double">
-                            <p class="doubleText">Doubled</p>
+                            <p class="doubleText" id="multiplySelect13">Doubled</p>
                         </div>
                         <p class="venueName venueTextLarge"
                             id="venue13TextLeft"></p>
@@ -536,7 +629,7 @@
                 
                     <div class="largeImage venueImage" id="venue23">
                         <div class="double">
-                            <p class="doubleText">Doubled</p>
+                            <p class="doubleText" id="multiplySelect23">Doubled</p>
                         </div>
                         <p class="venueName venueTextLarge"
                             id="venue23TextLeft"></p>
@@ -545,8 +638,8 @@
                     </div>
                 
                     <div class="largeImage venueImage" id="venue14">
-                        <div class="double champDouble">
-                            <p class="doubleText">Doubled</p>
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect14">Doubled</p>
                         </div>
                         <p class="venueName venueTextLarge"
                             id="venue14TextLeft"></p>
@@ -555,8 +648,8 @@
                     </div>
                 
                     <div class="largeImage venueImage" id="venue24">
-                        <div class="double champDouble" id="champDouble2">
-                            <p class="doubleText">Doubled</p>
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect24">Doubled</p>
                         </div>
                         <p class="venueName venueTextLarge"
                             id="venue24TextLeft"></p>
@@ -565,6 +658,9 @@
                     </div>
                 
                     <div class="largeImage venueImage" id="venue15">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect15">Doubled</p>
+                        </div>
                         <p class="venueName venueTextLarge"
                             id="venue15TextLeft"></p>
                         <p class="venueGuestsTime venueTextLarge"
@@ -572,6 +668,9 @@
                     </div>
                 
                     <div class="largeImage venueImage" id="venue25">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect25">Doubled</p>
+                        </div>
                         <p class="venueName venueTextLarge"
                             id="venue25TextLeft"></p>
                         <p class="venueGuestsTime venueTextLarge"
@@ -579,18 +678,16 @@
                     </div>
                 
                     <div class="largeImage venueImage" id="venue16">
+                        <div class="double">
+                            <p class="doubleText" id="multiplySelect16">Doubled</p>
+                        </div>
                         <p class="venueName venueTextLarge"
                             id="venue16TextLeft"></p>
                         <p class="venueGuestsTime venueTextLarge"
                             id="venue16TextRight"></p>
                     </div>
                 
-                    <div class="largeImage venueImage" id="venue26">
-                        <p class="venueName venueTextLarge"
-                            id="venue26TextLeft"></p>
-                        <p class="venueGuestsTime venueTextLarge"
-                            id="venue26TextRight"></p>
-                    </div>
+
                 </div>
                 <div id="pName2">
                     CLEETOSE

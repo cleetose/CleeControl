@@ -112,7 +112,7 @@ class SclDraft extends HTMLElement {
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
-    <select class="storable multiSelect draft" id="multiplySelect13">
+    <select class="storable multiSelect draft breakDraft" id="multiplySelect13">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -134,7 +134,7 @@ class SclDraft extends HTMLElement {
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
 
-        <select class="storable multiSelect draft" id="multiplySelect23">
+        <select class="storable multiSelect draft breakDraft" id="multiplySelect23">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -157,7 +157,7 @@ class SclDraft extends HTMLElement {
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
-        <select class="storable multiSelect draft" id="multiplySelect14">
+        <select class="storable multiSelect draft breakDraft" id="multiplySelect14">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -178,7 +178,7 @@ class SclDraft extends HTMLElement {
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
-        <select class="storable multiSelect draft" id="multiplySelect24">
+        <select class="storable multiSelect draft breakDraft" id="multiplySelect24">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -199,7 +199,7 @@ class SclDraft extends HTMLElement {
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
-        <select class="storable multiSelect draft" id="multiplySelect15">
+        <select class="storable multiSelect draft breakDraft" id="multiplySelect15">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -220,7 +220,7 @@ class SclDraft extends HTMLElement {
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
-        <select class="storable multiSelect draft" id="multiplySelect25">
+        <select class="storable multiSelect draft breakDraft" id="multiplySelect25">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -241,7 +241,7 @@ class SclDraft extends HTMLElement {
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
             <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
         </select>
-        <select class="storable multiSelect draft" id="multiplySelect16">
+        <select class="storable multiSelect draft breakDraft" id="multiplySelect16">
         <option value="Single">S</option>
         <option value="Double">D</option>
         <option value="Triple">T</option>
@@ -264,18 +264,85 @@ window.customElements.define('scl-draft', SclDraft);
 
 
 $(document).ready(function () {
-    $('#venueType1').val("Bans");
-    $('#venueType2').val("Restrictions");
-    $('#venueType3').val("Picks");
-
-});
-
-//Changes the configuration of the draft dropdowns as well as the center text box based on draft type drop-down.
-function draftType() {
     if ($('#matchType').val() == 'regularSeasonA') {
         $('#venueType1').val("Bans");
         $('#venueType2').val("Restrictions");
         $('#venueType3').val("Picks");
+    
+        $('#multiplySelect13').val('Double');
+        $('#multiplySelect23').val('Double');
+        $('#multiplySelect14').val('Single');
+        $('#multiplySelect24').val('Single');
+    }
+    
+    if ($('#matchType').val() == 'regularSeasonB') {
+        $('#venueType1').val("Bans");
+        $('#venueType2').val("Restrictions");
+        $('#venueType3').val("Picks");
+    
+        $('#multiplySelect13').val('Single');
+        $('#multiplySelect23').val('Single');
+        $('#multiplySelect14').val('Single');
+        $('#multiplySelect24').val('Single');
+        $('#multiplySelect15').val('Single');
+        $('#multiplySelect25').val('Single');
+        
+    }
+    
+    if ($('#matchType').val() == 'postSeason') {
+        $('#venueType1').val("Bans");
+        $('#venueType2').val("Restrictions");
+        $('#venueType3').val("Picks");
+    
+        $('#multiplySelect13').val('Single');
+        $('#multiplySelect23').val('Single');
+        $('#multiplySelect14').val('Single');
+        $('#multiplySelect24').val('Single');
+        $('#multiplySelect15').val('Single');
+        $('#multiplySelect25').val('Single');
+        $('#multiplySelect16').val('Single');
+       
+    }
+
+});
+
+//Changes the configuration of the draft dropdowns as well as the center text box based on draft type drop-down.
+$('#matchType').on('change', function() {    if ($('#matchType').val() == 'regularSeasonA') {
+
+
+    $('#multiplySelect13').val('Double');
+    $('#multiplySelect23').val('Double');
+    $('#multiplySelect14').val('Single');
+    $('#multiplySelect24').val('Single');
+}
+
+if ($('#matchType').val() == 'regularSeasonB') {
+
+
+    $('#multiplySelect13').val('Single');
+    $('#multiplySelect23').val('Single');
+    $('#multiplySelect14').val('Single');
+    $('#multiplySelect24').val('Single');
+    $('#multiplySelect15').val('Single');
+    $('#multiplySelect25').val('Single');
+    
+}
+
+if ($('#matchType').val() == 'postSeason') {
+
+
+    $('#multiplySelect13').val('Single');
+    $('#multiplySelect23').val('Single');
+    $('#multiplySelect14').val('Single');
+    $('#multiplySelect24').val('Single');
+    $('#multiplySelect15').val('Single');
+    $('#multiplySelect25').val('Single');
+    $('#multiplySelect16').val('Single');
+   
+}});
+function draftType() {
+    if ($('#matchType').val() == 'regularSeasonA') {
+
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
         $('#venue14').css('display', 'block');
@@ -284,7 +351,7 @@ function draftType() {
         $('#venue25').css('display', 'none');
         $('#venue16').css('display', 'none');
         $('#venue26').css('display', 'none');
-        
+
         $('#multiplySelect13').css('display', 'block');
         $('#multiplySelect23').css('display', 'block');
         $('#multiplySelect14').css('display', 'block');
@@ -293,16 +360,10 @@ function draftType() {
         $('#multiplySelect25').css('display', 'none');
         $('#multiplySelect16').css('display', 'none');
         $('#multiplySelect26').css('display', 'none');
-        $('#multiplySelect13').val('Double');
-        $('#multiplySelect23').val('Double');
-        $('#multiplySelect14').val('Single');
-        $('#multiplySelect24').val('Single');
     }
 
     if ($('#matchType').val() == 'regularSeasonB') {
-        $('#venueType1').val("Bans");
-        $('#venueType2').val("Restrictions");
-        $('#venueType3').val("Picks");
+
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
         $('#venue14').css('display', 'block');
@@ -320,13 +381,10 @@ function draftType() {
         $('#multiplySelect25').css('display', 'block');
         $('#multiplySelect16').css('display', 'none');
         $('#multiplySelect26').css('display', 'none');
-        
     }
 
     if ($('#matchType').val() == 'postSeason') {
-        $('#venueType1').val("Bans");
-        $('#venueType2').val("Restrictions");
-        $('#venueType3').val("Picks");
+
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
         $('#venue14').css('display', 'block');
@@ -346,9 +404,8 @@ function draftType() {
         $('#multiplySelect16').css('display', 'block');
         $('#multiplySelect26').css('display', 'block');
         $('#multiplySelect26').css('visibility', 'hidden');
-       
+        
     }
-
 
         /*clears the venue selections on drop-downs that are hidden
     when the draft type is changed.*/

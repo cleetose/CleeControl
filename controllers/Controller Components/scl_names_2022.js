@@ -243,14 +243,6 @@ var casterNames;
 				$('#venue16BreakdownName').html('PICK 7');
 			}
 
-			if ($('#venue26').val() != "") {
-				venue26Transfer = $('#venue26').val();
-				tempArr = venue26Transfer.split(';');
-				$('#venue26BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue26').val() == "") {
-				$('#venue26BreakdownName').html('PICK 8');
-			}
 
 			
 		}, 500);
@@ -260,9 +252,97 @@ var casterNames;
 		for the score breakdown overlay.  */
         function scoreBreakdowner() {
 
+			multiplySelect13 = $('#multiplySelect13').val();
+			multiplySelect23 = $('#multiplySelect23').val();
+			multiplySelect14 = $('#multiplySelect14').val();
+			multiplySelect24 = $('#multiplySelect24').val();
+			multiplySelect15 = $('#multiplySelect15').val();
+			multiplySelect25 = $('#multiplySelect25').val();
+			multiplySelect16 = $('#multiplySelect16').val();
+			
+			if (multiplySelect13 == "Single") {
+				multiplySelect13 = 2;
+			}
+			if (multiplySelect13 == "Double") {
+				multiplySelect13 = 4;
+			}
+			if (multiplySelect13 == "Triple") {
+				multiplySelect13 = 6;
+			}			
+
+			if (multiplySelect23 == "Single") {
+				multiplySelect23 = 2;
+			}
+			if (multiplySelect23 == "Double") {
+				multiplySelect23 = 4;
+			}
+			if (multiplySelect23 == "Triple") {
+				multiplySelect23 = 6;
+			}
+
+			if (multiplySelect14 == "Single") {
+				multiplySelect14 = 2;
+			}
+			if (multiplySelect14 == "Double") {
+				multiplySelect14 = 4;
+			}
+			if (multiplySelect14 == "Triple") {
+				multiplySelect14 = 6;
+			}
+
+			if (multiplySelect24 == "Single") {
+				multiplySelect24 = 2;
+			}
+			if (multiplySelect24 == "Double") {
+				multiplySelect24 = 4;
+			}
+			if (multiplySelect24 == "Triple") {
+				multiplySelect24 = 6;
+			}
+
+			if (multiplySelect15 == "Single") {
+				multiplySelect15 = 2;
+			}
+			if (multiplySelect15 == "Double") {
+				multiplySelect15 = 4;
+			}
+			if (multiplySelect15 == "Triple") {
+				multiplySelect15 = 6;
+			}
+
+			if (multiplySelect25 == "Single") {
+				multiplySelect25 = 2;
+			}
+			if (multiplySelect25 == "Double") {
+				multiplySelect25 = 4;
+			}
+			if (multiplySelect25 == "Triple") {
+				multiplySelect25 = 6;
+			}
+
+			if (multiplySelect16 == "Single") {
+				multiplySelect16 = 2;
+			}
+			if (multiplySelect16 == "Double") {
+				multiplySelect16 = 4;
+			}
+			if (multiplySelect16 == "Triple") {
+				multiplySelect16 = 6;
+			}
+
+			multiplyValue1 = multiplySelect13;
+			multiplyValue2 = multiplySelect13 + multiplySelect23;
+			multiplyValue3 = multiplyValue2 + multiplySelect14;
+			multiplyValue4 = multiplyValue3 + multiplySelect24;
+			multiplyValue5 = multiplyValue4 + multiplySelect15;
+			multiplyValue6 = multiplyValue5 + multiplySelect25;
+			multiplyValue7 = multiplyValue6 + multiplySelect16;
+		
 			if ($('#scorePaste').val() == "") {
 				pScore1int = parseInt($('#pScore1').val());
 				pScore2int = parseInt($('#pScore2').val());
+
+
 			}
 
             pScoreTotal = 0;
@@ -284,7 +364,7 @@ var casterNames;
             pScore28int = parseInt($('#pScore28').val());
             pScoreTotal = pScore1int + pScore2int;
 			console.log(pScoreTotal);
-			if ($('#matchType').val() != 'championship') {
+			if ($('#matchType').val() == 'regularSeasonA') {
 				switch (pScoreTotal) {
 					case 0:
 						$('#pScore11').val(0);
@@ -394,53 +474,31 @@ var casterNames;
 					default:
 						break;
 				}
-			} else 	if ($('#matchType').val() == 'championship') {
-				switch (pScoreTotal) {
-					case 0:
-						$('#pScore11').val(0);
-						$('#pScore12').val(0);
-						$('#pScore13').val(0);
-						$('#pScore14').val(0);
-						$('#pScore15').val(0);
-						$('#pScore16').val(0);
-						$('#pScore17').val(0);
-						$('#pScore18').val(0);
-						$('#pScore21').val(0);
-						$('#pScore22').val(0);
-						$('#pScore23').val(0);
-						$('#pScore24').val(0);
-						$('#pScore25').val(0);
-						$('#pScore26').val(0);
-						$('#pScore27').val(0);
-						$('#pScore28').val(0);	
-	
-					case 1:
-					case 2:
-					case 3:
-					case 4:
-						$('#pScore11').val(pScore1int);
-						$('#pScore21').val(pScore2int);
-						$('#pScore12').val(0);
-						$('#pScore22').val(0);
-						$('#pScore13').val(0);
-						$('#pScore23').val(0);   
-						$('#pScore14').val(0);
-						$('#pScore24').val(0);    
-						$('#pScore15').val(0);
-						$('#pScore25').val(0);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0); 
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0); 
-						break;
-					case 5:
-					case 6:
-					case 7:
-					case 8:    
-					$('#pScore12').val(pScore1int - pScore11int);
-					$('#pScore22').val(pScore2int - pScore21int);  
+			} else 	if ($('#matchType').val() != 'regularSeasonA') {
+				if (pScoreTotal == 0) {
+					$('#pScore11').val(0);
+					$('#pScore12').val(0);
+					$('#pScore13').val(0);
+					$('#pScore14').val(0);
+					$('#pScore15').val(0);
+					$('#pScore16').val(0);
+					$('#pScore17').val(0);
+					$('#pScore18').val(0);
+					$('#pScore21').val(0);
+					$('#pScore22').val(0);
+					$('#pScore23').val(0);
+					$('#pScore24').val(0);
+					$('#pScore25').val(0);
+					$('#pScore26').val(0);
+					$('#pScore27').val(0);
+					$('#pScore28').val(0);	
+				}
+				
+				if (pScoreTotal <= multiplyValue1) {
+					$('#pScore11').val(pScore1int);
+					$('#pScore21').val(pScore2int);
+					$('#pScore12').val(0);
+					$('#pScore22').val(0);
 					$('#pScore13').val(0);
 					$('#pScore23').val(0);   
 					$('#pScore14').val(0);
@@ -448,78 +506,65 @@ var casterNames;
 					$('#pScore15').val(0);
 					$('#pScore25').val(0);
 					$('#pScore16').val(0);
+					$('#pScore26').val(0); 
+					$('#pScore17').val(0);
+					$('#pScore27').val(0);
+				}
+				if (pScoreTotal > multiplyValue1 && pScoreTotal <= multiplyValue2) {
+					$('#pScore12').val(pScore1int - pScore11int);
+					$('#pScore22').val(pScore2int - pScore21int);
+					$('#pScore13').val(0);
+					$('#pScore23').val(0);   
+					$('#pScore14').val(0);
+					$('#pScore24').val(0);    
+					$('#pScore15').val(0);
+					$('#pScore25').val(0);
+					$('#pScore16').val(0);
+					$('#pScore26').val(0); 
+					$('#pScore17').val(0);
+					$('#pScore27').val(0); 
+				}
+				if (pScoreTotal > multiplyValue2 && pScoreTotal <= multiplyValue3) {
+					$('#pScore13').val(pScore1int - pScore11int - pScore12int);
+					$('#pScore23').val(pScore2int - pScore21int - pScore22int);
+					$('#pScore14').val(0);
+					$('#pScore24').val(0);    
+					$('#pScore15').val(0);
+					$('#pScore25').val(0);
+					$('#pScore16').val(0);
+					$('#pScore26').val(0);  
+					$('#pScore17').val(0);
+					$('#pScore27').val(0);
+				}
+				if (pScoreTotal > multiplyValue3 && pScoreTotal <= multiplyValue4) {
+					$('#pScore14').val(pScore1int - pScore11int - pScore12int - pScore13int);
+					$('#pScore24').val(pScore2int - pScore21int - pScore22int - pScore23int);
+					$('#pScore15').val(0);
+					$('#pScore25').val(0);
+					$('#pScore16').val(0);
+					$('#pScore26').val(0);   
+					$('#pScore17').val(0);
+					$('#pScore27').val(0); 
+				}
+				if (pScoreTotal > multiplyValue4 && pScoreTotal <= multiplyValue5) {
+					$('#pScore15').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int);
+					$('#pScore25').val(pScore2int - pScore21int - pScore22int - pScore23int - pScore24int);
+					$('#pScore16').val(0);
 					$('#pScore26').val(0);  
 					$('#pScore17').val(0);
 					$('#pScore27').val(0); 
-					$('#pScore18').val(0);
-					$('#pScore28').val(0);         
-					break;
-					case 9:
-					case 10:    
-					case 11:
-					case 12:    
-						$('#pScore13').val(pScore1int - pScore11int - pScore12int);
-						$('#pScore23').val(pScore2int - pScore21int  - pScore22int);     
-						$('#pScore14').val(0);
-						$('#pScore24').val(0);    
-						$('#pScore15').val(0);
-						$('#pScore25').val(0);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0); 
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);    
-							break;    
-					case 13:
-					case 14: 
-					case 15:
-					case 16:   
-						$('#pScore14').val(pScore1int - pScore11int - pScore12int - pScore13int);
-						$('#pScore24').val(pScore2int - pScore21int  - pScore22int - pScore23int);            
-						$('#pScore15').val(0);
-						$('#pScore25').val(0);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0);  
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);     
-						break;	
-					case 17:
-					case 18:    
-						$('#pScore15').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int);
-						$('#pScore25').val(pScore2int - pScore21int  - pScore22int - pScore23int - pScore24int);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0);   
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);          
-							break;		   
-					case 19:
-					case 20:    
-						$('#pScore16').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int);
-						$('#pScore26').val(pScore2int - pScore21int  - pScore22int - pScore23int - pScore24int - pScore25int);
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);             
-							break;		
-					case 21:
-					case 22:    
-							$('#pScore17').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int - pScore16int);
-							$('#pScore27').val(pScore2int - pScore21int  - pScore22int - pScore23int - pScore24int - pScore25int - pScore26int); 
-							$('#pScore18').val(0);
-							$('#pScore28').val(0);            
-								break;
-					case 23:
-					case 24:    
-						$('#pScore18').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int - pScore16int - pScore17int);
-						$('#pScore28').val(pScore2int - pScore21int  - pScore22int - pScore23int - pScore24int - pScore25int - pScore26int - pScore27int);            
-							break;     
-					default:
-						break;
+
+				}
+				if (pScoreTotal > multiplyValue5 && pScoreTotal <= multiplyValue6) {
+					$('#pScore16').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int);
+					$('#pScore26').val(pScore2int - pScore21int - pScore22int - pScore23int - pScore24int - pScore25int);
+					$('#pScore17').val(0);
+					$('#pScore27').val(0); 
+
+				}
+				if (pScoreTotal > multiplyValue6 && pScoreTotal <= multiplyValue7) {
+					$('#pScore17').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int - pScore16int);
+					$('#pScore27').val(pScore2int - pScore21int - pScore22int - pScore23int - pScore24int - pScore25int - pScore26int);
 				}
 			}
         }

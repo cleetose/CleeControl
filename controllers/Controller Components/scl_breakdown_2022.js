@@ -68,14 +68,7 @@ class breakdownScores extends HTMLElement {
 			<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
 				class="up"></button>
 			</div>
-			<div class="scoreSpinners" id="breakdownSpinner8">
-			<input class="spinBoy storable breakDraft" id="pScore18" type="number" name="value" value="0" min="0"
-				readonly>
-			<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-				class="down"></button>
-			<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-				class="up"></button>
-			</div>
+
 		</div>
 		<div class="flexdown" id="flexText">
 		<p id="venue13BreakdownName">Aquarium</p>
@@ -85,7 +78,6 @@ class breakdownScores extends HTMLElement {
 		<p id="venue15BreakdownName">Library</p>
 		<p id="venue25BreakdownName">Redwoods</p>
 		<p id="venue16BreakdownName">Courtyard</p>
-		<p id="venue26BreakdownName">Gallery</p>
 		</div>
 		<div class="flexdown">
 			<div class="scoreSpinners" id="breakdownSpinner9">
@@ -144,14 +136,7 @@ class breakdownScores extends HTMLElement {
 			<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
 				class="up"></button>
 			</div>
-			<div class="scoreSpinners" id="breakdownSpinner16">
-			<input class="spinBoy storable breakDraft" id="pScore28" type="number" name="value" value="0" min="0"
-				readonly>
-			<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-				class="down"></button>
-			<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-				class="up"></button>
-			</div>
+
 		</div>  
 		</div>  
 		</div>
