@@ -322,31 +322,74 @@
 
                 if ($('#multiplySelect13').html() != $('#multiplySelect13').html(multiplySelect13)) {
                     $('#multiplySelect13').html(multiplySelect13);
+                    if ($('#multiplySelect13').html() == "Single") {
+                        $('#doubleBox13').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox13').css('visibility', 'visible');
+                    }
+
                 }
 
                 if ($('#multiplySelect14').html() != $('#multiplySelect14').html(multiplySelect14)) {
                     $('#multiplySelect14').html(multiplySelect14);
+                    if ($('#multiplySelect14').html() == "Single") {
+                        $('#doubleBox14').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox14').css('visibility', 'visible');
+                    }
                 }
 
                 if ($('#multiplySelect15').html() != $('#multiplySelect15').html(multiplySelect15)) {
                     $('#multiplySelect15').html(multiplySelect15);
+                    if ($('#multiplySelect15').html() == "Single") {
+                        $('#doubleBox15').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox15').css('visibility', 'visible');
+                    }
                 }
 
                 if ($('#multiplySelect16').html() != $('#multiplySelect16').html(multiplySelect16)) {
                     $('#multiplySelect16').html(multiplySelect16);
+                    if ($('#multiplySelect16').html() == "Single") {
+                        $('#doubleBox16').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox16').css('visibility', 'visible');
+                    }
                 }
 
 
                 if ($('#multiplySelect23').html() != $('#multiplySelect23').html(multiplySelect23)) {
                     $('#multiplySelect23').html(multiplySelect23);
+                    if ($('#multiplySelect23').html() == "Single") {
+                        $('#doubleBox23').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox23').css('visibility', 'visible');
+                    }
                 }
 
                 if ($('#multiplySelect24').html() != $('#multiplySelect24').html(multiplySelect24)) {
                     $('#multiplySelect24').html(multiplySelect24);
+                    if ($('#multiplySelect24').html() == "Single") {
+                        $('#doubleBox24').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox24').css('visibility', 'visible');
+                    }
                 }
 
                 if ($('#multiplySelect25').html() != $('#multiplySelect25').html(multiplySelect25)) {
                     $('#multiplySelect25').html(multiplySelect25);
+                    if ($('#multiplySelect25').html() == "Single") {
+                        $('#doubleBox25').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox25').css('visibility', 'visible');
+                    }
                 }
 
                 if ($('#multiplySelect26').html() != $('#multiplySelect26').html(multiplySelect26)) {
@@ -578,7 +621,7 @@
                 <div id="spacer2"></div>
                 <div class="pickHolder">
                     <div class="topImage largeImage venueImage" id="venue13">
-                        <div class="double">
+                        <div class="double" id="doubleBox13">
                             <p class="doubleText" id="multiplySelect13">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue13Holder">
@@ -591,7 +634,7 @@
                             id="venue13TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="topImage largeImage venueImage" id="venue14">
-                        <div class="double">
+                        <div class="double" id="doubleBox14">
                             <p class="doubleText" id="multiplySelect14">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue14Holder">
@@ -604,7 +647,7 @@
                             id="venue14TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="topImage largeImage venueImage" id="venue15">
-                        <div class="double">
+                        <div class="double" id="doubleBox15">
                             <p class="doubleText" id="multiplySelect15">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue15Holder">
@@ -617,7 +660,7 @@
                             id="venue15TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="topImage largeImage venueImage" id="venue16">
-                        <div class="double">
+                        <div class="double" id="doubleBox16">
                             <p class="doubleText" id="multiplySelect16">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue16Holder">
@@ -648,7 +691,7 @@
                 <div id="spacer2"></div>
                 <div class="pickHolder">
                     <div class="bottomImage largeImage venueImage" id="venue23">
-                        <div class="double">
+                        <div class="double" id="doubleBox23">
                             <p class="doubleText" id="multiplySelect23">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue23Holder">
@@ -661,7 +704,7 @@
                             id="venue23TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="bottomImage largeImage venueImage" id="venue24">
-                        <div class="double">
+                        <div class="double" id="doubleBox24">
                             <p class="doubleText" id="multiplySelect24">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue24Holder">
@@ -674,7 +717,7 @@
                             id="venue24TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="bottomImage largeImage venueImage" id="venue25">
-                        <div class="double">
+                        <div class="double" id="doubleBox25">
                             <p class="doubleText" id="multiplySelect25">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue25Holder">

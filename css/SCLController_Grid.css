@@ -788,6 +788,10 @@ input[type=number]:focus {outline:none !important}
 	margin-bottom: 0px;
 }
 
+.autoMultiply {
+	display: none;
+}
+
 #clearAutoVenue {
 	width: 100%;
 }

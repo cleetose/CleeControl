@@ -360,6 +360,11 @@ function draftType() {
         $('#multiplySelect25').css('display', 'none');
         $('#multiplySelect16').css('display', 'none');
         $('#multiplySelect26').css('display', 'none');
+
+        $('#multiplySelect13').val('Double');
+        $('#multiplySelect23').val('Double');
+        $('#multiplySelect14').val('Single');
+        $('#multiplySelect24').val('Single');
     }
 
     if ($('#matchType').val() == 'regularSeasonB') {
