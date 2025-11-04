@@ -421,13 +421,12 @@ function draftType() {
     for (i = 0; i < venueSelectArr.length; i++) {
         if ($('#' + venueSelectArr[i]).css('display') == ('none')) {
             $('#' + venueSelectArr[i]).val('');
+            }
         }
     }
-}
-
-
 
     //Clear button for Draft
     document.getElementById("resetti").addEventListener("click", function () {
         $('.venueSelect').val('');
+        $('.multiSelect').val('Single');
     });
