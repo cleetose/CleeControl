@@ -123,6 +123,16 @@
                         $('#venue26').css('display','none');
                         $('.venueTextLarge').css('font-size','18pt');
                         break;
+
+                        case 'postSeasonB':
+                        $('#restrictTextTop').html('Restrict');
+                        $('#restrictTextBottom').html('Restrict');    
+                        $('#venue15').css('display','flex');
+                        $('#venue25').css('display','flex');
+                        $('#venue16').css('display','flex');
+                        $('#venue26').css('display','none');
+                        $('.venueTextLarge').css('font-size','18pt');
+                        break;
                 }
             
                 switch (pDivision1) {
@@ -562,7 +572,7 @@
                         loadIn = "done";
                     }, 3000);
                 
-                if (matchType == 'postSeason') {
+                if (matchType == 'postSeason' || matchType == 'postSeasonB') {
                 
 
                 if (venue16Name != venue16NameOld && venue16Name != "") {

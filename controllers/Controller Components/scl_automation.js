@@ -142,7 +142,7 @@ $('#updateAutoVenue').on('click',function() {
         venueSeparator = [];
         venueDecoder = $('#venueDecoder').val();
         decoderLowercase = venueDecoder.toLowerCase()
-        venueSeparator = decoderLowercase.match(/aquarium|ballroom|balcony|courtyard|gallery|high-rise|library|moderne|pub|redwoods|teien|terrace|veranda|nothing/g);
+        venueSeparator = decoderLowercase.match(/aquarium|ballroom|balcony|courtyard|gallery|high-rise|library|moderne|pub|redwoods|teien|terrace|veranda|nothing|declines/g);
         if ($('#matchType').val() == 'regularSeasonA') {
 
             venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue23","venue14","venue24"];
@@ -219,7 +219,9 @@ $('#updateAutoVenue').on('click',function() {
                     case 'nothing':
                         $('#'+venueAssignerArr[l]).val('declined; ; ;');
                         break; 
-
+                        case 'declines':
+                            $('#'+venueAssignerArr[l]).val('declined; ; ;');
+                            break; 
                     default:
                         break;
                 };   

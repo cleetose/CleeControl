@@ -14,7 +14,7 @@ class SclDraft extends HTMLElement {
             <option defaultSelected selected="" value="regularSeasonA">Regular Season Lower</option>
             <option defaultSelected selected="" value="regularSeasonB">Regular Season Upper</option>
             <option value="postSeason">Post Season</option>
-
+            <option value="postSeasonB">Championship</option>
         </select>
         <input class="selectType storable2 draft" type="text" id="venueType1" placeholder="Title" readonly />
         <div class="break"></div>
@@ -328,7 +328,7 @@ if ($('#matchType').val() == 'regularSeasonB') {
     
 }
 
-if ($('#matchType').val() == 'postSeason') {
+if ($('#matchType').val() == 'postSeason' || $('#matchType').val() == 'postSeasonB') {
 
 
     $('#multiplySelect13').val('Single');
@@ -389,6 +389,30 @@ function draftType() {
     }
 
     if ($('#matchType').val() == 'postSeason') {
+
+        $('#venue13').css('display', 'block');
+        $('#venue23').css('display', 'block');
+        $('#venue14').css('display', 'block');
+        $('#venue24').css('display', 'block');
+        $('#venue15').css('display', 'block');
+        $('#venue25').css('display', 'block');
+        $('#venue16').css('display', 'block');
+        $('#venue26').css('display', 'block');
+        $('#venue26').css('visibility', 'hidden');
+        
+        $('#multiplySelect13').css('display', 'block');
+        $('#multiplySelect23').css('display', 'block');
+        $('#multiplySelect14').css('display', 'block');
+        $('#multiplySelect24').css('display', 'block');
+        $('#multiplySelect15').css('display', 'block');
+        $('#multiplySelect25').css('display', 'block');
+        $('#multiplySelect16').css('display', 'block');
+        $('#multiplySelect26').css('display', 'block');
+        $('#multiplySelect26').css('visibility', 'hidden');
+        
+    }
+
+    if ($('#matchType').val() == 'postSeasonB') {
 
         $('#venue13').css('display', 'block');
         $('#venue23').css('display', 'block');
