@@ -325,8 +325,9 @@ p {
     width: 1920px;
     height: fit-content;
     left: -2000px;
-    background-color: var(--top-band-color);
-    border: solid var(--top-band-border-color) 8px; 
+    background: linear-gradient(180deg, var(--top-band-color) 0%,var(--top-band-color) 48%, var(--bottom-band-color) 51%,  var(--bottom-band-color) 100%);
+    border-top: solid var(--top-band-border-color) 8px; 
+    border-bottom: solid var(--bottom-band-border-color) 8px; 
     border-left: 0px;
     border-right: 0px;
 
@@ -344,9 +345,17 @@ p {
 }
 
 
-#divisionBadgeRight {
+#divisionBadgeRightDown {
     top: 94px;
     left: 1860px;
+}
+
+#divisionBadgeRightUp {
+    left: 1860px;
+}
+
+#divisionBadgeLeftDown {
+    top: 94px;
 }
 
 #pName1 {
@@ -378,5 +387,5 @@ p {
     font-size: 40pt;
     padding-top: 10px;
     padding-bottom: -15px;
-    color: var(--top-band-text-color);
+    color: var(--bottom-band-text-color);
 }

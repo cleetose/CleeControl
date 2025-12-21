@@ -134,73 +134,140 @@
                         $('.venueTextLarge').css('font-size','18pt');
                         break;
                 }
+
+                if (pDivision2 == "") {
+                    pDivision2 = pDivision1;
+                }
             
                 switch (pDivision1) {
                     case 'Challenger':
                 document.body.style.setProperty('--top-band-color', '#65ba7f');
                 document.body.style.setProperty('--top-band-border-color', '#8cedad');
                 document.body.style.setProperty('--top-band-text-color', '#ffffff');
-                $('.badges').css('background-image','url("./images_badges/challenger.svg")');
+                $('.divUp').css('background-image','url("./images_badges/challenger.svg")');
                         break;
                     case 'oak':
                 document.body.style.setProperty('--top-band-color', '#6c2c04');
                 document.body.style.setProperty('--top-band-border-color', '#521f03');
                 document.body.style.setProperty('--top-band-text-color', '#eec680');
-                $('.badges').css('background-image','url("./images_badges/oak.svg")');
+                $('.divUp').css('background-image','url("./images_badges/oak.svg")');
                         break;
                         case 'obsidian':
                 document.body.style.setProperty('--top-band-color', '#343434');
                 document.body.style.setProperty('--top-band-border-color', '#5b5b5b');
                 document.body.style.setProperty('--top-band-text-color', '#a13c24');
-                $('.badges').css('background-image','url("./images_badges/obsidian.svg")');
+                $('.divUp').css('background-image','url("./images_badges/obsidian.svg")');
                         break;
                         case 'iron':
                 document.body.style.setProperty('--top-band-color', '#556060');
                 document.body.style.setProperty('--top-band-border-color', '#808e8d');
                 document.body.style.setProperty('--top-band-text-color', '#abb2b2');
-                $('.badges').css('background-image','url("./images_badges/iron.svg")');
+                $('.divUp').css('background-image','url("./images_badges/iron.svg")');
                         break;
                     case 'copper':
                 document.body.style.setProperty('--top-band-color', '#a04120');
                 document.body.style.setProperty('--top-band-border-color', '#a5927f');
                 document.body.style.setProperty('--top-band-text-color', '#eff4ce');
-                $('.badges').css('background-image','url("./images_badges/copper.svg")');
+                $('.divUp').css('background-image','url("./images_badges/copper.svg")');
                         break;
                         case 'bronze':
                 document.body.style.setProperty('--top-band-color', '#e24d0c');
                 document.body.style.setProperty('--top-band-border-color', '#f79857');
                 document.body.style.setProperty('--top-band-text-color', '#f7eeb0');
-                $('.badges').css('background-image','url("./images_badges/bronze.svg")');
+                $('.divUp').css('background-image','url("./images_badges/bronze.svg")');
                         break;
                         case 'silver':
                 document.body.style.setProperty('--top-band-color', '#b1e8e8');
                 document.body.style.setProperty('--top-band-border-color', '#0c0c0b');
                 document.body.style.setProperty('--top-band-text-color', '#5a7270');
-                $('.badges').css('background-image','url("./images_badges/silver.svg")');
+                $('.divUp').css('background-image','url("./images_badges/silver.svg")');
                         break;
                         case 'gold':
                 document.body.style.setProperty('--top-band-color', '#ea9313');
                 document.body.style.setProperty('--top-band-border-color', '#6d3b09');
                 document.body.style.setProperty('--top-band-text-color', '#efd659');
-                $('.badges').css('background-image','url("./images_badges/gold.svg")');
+                $('.divUp').css('background-image','url("./images_badges/gold.svg")');
                         break;
                         case 'platinum':
                 document.body.style.setProperty('--top-band-color', '#cccccc');
                 document.body.style.setProperty('--top-band-border-color', '#666666');
                 document.body.style.setProperty('--top-band-text-color', '#ffffff');
-                $('.badges').css('background-image','url("./images_badges/platinum.svg")');
+                $('.divUp').css('background-image','url("./images_badges/platinum.svg")');
                         break;
                         case 'diamond':
                 document.body.style.setProperty('--top-band-color', '#01daf9');
                 document.body.style.setProperty('--top-band-border-color', '#16495e');
                 document.body.style.setProperty('--top-band-text-color', '#feffff');
-                $('.badges').css('background-image','url("./images_badges/diamond.svg")');
+                $('.divUp').css('background-image','url("./images_badges/diamond.svg")');
                         break;
                     default:
                         break;
                 }
             
-            
+                switch (pDivision2) {
+                    case 'Challenger':
+                document.body.style.setProperty('--bottom-band-color', '#65ba7f');
+                document.body.style.setProperty('--bottom-band-border-color', '#8cedad');
+                document.body.style.setProperty('--bottom-band-text-color', '#ffffff');
+                $('.divDown').css('background-image','url("./images_badges/challenger.svg")');
+                        break;
+                    case 'oak':
+                document.body.style.setProperty('--bottom-band-color', '#6c2c04');
+                document.body.style.setProperty('--bottom-band-border-color', '#521f03');
+                document.body.style.setProperty('--bottom-band-text-color', '#eec680');
+                $('.divDown').css('background-image','url("./images_badges/oak.svg")');
+                        break;
+                        case 'obsidian':
+                document.body.style.setProperty('--bottom-band-color', '#343434');
+                document.body.style.setProperty('--bottom-band-border-color', '#5b5b5b');
+                document.body.style.setProperty('--bottom-band-text-color', '#a13c24');
+                $('.divDown').css('background-image','url("./images_badges/obsidian.svg")');
+                        break;
+                        case 'iron':
+                document.body.style.setProperty('--bottom-band-color', '#556060');
+                document.body.style.setProperty('--bottom-band-border-color', '#808e8d');
+                document.body.style.setProperty('--bottom-band-text-color', '#abb2b2');
+                $('.divDown').css('background-image','url("./images_badges/iron.svg")');
+                        break;
+                    case 'copper':
+                document.body.style.setProperty('--bottom-band-color', '#a04120');
+                document.body.style.setProperty('--bottom-band-border-color', '#a5927f');
+                document.body.style.setProperty('--bottom-band-text-color', '#eff4ce');
+                $('.divDown').css('background-image','url("./images_badges/copper.svg")');
+                        break;
+                        case 'bronze':
+                document.body.style.setProperty('--bottom-band-color', '#e24d0c');
+                document.body.style.setProperty('--bottom-band-border-color', '#f79857');
+                document.body.style.setProperty('--bottom-band-text-color', '#f7eeb0');
+                $('.divDown').css('background-image','url("./images_badges/bronze.svg")');
+                        break;
+                        case 'silver':
+                document.body.style.setProperty('--bottom-band-color', '#b1e8e8');
+                document.body.style.setProperty('--bottom-band-border-color', '#0c0c0b');
+                document.body.style.setProperty('--bottom-band-text-color', '#5a7270');
+                $('.divDown').css('background-image','url("./images_badges/silver.svg")');
+                        break;
+                        case 'gold':
+                document.body.style.setProperty('--bottom-band-color', '#ea9313');
+                document.body.style.setProperty('--bottom-band-border-color', '#6d3b09');
+                document.body.style.setProperty('--bottom-band-text-color', '#efd659');
+                $('.divDown').css('background-image','url("./images_badges/gold.svg")');
+                        break;
+                        case 'platinum':
+                document.body.style.setProperty('--bottom-band-color', '#cccccc');
+                document.body.style.setProperty('--bottom-band-border-color', '#666666');
+                document.body.style.setProperty('--bottom-band-text-color', '#ffffff');
+                $('.divDown').css('background-image','url("./images_badges/platinum.svg")');
+                        break;
+                        case 'diamond':
+                document.body.style.setProperty('--bottom-band-color', '#01daf9');
+                document.body.style.setProperty('--bottom-band-border-color', '#16495e');
+                document.body.style.setProperty('--bottom-band-text-color', '#feffff');
+                $('.divDown').css('background-image','url("./images_badges/diamond.svg")');
+                        break;
+                    default:
+                        break;
+                }
             
                 if (pName1 != $('#pName1').html()) {
 
@@ -800,8 +867,10 @@
                     </p>
                 </div>
                 <div id="pName2">CLEETOSE</div>
-                <div class="badges" id="divisionBadgeLeft"></div>
-                <div class="badges" id="divisionBadgeRight"></div>
+                <div class="badges divUp" id="divisionBadgeLeftUp"></div>
+                <div class="badges divUp" id="divisionBadgeRightUp"></div>
+                <div class="badges divDown" id="divisionBadgeLeftDown"></div>
+                <div class="badges divDown" id="divisionBadgeRightDown"></div>
             </div>
         </div>
     </body>
