@@ -116,8 +116,9 @@ p {
     width: 1920px;
     height: fit-content;
     left: -2000px;
-    background: linear-gradient(180deg, var(--top-band-color) 0%, var(--top-band-color) 50%, var(--top-band-text-color) 50%, var(--top-band-text-color) 100%);
-    border: solid var(--top-band-border-color) 8px; 
+    background: linear-gradient(180deg, var(--top-band-color) 0%,var(--top-band-color) 48%, var(--bottom-band-color) 51%,  var(--bottom-band-color) 100%);
+    border-top: solid var(--top-band-border-color) 8px; 
+    border-bottom: solid var(--bottom-band-border-color) 8px; 
     border-left: 0px;
     border-right: 0px;
 }
@@ -167,19 +168,19 @@ p {
 }
 
 #venue23 {
-    border-color: var(--top-band-text-color);
+    border-color: var(--bottom-band-color);
 }
 
 #venue24 {
-    border-color: var(--top-band-text-color);
+    border-color: var(--bottom-band-color);
 }
 
 #venue25 {
-    border-color: var(--top-band-text-color);
+    border-color: var(--bottom-band-color);
 }
 
 #venue26 {
-    border-color: var(--top-band-text-color);
+    border-color: var(--bottom-band-color);
 }
 
 .largeImage {
@@ -231,7 +232,7 @@ p {
     font-size: 40pt;
     padding-top: 10px;
     padding-bottom: -15px;
-    color: var(--top-band-color);
+    color: var(--bottom-band-text-color);
 }
 
 .badges {

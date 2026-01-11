@@ -183,13 +183,30 @@
 				multiplyInt16 = 6;
 			}
 
+            if (multiplySelect26 == "Single") {
+				multiplyInt26 = 2;
+			}
+			if (multiplySelect26 == "Double") {
+				multiplyInt26 = 4;
+			}
+			if (multiplySelect26 == "Triple") {
+				multiplyInt26 = 6;
+			}
+
+
             multiplyValue1 = multiplyInt13;
 			multiplyValue2 = multiplyInt13 + multiplyInt23;
 			multiplyValue3 = multiplyValue2 + multiplyInt14;
 			multiplyValue4 = multiplyValue3 + multiplyInt24;
 			multiplyValue5 = multiplyValue4 + multiplyInt15;
 			multiplyValue6 = multiplyValue5 + multiplyInt25;
-			multiplyValue7 = multiplyValue6 + multiplyInt16;
+
+            if (matchType == "postSeason" || matchType == 'masters') {
+                multiplyValue7 = multiplyValue6 + multiplyInt16;
+            }
+            if (matchType == "postSeasonRH" || matchType == 'mastersRH') {
+                multiplyValue7 = multiplyValue6 + multiplyInt26;
+            }
 
                 pScoreTotal  = p1Score + p2Score;
                 console.log(p1Score);
@@ -309,7 +326,55 @@
                         }
                         break;
 
-                        case 'postSeasonB': 
+                        case 'postSeasonRH':
+                        case 'mastersRH0': 
+                    if (p1Score == 10 || p2Score == 10) {
+                        if (pScoreTotal <= multiplyValue3 && pScoreTotal > multiplyValue2) {
+                            pScore14 = 'Match';
+                            pScore24 = 'Over';
+                        }
+                        if (pScoreTotal <= multiplyValue4 && pScoreTotal > multiplyValue3) {
+                            pScore15 = 'Match';
+                            pScore25 = 'Over';
+                        }
+                        if (pScoreTotal <= multiplyValue5 && pScoreTotal > multiplyValue4) {
+                            pScore16 = 'Match';
+                            pScore26 = 'Over';
+                        }
+                        if (pScoreTotal <= multiplyValue6 && pScoreTotal > multiplyValue5) {
+                            pScore17 = 'Match';
+                            pScore27 = 'Over';
+                        }
+
+                        } else {
+                            if (pScoreTotal == multiplyValue1) {
+                        pScore12 = 'Next';
+                        pScore22 = 'Venue';
+                        }
+                        if (pScoreTotal == multiplyValue2) {
+                            pScore13 = 'Next';
+                            pScore23 = 'Venue';
+                        }
+                        if (pScoreTotal == multiplyValue3) {
+                            pScore14 = 'Next';
+                            pScore24 = 'Venue';
+                        }
+                        if (pScoreTotal == multiplyValue4) {
+                            pScore15 = 'Next';
+                            pScore25 = 'Venue';
+                        }
+                        if (pScoreTotal == multiplyValue5) {
+                            pScore16 = 'Next';
+                            pScore26 = 'Venue';
+                        }
+                        if (pScoreTotal == multiplyValue6) {
+                            pScore17 = 'Next';
+                            pScore27 = 'Venue';
+                        }
+                        }
+                        break;
+
+                        case 'postSeasonB','mastersRH': 
                     if (p1Score == 12 || p2Score == 12) {
                         if (pScoreTotal <= multiplyValue3 && pScoreTotal > multiplyValue2) {
                             pScore14 = 'Match';
@@ -513,6 +578,12 @@
 
                 if ($('#multiplySelect26').html() != $('#multiplySelect26').html(multiplySelect26)) {
                     $('#multiplySelect26').html(multiplySelect26);
+                    if ($('#multiplySelect26').html() == "Single") {
+                        $('#doubleBox26').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox26').css('visibility', 'visible');
+                    }
                 }
 
             }
@@ -557,17 +628,17 @@
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
                         $('#venue16').css('display','flex');
-                        $('#venue26').css('display','flex');
+                        $('#venue26').css('display','none');
                         $('.postBreak').css('display','block');
                         $('.champBreak').css('display','block');
                         $('.champDouble').css('display','block');
                         $('.venueTextLarge').css('font-size','18pt');
                         break;
 
-                        case 'postSeasonB': 
+                        case 'postSeasonRH': 
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
-                        $('#venue16').css('display','flex');
+                        $('#venue16').css('display','none');
                         $('#venue26').css('display','flex');
                         $('.postBreak').css('display','block');
                         $('.champBreak').css('display','block');
@@ -577,67 +648,135 @@
                 }
 
                 //Changes colors of the name bars to match division selection.
+                if (pDivision2 == "") {
+                    pDivision2 = pDivision1;
+                }
+            
                 switch (pDivision1) {
                     case 'Challenger':
-                        document.body.style.setProperty('--top-band-color', '#65ba7f');
-                        document.body.style.setProperty('--top-band-border-color', '#8cedad');
-                        document.body.style.setProperty('--top-band-text-color', '#ffffff');
-                        $('.badges').css('background-image','url("./images_badges/challenger.svg")');
+                document.body.style.setProperty('--top-band-color', '#65ba7f');
+                document.body.style.setProperty('--top-band-border-color', '#8cedad');
+                document.body.style.setProperty('--top-band-text-color', '#ffffff');
+                $('.divUp').css('background-image','url("./images_badges/challenger.svg")');
                         break;
                     case 'oak':
-                        document.body.style.setProperty('--top-band-color', '#6c2c04');
-                        document.body.style.setProperty('--top-band-border-color', '#521f03');
-                        document.body.style.setProperty('--top-band-text-color', '#eec680');
-                        $('.badges').css('background-image','url("./images_badges/oak.svg")');
-                        console.log('test');
+                document.body.style.setProperty('--top-band-color', '#6c2c04');
+                document.body.style.setProperty('--top-band-border-color', '#521f03');
+                document.body.style.setProperty('--top-band-text-color', '#eec680');
+                $('.divUp').css('background-image','url("./images_badges/oak.svg")');
                         break;
-                    case 'obsidian':
-                        document.body.style.setProperty('--top-band-color', '#343434');
-                        document.body.style.setProperty('--top-band-border-color', '#5b5b5b');
-                        document.body.style.setProperty('--top-band-text-color', '#a13c24');
-                        $('.badges').css('background-image','url("./images_badges/obsidian.svg")');
+                        case 'obsidian':
+                document.body.style.setProperty('--top-band-color', '#343434');
+                document.body.style.setProperty('--top-band-border-color', '#5b5b5b');
+                document.body.style.setProperty('--top-band-text-color', '#a13c24');
+                $('.divUp').css('background-image','url("./images_badges/obsidian.svg")');
                         break;
-                    case 'iron':
-                        document.body.style.setProperty('--top-band-color', '#556060');
-                        document.body.style.setProperty('--top-band-border-color', '#808e8d');
-                        document.body.style.setProperty('--top-band-text-color', '#abb2b2');
-                        $('.badges').css('background-image','url("./images_badges/iron.svg")');
+                        case 'iron':
+                document.body.style.setProperty('--top-band-color', '#556060');
+                document.body.style.setProperty('--top-band-border-color', '#808e8d');
+                document.body.style.setProperty('--top-band-text-color', '#abb2b2');
+                $('.divUp').css('background-image','url("./images_badges/iron.svg")');
                         break;
                     case 'copper':
-                        document.body.style.setProperty('--top-band-color', '#a04120');
-                        document.body.style.setProperty('--top-band-border-color', '#a5927f');
-                        document.body.style.setProperty('--top-band-text-color', '#eff4ce');
-                        $('.badges').css('background-image','url("./images_badges/copper.svg")');
+                document.body.style.setProperty('--top-band-color', '#a04120');
+                document.body.style.setProperty('--top-band-border-color', '#a5927f');
+                document.body.style.setProperty('--top-band-text-color', '#eff4ce');
+                $('.divUp').css('background-image','url("./images_badges/copper.svg")');
                         break;
-                    case 'bronze':
-                        document.body.style.setProperty('--top-band-color', '#e24d0c');
-                        document.body.style.setProperty('--top-band-border-color', '#f79857');
-                        document.body.style.setProperty('--top-band-text-color', '#f7eeb0');
-                        $('.badges').css('background-image','url("./images_badges/bronze.svg")');
+                        case 'bronze':
+                document.body.style.setProperty('--top-band-color', '#e24d0c');
+                document.body.style.setProperty('--top-band-border-color', '#f79857');
+                document.body.style.setProperty('--top-band-text-color', '#f7eeb0');
+                $('.divUp').css('background-image','url("./images_badges/bronze.svg")');
                         break;
-                    case 'silver':
-                        document.body.style.setProperty('--top-band-color', '#b1e8e8');
-                        document.body.style.setProperty('--top-band-border-color', '#f2f2f2');
-                        document.body.style.setProperty('--top-band-text-color', '#5a7270');
-                        $('.badges').css('background-image','url("./images_badges/silver.svg")');
+                        case 'silver':
+                document.body.style.setProperty('--top-band-color', '#b1e8e8');
+                document.body.style.setProperty('--top-band-border-color', '#0c0c0b');
+                document.body.style.setProperty('--top-band-text-color', '#5a7270');
+                $('.divUp').css('background-image','url("./images_badges/silver.svg")');
                         break;
-                    case 'gold':
-                        document.body.style.setProperty('--top-band-color', '#ea9313');
-                        document.body.style.setProperty('--top-band-border-color', '#6d3b09');
-                        document.body.style.setProperty('--top-band-text-color', '#efd659');
-                        $('.badges').css('background-image','url("./images_badges/gold.svg")');
+                        case 'gold':
+                document.body.style.setProperty('--top-band-color', '#ea9313');
+                document.body.style.setProperty('--top-band-border-color', '#6d3b09');
+                document.body.style.setProperty('--top-band-text-color', '#efd659');
+                $('.divUp').css('background-image','url("./images_badges/gold.svg")');
                         break;
-                    case 'platinum':
-                        document.body.style.setProperty('--top-band-color', '#cccccc');
-                        document.body.style.setProperty('--top-band-border-color', '#666666');
-                        document.body.style.setProperty('--top-band-text-color', '#ffffff');
-                        $('.badges').css('background-image','url("./images_badges/platinum.svg")');
+                        case 'platinum':
+                document.body.style.setProperty('--top-band-color', '#cccccc');
+                document.body.style.setProperty('--top-band-border-color', '#666666');
+                document.body.style.setProperty('--top-band-text-color', '#ffffff');
+                $('.divUp').css('background-image','url("./images_badges/platinum.svg")');
                         break;
-                    case 'diamond':
-                        document.body.style.setProperty('--top-band-color', '#01daf9');
-                        document.body.style.setProperty('--top-band-border-color', '#16495e');
-                        document.body.style.setProperty('--top-band-text-color', '#feffff');
-                        $('.badges').css('background-image','url("./images_badges/diamond.svg")');
+                        case 'diamond':
+                document.body.style.setProperty('--top-band-color', '#01daf9');
+                document.body.style.setProperty('--top-band-border-color', '#16495e');
+                document.body.style.setProperty('--top-band-text-color', '#feffff');
+                $('.divUp').css('background-image','url("./images_badges/diamond.svg")');
+                        break;
+                    default:
+                        break;
+                }
+            
+                switch (pDivision2) {
+                    case 'Challenger':
+                document.body.style.setProperty('--bottom-band-text-color', '#65ba7f');
+                document.body.style.setProperty('--bottom-band-border-color', '#8cedad');
+                document.body.style.setProperty('--bottom-band-color', '#ffffff');
+                $('.divDown').css('background-image','url("./images_badges/challenger.svg")');
+                        break;
+                    case 'oak':
+                document.body.style.setProperty('--bottom-band-text-color', '#6c2c04');
+                document.body.style.setProperty('--bottom-band-border-color', '#521f03');
+                document.body.style.setProperty('--bottom-band-color', '#eec680');
+                $('.divDown').css('background-image','url("./images_badges/oak.svg")');
+                        break;
+                        case 'obsidian':
+                document.body.style.setProperty('--bottom-band-text-color', '#343434');
+                document.body.style.setProperty('--bottom-band-border-color', '#5b5b5b');
+                document.body.style.setProperty('--bottom-band-color', '#a13c24');
+                $('.divDown').css('background-image','url("./images_badges/obsidian.svg")');
+                        break;
+                        case 'iron':
+                document.body.style.setProperty('--bottom-band-text-color', '#556060');
+                document.body.style.setProperty('--bottom-band-border-color', '#808e8d');
+                document.body.style.setProperty('--bottom-band-color', '#abb2b2');
+                $('.divDown').css('background-image','url("./images_badges/iron.svg")');
+                        break;
+                    case 'copper':
+                document.body.style.setProperty('--bottom-band-text-color', '#a04120');
+                document.body.style.setProperty('--bottom-band-border-color', '#a5927f');
+                document.body.style.setProperty('--bottom-band-color', '#eff4ce');
+                $('.divDown').css('background-image','url("./images_badges/copper.svg")');
+                        break;
+                        case 'bronze':
+                document.body.style.setProperty('--bottom-band-text-color', '#e24d0c');
+                document.body.style.setProperty('--bottom-band-border-color', '#f79857');
+                document.body.style.setProperty('--bottom-band-color', '#f7eeb0');
+                $('.divDown').css('background-image','url("./images_badges/bronze.svg")');
+                        break;
+                        case 'silver':
+                document.body.style.setProperty('--bottom-band-text-color', '#b1e8e8');
+                document.body.style.setProperty('--bottom-band-border-color', '#0c0c0b');
+                document.body.style.setProperty('--bottom-band-color', '#5a7270');
+                $('.divDown').css('background-image','url("./images_badges/silver.svg")');
+                        break;
+                        case 'gold':
+                document.body.style.setProperty('--bottom-band-text-color', '#ea9313');
+                document.body.style.setProperty('--bottom-band-border-color', '#6d3b09');
+                document.body.style.setProperty('--bottom-band-color', '#efd659');
+                $('.divDown').css('background-image','url("./images_badges/gold.svg")');
+                        break;
+                        case 'platinum':
+                document.body.style.setProperty('--bottom-band-text-color', '#cccccc');
+                document.body.style.setProperty('--bottom-band-border-color', '#666666');
+                document.body.style.setProperty('--bottom-band-color', '#ffffff');
+                $('.divDown').css('background-image','url("./images_badges/platinum.svg")');
+                        break;
+                        case 'diamond':
+                document.body.style.setProperty('--bottom-band-text-color', '#01daf9');
+                document.body.style.setProperty('--bottom-band-border-color', '#16495e');
+                document.body.style.setProperty('--bottom-band-color', '#feffff');
+                $('.divDown').css('background-image','url("./images_badges/diamond.svg")');
                         break;
                     default:
                         break;
@@ -875,6 +1014,16 @@
                             id="venue16TextLeft"></p>
                         <p class="venueGuestsTime venueTextLarge"
                             id="venue16TextRight"></p>
+                    </div>
+
+                    <div class="largeImage venueImage" id="venue26">
+                        <div class="double" id="doubleBox26">
+                            <p class="doubleText" id="multiplySelect26">Doubled</p>
+                        </div>
+                        <p class="venueName venueTextLarge"
+                            id="venue26TextLeft"></p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venue26TextRight"></p>
                     </div>
                 
 

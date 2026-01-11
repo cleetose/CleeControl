@@ -115,6 +115,7 @@
                         break;
                 
                     case 'postSeason':
+                    case 'masters':
                         $('#restrictTextTop').html('Restrict');
                         $('#restrictTextBottom').html('Restrict');    
                         $('#venue15').css('display','flex');
@@ -124,13 +125,14 @@
                         $('.venueTextLarge').css('font-size','18pt');
                         break;
 
-                        case 'postSeasonB':
+                        case 'postSeasonRH':
+                        case 'mastersRH':
                         $('#restrictTextTop').html('Restrict');
                         $('#restrictTextBottom').html('Restrict');    
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
-                        $('#venue16').css('display','flex');
-                        $('#venue26').css('display','none');
+                        $('#venue16').css('display','none');
+                        $('#venue26').css('display','flex');
                         $('.venueTextLarge').css('font-size','18pt');
                         break;
                 }
@@ -471,6 +473,12 @@
 
                 if ($('#multiplySelect26').html() != $('#multiplySelect26').html(multiplySelect26)) {
                     $('#multiplySelect26').html(multiplySelect26);
+                    if ($('#multiplySelect26').html() == "Single") {
+                        $('#doubleBox26').css('visibility', 'hidden');
+                    }
+                    else {
+                        $('#doubleBox26').css('visibility', 'visible');
+                    }
                 }
 
 
@@ -639,7 +647,7 @@
                         loadIn = "done";
                     }, 3000);
                 
-                if (matchType == 'postSeason' || matchType == 'postSeasonB') {
+                if (matchType == 'postSeason' || matchType == 'masters') {
                 
 
                 if (venue16Name != venue16NameOld && venue16Name != "") {
@@ -650,7 +658,21 @@
                     venue16NameOld = venue16Name;
                 }
             
+            setTimeout(() => {
+            loadIn = "done";
+            }, 2500);
+            }
 
+            if (matchType == 'postSeasonRH' || matchType == 'mastersRH') {
+                
+
+                if (venue26Name != venue26NameOld && venue26Name != "") {
+                    setTimeout(() => {
+                    bigVenueChange('venue26');
+                   
+                }, 3400); 
+                    venue26NameOld = venue26Name;
+                }
             
             setTimeout(() => {
             loadIn = "done";
@@ -807,7 +829,7 @@
                             id="venue25TextRight">69 Guests<br>4:20 Mins</p>
                     </div>
                     <div class="bottomImage largeImage venueImage" id="venue26">
-                        <div class="double">
+                        <div class="double" id="doubleBox26">
                             <p class="doubleText" id="multiplySelect26">Doubled</p>
                         </div>
                         <div class="videoHolder" id="venue26Holder">

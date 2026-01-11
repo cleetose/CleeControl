@@ -155,9 +155,15 @@ $('#updateAutoVenue').on('click',function() {
         
         }
         
-        if ($('#matchType').val() == 'postSeason') {
+        if ($('#matchType').val() == 'postSeason' || $('#matchType').val() == 'masters') {
 
             venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue14","venue15","venue16","venue23","venue24","venue25","autoMultiply1","autoMultiply2","autoMultiply3","autoMultiply4"];
+        
+        }
+
+        if ($('#matchType').val() == 'postSeasonRH' || $('#matchType').val() == 'mastersRH') {
+
+            venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue14","venue15","venue23","venue24","venue25","venue26","autoMultiply1","autoMultiply2","autoMultiply3","autoMultiply4"];
         
         }
         
@@ -232,6 +238,8 @@ $('#updateAutoVenue').on('click',function() {
             $('#multiplySelect24').val('Single');
             $('#multiplySelect15').val('Single');
             $('#multiplySelect25').val('Single');
+            $('#multiplySelect16').val('Single');
+            $('#multiplySelect26').val('Single');
 
             for (let q = 13; q <= 16; q++) {
                 if ($("#autoMultiply1").val() == $("#venue"+q).val()) {
