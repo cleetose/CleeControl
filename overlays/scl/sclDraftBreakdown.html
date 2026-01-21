@@ -280,6 +280,7 @@
 
 
                     case 'postSeason': 
+                    case 'postSeasonRH':
                     if (p1Score == 10 || p2Score == 10) {
                         if (pScoreTotal <= multiplyValue3 && pScoreTotal > multiplyValue2) {
                             pScore14 = 'Match';
@@ -326,9 +327,9 @@
                         }
                         break;
 
-                        case 'postSeasonRH':
-                        case 'mastersRH0': 
-                    if (p1Score == 10 || p2Score == 10) {
+                        case 'masters':
+                        case 'mastersRH': 
+                    if (p1Score == 12 || p2Score == 12) {
                         if (pScoreTotal <= multiplyValue3 && pScoreTotal > multiplyValue2) {
                             pScore14 = 'Match';
                             pScore24 = 'Over';
@@ -625,6 +626,7 @@
                         break;
 
                     case 'postSeason': 
+                    case 'masters':
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
                         $('#venue16').css('display','flex');
@@ -636,6 +638,7 @@
                         break;
 
                         case 'postSeasonRH': 
+                        case 'mastersRH':
                         $('#venue15').css('display','flex');
                         $('#venue25').css('display','flex');
                         $('#venue16').css('display','none');
