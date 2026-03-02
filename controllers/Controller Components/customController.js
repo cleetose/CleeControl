@@ -69,6 +69,51 @@ $(document).ready(function () {
 	}
 	console.log(checkboxMemArr);
 
+	chkMemLoader2 = localStorage.getObj('saveChkStates2');
+
+	if (chkMemLoader2 != null) {
+		checkboxMemArr2 = chkMemLoader2;
+	}
+
+	updateDoubles();
+
+	/*Recall array which contains ids of every accordion panel 
+			that was open when the overlay was previously loaded.*/
+			var panState = localStorage.getObj("accStateCustom");
+			
+			//Opens every div that was previously open. 	
+			var i;
+			if (panState != null) {
+				for (i = 0; i < panState.length; i++) {
+					if (panState[i] != null) {
+						panel = panState[i];
+						beDone = document.getElementById(panel);
+						beDone.style.maxHeight = beDone.scrollHeight + "px";
+						accClass = document.getElementById('accordion' + panel);
+						$(accClass).html('Collapse');
+						accClass.classList.toggle("active");
+					}
+				}
+			}
+			//Closes divs that were previosly closed.
+            var accordCloseArr = $('.panel').map(function () {
+			return this.id;
+				});
+                    for (let p = 0; p < accordCloseArr.length; p++) {
+                        accTest = 'accordion' + accordCloseArr[p];
+
+                    if ($('#' + accTest).hasClass('active') == false) {
+                        console.log(accordCloseArr[p]);
+                        $('#' + accordCloseArr[p]).parent().css("grid-row","span 1");
+                    };
+                }
+
+				$('#colorpickerA').farbtastic('#colorA');
+				$('#colorpickerB').farbtastic('#colorB');
+				$('#colorpickerC').farbtastic('#colorC');
+				$('#colorpickerD').farbtastic('#colorD');
+				$('#colorpickerE').farbtastic('#colorE');
+
 	updatePools();
 	venuePool();
 	setTimeout(() => {
@@ -414,35 +459,6 @@ cbbc.onmessage = function () {
 	});
 }
 
-function hideSection() {
-	if ($('#draftHidder').is(':checked') == true) {
-		$('#picksBans').css('display','none');
-	}
-	else {
-		$('#picksBans').css('display','block');
-	}
-
-	if ($('#colorHidder').is(':checked') == true) {
-		$('#customColors').css('display','none');
-	}
-	else {
-		$('#customColors').css('display','block');
-	}
-
-	if ($('#poolHidder').is(':checked') == true) {
-		$('#venueLoadouts').css('display','none');
-	}
-	else {
-		$('#venueLoadouts').css('display','block');
-	}
-
-	if ($('#saveLoadHidder').is(':checked') == true) {
-		$('#saveLoad').css('display','none');
-	}
-	else {
-		$('#saveLoad').css('display','block');
-	}
-}
 
 
 //SAVE/LOAD CUSTOM SETTINGS
@@ -641,21 +657,61 @@ var venueTypeCount3;
 var venueTypeCount4;
 checkboxMemArr2 = [];
 
-$(document).ready(function () {
-
-	chkMemLoader2 = localStorage.getObj('saveChkStates2');
-
-	if (chkMemLoader2 != null) {
-		checkboxMemArr2 = chkMemLoader2;
-	}
-
-	updateDoubles();
 
 
+//Sets accordion divisions and saves to localStorage
+var acc = document.getElementsByClassName("accordion");
 
-});
+if (localStorage.getObj('accStateCustom') != null) {
+	panOpen = localStorage.getObj('accStateCustom');
+} else {
+	panOpen = [];
+}
 
+/*Open and close accordion divs and
+adds div ids to array whenever open and
+removes div ids from array whenever closed*/
+for (i = 0; i < acc.length; i++) {
+	acc[i].addEventListener("click", function () {
 
+		this.classList.toggle("active");
+		$(this).html('Expand');
+		var panel = this.nextElementSibling;
+		if (panel.style.maxHeight) {
+			panel.style.maxHeight = panel.scrollHeight + "px";
+
+			setTimeout(() => {
+
+				setTimeout(() => {
+				$(this).parent().css("grid-row","span 1");
+			
+			}, 200);
+				panel.style.maxHeight = null;						
+			}, 200);
+		} else {
+			panel.style.maxHeight = panel.scrollHeight + "px";
+			$(this).html('Collapse');
+			$(this).parent().css("grid-row","");
+			setTimeout(() => {
+				
+				panel.style.maxHeight = 10000 + "px";
+
+			}, 200);
+		}
+		var accordArr = [];
+		var accordOpenArr = $('.active').map(function () {
+	return this.id;
+		});
+
+		for (q=0;q<accordOpenArr.length;q++) {
+				accordArr[q] = accordOpenArr[q].replace('accordion', '');
+			}
+
+		setTimeout(() => {
+			localStorage.setObj("accStateCustom", accordArr);
+		}, 350);
+	});
+}
 
 var checkboxArray2 = $('.storable-ckbx2').map(function () {
 	return this.id;
@@ -676,7 +732,47 @@ function updateDoubles() {
 
 }
 
-setInterval(() => (doublesSaver()), 200);
+function draftTypeLinker() {
+	if ($('#link1').prop('checked')) {
+		venueType1A = $('#venueType1A').val();
+		$('#venueType1B').val(venueType1A);
+		$('#venueType1A').css("width" , "80%");
+		$('#venueType1B').css("display" , "none");
+	} else {
+		$('#venueType1A').css("width" , "40%");
+		$('#venueType1B').css("display" , "block");
+	}
+	if ($('#link2').prop('checked')) {
+		venueType2A = $('#venueType2A').val();
+		$('#venueType2B').val(venueType2A);
+		$('#venueType2A').css("width" , "80%");
+		$('#venueType2B').css("display" , "none");
+	} else {
+		$('#venueType2A').css("width" , "40%");
+		$('#venueType2B').css("display" , "block");
+	}
+	if ($('#link3').prop('checked')) {
+		venueType3A = $('#venueType3A').val();
+		$('#venueType3B').val(venueType3A);
+		$('#venueType3A').css("width" , "80%");
+		$('#venueType3B').css("display" , "none");
+	} else {
+		$('#venueType3A').css("width" , "40%");
+		$('#venueType3B').css("display" , "block");
+	}
+	if ($('#link4').prop('checked')) {
+		venueType4A = $('#venueType4A').val();
+		$('#venueType4B').val(venueType4A);
+		$('#venueType4A').css("width" , "80%");
+		$('#venueType4B').css("display" , "none");
+	} else {
+		$('#venueType4A').css("width" , "40%");
+		$('#venueType4B').css("display" , "block");
+	}
+}
+
+
+setInterval(() => (doublesSaver(), draftTypeLinker()), 200);
 
 function draftClear() {
 	$('#venue1').val('');
@@ -1076,14 +1172,18 @@ function checkSeason() {
 
 
 
-		spanAdder = totalCount / 4;
+		spanAdder = totalCount / 3;
 		
 
 	spanCount = 6 + Math.ceil(spanAdder);
 
-	$('#picksBans').css('grid-row', 'span ' + spanCount);
+	
+	if ($('#accordiondraftPan').hasClass("active")) {
+		$('#picksBans').css('grid-row', 'span ' + spanCount);
+	
+	}
 
-
+	
 
 
 	//clears the venue selections on dropdowns that are hidden.
@@ -1113,14 +1213,6 @@ var colorC;
 var colorD;
 var colorE;
 var middleImage;
-
-$(document).ready(function () {
-	$('#colorpickerA').farbtastic('#colorA');
-	$('#colorpickerB').farbtastic('#colorB');
-	$('#colorpickerC').farbtastic('#colorC');
-	$('#colorpickerD').farbtastic('#colorD');
-	$('#colorpickerE').farbtastic('#colorE');
-});
 
 
 //TOOLTIPS
@@ -1422,7 +1514,7 @@ function checkUpdates() {
 	updateHotkeys();
 }
 
-setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut(), hideSection()), 200);
+setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut()), 200);
 setTimeout(() => {
 	setInterval(() => (matchSaver()), 200);
 }, 400);

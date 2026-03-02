@@ -287,10 +287,7 @@ $(document).ready(function () {
         $('#venueType2').val("Restrictions");
         $('#venueType3').val("Picks");
     
-        $('#multiplySelect13').val('Double');
-        $('#multiplySelect23').val('Double');
-        $('#multiplySelect14').val('Single');
-        $('#multiplySelect24').val('Single');
+
     }
     
     if ($('#matchType').val() == 'regularSeasonB') {
@@ -298,12 +295,7 @@ $(document).ready(function () {
         $('#venueType2').val("Restrictions");
         $('#venueType3').val("Picks");
     
-        $('#multiplySelect13').val('Single');
-        $('#multiplySelect23').val('Single');
-        $('#multiplySelect14').val('Single');
-        $('#multiplySelect24').val('Single');
-        $('#multiplySelect15').val('Single');
-        $('#multiplySelect25').val('Single');
+
         
     }
     
@@ -312,30 +304,17 @@ $(document).ready(function () {
         $('#venueType2').val("Restrictions");
         $('#venueType3').val("Picks");
     
-        $('#multiplySelect13').val('Single');
-        $('#multiplySelect23').val('Single');
-        $('#multiplySelect14').val('Single');
-        $('#multiplySelect24').val('Single');
-        $('#multiplySelect15').val('Single');
-        $('#multiplySelect25').val('Single');
-        $('#multiplySelect16').val('Single');
+
        
     }
 
 });
 
 //Changes the configuration of the draft dropdowns as well as the center text box based on draft type drop-down.
-$('#matchType').on('change', function() {    if ($('#matchType').val() == 'regularSeasonA') {
+$('#matchType').on('change', function() {    
 
-
-    $('#multiplySelect13').val('Double');
-    $('#multiplySelect23').val('Double');
-    $('#multiplySelect14').val('Single');
-    $('#multiplySelect24').val('Single');
-}
 
 if ($('#matchType').val() == 'regularSeasonB') {
-
 
     $('#multiplySelect13').val('Single');
     $('#multiplySelect23').val('Single');
@@ -347,7 +326,6 @@ if ($('#matchType').val() == 'regularSeasonB') {
 }
 
 if ($('#matchType').val() == 'postSeason' || $('#matchType').val() == 'postSeasonRH' || $('#matchType').val() == 'masters' || $('#matchType').val() == 'mastersRH') {
-
 
     $('#multiplySelect13').val('Single');
     $('#multiplySelect23').val('Single');
@@ -470,7 +448,7 @@ function draftType() {
     });
 
     for (i = 0; i < venueSelectArr.length; i++) {
-        if ($('#' + venueSelectArr[i]).css('display') == ('none')) {
+        if ($('#' + venueSelectArr[i]).css('display') == ('none') || $('#' + venueSelectArr[i]).css('visibility') == ('hidden')) {
             $('#' + venueSelectArr[i]).val('');
             }
         }

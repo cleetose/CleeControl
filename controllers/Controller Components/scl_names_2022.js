@@ -239,17 +239,21 @@ var casterNames;
 				tempArr = venue16Transfer.split(';');
 				$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
 			}
-			else if ($('#venue16').val() == "") {
+			if ($('#venue26').val() != "") {
+				venue16Transfer = $('#venue26').val();
+				tempArr = venue16Transfer.split(';');
+				$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
+			}
+			else if ($('#venue16').val() == "" && $('#venue26').val() == "") {
 				$('#venue16BreakdownName').html('PICK 7');
 			}
-
-
 			
 		}, 500);
 		
 		/* Two switch statements (one for normal matches, and one for the championship match) 
 		that take in the current score and automatically distributes the points to the spin boxes 
 		for the score breakdown overlay.  */
+
         function scoreBreakdowner() {
 
 			multiplySelect13 = $('#multiplySelect13').val();
@@ -363,118 +367,7 @@ var casterNames;
 			pScore18int = parseInt($('#pScore18').val());    
             pScore28int = parseInt($('#pScore28').val());
             pScoreTotal = pScore1int + pScore2int;
-			console.log(pScoreTotal);
-			if ($('#matchType').val() == 'regularSeasonA') {
-				switch (pScoreTotal) {
-					case 0:
-						$('#pScore11').val(0);
-						$('#pScore12').val(0);
-						$('#pScore13').val(0);
-						$('#pScore14').val(0);
-						$('#pScore15').val(0);
-						$('#pScore16').val(0);
-						$('#pScore17').val(0);
-						$('#pScore18').val(0);
-						$('#pScore21').val(0);
-						$('#pScore22').val(0);
-						$('#pScore23').val(0);
-						$('#pScore24').val(0);
-						$('#pScore25').val(0);
-						$('#pScore26').val(0);
-						$('#pScore27').val(0);
-						$('#pScore28').val(0);						
-					case 1:
-					case 2:
-					case 3:
-					case 4:
-						$('#pScore11').val(pScore1int);
-						$('#pScore21').val(pScore2int);
-						$('#pScore12').val(0);
-						$('#pScore22').val(0);
-						$('#pScore13').val(0);
-						$('#pScore23').val(0);   
-						$('#pScore14').val(0);
-						$('#pScore24').val(0);    
-						$('#pScore15').val(0);
-						$('#pScore25').val(0);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0); 
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0); 
-						break;
-					case 5:
-					case 6:
-					case 7:
-					case 8:    
-					$('#pScore12').val(pScore1int - pScore11int);
-					$('#pScore22').val(pScore2int - pScore21int);  
-					$('#pScore13').val(0);
-					$('#pScore23').val(0);   
-					$('#pScore14').val(0);
-					$('#pScore24').val(0);    
-					$('#pScore15').val(0);
-					$('#pScore25').val(0);
-					$('#pScore16').val(0);
-					$('#pScore26').val(0); 
-					$('#pScore17').val(0);
-					$('#pScore27').val(0); 
-					$('#pScore18').val(0);
-					$('#pScore28').val(0);          
-					break;
-					case 9:
-					case 10:    
-						$('#pScore13').val(pScore1int - pScore11int - pScore12int);
-						$('#pScore23').val(pScore2int - pScore21int  - pScore22int);     
-						$('#pScore14').val(0);
-						$('#pScore24').val(0);    
-						$('#pScore15').val(0);
-						$('#pScore25').val(0);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0);  
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);   
-							break;    
-					case 11:
-					case 12:    
-						$('#pScore14').val(pScore1int - pScore11int - pScore12int - pScore13int);
-						$('#pScore24').val(pScore2int - pScore21int  - pScore22int - pScore23int);            
-						$('#pScore15').val(0);
-						$('#pScore25').val(0);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0);   
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);    
-						break;	
-					case 13:
-					case 14:    
-						$('#pScore15').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int);
-						$('#pScore25').val(pScore2int - pScore21int  - pScore22int - pScore23int - pScore24int);
-						$('#pScore16').val(0);
-						$('#pScore26').val(0);  
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);           
-							break;		   
-					case 15:
-					case 16:    
-						$('#pScore16').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int);
-						$('#pScore26').val(pScore2int - pScore21int  - pScore22int - pScore23int - pScore24int - pScore25int); 
-						$('#pScore17').val(0);
-						$('#pScore27').val(0); 
-						$('#pScore18').val(0);
-						$('#pScore28').val(0);               
-							break;		     
-					default:
-						break;
-				}
-			} else 	if ($('#matchType').val() != 'regularSeasonA') {
+
 				if (pScoreTotal == 0) {
 					$('#pScore11').val(0);
 					$('#pScore12').val(0);
@@ -493,7 +386,7 @@ var casterNames;
 					$('#pScore27').val(0);
 					$('#pScore28').val(0);	
 				}
-				
+
 				if (pScoreTotal <= multiplyValue1) {
 					$('#pScore11').val(pScore1int);
 					$('#pScore21').val(pScore2int);
@@ -524,6 +417,7 @@ var casterNames;
 					$('#pScore17').val(0);
 					$('#pScore27').val(0); 
 				}
+
 				if (pScoreTotal > multiplyValue2 && pScoreTotal <= multiplyValue3) {
 					$('#pScore13').val(pScore1int - pScore11int - pScore12int);
 					$('#pScore23').val(pScore2int - pScore21int - pScore22int);
@@ -536,6 +430,7 @@ var casterNames;
 					$('#pScore17').val(0);
 					$('#pScore27').val(0);
 				}
+
 				if (pScoreTotal > multiplyValue3 && pScoreTotal <= multiplyValue4) {
 					$('#pScore14').val(pScore1int - pScore11int - pScore12int - pScore13int);
 					$('#pScore24').val(pScore2int - pScore21int - pScore22int - pScore23int);
@@ -546,6 +441,7 @@ var casterNames;
 					$('#pScore17').val(0);
 					$('#pScore27').val(0); 
 				}
+
 				if (pScoreTotal > multiplyValue4 && pScoreTotal <= multiplyValue5) {
 					$('#pScore15').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int);
 					$('#pScore25').val(pScore2int - pScore21int - pScore22int - pScore23int - pScore24int);
@@ -555,6 +451,7 @@ var casterNames;
 					$('#pScore27').val(0); 
 
 				}
+
 				if (pScoreTotal > multiplyValue5 && pScoreTotal <= multiplyValue6) {
 					$('#pScore16').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int);
 					$('#pScore26').val(pScore2int - pScore21int - pScore22int - pScore23int - pScore24int - pScore25int);
@@ -562,11 +459,12 @@ var casterNames;
 					$('#pScore27').val(0); 
 
 				}
+
 				if (pScoreTotal > multiplyValue6 && pScoreTotal <= multiplyValue7) {
 					$('#pScore17').val(pScore1int - pScore11int - pScore12int - pScore13int - pScore14int - pScore15int - pScore16int);
 					$('#pScore27').val(pScore2int - pScore21int - pScore22int - pScore23int - pScore24int - pScore25int - pScore26int);
 				}
-			}
+			
         }
 
 		//Run score breakdown function any thime score up/down buttons are pressed.

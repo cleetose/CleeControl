@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/customPicks.css">
-    <script src="../../js/jquery-2.0.2.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
-    <title>Custom SpyParty Draft Overlay</title>
-    <script type="text/javascript">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/customPicks.css">
+		<script src="../../js/jquery-2.0.2.min.js" type="text/javascript"
+			charset="utf-8"></script>
+		<script src="../../js/anime.min.js" type="text/javascript" charset="utf-8"></script>
+		<title>Custom SpyParty Draft Overlay</title>
+		<script type="text/javascript">
         var pName1;
         var pName2;
 		var pName1Old;
@@ -319,19 +320,19 @@
 
 				} 
 
-				if ($('#venueTextA1').html() != venueType1) {	
+				if ($('#venueTextA1').html() != venueType1A) {	
 	                anime({
-	                targets: '#venueTextA',
+	                targets: '#venueTextA1',
 		            opacity: 0,
 		            duration: 250,
 		            delay: 0,
 		            easing: 'easeOutQuad',
 		            complete: function()
 			            {
-			            $('#venueTextA1').html(venueType1);
+			            $('#venueTextA1').html(venueType1A);
 				
 				            anime({
-					            targets: '.venueTextA',
+					            targets: '#venueTextA1',
 					            opacity: 1,
 					            duration: 600,
 					            delay: 250,
@@ -347,7 +348,7 @@
 
                  }  
 				 
-				if ($('#venueTextA2').html() != venueType1) {	
+				if ($('#venueTextA2').html() != venueType1B) {	
 	                anime({
 	                targets: '#venueTextA2',
 		            opacity: 0,
@@ -356,10 +357,10 @@
 		            easing: 'easeOutQuad',
 		            complete: function()
 			            {
-			            $('#venueTextA2').html(venueType1);
+			            $('#venueTextA2').html(venueType1B);
 				
 				            anime({
-					            targets: '.venueTextA',
+					            targets: '#venueTextA2',
 					            opacity: 1,
 					            duration: 600,
 					            delay: 250,
@@ -374,19 +375,48 @@
 		                });
 
                  }
-				 if ($('#venueTextB1').html() != venueType2) {	
+
+				if ($('#venueTextB1').html() != venueType2A) {	
 	                anime({
-	                targets: '.venueTextB',
+	                targets: '#venueTextB1',
 		            opacity: 0,
 		            duration: 250,
 		            delay: 0,
 		            easing: 'easeOutQuad',
 		            complete: function()
 			            {
-			            $('.venueTextB').html(venueType2);
+			            $('#venueTextB1').html(venueType2A);
 				
 				            anime({
-					            targets: '.venueTextB',
+					            targets: '#venueTextB1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }  
+				 
+				if ($('#venueTextB2').html() != venueType2B) {	
+	                anime({
+	                targets: '#venueTextB2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('#venueTextB2').html(venueType2B);
+				
+				            anime({
+					            targets: '#venueTextB2',
 					            opacity: 1,
 					            duration: 600,
 					            delay: 250,
@@ -401,19 +431,48 @@
 		                });
 
                  }
-				 if ($('#venueTextC1').html() != venueType3) {	
+
+				 if ($('#venueTextC1').html() != venueType3A) {	
 	                anime({
-	                targets: '.venueTextC',
+	                targets: '#venueTextC1',
 		            opacity: 0,
 		            duration: 250,
 		            delay: 0,
 		            easing: 'easeOutQuad',
 		            complete: function()
 			            {
-			            $('.venueTextC').html(venueType3);
+			            $('#venueTextC1').html(venueType3A);
 				
 				            anime({
-					            targets: '.venueTextC',
+					            targets: '#venueTextC1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }  
+				 
+				if ($('#venueTextC2').html() != venueType3B) {	
+	                anime({
+	                targets: '#venueTextC2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('#venueTextC2').html(venueType3B);
+				
+				            anime({
+					            targets: '#venueTextC2',
 					            opacity: 1,
 					            duration: 600,
 					            delay: 250,
@@ -428,19 +487,48 @@
 		                });
 
                  }
-				 if ($('#venueTextD1').html() != venueType4) {	
+
+				 if ($('#venueTextD1').html() != venueType4A) {	
 	                anime({
-	                targets: '.venueTextD',
+	                targets: '#venueTextD1',
 		            opacity: 0,
 		            duration: 250,
 		            delay: 0,
 		            easing: 'easeOutQuad',
 		            complete: function()
 			            {
-			            $('.venueTextD').html(venueType4);
+			            $('#venueTextD1').html(venueType4A);
 				
 				            anime({
-					            targets: '.venueTextD',
+					            targets: '#venueTextD1',
+					            opacity: 1,
+					            duration: 600,
+					            delay: 250,
+					            easing: 'easeOutQuad',
+					            complete: function()
+					            {
+
+					            }
+				            });								
+			            }
+
+		                });
+
+                 }  
+				 
+				if ($('#venueTextD2').html() != venueType4B) {	
+	                anime({
+	                targets: '#venueTextD2',
+		            opacity: 0,
+		            duration: 250,
+		            delay: 0,
+		            easing: 'easeOutQuad',
+		            complete: function()
+			            {
+			            $('#venueTextD2').html(venueType4B);
+				
+				            anime({
+					            targets: '#venueTextD2',
 					            opacity: 1,
 					            duration: 600,
 					            delay: 250,
@@ -1737,183 +1825,183 @@ $('#venueD5Double').css("visibility", "hidden");
         }
 		
     </script>
-</head>
-<body onLoad="init()">
-    <div id="playerBox">
-        <div id="pName1"></div>
-        <div id="pName2"></div>
-        <div id="V">V</div>
-        <div id="S">S</div>
-    </div>
-	<div id="missingVenueType1" class="missingVenueType"></div>
-	<div id="missingVenueType2" class="missingVenueType"></div>
-	<div id="missingVenueType3" class="missingVenueType"></div>
-	<div id="missingVenueType4" class="missingVenueType"></div>
-    <div id="venueType1">
-        <div class="venueTypeLeft" id="venueType1Left">
-            <div class="venueText textLeft venueTextA" id="venueTextA1">Bans</div>
-            <div class="venueIcon iconA" id="venueA1">
-				<div class="doubleDouble" id="venueA1Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA1"></div>
-			</div>
+	</head>
+	<body onLoad="init()">
+		<div id="playerBox">
+			<div id="pName1"></div>
+			<div id="pName2"></div>
+			<div id="V">V</div>
+			<div id="S">S</div>
+		</div>
+		<div id="missingVenueType1" class="missingVenueType"></div>
+		<div id="missingVenueType2" class="missingVenueType"></div>
+		<div id="missingVenueType3" class="missingVenueType"></div>
+		<div id="missingVenueType4" class="missingVenueType"></div>
+		<div id="venueType1">
+			<div class="venueTypeLeft" id="venueType1Left">
+				<div class="venueText textLeft venueTextA" id="venueTextA1">Bans</div>
+				<div class="venueIcon iconA" id="venueA1">
+					<div class="doubleDouble" id="venueA1Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA1"></div>
+				</div>
 
-            <div class="venueIcon iconA" id="venueA2">
-				<div class="doubleDouble" id="venueA2Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA2"></div>
+				<div class="venueIcon iconA" id="venueA2">
+					<div class="doubleDouble" id="venueA2Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA2"></div>
+				</div>
+				<div class="venueIcon iconA" id="venueA3">
+					<div class="doubleDouble" id="venueA3Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA3"></div>
+				</div>
+				<div class="venueIcon iconA" id="venueA4">
+					<div class="doubleDouble" id="venueA4Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA4"></div>
+				</div>
 			</div>
-            <div class="venueIcon iconA" id="venueA3">
-				<div class="doubleDouble" id="venueA3Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA3"></div>
+			<div class="venueTypeRight" id="venueType1Right">
+				<div class="venueText textRight venueTextA" id="venueTextA2">Bans</div>
+				<div class="venueIcon iconA" id="venueA5">
+					<div class="doubleDouble" id="venueA5Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA5"></div>
+				</div>
+				<div class="venueIcon iconA" id="venueA6">
+					<div class="doubleDouble" id="venueA6Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA6"></div>
+				</div>
+				<div class="venueIcon iconA" id="venueA7">
+					<div class="doubleDouble" id="venueA7Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA7"></div>
+				</div>
+				<div class="venueIcon iconA" id="venueA8">
+					<div class="doubleDouble" id="venueA8Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutA8"></div>
+				</div>
 			</div>
-            <div class="venueIcon iconA" id="venueA4">
-				<div class="doubleDouble" id="venueA4Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA4"></div>
-			</div>
-        </div>
-        <div class="venueTypeRight" id="venueType1Right">
-        <div class="venueText textRight venueTextA" id="venueTextA2">Bans</div>
-            <div class="venueIcon iconA" id="venueA5">
-				<div class="doubleDouble" id="venueA5Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA5"></div>
-			</div>
-            <div class="venueIcon iconA" id="venueA6">
-				<div class="doubleDouble" id="venueA6Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA6"></div>
-			</div>
-            <div class="venueIcon iconA" id="venueA7">
-				<div class="doubleDouble" id="venueA7Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA7"></div>
-			</div>
-            <div class="venueIcon iconA" id="venueA8">
-				<div class="doubleDouble" id="venueA8Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutA8"></div>
-			</div>
-        </div>
-    </div>
-    <div id="venueType2">
-        <div class="venueTypeLeft" id="venueType2Left">
-            <div class="venueText textLeft venueTextB" id="venueTextB1">Something</div>
-            <div class="venueIcon iconB" id="venueB1">
-				<div class="doubleDouble" id="venueB1Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB1"></div>
-			</div>
-            <div class="venueIcon iconB" id="venueB2">
-				<div class="doubleDouble" id="venueB2Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB2"></div>
-			</div>
-            <div class="venueIcon iconB" id="venueB3">
-				<div class="doubleDouble" id="venueB3Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB3"></div>
-			</div>
-            <div class="venueIcon iconB" id="venueB4">
-				<div class="doubleDouble" id="venueB4Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB4"></div>
-			</div>
-        </div>
-        <div class="venueTypeRight" id="venueType2Right">
-        <div class="venueText textRight venueTextB" id="venueTextB2">Something</div>
-            <div class="venueIcon iconB" id="venueB5">
-				<div class="doubleDouble" id="venueB5Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB5"></div>
-			</div>
-            <div class="venueIcon iconB" id="venueB6">
-				<div class="doubleDouble" id="venueB6Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB6"></div>
-			</div>
-            <div class="venueIcon iconB" id="venueB7">
-				<div class="doubleDouble" id="venueB7Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB7"></div>
-			</div>
-            <div class="venueIcon iconB" id="venueB8">
-				<div class="doubleDouble" id="venueB8Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutB8"></div>
-			</div>
-        </div>
-    </div>
-    <div id="venueType3">
-        <div class="venueTypeLeft" id="venueType3Left">
-            <div class="venueText textLeft venueTextC" id="venueTextC1">Something</div>
-            <div class="venueIcon iconC" id="venueC1">
-				<div class="doubleDouble" id="venueC1Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC1"></div>
-			</div>
-            <div class="venueIcon iconC" id="venueC2">
-				<div class="doubleDouble" id="venueC2Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC2"></div>
-			</div>
-            <div class="venueIcon iconC" id="venueC3">
-				<div class="doubleDouble" id="venueC3Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC3"></div>
-			</div>
-            <div class="venueIcon iconC" id="venueC4">
-				<div class="doubleDouble" id="venueC4Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC4"></div>
-			</div>
-        </div>
-        <div class="venueTypeRight" id="venueType3Right">
-        <div class="venueText textRight venueTextC" id="venueTextC2">Something</div>
-            <div class="venueIcon iconC" id="venueC5">
-				<div class="doubleDouble" id="venueC5Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC5"></div>
-			</div>
-            <div class="venueIcon iconC" id="venueC6">
-				<div class="doubleDouble" id="venueC6Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC6"></div>
-			</div>
-            <div class="venueIcon iconC" id="venueC7">
-				<div class="doubleDouble" id="venueC7Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC7"></div>
-			</div>
-            <div class="venueIcon iconC" id="venueC8">
-				<div class="doubleDouble" id="venueC8Double">Double</div>
-				<div class="venueLoadout" id="venueLoadoutC8"></div>
-			</div>
-        </div>
-    </div>
-    <div id="venueType4">        
-        <div class="venueTypeLeft" id="venueType4Left">
-        <div class="venueText textLeft venueTextD" id="venueTextD1">Picks</div>
-        <div class="venueIcon iconD" id="venueD1">
-			<div class="doubleDouble" id="venueD1Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD1"></div>
 		</div>
-        <div class="venueIcon iconD" id="venueD2">
-			<div class="doubleDouble" id="venueD2Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD2"></div>
+		<div id="venueType2">
+			<div class="venueTypeLeft" id="venueType2Left">
+				<div class="venueText textLeft venueTextB" id="venueTextB1">Something</div>
+				<div class="venueIcon iconB" id="venueB1">
+					<div class="doubleDouble" id="venueB1Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB1"></div>
+				</div>
+				<div class="venueIcon iconB" id="venueB2">
+					<div class="doubleDouble" id="venueB2Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB2"></div>
+				</div>
+				<div class="venueIcon iconB" id="venueB3">
+					<div class="doubleDouble" id="venueB3Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB3"></div>
+				</div>
+				<div class="venueIcon iconB" id="venueB4">
+					<div class="doubleDouble" id="venueB4Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB4"></div>
+				</div>
+			</div>
+			<div class="venueTypeRight" id="venueType2Right">
+				<div class="venueText textRight venueTextB" id="venueTextB2">Something</div>
+				<div class="venueIcon iconB" id="venueB5">
+					<div class="doubleDouble" id="venueB5Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB5"></div>
+				</div>
+				<div class="venueIcon iconB" id="venueB6">
+					<div class="doubleDouble" id="venueB6Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB6"></div>
+				</div>
+				<div class="venueIcon iconB" id="venueB7">
+					<div class="doubleDouble" id="venueB7Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB7"></div>
+				</div>
+				<div class="venueIcon iconB" id="venueB8">
+					<div class="doubleDouble" id="venueB8Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutB8"></div>
+				</div>
+			</div>
 		</div>
-        <div class="venueIcon iconD" id="venueD3">
-			<div class="doubleDouble" id="venueD3Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD3"></div>
+		<div id="venueType3">
+			<div class="venueTypeLeft" id="venueType3Left">
+				<div class="venueText textLeft venueTextC" id="venueTextC1">Something</div>
+				<div class="venueIcon iconC" id="venueC1">
+					<div class="doubleDouble" id="venueC1Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC1"></div>
+				</div>
+				<div class="venueIcon iconC" id="venueC2">
+					<div class="doubleDouble" id="venueC2Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC2"></div>
+				</div>
+				<div class="venueIcon iconC" id="venueC3">
+					<div class="doubleDouble" id="venueC3Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC3"></div>
+				</div>
+				<div class="venueIcon iconC" id="venueC4">
+					<div class="doubleDouble" id="venueC4Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC4"></div>
+				</div>
+			</div>
+			<div class="venueTypeRight" id="venueType3Right">
+				<div class="venueText textRight venueTextC" id="venueTextC2">Something</div>
+				<div class="venueIcon iconC" id="venueC5">
+					<div class="doubleDouble" id="venueC5Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC5"></div>
+				</div>
+				<div class="venueIcon iconC" id="venueC6">
+					<div class="doubleDouble" id="venueC6Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC6"></div>
+				</div>
+				<div class="venueIcon iconC" id="venueC7">
+					<div class="doubleDouble" id="venueC7Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC7"></div>
+				</div>
+				<div class="venueIcon iconC" id="venueC8">
+					<div class="doubleDouble" id="venueC8Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutC8"></div>
+				</div>
+			</div>
 		</div>
-        <div class="venueIcon iconD" id="venueD4">
-			<div class="doubleDouble" id="venueD4Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD4"></div>
+		<div id="venueType4">
+			<div class="venueTypeLeft" id="venueType4Left">
+				<div class="venueText textLeft venueTextD" id="venueTextD1">Picks</div>
+				<div class="venueIcon iconD" id="venueD1">
+					<div class="doubleDouble" id="venueD1Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD1"></div>
+				</div>
+				<div class="venueIcon iconD" id="venueD2">
+					<div class="doubleDouble" id="venueD2Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD2"></div>
+				</div>
+				<div class="venueIcon iconD" id="venueD3">
+					<div class="doubleDouble" id="venueD3Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD3"></div>
+				</div>
+				<div class="venueIcon iconD" id="venueD4">
+					<div class="doubleDouble" id="venueD4Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD4"></div>
+				</div>
+			</div>
+			<div class="venueTypeRight" id="venueType4Right">
+				<div class="venueText textRight venueTextD" id="venueTextD2">Picks</div>
+				<div class="venueIcon iconD" id="venueD5">
+					<div class="doubleDouble" id="venueD5Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD5"></div>
+				</div>
+				<div class="venueIcon iconD" id="venueD6">
+					<div class="doubleDouble" id="venueD6Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD6"></div>
+				</div>
+				<div class="venueIcon iconD" id="venueD7">
+					<div class="doubleDouble" id="venueD7Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD7"></div>
+				</div>
+				<div class="venueIcon iconD" id="venueD8">
+					<div class="doubleDouble" id="venueD8Double">Double</div>
+					<div class="venueLoadout" id="venueLoadoutD8"></div>
+				</div>
+			</div>
 		</div>
-    </div>
-    <div class="venueTypeRight" id="venueType4Right">
-    <div class="venueText textRight venueTextD" id="venueTextD2">Picks</div>
-        <div class="venueIcon iconD" id="venueD5">
-			<div class="doubleDouble" id="venueD5Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD5"></div>
+		<div id="middleThing">
+			<div id="colorA"></div>
+			<div id="colorB"></div>
+			<div id="logo"></div>
 		</div>
-        <div class="venueIcon iconD" id="venueD6">
-			<div class="doubleDouble" id="venueD6Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD6"></div>
-		</div>
-        <div class="venueIcon iconD" id="venueD7">
-			<div class="doubleDouble" id="venueD7Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD7"></div>
-		</div>
-        <div class="venueIcon iconD" id="venueD8">
-			<div class="doubleDouble" id="venueD8Double">Double</div>
-			<div class="venueLoadout" id="venueLoadoutD8"></div>
-		</div>
-    </div>
-</div>
-    <div id="middleThing">
-		<div id="colorA"></div>
-		<div id="colorB"></div>
-		<div id="logo"></div>
-	</div>
-</body>
+	</body>
 </html>

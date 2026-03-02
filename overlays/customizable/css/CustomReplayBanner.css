@@ -1,0 +1,89 @@
+@font-face {
+    font-family: JosefinSans;
+    src: url('../../../fonts/JosefinSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: JosefinSansBold;
+    src: url('../../../fonts/JosefinSans-SemiBold.ttf');
+}
+
+:root {
+    --left-bg-color: #123456;
+    --right-bg-color: rgb(42, 123, 228);
+    --left-dark-bg-color: #123456;
+    --right-dark-bg-color: rgb(42, 123, 228);
+    --left-text-color: white;
+    --right-text-color: white;
+    --divider-bg-color: rgb(231, 231, 231);
+}
+
+body {
+    width: 1920px;
+    height: 1080px;
+    font-family: JosefinSansBold;
+    overflow: hidden;
+    margin: 0px
+}
+
+span {
+    position: relative;
+    top: 2px;
+    font-size: 18pt;
+}
+
+.replayBanner {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 1920px;
+    height: 1080px; 
+}
+
+#instant {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50%;
+    height: fit-content;
+    color: var(--left-text-color);
+    background-color: var(--left-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.25));
+    font-size: 60pt;
+    padding: 15px;
+}
+
+#replay {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    height: fit-content;
+    color: var(--right-text-color);
+    background-color: var(--right-bg-color);
+    background-image: linear-gradient(rgba(255,255,255,0)0%,rgba(255,255,255,0)60%,rgba(255, 255, 255, 0.25));
+    font-size: 60pt;
+    padding: 15px;
+}
+
+#host {
+    margin-right: 10px;
+    font-family: JosefinSansBold;
+    color: var(--left-text-color);
+}
+
+#casters {
+    margin-left: 50px;
+    margin-right: 10px;
+    font-family: JosefinSansBold;
+    color: var(--left-text-color);
+}
+
+#hostName {
+    margin-right: 50px;
+    color: var(--left-text-color);
+}
+
+#casterNames {
+    margin-right: 60px;
+    color: var(--left-text-color);
+}

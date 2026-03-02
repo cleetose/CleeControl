@@ -248,7 +248,7 @@ $('#updateAutoVenue').on('click',function() {
                     $("#multiplySelect"+q).prop('selectedIndex', mIndex1);
                 }
             }
-            for (let q = 23; q <= 25; q++) {
+            for (let q = 23; q <= 26; q++) {
                 if ($("#autoMultiply1").val() == $("#venue"+q).val()) {
                     mIndex1 = $("#multiplySelect"+q).prop('selectedIndex');
                     mIndex1 = mIndex1 + 1;
@@ -262,7 +262,7 @@ $('#updateAutoVenue').on('click',function() {
                     $("#multiplySelect"+q).prop('selectedIndex', mIndex2);
                 }
             }
-            for (let q = 23; q <= 25; q++) {
+            for (let q = 23; q <= 26; q++) {
                 if ($("#autoMultiply2").val() == $("#venue"+q).val()) {
                     mIndex2 = $("#multiplySelect"+q).prop('selectedIndex');
                     mIndex2 = mIndex2 + 1;
@@ -277,7 +277,7 @@ $('#updateAutoVenue').on('click',function() {
                     $("#multiplySelect"+q).prop('selectedIndex', mIndex3);
                 }
             }
-            for (let q = 23; q <= 25; q++) {
+            for (let q = 23; q <= 26; q++) {
                 if ($("#autoMultiply3").val() == $("#venue"+q).val()) {
                     mIndex3 = $("#multiplySelect"+q).prop('selectedIndex');
                     mIndex3 = mIndex3 + 1;
@@ -291,7 +291,7 @@ $('#updateAutoVenue').on('click',function() {
                     $("#multiplySelect"+q).prop('selectedIndex', mIndex4);
                 }
             }
-            for (let q = 23; q <= 25; q++) {
+            for (let q = 23; q <= 26; q++) {
                 if ($("#autoMultiply4").val() == $("#venue"+q).val()) {
                     mIndex4 = $("#multiplySelect"+q).prop('selectedIndex');
                     mIndex4 = mIndex4 + 1;
