@@ -30,8 +30,8 @@
         "monitoring_type": 0,
         "private_settings": {}
     },
-    "current_scene": "Picks Bans",
-    "current_program_scene": "Picks Bans",
+    "current_scene": "Starting Soon",
+    "current_program_scene": "Starting Soon",
     "scene_order": [
         {
             "name": "Starting Soon"
@@ -395,7 +395,7 @@
     "transition_duration": 600,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -6,
+    "scaling_level": -2,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
     "virtual-camera": {
@@ -895,7 +895,7 @@
                         "name": "Image_Slideshow",
                         "source_uuid": "aa67ef45-0564-4fbb-9e3d-080edc007787",
                         "visible": true,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -1640,7 +1640,7 @@
                     {
                         "name": "InstantReplay",
                         "source_uuid": "aa80515c-8867-427b-bc92-c47a9d7ef066",
-                        "visible": true,
+                        "visible": false,
                         "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
@@ -3759,7 +3759,7 @@
                         "name": "Image_Slideshow",
                         "source_uuid": "aa67ef45-0564-4fbb-9e3d-080edc007787",
                         "visible": true,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -3924,7 +3924,7 @@
                         "name": "Media Source",
                         "source_uuid": "a3ae2510-d505-4e4e-b2f9-3e4a20fbe142",
                         "visible": false,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -3979,7 +3979,7 @@
                         "name": "logoBig",
                         "source_uuid": "f723e4b0-4c2b-4002-898a-711ffa7a37a5",
                         "visible": true,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -4089,7 +4089,7 @@
                         "name": "Live Game",
                         "source_uuid": "598f6c45-d334-409c-a9a7-c93b89542ac0",
                         "visible": false,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -4144,7 +4144,7 @@
                         "name": "Match_Info",
                         "source_uuid": "270385a5-7e33-4d30-9415-1c0f306ef75f",
                         "visible": false,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -4199,7 +4199,7 @@
                         "name": "Seduce_Shark.mp4",
                         "source_uuid": "2021b55e-6df0-43a4-846e-11558c1a8f00",
                         "visible": false,
-                        "locked": false,
+                        "locked": true,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
