@@ -75,6 +75,39 @@
 		var matchMatchMatch;
 		var checkerLoader;
 
+		matchMemory;
+		matchMemArr = [];
+		matchMemArr[0] = [];
+		matchMemArr[1] = [];
+		matchMemArr[2] = [];
+		matchMemArr[3] = [];
+		matchMemArr[4] = [];
+		matchMemArr[5] = [];
+		matchMemArr[6] = [];
+		matchMemArr[7] = [];
+		matchMemArr[8] = [];
+		matchMemArr[9] = [];
+		memorySplitter = [];
+
+		matchMatchArr = [];
+
+		indepMemArr = [];
+		venuePoolMemArr = [];
+		memory2Splitter = [];
+
+
+		checkboxMemArr = [];
+		checkboxMemArr[0] = [];
+		checkboxMemArr[1] = [];
+		checkboxMemArr[2] = [];
+		checkboxMemArr[3] = [];
+		checkboxMemArr[4] = [];
+		checkboxMemArr[5] = [];
+		checkboxMemArr[6] = [];
+		checkboxMemArr[7] = [];
+		checkboxMemArr[8] = [];
+		checkboxMemArr[9] = [];
+
 		//Things to do when the page first loads.
 		$(document).ready(function () {
 			if (localStorage.getObj('saveMatchStatesSCL') != null) {
@@ -125,25 +158,64 @@
 			matchMemLoader = localStorage.getObj('saveStatesSCL');
 			poolMemLoader = localStorage.getObj('savePoolsSCL');
 			chkMemLoader = localStorage.getObj('saveChkStatesSCL');
-
+			console.log(matchMemLoader);
 
 			if (matchMemLoader != null) {
-				matchMemArr = matchMemLoader;
+				
+				for (i = 0; i < 9; i++) {
+			matchMemArr[i] = matchMemLoader[i];
+			if (matchMemArr[i] == null) {
+				matchMemArr[i] = [];
+			}
+			console.log(matchMemArr);
+		}
+				
 				if (diffArr.length > 0) {
-					$('#matchMemory').val('1').change();
+					setTimeout(() => {
+						$('#matchMemory').val('1').change();
+					}, 100);
 					setTimeout(() => {
 						$('#matchMemory').val('2').change();
+					}, 300);
+					setTimeout(() => {
+						$('#matchMemory').val('3').change();
 					}, 500);
 					setTimeout(() => {
+						$('#matchMemory').val('4').change();
+					}, 700);
+					setTimeout(() => {
+						$('#matchMemory').val('5').change();
+					}, 900);
+					setTimeout(() => {
+						$('#matchMemory').val('6').change();
+					}, 1100);
+					setTimeout(() => {
+						$('#matchMemory').val('7').change();
+					}, 1300);
+					setTimeout(() => {
+						$('#matchMemory').val('8').change();
+					}, 1500);
+					setTimeout(() => {
+						$('#matchMemory').val('9').change();
+					}, 1700);
+					setTimeout(() => {
 						$('#matchMemory').val('0').change();
-					}, 600);
+					}, 1900);
+					setTimeout(() => {
+						console.log(matchMemArr);
+					}, 2100);
 				}
 			} else if (matchMemLoader == null) {
 				aMatchClearer();
 			}
 
 			if (chkMemLoader != null) {
-				checkboxMemArr = chkMemLoader;
+				for (i = 0; i < 9; i++) {
+			checkboxMemArr[i] = chkMemLoader[i];
+			if (checkboxMemArr[i] == null) {
+				checkboxMemArr[i] = [];
+			}
+		}
 			} else if (chkMemLoader == null) {
 				$("#rollSelectorA").prop('checked', true);
 			}
@@ -252,24 +324,7 @@
 			});
 		}
 
-		matchMemory;
-		matchMemArr = [];
-		matchMemArr[0] = [];
-		matchMemArr[1] = [];
-		matchMemArr[2] = [];
-		memorySplitter = [];
 
-		matchMatchArr = [];
-
-		indepMemArr = [];
-		venuePoolMemArr = [];
-		memory2Splitter = [];
-
-
-		checkboxMemArr = [];
-		checkboxMemArr[0] = [];
-		checkboxMemArr[1] = [];
-		checkboxMemArr[2] = [];
 
 
 
@@ -349,16 +404,50 @@
 
 		function aMatchClearer() {
 			cMatchClearer();
-			for (q = 0; q < 3; q++) {
+			for (q = 0; q < 9; q++) {
 				for (i = 0; i < matchDepIdArr.length; i++) {
 					matchMemArr[q][i] = $('#' + matchDepIdArr[i]).val();
 				}
 			}
-			for (q = 0; q < 3; q++) {
+			for (q = 0; q < 9; q++) {
 				for (i = 0; i < checkboxArray.length; i++) {
 					checkboxMemArr[q][i] = $('#' + checkboxArray[i]).prop('checked');
 				}
 			}
+					setTimeout(() => {
+						$('#matchMemory').val('1').change();
+					}, 100);
+					setTimeout(() => {
+						$('#matchMemory').val('2').change();
+					}, 300);
+					setTimeout(() => {
+						$('#matchMemory').val('3').change();
+					}, 500);
+					setTimeout(() => {
+						$('#matchMemory').val('4').change();
+					}, 700);
+					setTimeout(() => {
+						$('#matchMemory').val('5').change();
+					}, 900);
+					setTimeout(() => {
+						$('#matchMemory').val('6').change();
+					}, 1100);
+					setTimeout(() => {
+						$('#matchMemory').val('7').change();
+					}, 1300);
+					setTimeout(() => {
+						$('#matchMemory').val('8').change();
+					}, 1500);
+					setTimeout(() => {
+						$('#matchMemory').val('9').change();
+					}, 1700);
+					setTimeout(() => {
+						$('#matchMemory').val('0').change();
+					}, 1900);
+					setTimeout(() => {
+						console.log(matchMemArr);
+					}, 2100);
+					
 		}
 
 		//Updates match memory for currently selected match slot and recalls memory when a match slot is selected.

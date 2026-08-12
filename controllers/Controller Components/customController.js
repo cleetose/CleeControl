@@ -64,7 +64,7 @@ $(document).ready(function () {
 	poolMemLoader = localStorage.getObj('savePoolsCustom');
 	chkMemLoader = localStorage.getObj('saveChkStatesCustom');
 
-	console.log(checkboxMemArr.length);
+	console.log(checkboxMemArr);
 	console.log(matchMemLoader);
 	if (matchMemLoader != null) {
 		for (i = 0; i < matchMemLoader.length; i++) {
@@ -98,9 +98,14 @@ $(document).ready(function () {
 		aMatchClearer();
 	}
 	if (chkMemLoader != null) {
-		if (chkMemLoader.length == checkboxMemArr.length) {
-			checkboxMemArr = chkMemLoader;
+		for (i = 0; i < 9; i++) {
+			checkboxMemArr[i] = chkMemLoader[i];
+			if (checkboxMemArr[i] == null) {
+				checkboxMemArr[i] = [];
+			}
 		}
+
+		
 
 	} else if (chkMemLoader == null) {
 		$("#rollSelectorA").prop('checked', true);

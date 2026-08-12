@@ -182,7 +182,6 @@ var casterNames;
 		setInterval(() => {
 			
 			if ($('#matchType').val() == 'preSeason' || $('#matchType').val() == 'regularSeason') {
-				console.log($('#matchType').val());
 				if ($('#venue13').val() != "") {
 					venue13Transfer = $('#venue13').val();
 					tempArr = venue13Transfer.split(';');
