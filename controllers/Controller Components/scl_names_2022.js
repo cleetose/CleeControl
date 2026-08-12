@@ -180,73 +180,146 @@ var casterNames;
 		/* Replaces the generic PICK text in the score breakdown with the venue names 
 		currently selected in the SCL Draft section of the controller. */
 		setInterval(() => {
-			if ($('#venue13').val() != "") {
-				venue13Transfer = $('#venue13').val();
-				tempArr = venue13Transfer.split(';');
-				$('#venue13BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue13').val() == "") {
-				$('#venue13BreakdownName').html('PICK 1');
+			
+			if ($('#matchType').val() == 'preSeason' || $('#matchType').val() == 'regularSeason') {
+				console.log($('#matchType').val());
+				if ($('#venue13').val() != "") {
+					venue13Transfer = $('#venue13').val();
+					tempArr = venue13Transfer.split(';');
+					$('#venue13BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue13').val() == "") {
+					$('#venue13BreakdownName').html('PICK 1');
+				}
+	
+				if ($('#venue23').val() != "") {
+					venue23Transfer = $('#venue23').val();
+					tempArr = venue23Transfer.split(';');
+					$('#venue23BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue23').val() == "") {
+					$('#venue23BreakdownName').html('PICK 2');
+				}
+	
+				if ($('#venue14').val() != "") {
+					venue14Transfer = $('#venue14').val();
+					tempArr = venue14Transfer.split(';');
+					$('#venue14BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue14').val() == "") {
+					$('#venue14BreakdownName').html('PICK 3');
+				}
+	
+				if ($('#venue24').val() != "") {
+					venue24Transfer = $('#venue24').val();
+					tempArr = venue24Transfer.split(';');
+					$('#venue24BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue24').val() == "") {
+					$('#venue24BreakdownName').html('PICK 4');
+				}
+	
+				if ($('#venue15').val() != "") {
+					venue15Transfer = $('#venue15').val();
+					tempArr = venue15Transfer.split(';');
+					$('#venue15BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue15').val() == "") {
+					$('#venue15BreakdownName').html('PICK 5');
+				}
+	
+				if ($('#venue25').val() != "") {
+					venue25Transfer = $('#venue25').val();
+					tempArr = venue25Transfer.split(';');
+					$('#venue25BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue25').val() == "") {
+					$('#venue25BreakdownName').html('PICK 6');
+				}
+	
+				if ($('#venue16').val() != "") {
+					venue16Transfer = $('#venue16').val();
+					tempArr = venue16Transfer.split(';');
+					$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				if ($('#venue26').val() != "") {
+					venue16Transfer = $('#venue26').val();
+					tempArr = venue16Transfer.split(';');
+					$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue16').val() == "" && $('#venue26').val() == "") {
+					$('#venue16BreakdownName').html('PICK 7');
+				}
 			}
 
-			if ($('#venue23').val() != "") {
-				venue23Transfer = $('#venue23').val();
-				tempArr = venue23Transfer.split(';');
-				$('#venue23BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue23').val() == "") {
-				$('#venue23BreakdownName').html('PICK 2');
+			else if ($('#matchType').val() == 'challengerRegular') {
+				console.log($('#venueWeekly').val());
+				if ($('#venueWeekly').val() != "") {
+					venue13Transfer = $('#venueWeekly').val();
+					tempArr = venue13Transfer.split(';');
+					$('#venue13BreakdownName').html(tempArr[0].toUpperCase());
+					console.log(tempArr[0]);
+				}
+				else if ($('#venueWeekly').val() == "") {
+					$('#venue13BreakdownName').html('PICK 1');
+				}
+
+				if ($('#venue13').val() != "") {
+					venue13Transfer = $('#venue13').val();
+					tempArr = venue13Transfer.split(';');
+					$('#venue23BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue13').val() == "") {
+					$('#venue23BreakdownName').html('PICK 2');
+				}
+	
+				if ($('#venue23').val() != "") {
+					venue23Transfer = $('#venue23').val();
+					tempArr = venue23Transfer.split(';');
+					$('#venue14BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue23').val() == "") {
+					$('#venue14BreakdownName').html('PICK 3');
+				}
+	
+				if ($('#venue14').val() != "") {
+					venue14Transfer = $('#venue14').val();
+					tempArr = venue14Transfer.split(';');
+					$('#venue24BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue14').val() == "") {
+					$('#venue24BreakdownName').html('PICK 4');
+				}
+	
+				if ($('#venue24').val() != "") {
+					venue24Transfer = $('#venue24').val();
+					tempArr = venue24Transfer.split(';');
+					$('#venue15BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue24').val() == "") {
+					$('#venue15BreakdownName').html('PICK 5');
+				}
+	
+				if ($('#venue15').val() != "") {
+					venue15Transfer = $('#venue15').val();
+					tempArr = venue15Transfer.split(';');
+					$('#venue25BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue15').val() == "") {
+					$('#venue25BreakdownName').html('PICK 6');
+				}
+	
+				if ($('#venue25').val() != "") {
+					venue25Transfer = $('#venue25').val();
+					tempArr = venue25Transfer.split(';');
+					$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
+				}
+				else if ($('#venue25').val() == "") {
+					$('#venue16BreakdownName').html('PICK 7');
+				}
+	
 			}
 
-			if ($('#venue14').val() != "") {
-				venue14Transfer = $('#venue14').val();
-				tempArr = venue14Transfer.split(';');
-				$('#venue14BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue14').val() == "") {
-				$('#venue14BreakdownName').html('PICK 3');
-			}
-
-			if ($('#venue24').val() != "") {
-				venue24Transfer = $('#venue24').val();
-				tempArr = venue24Transfer.split(';');
-				$('#venue24BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue24').val() == "") {
-				$('#venue24BreakdownName').html('PICK 4');
-			}
-
-			if ($('#venue15').val() != "") {
-				venue15Transfer = $('#venue15').val();
-				tempArr = venue15Transfer.split(';');
-				$('#venue15BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue15').val() == "") {
-				$('#venue15BreakdownName').html('PICK 5');
-			}
-
-			if ($('#venue25').val() != "") {
-				venue25Transfer = $('#venue25').val();
-				tempArr = venue25Transfer.split(';');
-				$('#venue25BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue25').val() == "") {
-				$('#venue25BreakdownName').html('PICK 6');
-			}
-
-			if ($('#venue16').val() != "") {
-				venue16Transfer = $('#venue16').val();
-				tempArr = venue16Transfer.split(';');
-				$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			if ($('#venue26').val() != "") {
-				venue16Transfer = $('#venue26').val();
-				tempArr = venue16Transfer.split(';');
-				$('#venue16BreakdownName').html(tempArr[0].toUpperCase());
-			}
-			else if ($('#venue16').val() == "" && $('#venue26').val() == "") {
-				$('#venue16BreakdownName').html('PICK 7');
-			}
 			
 		}, 500);
 		

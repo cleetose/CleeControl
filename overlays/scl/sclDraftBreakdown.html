@@ -23,6 +23,7 @@
             var venue24NameOld;
             var venue25NameOld;
             var venue26NameOld;
+            var venueWeeklyNameOld;
             
             //Variable used to reveal/hide the overlay through the toggle button.
             var breakdownToggler = 0;
@@ -107,6 +108,12 @@
                     breakdownVarSplitter = breakdownVars[i].split(';;');
                     window[breakdownVarSplitter[0]] = breakdownVarSplitter[1];
                 }
+
+                venueWeeklySplitter = venueWeekly.split(';');
+
+                venueWeeklyName = venueWeeklySplitter[0];
+                venueWeeklyTextLeft = venueWeeklySplitter[1];
+                venueWeeklyTextRight = venueWeeklySplitter[2];
 
                 /*Hide score sections if the value of both score variables is zero.
                 (A zero on both sides indicates the match hasn't reached that venue yet)*/
@@ -211,7 +218,7 @@
                 pScoreTotal  = p1Score + p2Score;
                 console.log(p1Score);
                 switch (matchType) {
-                    case 'regularSeasonA':
+                    case 'preSeason':
                     if (p1Score == 7 || p2Score == 7) {
                         if (pScoreTotal <= 8) {
                             pScore13 = 'Match';
@@ -238,8 +245,9 @@
 
                         break;
 
-                    case 'regularSeasonB':
-                        if (p1Score == 9 || p2Score == 9) {
+                    case 'regularSeason':
+                    case 'challengerRegular':
+                        if (p1Score == 6 || p2Score == 6) {
                         if (pScoreTotal <= multiplyValue3 && pScoreTotal > multiplyValue2) {
                             pScore14 = 'Match';
                             pScore24 = 'Over';
@@ -603,38 +611,47 @@
 
                 //Adds/removes/alters parts of the overlay depending on the current match type.
                 switch (matchType) {
-                    case 'regularSeasonA':
+                    case 'preSeason':
+                    venueWeekly
+                        $('#venueWeekly').css('display','none');
                         $('#venue15').css('display','none');
                         $('#venue25').css('display','none');
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
+
+
                         $('.postBreak').css('display','none');
                         $('.champBreak').css('display','none');
                         $('.champDouble').css('display','none');
                         $('.venueTextLarge').css('font-size','24pt');
                         break;
 
-                    case 'regularSeasonB':
+                    case 'regularSeason':
+                        $('#venueWeekly').css('display','none');
+                        $('#venue15').css('display','none');
+                        $('#venue25').css('display','none');
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
-                        $('#venue15').css('display','flex');
-                        $('#venue25').css('display','flex');
+
+
+                        $('.postBreak').css('display','none');
+                        $('.champBreak').css('display','none');
+                        $('.champDouble').css('display','none');
+                        $('.venueTextLarge').css('font-size','24pt');
+                        break;
+
+                    case 'challengerRegular': 
+                        $('#venueWeekly').css('display','flex');
+                        $('#venue15').css('display','none');
+                        $('#venue25').css('display','none');
+                        $('#venue16').css('display','none');
+                        $('#venue26').css('display','none');
+
+                        
                         $('.postBreak').css('display','block');
                         $('.champBreak').css('display','none');
                         $('.champDouble').css('display','none');
-                        $('.venueTextLarge').css('font-size','20pt');
-                        break;
-
-                    case 'postSeason': 
-                    case 'masters':
-                        $('#venue15').css('display','flex');
-                        $('#venue25').css('display','flex');
-                        $('#venue16').css('display','flex');
-                        $('#venue26').css('display','none');
-                        $('.postBreak').css('display','block');
-                        $('.champBreak').css('display','block');
-                        $('.champDouble').css('display','block');
-                        $('.venueTextLarge').css('font-size','18pt');
+                        $('.venueTextLarge').css('font-size','22pt');
                         break;
 
                         case 'postSeasonRH': 
@@ -810,8 +827,8 @@
                 components of the div with the correct image and loadout information.
                 No fancy animations since this will all be happening while the overlay is off screen.*/
                 function bigVenueChange(venueNumber) {
-                    venueNumberName = window[venueNumber+"Name"];
-                    venueNumberLeft = window[venueNumber+"TextLeft"];
+                    venueNumberName = window[venueNumber+"Name"].replaceAll("_","");;
+                    venueNumberLeft = window[venueNumber+"TextLeft"].replaceAll("<br>(Swap or Microfilm Required)","(Swap or µf)");
                     venueNumberRight = window[venueNumber+"TextRight"];
                     $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
                     $('#'+venueNumber+'TextRight').html(venueNumberRight);
@@ -819,6 +836,11 @@
                 }
             
                 //Triggers the above function for each venue div.
+                if (venueWeeklyName != venueWeeklyNameOld && venueWeeklyName != "") {
+                    bigVenueChange('venueWeekly');
+                    venueWeeklyName = venueWeeklyNameOld;
+                }
+
                 if (venue13Name != venue13NameOld && venue13Name != "") {
                     bigVenueChange('venue13');
                     venue13NameOld = venue13Name;
@@ -918,30 +940,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="selectionBlock postBreak" id="breakdownBlock6">
-                    <div class="boxBorder">
-                        <div class="sTBox">
-                            <p class="sTText textTop" id="breakdown16">
-                                0
-                            </p>
-                            <p class="sTText textBottom" id="breakdown26">
-                                0
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="selectionBlock champBreak" id="breakdownBlock7">
-                    <div class="boxBorder">
-                        <div class="sTBox">
-                            <p class="sTText textTop" id="breakdown17">
-                                0
-                            </p>
-                            <p class="sTText textBottom" id="breakdown27">
-                                0
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
             </div>
             <div id="centerBand">
@@ -949,6 +947,16 @@
                     CLEETOSE               
                 </div>
                 <div id="vsBand">
+                    <div class="largeImage venueImage" id="venueWeekly">
+                        <div class="double" id="doubleBoxWeekly">
+                            <p class="doubleText" id="multiplySelectWeekly">Weekly Venue</p>
+                        </div>
+                        <p class="venueName venueTextLarge"
+                            id="venueWeeklyTextLeft"></p>
+                        <p class="venueGuestsTime venueTextLarge"
+                            id="venueWeeklyTextRight"></p>
+                    </div>
+
                     <div class="largeImage venueImage" id="venue13">
                         <div class="double" id="doubleBox13">
                             <p class="doubleText" id="multiplySelect13">Doubled</p>

@@ -13,7 +13,6 @@ body {
 	align-items: center;
 	width: 1920px;
 	height: 1080px;
-	background-image: url('../images_draft/draftbg.png');
 	background-repeat: no-repeat;
     font-family: 'JosefinSans';
     overflow: hidden;
@@ -180,7 +179,7 @@ body {
     width: 810px;
     height: 797px;
     z-index: 2;
-    background-image: url('../images_draft/GE_Body.png');
+    background-image: url('../images_draft/GTA_rov.png');
 }
 
 #gabriotronscreen {
@@ -188,7 +187,7 @@ body {
     width: 810px;
     height: 797px;
     z-index: 3;
-    background-image: url('../images_draft/GE_Screen.gif');
+    background-image: url('../images_draft/GTA_Screen.gif');
 }
 
 #roundnumber {
@@ -199,7 +198,7 @@ body {
     top: 150px;
     text-align: center;
     opacity: 0;
-    color: seashell;
+    color: rgb(113, 179, 233);
 }
 
 

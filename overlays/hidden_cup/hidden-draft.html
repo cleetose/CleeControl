@@ -32,7 +32,7 @@
 
     <div id="venueHolder">
 
-      <p id="picksText">GabrioTron's Picks</p>
+      <p id="picksText">Rov-o-Tron's Picks</p>
       <div class="break"></div>
         <div class="venueImage" id="pick1">
           <p class="doubleText" id="doubleA">Double</p>
@@ -261,7 +261,7 @@
 
     var randomBoy = getRndInteger(1, 5);
     
-      if ($('#pName1').html() != (pName1 + " doesn't like " + ban1)) {
+      if ($('#pName1').html() != (pName1)) {
 
 
         anime({
@@ -271,7 +271,7 @@
           delay: 0,
           easing: 'linear',
           complete: function () {
-            $('#pName1').html(pName1 + " doesn't like " + ban1);
+            $('#pName1').html(pName1);
 
             anime({
               targets: '#pName1',
@@ -291,7 +291,7 @@
       }
 
 
-      if ($('#pName2').html() != (pName2 + " doesn't like " + ban2)) {
+      if ($('#pName2').html() != (pName2)) {
 
         anime({
           targets: '#pName2',
@@ -300,7 +300,7 @@
           delay: 0,
           easing: 'linear',
           complete: function () {
-            $('#pName2').html(pName2 + " doesn't like " + ban2);
+            $('#pName2').html(pName2);
 
             anime({
               targets: '#pName2',
@@ -321,7 +321,7 @@
 
       $('#showdownTime').html("Time: "+showdownTime);
     $('#showdownTime').css("visibility", "visible");
-
+  /*
       if (randomBoy == 1) {
         $('#gabriotronbody').css("background-image", "url('images_draft/GT5000.png')");
         $('#gabriotronscreen').css("background-image", "url('images_draft/GT5002.gif')");
@@ -338,7 +338,7 @@
       }
 
       if (randomBoy == 4) {
-        $('#gabriotronbody').css("background-image", "url('images_draft/GTA.png')");
+        $('#gabriotronbody').css("background-image", "url('images_draft/GTA_rov.png')");
         $('#gabriotronscreen').css("background-image", "url('images_draft/GTA_Screen.gif')");
       }
 
@@ -346,7 +346,7 @@
         $('#gabriotronbody').css("background-image", "url('images_draft/GTA2.png')");
         $('#gabriotronscreen').css("background-image", "url('images_draft/GTA_Screen2.gif')");
       }
-
+*/
       if ($('#roundnumber').html() != (matchType)) {
 
 

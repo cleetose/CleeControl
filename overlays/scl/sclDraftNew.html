@@ -18,6 +18,7 @@
             var venue11NameOld;
             var venue12NameOld;
             var venue13NameOld;
+            var venueWeeklyNameOld;
             var venue14NameOld;
             var venue15NameOld;
             var venue16NameOld;
@@ -91,50 +92,64 @@
                 
                 }
 
-               
+                venueWeeklySplitter = venueWeekly.split(';');
+
+                venueWeeklyName = venueWeeklySplitter[0];
+                venueWeeklyTextLeft = venueWeeklySplitter[1];
+                venueWeeklyTextRight = venueWeeklySplitter[2];
+                console.log(venueWeeklyName);
             
                 switch (matchType) {
-                    case 'regularSeasonA':
+                    case 'preSeason':
                         $('#restrictTextTop').html('Restrict');
                         $('#restrictTextBottom').html('Restrict');   
                         $('#venue15').css('display','none');
                         $('#venue25').css('display','none');
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
-                        $('.venueTextLarge').css('font-size','28pt');
+                        $('.venueTextLarge').css('font-size','24pt');
+                        anime({
+                                targets: "#weeklyVenueHolder",
+                        opacity: {value: 1, duration: 1500, delay: 50, easing: "easeOutQuad"},
+                        top: {value: 1370, duration: 400, delay: 0, easing: "easeOutQuad"},
+                                   
+                            });
                         break;
                 
-                    case 'regularSeasonB':
-                        $('#restrictTextTop').html('Restrict');
-                        $('#restrictTextBottom').html('Restrict');   
+                    case 'challengerRegular':
+                        $('#restrictTextTop').html('Ban');
+                        $('#restrictTextBottom').html('Ban');
                         $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
-                        $('#venue15').css('display','flex');
-                        $('#venue25').css('display','flex');
+                        $('#venue15').css('display','none');
+                        $('#venue25').css('display','none');
                         $('.venueTextLarge').css('font-size','24pt');
+                        anime({
+                                targets: "#weeklyVenueHolder",
+                        opacity: {value: 1, duration: 1500, delay: 50, easing: "easeOutQuad"},
+                        top: {value: 870, duration: 400, delay: 0, easing: "easeOutQuad"},
+                                   
+                            });
                         break;
                 
-                    case 'postSeason':
+                    case 'regularSeason':
                     case 'masters':
-                        $('#restrictTextTop').html('Restrict');
+                        $('#restrictTextTop').html('Ban');
                         $('#restrictTextBottom').html('Restrict');    
-                        $('#venue15').css('display','flex');
-                        $('#venue25').css('display','flex');
-                        $('#venue16').css('display','flex');
+                        $('#venue16').css('display','none');
                         $('#venue26').css('display','none');
-                        $('.venueTextLarge').css('font-size','18pt');
+                        $('#venue15').css('display','none');
+                        $('#venue25').css('display','none');
+                        $('.venueTextLarge').css('font-size','22pt');
+
+                        anime({
+                                targets: "#weeklyVenueHolder",
+                        opacity: {value: 1, duration: 1500, delay: 50, easing: "easeOutQuad"},
+                        top: {value: 1370, duration: 400, delay: 0, easing: "easeOutQuad"},
+                                   
+                            });
                         break;
 
-                        case 'postSeasonRH':
-                        case 'mastersRH':
-                        $('#restrictTextTop').html('Restrict');
-                        $('#restrictTextBottom').html('Restrict');    
-                        $('#venue15').css('display','flex');
-                        $('#venue25').css('display','flex');
-                        $('#venue16').css('display','none');
-                        $('#venue26').css('display','flex');
-                        $('.venueTextLarge').css('font-size','18pt');
-                        break;
                 }
 
                 if (pDivision2 == "") {
@@ -311,7 +326,7 @@
 
                 }
             
-            
+                
             
             
                 function smallVenueChange(venueNumber) {
@@ -320,16 +335,23 @@
                         targets: "#"+venueNumber,
                         opacity: {value: 0, duration: 300, delay: 0, easing: "easeOutQuad"},
                         complete: function() {
-                            venueNumberName = window[venueNumber+"Name"];
-                            venueNumberLeft = window[venueNumber+"TextLeft"];
+                            venueNumberName = window[venueNumber+"Name"].replaceAll("_","");
+                            venueNumberLeft = window[venueNumber+"TextLeft"].replaceAll("<br>(Swap or Microfilm Required)","(Swap or µf)");
                             venueNumberRight = window[venueNumber+"TextRight"];
                             $('#'+venueNumber).css('background-image','url("./wide_images_venues/'+venueNumberName+'.png")');
                             $('#'+venueNumber+'TextRight').html(venueNumberRight);
                             $('#'+venueNumber+'TextLeft').html(venueNumberLeft);
                             venueSplitter = venueNumber.split('venue1');
                             console.log(venueSplitter.length);
-                            if (venueSplitter.length == 1) {
-                                console.log('hello');
+                            if (venueNumber == "venueWeekly") {
+                                anime({
+                                targets: "#"+venueNumber,
+                        opacity: {value: 1, duration: 1500, delay: 50, easing: "easeOutQuad"},
+                        translateY: [{value: 0, duration: 50, delay: 0, easing: "easeOutQuad"},
+                                    {value: 0, duration: 500, delay: 60, easing: "easeOutQuad"}]
+                            });
+                            }
+                            else if (venueSplitter.length == 1) {
                                 anime({
                                 targets: "#"+venueNumber,
                         opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
@@ -338,7 +360,6 @@
                             });
                             }
                             else if (venueSplitter.length == 2) {
-                                console.log('hello2');
                                 anime({
                                 targets: "#"+venueNumber,
                         opacity: {value: 1, duration: 500, delay: 50, easing: "easeOutQuad"},
@@ -363,7 +384,7 @@
                         opacity: {value: 0, duration: 200, delay: 0, easing: "easeOutQuad"},
                     
                         complete: function() {
-                            venueNumberName = window[venueNumber+"Name"];
+                            venueNumberName = window[venueNumber+"Name"].replaceAll("_","");
                             venueNumberLeft = window[venueNumber+"TextLeft"];
                             venueNumberRight = window[venueNumber+"TextRight"];
                             
@@ -485,6 +506,11 @@
 
                 if(loadIn == "done") {
                 
+                    if (venueWeeklyName != venueWeeklyNameOld && venueWeeklyName != "") {
+                    smallVenueChange('venueWeekly');
+                    venueWeeklyNameOld = venueWeeklyName;
+                    }
+
                     if (venue11Name != venue11NameOld && venue11Name != "") {
                     smallVenueChange('venue11');
                     venue11NameOld = venue11Name;
@@ -592,6 +618,11 @@
                         venue22NameOld = venue22Name;
                     }
                 
+                    if (venueWeeklyName != venueWeeklyNameOld && venueWeeklyName != "") {
+                    smallVenueChange('venueWeekly');
+                    venueWeeklyNameOld = venueWeeklyName;
+                    }
+
                 
                     if (venue13Name != venue13NameOld && venue13Name != "") {
                         setTimeout(() => {
@@ -701,8 +732,20 @@
         <div id="sclLogo">
             <img src="./images_draft/sclLogo.png">
         </div>
-        <div id="everything">
 
+            <div id="weeklyVenueHolder">
+                <div class="topImage smallImage venueImage" id="venueWeekly">
+                    <div class="double" id="weeklyBannerBox">
+                        <p class="doubleText" id="weeklyBanner">Weekly Venue</p>
+                    </div>
+                    <p class="venueName venueTextLarge" id="venueWeeklyTextLeft">Courtyard<br>Any
+                        4/8</p>
+                    <p class="venueGuestsTime venueTextLarge"
+                        id="venueWeeklyTextRight">69 Guests<br>4:20 Mins</p>
+                </div>
+            </div>
+
+        <div id="everything">
             <div id="p1VenueImages">
                 <div class="topImage smallImage venueImage" id="venue11">
                     <p class="venueName venueTextSmall" id="venue11TextLeft">Courtyard<br>Any

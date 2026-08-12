@@ -1,8 +1,8 @@
 class SclAutomation extends HTMLElement {
     constructor() {
         super();
-        this.innerHTML = 
-        `
+        this.innerHTML =
+            `
         <p class="titleBox">Automation</p>
         <button class="accordion" id="accordionautoPan">Expand</button>
         <div class="panel" id="autoPan">
@@ -15,69 +15,89 @@ class SclAutomation extends HTMLElement {
             <select class="venueSelect autoMultiply storable" id="autoMultiply1">
             <option value="" selected></option>
             <option value="aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins">Aquarium</option>
-            <option value="balcony;Balcony<br>Any 2/3;7 Guests<br>2:00mins">Balcony</option>
             <option value="ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins">Ballroom</option>
-            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard</option>
+            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard 4/7</option>
+            <option value="courtyard_;Courtyard<br>Any 3/7;15 Guests<br>2:45mins">Courtyard 3/7</option>
             <option value="gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins">Gallery</option>
-            <option value="high-rise;High-rise<br>Any 3/6;12 Guests<br>3:15mins">High-rise</option>
-            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library</option>
+            <option value="high-rise;High-rise<br>Any 3/6 (Swap or Microfilm Required);12 Guests<br>3:15mins">High-rise 3/5</option>
+            <option value="high-rise_;High-rise<br>Any 4/8;15 Guests<br>3:45mins">High-rise 4/8</option>
+            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library 5/8</option>
+            <option value="library_;Library<br>Any 4/8;19 Guests<br>3:45mins">Library 4/8</option>
             <option value="moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins">Moderne</option>
-            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub</option>
+            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub 3/7</option>
+            <option value="pub_;Pub<br>Any 4/7;19 Guests<br>4:15mins">Pub 4/7</option>
             <option value="redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins">Redwoods</option>
-            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien</option>
+            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien 4/8</option>
+            <option value="teien_;Teien<br>Any 2/4 (No Inspect);8 Guests<br>2:15mins">Teien 2/8</option>
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
-            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
+            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda 5/8</option>
+            <option value="veranda_;Veranda<br>Any 4/8;19 Guests<br>3:45mins">Veranda 4/8</option>
             <option value="declined; ; ;">No restrict</option>
         </select>
         <select class="venueSelect autoMultiply storable" id="autoMultiply2">
             <option value="" selected></option>
             <option value="aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins">Aquarium</option>
-            <option value="balcony;Balcony<br>Any 2/3;7 Guests<br>2:00mins">Balcony</option>
             <option value="ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins">Ballroom</option>
-            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard</option>
+            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard 4/7</option>
+            <option value="courtyard_;Courtyard<br>Any 3/7;15 Guests<br>2:45mins">Courtyard 3/7</option>
             <option value="gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins">Gallery</option>
-            <option value="high-rise;High-rise<br>Any 3/6;12 Guests<br>3:15mins">High-rise</option>
-            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library</option>
+            <option value="high-rise;High-rise<br>Any 3/6 (Swap or Microfilm Required);12 Guests<br>3:15mins">High-rise 3/5</option>
+            <option value="high-rise_;High-rise<br>Any 4/8;15 Guests<br>3:45mins">High-rise 4/8</option>
+            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library 5/8</option>
+            <option value="library_;Library<br>Any 4/8;19 Guests<br>3:45mins">Library 4/8</option>
             <option value="moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins">Moderne</option>
-            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub</option>
+            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub 3/7</option>
+            <option value="pub_;Pub<br>Any 4/7;19 Guests<br>4:15mins">Pub 4/7</option>
             <option value="redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins">Redwoods</option>
-            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien</option>
+            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien 4/8</option>
+            <option value="teien_;Teien<br>Any 2/4 (No Inspect);8 Guests<br>2:15mins">Teien 2/8</option>
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
-            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
+            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda 5/8</option>
+            <option value="veranda_;Veranda<br>Any 4/8;19 Guests<br>3:45mins">Veranda 4/8</option>
             <option value="declined; ; ;">No restrict</option>
         </select>
         <select class="venueSelect autoMultiply storable" id="autoMultiply3">
             <option value="" selected></option>
             <option value="aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins">Aquarium</option>
-            <option value="balcony;Balcony<br>Any 2/3;7 Guests<br>2:00mins">Balcony</option>
             <option value="ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins">Ballroom</option>
-            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard</option>
+            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard 4/7</option>
+            <option value="courtyard_;Courtyard<br>Any 3/7;15 Guests<br>2:45mins">Courtyard 3/7</option>
             <option value="gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins">Gallery</option>
-            <option value="high-rise;High-rise<br>Any 3/6;12 Guests<br>3:15mins">High-rise</option>
-            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library</option>
+            <option value="high-rise;High-rise<br>Any 3/6 (Swap or Microfilm Required);12 Guests<br>3:15mins">High-rise 3/5</option>
+            <option value="high-rise_;High-rise<br>Any 4/8;15 Guests<br>3:45mins">High-rise 4/8</option>
+            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library 5/8</option>
+            <option value="library_;Library<br>Any 4/8;19 Guests<br>3:45mins">Library 4/8</option>
             <option value="moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins">Moderne</option>
-            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub</option>
+            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub 3/7</option>
+            <option value="pub_;Pub<br>Any 4/7;19 Guests<br>4:15mins">Pub 4/7</option>
             <option value="redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins">Redwoods</option>
-            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien</option>
+            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien 4/8</option>
+            <option value="teien_;Teien<br>Any 2/4 (No Inspect);8 Guests<br>2:15mins">Teien 2/8</option>
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
-            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
+            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda 5/8</option>
+            <option value="veranda_;Veranda<br>Any 4/8;19 Guests<br>3:45mins">Veranda 4/8</option>
             <option value="declined; ; ;">No restrict</option>
         </select>
         <select class="venueSelect autoMultiply storable" id="autoMultiply4">
             <option value="" selected></option>
             <option value="aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins">Aquarium</option>
-            <option value="balcony;Balcony<br>Any 2/3;7 Guests<br>2:00mins">Balcony</option>
             <option value="ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins">Ballroom</option>
-            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard</option>
+            <option value="courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins">Courtyard 4/7</option>
+            <option value="courtyard_;Courtyard<br>Any 3/7;15 Guests<br>2:45mins">Courtyard 3/7</option>
             <option value="gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins">Gallery</option>
-            <option value="high-rise;High-rise<br>Any 3/6;12 Guests<br>3:15mins">High-rise</option>
-            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library</option>
+            <option value="high-rise;High-rise<br>Any 3/6 (Swap or Microfilm Required);12 Guests<br>3:15mins">High-rise 3/5</option>
+            <option value="high-rise_;High-rise<br>Any 4/8;15 Guests<br>3:45mins">High-rise 4/8</option>
+            <option value="library;Library<br>Any 5/8;21 Guests<br>4:45mins">Library 5/8</option>
+            <option value="library_;Library<br>Any 4/8;19 Guests<br>3:45mins">Library 4/8</option>
             <option value="moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins">Moderne</option>
-            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub</option>
+            <option value="pub;Pub<br>Any 3/7;16 Guests<br>3:00mins">Pub 3/7</option>
+            <option value="pub_;Pub<br>Any 4/7;19 Guests<br>4:15mins">Pub 4/7</option>
             <option value="redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins">Redwoods</option>
-            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien</option>
+            <option value="teien;Teien<br>Any 4/8;13 Guests<br>3:30mins">Teien 4/8</option>
+            <option value="teien_;Teien<br>Any 2/4 (No Inspect);8 Guests<br>2:15mins">Teien 2/8</option>
             <option value="terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins">Terrace</option>
-            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda</option>
+            <option value="veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins">Veranda 5/8</option>
+            <option value="veranda_;Veranda<br>Any 4/8;19 Guests<br>3:45mins">Veranda 4/8</option>
             <option value="declined; ; ;">No restrict</option>
     </select>
             <input id="updateAutoVenue" class="buttony" type="reset" value="Update" />
@@ -119,21 +139,21 @@ class SclAutomation extends HTMLElement {
 window.customElements.define('scl-automation', SclAutomation);
 
 
-document.getElementById('clearAutoVenue').addEventListener('click', function() {
+document.getElementById('clearAutoVenue').addEventListener('click', function () {
     $('#venueDecoder').val('');
 });
 
-document.getElementById('clearAutoCharacters').addEventListener('click', function() {
+document.getElementById('clearAutoCharacters').addEventListener('click', function () {
     $('#spyPaste').val('');
 });
 
-document.getElementById('clearAutoScore').addEventListener('click', function() {
+document.getElementById('clearAutoScore').addEventListener('click', function () {
     $('#scorePaste').val('');
 });
 
 
 //Takes
-$('#updateAutoVenue').on('click',function() {
+$('#updateAutoVenue').on('click', function () {
     if ($('#venueDecoder').val() != "") {
         var mIndex1;
         var mIndex2;
@@ -142,97 +162,114 @@ $('#updateAutoVenue').on('click',function() {
         venueSeparator = [];
         venueDecoder = $('#venueDecoder').val();
         decoderLowercase = venueDecoder.toLowerCase()
-        venueSeparator = decoderLowercase.match(/aquarium|ballroom|balcony|courtyard|gallery|high-rise|library|moderne|pub|redwoods|teien|terrace|veranda|nothing|declines/g);
-        if ($('#matchType').val() == 'regularSeasonA') {
+        venueSeparator = decoderLowercase.match(/aquarium|ballroom|balcony|courtyard 4|courtyard 3|gallery|high-rise 3|high-rise 4|library 5|library 4|moderne|pub 3|pub 4|redwoods|teien 4|teien 2|terrace|veranda 5|veranda 4|nothing|declines/g);
+        if ($('#matchType').val() == 'preSeason') {
 
-            venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue23","venue14","venue24"];
-        
+            venueAssignerArr = ["venue11", "venue21", "venue12", "venue22", "venue13", "venue23", "venue14", "venue24"];
+
         }
 
-        if ($('#matchType').val() == 'regularSeasonB') {
+        if ($('#matchType').val() == 'regularSeason') {
 
-            venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue14","venue15","venue23","venue24","venue25","autoMultiply1","autoMultiply2"];
-        
-        }
-        
-        if ($('#matchType').val() == 'postSeason' || $('#matchType').val() == 'masters') {
+            venueAssignerArr = ["venue11", "venue21", "venue12", "venue22", "venue13", "venue23", "venue14", "venue24"];
 
-            venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue14","venue15","venue16","venue23","venue24","venue25","autoMultiply1","autoMultiply2","autoMultiply3","autoMultiply4"];
-        
         }
 
-        if ($('#matchType').val() == 'postSeasonRH' || $('#matchType').val() == 'mastersRH') {
+        if ($('#matchType').val() == 'challengerRegular') {
 
-            venueAssignerArr = ["venue11","venue21","venue12","venue22","venue13","venue14","venue15","venue23","venue24","venue25","venue26","autoMultiply1","autoMultiply2","autoMultiply3","autoMultiply4"];
-        
+            venueAssignerArr = ["venueWeekly", "venue11", "venue21", "venue12", "venue22",  "venue13", "venue23", "venue14", "venue24"];
+
         }
-        
+
+
         if (venueSeparator != null) {
             for (let l = 0; l < venueSeparator.length; l++) {
                 switch (venueSeparator[l]) {
                     case 'aquarium':
-                        $('#'+venueAssignerArr[l]).val('aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins');
+                        $('#' + venueAssignerArr[l]).val('aquarium;Aquarium<br>Any 4/8;20 Guests<br>4:00mins');
                         break;
 
-                    case 'balcony':
-                        $('#'+venueAssignerArr[l]).val('balcony;Balcony<br>Any 2/3;7 Guests<br>2:00mins');
-                        break;    
 
                     case 'ballroom':
-                        $('#'+venueAssignerArr[l]).val('ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins')
+                        $('#' + venueAssignerArr[l]).val('ballroom;Ballroom<br>Any 4/8;16 Guests<br>3:30mins')
                         break;
 
-                    case 'courtyard':
-                        $('#'+venueAssignerArr[l]).val('courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins');        
-                        break;   
+                    case 'courtyard 4':
+                        $('#' + venueAssignerArr[l]).val('courtyard;Courtyard<br>Any 4/7;17 Guests<br>3:30mins');
+                        break;
+
+                    case 'courtyard 3':
+                        $('#' + venueAssignerArr[l]).val('courtyard_;Courtyard<br>Any 3/7;15 Guests<br>2:45mins');
+                        break;
 
                     case 'gallery':
-                        $('#'+venueAssignerArr[l]).val('gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins');       
+                        $('#' + venueAssignerArr[l]).val('gallery;Gallery<br>Any 4/8;21 Guests<br>4:00mins');
                         break;
 
-                    case 'high-rise':
-                        $('#'+venueAssignerArr[l]).val('high-rise;High-rise<br>Any 3/6;12 Guests<br>3:15mins');
-                        break;    
+                    case 'high-rise 3':
+                        $('#' + venueAssignerArr[l]).val('high-rise;High-rise<br>Any 3/6<br>(Swap or Microfilm Required);12 Guests<br>3:15mins');
+                        break;
 
-                    case 'library':
-                        $('#'+venueAssignerArr[l]).val('library;Library<br>Any 5/8;21 Guests<br>4:45mins');
+                        case 'high-rise 4':
+                            $('#' + venueAssignerArr[l]).val('high-rise_;High-rise<br>Any 4/8;15 Guests<br>3:45mins');
+                            break;
+
+                    case 'library 5':
+                        $('#' + venueAssignerArr[l]).val('library;Library<br>Any 5/8;21 Guests<br>4:45mins');
+                        break;
+
+                        case 'library 4':
+                        $('#' + venueAssignerArr[l]).val('library_;Library<br>Any 4/8;19 Guests<br>3:45mins');
                         break;
 
                     case 'moderne':
-                        $('#'+venueAssignerArr[l]).val('moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins');
-                        break;  
+                        $('#' + venueAssignerArr[l]).val('moderne;Moderne<br>Any 4/8;21 Guests<br>4:15mins');
+                        break;
 
-                    case 'pub':
-                        $('#'+venueAssignerArr[l]).val('pub;Pub<br>Any 3/7;16 Guests<br>3:00mins');
-                        break;   
+                    case 'pub 3':
+                        $('#' + venueAssignerArr[l]).val('pub;Pub<br>Any 3/7;16 Guests<br>3:00mins');
+                        break;
+
+                        case 'pub 4':
+                        $('#' + venueAssignerArr[l]).val('pub_;Pub<br>Any 4/7;19 Guests<br>4:15mins');
+                        break;
 
                     case 'redwoods':
-                        $('#'+venueAssignerArr[l]).val('redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins');
+                        $('#' + venueAssignerArr[l]).val('redwoods;Redwoods<br>Any 4/8;14 Guests<br>3:30mins');
                         break;
 
-                    case 'teien':
-                        $('#'+venueAssignerArr[l]).val('teien;Teien<br>Any 4/8;13 Guests<br>3:30mins');
-                        break;    
+                    case 'teien 4':
+                        $('#' + venueAssignerArr[l]).val('teien;Teien<br>Any 4/8;13 Guests<br>3:30mins');
+                        break;
+
+                        case 'teien 2':
+                        $('#' + venueAssignerArr[l]).val('teien_;Teien<br>Any 2/4 (No Inspect);8 Guests<br>2:15mins');
+                        break;
 
                     case 'terrace':
-                        $('#'+venueAssignerArr[l]).val('terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins');
+                        $('#' + venueAssignerArr[l]).val('terrace;Terrace<br>Any 3/7;12 Guests<br>3:30mins');
                         break;
 
-                    case 'veranda':
-                        $('#'+venueAssignerArr[l]).val('veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins');
-                        break;  
+                    case 'veranda 5':
+                        $('#' + venueAssignerArr[l]).val('veranda;Veranda<br>Any 5/8;21 Guests<br>4:45mins');
+                        break;
+
+                        case 'veranda 4':
+                        $('#' + venueAssignerArr[l]).val('veranda_;Veranda<br>Any 4/8;19 Guests<br>3:45mins');
+                        break;
 
                     case 'nothing':
-                        $('#'+venueAssignerArr[l]).val('declined; ; ;');
-                        break; 
-                        case 'declines':
-                            $('#'+venueAssignerArr[l]).val('declined; ; ;');
-                            break; 
+                        $('#' + venueAssignerArr[l]).val('declined; ; ;');
+                        break;
+                    case 'declines':
+                        $('#' + venueAssignerArr[l]).val('declined; ; ;');
+                        break;
                     default:
                         break;
-                };   
+                };
             }
-            $('#multiplySelect13').val('Single');
+
+           /* $('#multiplySelect13').val('Single');
             $('#multiplySelect23').val('Single');
             $('#multiplySelect14').val('Single');
             $('#multiplySelect24').val('Single');
@@ -242,72 +279,72 @@ $('#updateAutoVenue').on('click',function() {
             $('#multiplySelect26').val('Single');
 
             for (let q = 13; q <= 16; q++) {
-                if ($("#autoMultiply1").val() == $("#venue"+q).val()) {
-                    mIndex1 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply1").val() == $("#venue" + q).val()) {
+                    mIndex1 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex1 = mIndex1 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex1);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex1);
                 }
             }
             for (let q = 23; q <= 26; q++) {
-                if ($("#autoMultiply1").val() == $("#venue"+q).val()) {
-                    mIndex1 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply1").val() == $("#venue" + q).val()) {
+                    mIndex1 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex1 = mIndex1 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex1);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex1);
                 }
             }
             for (let q = 13; q <= 16; q++) {
-                if ($("#autoMultiply2").val() == $("#venue"+q).val()) {
-                    mIndex2 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply2").val() == $("#venue" + q).val()) {
+                    mIndex2 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex2 = mIndex2 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex2);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex2);
                 }
             }
             for (let q = 23; q <= 26; q++) {
-                if ($("#autoMultiply2").val() == $("#venue"+q).val()) {
-                    mIndex2 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply2").val() == $("#venue" + q).val()) {
+                    mIndex2 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex2 = mIndex2 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex2);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex2);
                 }
             }
 
             for (let q = 13; q <= 16; q++) {
-                if ($("#autoMultiply3").val() == $("#venue"+q).val()) {
-                    mIndex3 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply3").val() == $("#venue" + q).val()) {
+                    mIndex3 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex3 = mIndex3 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex3);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex3);
                 }
             }
             for (let q = 23; q <= 26; q++) {
-                if ($("#autoMultiply3").val() == $("#venue"+q).val()) {
-                    mIndex3 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply3").val() == $("#venue" + q).val()) {
+                    mIndex3 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex3 = mIndex3 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex3);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex3);
                 }
             }
             for (let q = 13; q <= 16; q++) {
-                if ($("#autoMultiply4").val() == $("#venue"+q).val()) {
-                    mIndex4 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply4").val() == $("#venue" + q).val()) {
+                    mIndex4 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex4 = mIndex4 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex4);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex4);
                 }
             }
             for (let q = 23; q <= 26; q++) {
-                if ($("#autoMultiply4").val() == $("#venue"+q).val()) {
-                    mIndex4 = $("#multiplySelect"+q).prop('selectedIndex');
+                if ($("#autoMultiply4").val() == $("#venue" + q).val()) {
+                    mIndex4 = $("#multiplySelect" + q).prop('selectedIndex');
                     mIndex4 = mIndex4 + 1;
-                    $("#multiplySelect"+q).prop('selectedIndex', mIndex4);
+                    $("#multiplySelect" + q).prop('selectedIndex', mIndex4);
                 }
-            }
+            } */
             $("#autoMultiply1").val("");
             $("#autoMultiply2").val("");
             $("#autoMultiply3").val("");
             $("#autoMultiply4").val("");
             venueSeparator.length = 0;
-        }
-    }
+        } 
+    } 
 });
 
-    
+
 
 /* Figures out where auto score was copied by looking for the presence of
 text exclusive to the #scl_results channel. */

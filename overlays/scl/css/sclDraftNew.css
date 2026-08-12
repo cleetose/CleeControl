@@ -46,6 +46,27 @@ p {
     opacity: 0;
 }
 
+#weeklyVenueHolder {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    width: 510px;
+    height: 210px;
+    top: 1370px;
+    left: 50px;
+    opacity: 1;
+    background: #dbdbdb;
+    border: solid rgb(78, 78, 78) 10px;
+    border-radius: 20px; 
+}
+
+#venueWeekly {
+    top: 10px;
+    left: -10px;
+    width: 410px;
+    height: 170px;
+    opacity: 0;
+}
 
 #everything {
     display: flex;
@@ -88,6 +109,18 @@ p {
 }
 
 #spacer2 {
+    width: 38px;
+}
+
+#spacer3 {
+    width: 38px;
+}
+
+#challengerSpacer {
+    visibility: hidden;
+}
+
+#spacer4 {
     width: 38px;
 }
 

@@ -941,362 +941,328 @@
             </div>
             <!--Draft-->
             <div class="sectional" id="picksBans">
-                <p class="titleBox">Draft</p>
+                <p class="titleBox">Hidden Cup Draft</p>
                 <button class="accordion" id="accordiondraftPan">Expand</button>
                 <div class="panel" id="draftPan">
                     <div id="flexDraft">
+                    <input type="text" class="storable draft" id="matchType" placeholder="Match Type Or Whatever" />
+    
                         <div class="break"></div>
-                        <label class="pbTitle" id="draftPlayer1">Player 1</label>
-                        <label class="pbTitle2" id="draftPlayer2">Player 2</label>
+                        <p>Main Picks</p>
                         <div class="break"></div>
-                        <div class="draftBlock">
-                            <input type="checkbox" id="link1"
-                                class="storable-ckbx2 doubleCheck" title="Link"
-                                value="link">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType1A"
-                                placeholder="Title">
-                            
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType1B"
-                                placeholder="Title">
-                            <div class="break"></div>
-                            <div class="venueSpinners">
-                                <div class="scoreSpinners" id="venueSpinner1">
-                                    <input class="spinBoy storable draft"
-                                        id="venueTypeCount1" type="number"
-                                        name="value" value="0"
-                                        min="0" max="4" readonly>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        class="down"></button>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        class="up"></button>
-                                </div>
-                            </div>
-                            <select class="venueSelect storable draft"
-                                id="venue1">
-                            </select>
-                            <input type="checkbox" id="doubleA"
-                                name="doubleATest" class="storable-ckbx
-                                doubleCheck" title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue2">
-                            </select>
-                            <input type="checkbox" id="doubleA2"
-                            name="doubleATest" class="storable-ckbx
-                            doubleCheck" title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue3">
-                            </select>
-                            <input type="checkbox" id="doubleB"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue4">
-                            </select>
-                            <input type="checkbox" id="doubleB2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue5">
-                            </select>
-                            <input type="checkbox" id="doubleC"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue6">
-                            </select>
-                            <input type="checkbox" id="doubleC2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue7">
-                            </select>
-                            <input type="checkbox" id="doubleD"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue8">
-                            </select>
-                            <input type="checkbox" id="doubleD2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-                        </div>
-
-                        <div class="draftBlock">
-                            <input type="checkbox" id="link2"
-                            class="storable-ckbx2
-                            doubleCheck" title="Link"
-                            value="link">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType2A"
-                                placeholder="Title">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType2B"
-                                placeholder="Title">
-                            <div class="break"></div>
-                            <div class="venueSpinners">
-                                <div class="scoreSpinners" id="venueSpinner2">
-                                    <input class="spinBoy storable draft"
-                                        id="venueTypeCount2" type="number"
-                                        name="value" value="0"
-                                        min="0" max="4" readonly>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        class="down"></button>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        class="up"></button>
-                                </div>
-                            </div>
-                            <select class="venueSelect storable draft"
-                                id="venue9">
-                            </select>
-                            <input type="checkbox" id="doubleE"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue10">
-                            </select>
-                            <input type="checkbox" id="doubleE2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue11">
-                            </select>
-                            <input type="checkbox" id="doubleF"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue12">
-                            </select>
-                            <input type="checkbox" id="doubleF2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue13">
-                            </select>
-                            <input type="checkbox" id="doubleG"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue14">
-                            </select>
-                            <input type="checkbox" id="doubleG2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue15">
-                            </select>
-                            <input type="checkbox" id="doubleH"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue16">
-                            </select>
-                            <input type="checkbox" id="doubleH2"
-                            class="storable-ckbx2 doubleCheck"
-                            title="Double"
-                            value="double">
-                        </div>
-
-                        <div class="draftBlock">
-                            <input type="checkbox" id="link3"
-                            class="storable-ckbx2 doubleCheck" title="Link"
-                            value="link">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType3A"
-                                placeholder="Title">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType3B"
-                                placeholder="Title">
-                            <div class="venueSpinners">
-                                <div class="scoreSpinners" id="venueSpinner3">
-                                    <input class="spinBoy storable draft"
-                                        id="venueTypeCount3" type="number"
-                                        name="value" value="0"
-                                        min="0" max="4" readonly>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        class="down"></button>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        class="up"></button>
-                                </div>
-                            </div>
-                            <select class="venueSelect storable draft"
-                                id="venue17">
-                            </select>
-                            <input type="checkbox" id="doubleI"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue18">
-                            </select>
-                            <input type="checkbox" id="doubleI2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue19">
-                            </select>
-                            <input type="checkbox" id="doubleJ"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue20">
-                            </select>
-                            <input type="checkbox" id="doubleJ2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue21">
-                            </select>
-                            <input type="checkbox" id="doubleK"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue22">
-                            </select>
-                            <input type="checkbox" id="doubleK2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue23">
-                            </select>
-                            <input type="checkbox" id="doubleL"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue24">
-                            </select>
-                            <input type="checkbox" id="doubleL2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-                        </div>
-
-                        <div class="draftBlock">
-                            <input type="checkbox" id="link4"
-                            class="storable-ckbx2 doubleCheck" title="Link"
-                            value="link">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType4A"
-                                placeholder="Title">
-                            <input class="selectType storable draft" title="Blah
-                                blah blah" type="text" id="venueType4B"
-                                placeholder="Title">
-                            <div class="venueSpinners">
-                                <div class="scoreSpinners" id="venueSpinner4">
-                                    <input class="spinBoy storable draft"
-                                        id="venueTypeCount4" type="number"
-                                        name="value" value="0"
-                                        min="0" max="4" readonly>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                                        class="down"></button>
-                                    <button
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                                        class="up"></button>
-                                </div>
-                            </div>
-                            <select class="venueSelect storable draft"
-                                id="venue25">
-                            </select>
-                            <input type="checkbox" id="doubleM"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue26">
-                            </select>
-                            <input type="checkbox" id="doubleM2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue27">
-                            </select>
-                            <input type="checkbox" id="doubleN"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue28">
-                            </select>
-                            <input type="checkbox" id="doubleN2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue29">
-                            </select>
-                            <input type="checkbox" id="doubleO"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue30">
-                            </select>
-                            <input type="checkbox" id="doubleO2"
-                            class="storable-ckbx doubleCheck"
-                            title="Double"
-                            value="double">
-
-                            <select class="venueSelect storable draft"
-                                id="venue31">
-                            </select>
-                            <input type="checkbox" id="doubleP"
-                                class="storable-ckbx doubleCheck"
-                                title="Double"
-                                value="double">
-                            <select class="venueSelect storable draft"
-                                id="venue32">
-                            </select>
-                            <input type="checkbox" id="doubleP2"
-                            class="storable-ckbx2 doubleCheck"
-                            title="Double"
-                            value="double">
-                        </div>
+                        <div class="break"></div>
+                        <select class="venueSelect storable draft" id="pick1">
+                            <option value="" selected>Pick 1</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleA" name="doubleATest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">
+    
+                        <select class="venueSelect storable draft" id="pick2">
+                        <option value="" selected>Pick 2</option>
+                        <option value="aquarium">Aquarium</option>
+                        <option value="balcony">Balcony</option>
+                        <option value="ballroom">Ballroom</option>
+                        <option value="courtyard">Courtyard</option>
+                        <option value="gallery">Gallery</option>
+                        <option value="high-rise">High-rise</option>
+                        <option value="library">Library</option>
+                        <option value="moderne">Moderne</option>
+                        <option value="pub">Pub</option>
+                        <option value="redwoods">Redwoods</option>
+                        <option value="teien">Teien</option>
+                        <option value="terrace">Terrace</option>
+                        <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleB" name="doubleBTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick3">
+                            <option value="" selected>Pick 3</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleC" name="doubleCTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick4">
+                            <option value="" selected>Pick 4</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleD" name="doubleDTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick5">
+                            <option value="" selected>Pick 5</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleE" name="doubleETest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick6">
+                            <option value="" selected>Pick 6</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleF" name="doubleFTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick7">
+                            <option value="" selected>Pick 7</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleG" name="doubleGTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick8">
+                            <option value="" selected>Pick 8</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleH" name="doubleHTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick9">
+                            <option value="" selected>Pick 9</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleI" name="doubleITest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick10">
+                            <option value="" selected>Pick 10</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleJ" name="doubleJTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <div class="break"></div>
+    
+                        <p>Overtime</p>
+                        <div class="break"></div>
+                        <select class="venueSelect storable draft" id="pick11">
+                            <option value="" selected>OT 1</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleK" name="doublekTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">		
+    
+                        <select class="venueSelect storable draft" id="pick12">
+                        <option value="" selected>OT 2</option>
+                        <option value="aquarium">Aquarium</option>
+                        <option value="balcony">Balcony</option>
+                        <option value="ballroom">Ballroom</option>
+                        <option value="courtyard">Courtyard</option>
+                        <option value="gallery">Gallery</option>
+                        <option value="high-rise">High-rise</option>
+                        <option value="library">Library</option>
+                        <option value="moderne">Moderne</option>
+                        <option value="pub">Pub</option>
+                        <option value="redwoods">Redwoods</option>
+                        <option value="teien">Teien</option>
+                        <option value="terrace">Terrace</option>
+                        <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleL" name="doubleLTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick13">
+                            <option value="" selected>OT 3</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleM" name="doubleMTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick14">
+                            <option value="" selected>OT 4</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="checkbox" id="doubleN" name="doubleNTest" class="storable-ckbx doubleCheck" title="Double"
+                        value="double">	
+    
+                        <select class="venueSelect storable draft" id="pick15">
+                        <option value="" selected>OT 5</option>
+                        <option value="aquarium">Aquarium</option>
+                        <option value="balcony">Balcony</option>
+                        <option value="ballroom">Ballroom</option>
+                        <option value="courtyard">Courtyard</option>
+                        <option value="gallery">Gallery</option>
+                        <option value="high-rise">High-rise</option>
+                        <option value="library">Library</option>
+                        <option value="moderne">Moderne</option>
+                        <option value="pub">Pub</option>
+                        <option value="redwoods">Redwoods</option>
+                        <option value="teien">Teien</option>
+                        <option value="terrace">Terrace</option>
+                        <option value="veranda">Veranda</option>
+                    </select>
+                    <input type="checkbox" id="doubleO" name="doubleOTest" class="storable-ckbx doubleCheck" title="Double"
+                    value="double">	
+                        <div class="break"></div>
+                        <p>Final Showdown</p>
+                        <div class="break"></div>
+                        <select class="venueSelect storable draft" id="pick16">
+                            <option value="" selected>Showdown</option>
+                            <option value="aquarium">Aquarium</option>
+                            <option value="balcony">Balcony</option>
+                            <option value="ballroom">Ballroom</option>
+                            <option value="courtyard">Courtyard</option>
+                            <option value="gallery">Gallery</option>
+                            <option value="high-rise">High-rise</option>
+                            <option value="library">Library</option>
+                            <option value="moderne">Moderne</option>
+                            <option value="pub">Pub</option>
+                            <option value="redwoods">Redwoods</option>
+                            <option value="teien">Teien</option>
+                            <option value="terrace">Terrace</option>
+                            <option value="veranda">Veranda</option>
+                        </select>
+                        <input type="text" class="storable draft" id="showdownTime" placeholder="Selected Time" />
                     </div>
-
-                    <input id="resetti" class="buttony" type="button"
-                        value="Clear" />
-                </div>
+    
+                    <input id="resetti" class="buttony" type="button" value="Clear" /> </div>
+            </div>
             </div>
         </div>
         <script src="Controller Components/customController.js"></script>

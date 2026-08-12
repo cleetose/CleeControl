@@ -7,9 +7,37 @@ var gameCounter;
 var matchMatchMatch;
 var checkerLoader;
 
+matchMemory;
+matchMemArr = [];
+
+matchMemArr[0] = [];
+matchMemArr[1] = [];
+matchMemArr[2] = [];
+matchMemArr[3] = [];
+matchMemArr[4] = [];
+matchMemArr[5] = [];
+matchMemArr[6] = [];
+memorySplitter = [];
+console.log(matchMemArr);
+matchMatchArr = [];
+
+indepMemArr = [];
+venuePoolMemArr = [];
+memory2Splitter = [];
+
+
+checkboxMemArr = [];
+checkboxMemArr[0] = [];
+checkboxMemArr[1] = [];
+checkboxMemArr[2] = [];
+checkboxMemArr[3] = [];
+checkboxMemArr[4] = [];
+checkboxMemArr[5] = [];
+checkboxMemArr[6] = [];
 
 //Things to do when the page first loads.
 $(document).ready(function () {
+
 	if (localStorage.getObj('saveMatchStatesCustom') != null) {
 		$('#matchMemory').val(localStorage.getObj('saveMatchStatesCustom'));
 	}
@@ -24,14 +52,29 @@ $(document).ready(function () {
 	}
 
 
+	matchMemLoader = [];
+	matchMemLoader[0] = [];
+	matchMemLoader[1] = [];
+	matchMemLoader[2] = [];
+	matchMemLoader[3] = [];
+	matchMemLoader[4] = [];
+	matchMemLoader[5] = [];
+	matchMemLoader[6] = [];
 	matchMemLoader = localStorage.getObj('saveStatesCustom');
 	poolMemLoader = localStorage.getObj('savePoolsCustom');
 	chkMemLoader = localStorage.getObj('saveChkStatesCustom');
 
 	console.log(checkboxMemArr.length);
-
+	console.log(matchMemLoader);
 	if (matchMemLoader != null) {
-		matchMemArr = matchMemLoader;
+		for (i = 0; i < matchMemLoader.length; i++) {
+			matchMemArr[i] = matchMemLoader[i];
+			if (matchMemArr[i] == null) {
+				matchMemArr[i] = [];
+			}
+		}
+
+		
 		if (diffArr.length > 0) {
 			$('#matchMemory').val('1').change();
 			setTimeout(() => {
@@ -162,33 +205,7 @@ $(function () {
 });
 
 
-matchMemory;
-matchMemArr = [];
 
-matchMemArr[0] = [];
-matchMemArr[1] = [];
-matchMemArr[2] = [];
-matchMemArr[3] = [];
-matchMemArr[4] = [];
-matchMemArr[5] = [];
-matchMemArr[6] = [];
-memorySplitter = [];
-
-matchMatchArr = [];
-
-indepMemArr = [];
-venuePoolMemArr = [];
-memory2Splitter = [];
-
-
-checkboxMemArr = [];
-checkboxMemArr[0] = [];
-checkboxMemArr[1] = [];
-checkboxMemArr[2] = [];
-checkboxMemArr[3] = [];
-checkboxMemArr[4] = [];
-checkboxMemArr[5] = [];
-checkboxMemArr[6] = [];
 
 
 
@@ -275,7 +292,7 @@ function cMatchClearer() {
 
 function aMatchClearer() {
 	cMatchClearer();
-	for (q = 0; q < 3; q++) {
+	for (q = 0; q < 5; q++) {
 		for (i = 0; i < matchDepIdArr.length; i++) {
 			matchMemArr[q][i] = $('#' + matchDepIdArr[i]).val();
 		}
@@ -302,6 +319,7 @@ function updateMatch() {
 		try {
 			memorySplitter = matchMemArr[matchMemory][i].split(';;');
 			$('#' + memorySplitter[0]).val(memorySplitter[1]);
+			console.log(matchMemory);
 		}
 		catch {
 
@@ -337,7 +355,7 @@ function updatePools() {
 function matchSaver() {
 	matchMatchMatch = $("#matchMemory").val();
 	matchMemory = parseInt($('#matchMemory').val());
-
+	
 
 	for (i = 0; i < matchDepIdArr.length; i++) {
 		matchMemArr[matchMemory][i] = (matchDepIdArr[i] + ';;' + $('#' + matchDepIdArr[i]).val());
@@ -715,6 +733,7 @@ for (i = 0; i < acc.length; i++) {
 
 var checkboxArray2 = $('.storable-ckbx2').map(function () {
 	return this.id;
+	
 });
 
 function doublesSaver() {
@@ -729,6 +748,8 @@ function updateDoubles() {
 	for (q = 0; q < checkboxArray2.length; q++) {
 		$('#' + checkboxArray2[q]).prop('checked', checkboxMemArr2[q]);
 	}
+	console.log(checkboxArray2);
+	console.log(checkboxMemArr2);
 
 }
 
@@ -828,6 +849,10 @@ function checkSeason() {
 		$('#doubleB').css('display', 'none');
 		$('#doubleC').css('display', 'none');
 		$('#doubleD').css('display', 'none');
+		$('#doubleA2').css('display', 'none');
+		$('#doubleB2').css('display', 'none');
+		$('#doubleC2').css('display', 'none');
+		$('#doubleD2').css('display', 'none');
 		$('#flexDraft').css('height', 'fit-content');
 	}
 	if (bansCount == 1) {
@@ -845,6 +870,10 @@ function checkSeason() {
 		$('#doubleB').css('display', 'none');
 		$('#doubleC').css('display', 'none');
 		$('#doubleD').css('display', 'none');
+		$('#doubleA2').css('display', 'block');
+		$('#doubleB2').css('display', 'none');
+		$('#doubleC2').css('display', 'none');
+		$('#doubleD2').css('display', 'none');
 		$('#flexDraft').css('height', 'fit-content');
 
 	}
@@ -863,6 +892,10 @@ function checkSeason() {
 		$('#doubleB').css('display', 'block');
 		$('#doubleC').css('display', 'none');
 		$('#doubleD').css('display', 'none');
+		$('#doubleA2').css('display', 'block');
+		$('#doubleB2').css('display', 'block');
+		$('#doubleC2').css('display', 'none');
+		$('#doubleD2').css('display', 'none');
 		$('#flexDraft').css('height', 'fit-content');
 	}
 	if (bansCount == 3) {
@@ -880,6 +913,10 @@ function checkSeason() {
 		$('#doubleB').css('display', 'block');
 		$('#doubleC').css('display', 'block');
 		$('#doubleD').css('display', 'none');
+		$('#doubleA2').css('display', 'block');
+		$('#doubleB2').css('display', 'block');
+		$('#doubleC2').css('display', 'block');
+		$('#doubleD2').css('display', 'none');
 		$('#flexDraft').css('height', 'fit-content');
 	}
 	if (bansCount == 4) {
@@ -897,6 +934,10 @@ function checkSeason() {
 		$('#doubleB').css('display', 'block');
 		$('#doubleC').css('display', 'block');
 		$('#doubleD').css('display', 'block');
+		$('#doubleA2').css('display', 'block');
+		$('#doubleB2').css('display', 'block');
+		$('#doubleC2').css('display', 'block');
+		$('#doubleD2').css('display', 'block');
 		$('#flexDraft').css('height', 'fit-content');
 	}
 
@@ -916,6 +957,10 @@ function checkSeason() {
 		$('#doubleF').css('display', 'none');
 		$('#doubleG').css('display', 'none');
 		$('#doubleH').css('display', 'none');
+		$('#doubleE2').css('display', 'none');
+		$('#doubleF2').css('display', 'none');
+		$('#doubleG2').css('display', 'none');
+		$('#doubleH2').css('display', 'none');
 	}
 	if (restrictCount == 1) {
 		$('#restrict1Title').css('display', 'block');
@@ -932,6 +977,10 @@ function checkSeason() {
 		$('#doubleF').css('display', 'none');
 		$('#doubleG').css('display', 'none');
 		$('#doubleH').css('display', 'none');
+		$('#doubleE2').css('display', 'block');
+		$('#doubleF2').css('display', 'none');
+		$('#doubleG2').css('display', 'none');
+		$('#doubleH2').css('display', 'none');
 	}
 	if (restrictCount == 2) {
 		$('#restrict1Title').css('display', 'block');
@@ -948,6 +997,10 @@ function checkSeason() {
 		$('#doubleF').css('display', 'block');
 		$('#doubleG').css('display', 'none');
 		$('#doubleH').css('display', 'none');
+		$('#doubleE2').css('display', 'block');
+		$('#doubleF2').css('display', 'block');
+		$('#doubleG2').css('display', 'none');
+		$('#doubleH2').css('display', 'none');
 	}
 	if (restrictCount == 3) {
 		$('#restrict1Title').css('display', 'block');
@@ -964,6 +1017,10 @@ function checkSeason() {
 		$('#doubleF').css('display', 'block');
 		$('#doubleG').css('display', 'block');
 		$('#doubleH').css('display', 'none');
+		$('#doubleE2').css('display', 'block');
+		$('#doubleF2').css('display', 'block');
+		$('#doubleG2').css('display', 'block');
+		$('#doubleH2').css('display', 'none');
 	}
 	if (restrictCount == 4) {
 		$('#restrict1Title').css('display', 'block');
@@ -980,6 +1037,10 @@ function checkSeason() {
 		$('#doubleF').css('display', 'block');
 		$('#doubleG').css('display', 'block');
 		$('#doubleH').css('display', 'block');
+		$('#doubleE2').css('display', 'block');
+		$('#doubleF2').css('display', 'block');
+		$('#doubleG2').css('display', 'block');
+		$('#doubleH2').css('display', 'block');
 	}
 
 	pickCount = $('#venueTypeCount3').val();
@@ -998,6 +1059,10 @@ function checkSeason() {
 		$('#doubleJ').css('display', 'none');
 		$('#doubleK').css('display', 'none');
 		$('#doubleL').css('display', 'none');
+		$('#doubleI2').css('display', 'none');
+		$('#doubleJ2').css('display', 'none');
+		$('#doubleK2').css('display', 'none');
+		$('#doubleL2').css('display', 'none');
 	}
 	if (pickCount == 1) {
 		$('#pick1Title').css('display', 'block');
@@ -1014,6 +1079,10 @@ function checkSeason() {
 		$('#doubleJ').css('display', 'none');
 		$('#doubleK').css('display', 'none');
 		$('#doubleL').css('display', 'none');
+		$('#doubleI2').css('display', 'block');
+		$('#doubleJ2').css('display', 'none');
+		$('#doubleK2').css('display', 'none');
+		$('#doubleL2').css('display', 'none');
 	}
 	if (pickCount == 2) {
 		$('#pick1Title').css('display', 'block');
@@ -1030,6 +1099,10 @@ function checkSeason() {
 		$('#doubleJ').css('display', 'block');
 		$('#doubleK').css('display', 'none');
 		$('#doubleL').css('display', 'none');
+		$('#doubleI2').css('display', 'block');
+		$('#doubleJ2').css('display', 'block');
+		$('#doubleK2').css('display', 'none');
+		$('#doubleL2').css('display', 'none');
 	}
 	if (pickCount == 3) {
 		$('#pick1Title').css('display', 'block');
@@ -1046,6 +1119,10 @@ function checkSeason() {
 		$('#doubleJ').css('display', 'block');
 		$('#doubleK').css('display', 'block');
 		$('#doubleL').css('display', 'none');
+		$('#doubleI2').css('display', 'block');
+		$('#doubleJ2').css('display', 'block');
+		$('#doubleK2').css('display', 'block');
+		$('#doubleL2').css('display', 'none');
 	}
 	if (pickCount == 4) {
 		$('#pick1Title').css('display', 'block');
@@ -1062,6 +1139,10 @@ function checkSeason() {
 		$('#doubleJ').css('display', 'block');
 		$('#doubleK').css('display', 'block');
 		$('#doubleL').css('display', 'block');
+		$('#doubleI2').css('display', 'block');
+		$('#doubleJ2').css('display', 'block');
+		$('#doubleK2').css('display', 'block');
+		$('#doubleL2').css('display', 'block');
 	}
 	somethingCount = $('#venueTypeCount4').val();
 	if (somethingCount == 0) {
@@ -1079,6 +1160,10 @@ function checkSeason() {
 		$('#doubleN').css('display', 'none');
 		$('#doubleO').css('display', 'none');
 		$('#doubleP').css('display', 'none');
+		$('#doubleM2').css('display', 'none');
+		$('#doubleN2').css('display', 'none');
+		$('#doubleO2').css('display', 'none');
+		$('#doubleP2').css('display', 'none');
 	}
 	if (somethingCount == 1) {
 		$('#something1Title').css('display', 'block');
@@ -1095,7 +1180,12 @@ function checkSeason() {
 		$('#doubleN').css('display', 'none');
 		$('#doubleO').css('display', 'none');
 		$('#doubleP').css('display', 'none');
+		$('#doubleM2').css('display', 'block');
+		$('#doubleN2').css('display', 'none');
+		$('#doubleO2').css('display', 'none');
+		$('#doubleP2').css('display', 'none');
 	}
+	
 	if (somethingCount == 2) {
 		$('#something1Title').css('display', 'block');
 		$('#something2Title').css('display', 'block');
@@ -1111,7 +1201,12 @@ function checkSeason() {
 		$('#doubleN').css('display', 'block');
 		$('#doubleO').css('display', 'none');
 		$('#doubleP').css('display', 'none');
+		$('#doubleM2').css('display', 'block');
+		$('#doubleN2').css('display', 'block');
+		$('#doubleO2').css('display', 'none');
+		$('#doubleP2').css('display', 'none');
 	}
+	
 	if (somethingCount == 3) {
 		$('#something1Title').css('display', 'block');
 		$('#something2Title').css('display', 'block');
@@ -1127,7 +1222,12 @@ function checkSeason() {
 		$('#doubleN').css('display', 'block');
 		$('#doubleO').css('display', 'block');
 		$('#doubleP').css('display', 'none');
+		$('#doubleM2').css('display', 'block');
+		$('#doubleN2').css('display', 'block');
+		$('#doubleO2').css('display', 'block');
+		$('#doubleP2').css('display', 'none');
 	}
+	
 	if (somethingCount == 4) {
 		$('#something1Title').css('display', 'block');
 		$('#something2Title').css('display', 'block');
@@ -1143,7 +1243,12 @@ function checkSeason() {
 		$('#doubleN').css('display', 'block');
 		$('#doubleO').css('display', 'block');
 		$('#doubleP').css('display', 'block');
+		$('#doubleM2').css('display', 'block');
+		$('#doubleN2').css('display', 'block');
+		$('#doubleO2').css('display', 'block');
+		$('#doubleP2').css('display', 'block');
 	}
+	
 
 	//Clear button for Draft
 	document.getElementById("resetti").addEventListener("click", function () {
@@ -1165,6 +1270,23 @@ function checkSeason() {
 		$("#doubleN").prop('checked', false);
 		$("#doubleO").prop('checked', false);
 		$("#doubleP").prop('checked', false);
+
+		$("#doubleA2").prop('checked', false);
+		$("#doubleB2").prop('checked', false);
+		$("#doubleC2").prop('checked', false);
+		$("#doubleD2").prop('checked', false);
+		$("#doubleE2").prop('checked', false);
+		$("#doubleF2").prop('checked', false);
+		$("#doubleG2").prop('checked', false);
+		$("#doubleH2").prop('checked', false);
+		$("#doubleI2").prop('checked', false);
+		$("#doubleJ2").prop('checked', false);
+		$("#doubleK2").prop('checked', false);
+		$("#doubleL2").prop('checked', false);
+		$("#doubleM2").prop('checked', false);
+		$("#doubleN2").prop('checked', false);
+		$("#doubleO2").prop('checked', false);
+		$("#doubleP2").prop('checked', false);
 	});
 
 	totalCount = parseInt(pickCount) + parseInt(restrictCount) + parseInt(bansCount) + parseInt(somethingCount);
@@ -1514,7 +1636,7 @@ function checkUpdates() {
 	updateHotkeys();
 }
 
-setInterval(() => (checkSeason(), checkNames(), checkUpdates(), loadOut()), 200);
+setInterval(() => ( checkNames(), checkUpdates(), loadOut()), 200);
 setTimeout(() => {
-	setInterval(() => (matchSaver()), 200);
+	setInterval(() => (checkSeason(),matchSaver()), 200);
 }, 400);
